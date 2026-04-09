@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos - Río Cuarto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Mis Productos de Limpieza</h1>
+        <div class="resumen-carrito">
+            🛒 <span id="cantidad-items">0</span> artículos
+        </div>
+    </header>
+
+    <main class="grilla-productos">
+        
+        <article class="tarjeta">
+            <img src="https://via.placeholder.com/200" alt="Suavizante">
+            <h3>Suavizante de Ropa x 5 Lts</h3>
+            <p class="precio">$3995</p>
+            <button onclick="agregar('Suavizante de Ropa 5L', 3995)">Añadir al carrito</button>
+        </article>
+
+        <article class="tarjeta">
+            <img src="https://via.placeholder.com/200" alt="Lavandina">
+            <h3>Lavandina Concentrada x 5 Lts</h3>
+            <p class="precio">$2500</p>
+            <button onclick="agregar('Lavandina Concentrada 5L', 2500)">Añadir al carrito</button>
+        </article>
+
+        <article class="tarjeta">
+            <img src="https://via.placeholder.com/200" alt="Desengrasante">
+            <h3>Desengrasante Industrial x 5 Lts</h3>
+            <p class="precio">$3000</p>
+            <button onclick="agregar('Desengrasante 5L', 3000)">Añadir al carrito</button>
+        </article>
+        
+        <article class="tarjeta">
+            <img src="https://via.placeholder.com/200" alt="Jabón">
+            <h3>Jabón Líquido Tipo Ariel x 5 Lts</h3>
+            <p class="precio">$4500</p>
+            <button onclick="agregar('Jabón Líquido 5L', 4500)">Añadir al carrito</button>
+        </article>
+
+    </main>
+
+    <footer id="barra-flotante">
+        <p>Total a pagar: $<span id="total-precio">0</span></p>
+        <button onclick="enviarWhatsApp()" id="btn-whatsapp">Pedir por WhatsApp</button>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
