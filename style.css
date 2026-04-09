@@ -1,36 +1,46 @@
-/* Nuevos estilos para los títulos de las categorías */
-.titulo-seccion {
+/* --- ESTILOS DE LOS CUADRADOS (TARJETAS) --- */
+.tarjeta {
+    background: white;
+    border-radius: 12px; /* Bordes un poco redondeados */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra para que resalte del fondo */
     text-align: center;
-    color: #0d6efd;
-    margin-top: 40px;
-    margin-bottom: 10px;
-    font-size: 1.8rem;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 10px;
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
+    border: 4px solid #0d6efd; /* Borde grueso azul encerrando la promo */
+    overflow: hidden; /* Esto evita que el color del título se salga del borde */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Estilos para que la lista de productos quede prolija */
+/* El título de cada promo ahora tiene fondo de color */
+.tarjeta h3 {
+    background-color: #0d6efd; /* Fondo azul para el título */
+    color: white; /* Letra blanca */
+    font-size: 1.5rem;
+    padding: 15px;
+    margin: 0; /* Le sacamos el margen para que toque los bordes */
+    border-bottom: none;
+}
+
+/* Espacio interno para que la lista no quede pegada a los bordes */
 .lista-productos {
-    text-align: left;
-    margin-bottom: 15px;
-    padding-left: 20px;
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.5;
+    padding: 20px 20px 20px 40px;
+    margin: 0;
+    flex-grow: 1; /* Hace que todas las tarjetas midan lo mismo */
 }
 
-.lista-productos li {
+/* Hacemos el precio más grande y llamativo */
+.precio {
+    color: #198754; /* Verde plata */
+    font-weight: bold;
+    font-size: 1.8rem;
+    padding: 10px;
     margin-bottom: 5px;
 }
 
-/* Ajuste para que el título de la tarjeta se destaque */
-.tarjeta h3 {
-    color: #0d6efd;
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    border-bottom: 1px dashed #eee;
-    padding-bottom: 10px;
+/* Ajustamos el botón para que sea la base del cuadrado */
+.tarjeta button {
+    border-radius: 0; /* Le sacamos los bordes redondos al botón */
+    margin-top: auto; 
+    padding: 15px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
 }
