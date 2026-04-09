@@ -28,7 +28,7 @@ function enviarWhatsApp() {
     texto += `%0ATotal a abonar: $${total}`;
     
     // ACÁ PONÉS TU NÚMERO (Con el 549 adelante y el 358)
-    let miNumero = "54935815000000"; 
+    let miNumero = "5493584866061"; 
     
     // Abre la app de WhatsApp
     let url = `https://wa.me/${miNumero}?text=${texto}`;

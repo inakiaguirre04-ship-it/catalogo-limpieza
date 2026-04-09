@@ -1,46 +1,137 @@
-/* --- ESTILOS DE LOS CUADRADOS (TARJETAS) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa; 
+    padding-bottom: 80px; 
+}
+
+/* --- ENCABEZADO SUPERIOR --- */
+header {
+    background-color: #0d6efd;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- TÍTULOS DE CADA CATEGORÍA --- */
+.titulo-seccion {
+    text-align: center;
+    color: #0d6efd;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- LA MAGIA DE LAS 3 COLUMNAS --- */
+.grilla-productos {
+    display: grid;
+    /* Esto obliga a que cada tarjeta mida como mínimo 300px. Si hay espacio, mete 3 por fila */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 20px 40px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* --- DISEÑO DE LOS CUADRADOS DE LAS PROMOS --- */
 .tarjeta {
     background: white;
-    border-radius: 12px; /* Bordes un poco redondeados */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra para que resalte del fondo */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
     text-align: center;
-    border: 4px solid #0d6efd; /* Borde grueso azul encerrando la promo */
-    overflow: hidden; /* Esto evita que el color del título se salga del borde */
+    border: 4px solid #0d6efd; 
+    overflow: hidden; 
     display: flex;
     flex-direction: column;
 }
 
-/* El título de cada promo ahora tiene fondo de color */
 .tarjeta h3 {
-    background-color: #0d6efd; /* Fondo azul para el título */
-    color: white; /* Letra blanca */
+    background-color: #0d6efd; 
+    color: white; 
     font-size: 1.5rem;
     padding: 15px;
-    margin: 0; /* Le sacamos el margen para que toque los bordes */
+    margin: 0; 
     border-bottom: none;
 }
 
-/* Espacio interno para que la lista no quede pegada a los bordes */
 .lista-productos {
     padding: 20px 20px 20px 40px;
     margin: 0;
-    flex-grow: 1; /* Hace que todas las tarjetas midan lo mismo */
+    flex-grow: 1; 
+    text-align: left;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
-/* Hacemos el precio más grande y llamativo */
+.lista-productos li {
+    margin-bottom: 5px;
+}
+
 .precio {
-    color: #198754; /* Verde plata */
+    color: #198754; 
     font-weight: bold;
     font-size: 1.8rem;
     padding: 10px;
     margin-bottom: 5px;
 }
 
-/* Ajustamos el botón para que sea la base del cuadrado */
+/* --- BOTÓN DE AÑADIR AL CARRITO --- */
 .tarjeta button {
-    border-radius: 0; /* Le sacamos los bordes redondos al botón */
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 0; 
     margin-top: auto; 
     padding: 15px;
     font-size: 1.1rem;
     text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tarjeta button:hover {
+    background-color: #0b5ed7;
+}
+
+/* --- BARRA NEGRA INFERIOR (WHATSAPP) --- */
+#barra-flotante {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #222;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+#btn-whatsapp {
+    background-color: #25d366; 
+    width: auto;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#btn-whatsapp:hover {
+    background-color: #1ebc5a;
 }
