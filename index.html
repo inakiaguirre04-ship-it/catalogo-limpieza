@@ -22,7 +22,7 @@
             </nav>
 
             <div class="search-container">
-                <input type="text" id="buscador" placeholder="¿Qué estás buscando? (Ej: Hogar...)" onkeyup="filtrarPromos()">
+                <input type="text" id="buscador" placeholder="¿Qué estás buscando? (Ej: Hogar, Cera...)" onkeyup="filtrarPromos()">
                 <button class="btn-buscar">🔍</button>
             </div>
 
@@ -35,278 +35,314 @@
     <main>
         <section id="seccion-productos">
             <h2 class="titulo-seccion">🧴 Productos Sueltos</h2>
+            
             <div class="grilla-productos">
-                
-                <article class="tarjeta promo-item" data-nombre="Lavandina Concentrada">
+                <article class="tarjeta promo-item" data-nombre="Lavandina Concentrada 50%">
                     <h3>Lavandina Concentrada 50%</h3>
                     <ul class="lista-precios">
-                        <li>
-                            <span>1 Litro</span> <span class="precio-chico">$670</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Lavandina Concentrada 1L', 670)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Lavandina Concentrada 1L', 670)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>5 Litros</span> <span class="precio-chico">$3190</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Lavandina Concentrada 5L', 3190)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Lavandina Concentrada 5L', 3190)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>20 Litros</span> <span class="precio-chico">$12990</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Lavandina Concentrada 20L', 12990)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Lavandina Concentrada 20L', 12990)">+</button>
-                            </div>
-                        </li>
+                        <li><span>1 Litro</span> <span class="precio-chico">$670</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lavandina Concentrada 1L', 670)">-</button><button class="btn-agregar-chico" onclick="agregar('Lavandina Concentrada 1L', 670)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$3190</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lavandina Concentrada 5L', 3190)">-</button><button class="btn-agregar-chico" onclick="agregar('Lavandina Concentrada 5L', 3190)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$12990</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lavandina Concentrada 20L', 12990)">-</button><button class="btn-agregar-chico" onclick="agregar('Lavandina Concentrada 20L', 12990)">+</button></div></li>
                     </ul>
                 </article>
 
-                <article class="tarjeta promo-item" data-nombre="Detergente Ultra Limón">
-                    <h3>Detergente Ultra Limón</h3>
+                <article class="tarjeta promo-item" data-nombre="Lavandina Ropa Color">
+                    <h3>Lavandina Ropa Color</h3>
                     <ul class="lista-precios">
-                        <li>
-                            <span>1 Litro</span> <span class="precio-chico">$890</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Detergente Ultra Limón 1L', 890)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Detergente Ultra Limón 1L', 890)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>5 Litros</span> <span class="precio-chico">$3890</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Detergente Ultra Limón 5L', 3890)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Detergente Ultra Limón 5L', 3890)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>20 Litros</span> <span class="precio-chico">$13990</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Detergente Ultra Limón 20L', 13990)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Detergente Ultra Limón 20L', 13990)">+</button>
-                            </div>
-                        </li>
+                        <li><span>1 Litro</span> <span class="precio-chico">$580</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lavandina Ropa Color 1L', 580)">-</button><button class="btn-agregar-chico" onclick="agregar('Lavandina Ropa Color 1L', 580)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$2800</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lavandina Ropa Color 5L', 2800)">-</button><button class="btn-agregar-chico" onclick="agregar('Lavandina Ropa Color 5L', 2800)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$11000</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lavandina Ropa Color 20L', 11000)">-</button><button class="btn-agregar-chico" onclick="agregar('Lavandina Ropa Color 20L', 11000)">+</button></div></li>
                     </ul>
                 </article>
 
-                <article class="tarjeta promo-item" data-nombre="Desengrasante Multiusos">
-                    <h3>Desengrasante Multiusos</h3>
+                <article class="tarjeta promo-item" data-nombre="Lavandina Ropa Blanca">
+                    <h3>Lavandina Ropa Blanca</h3>
                     <ul class="lista-precios">
-                        <li>
-                            <span>1 Litro</span> <span class="precio-chico">$550</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Desengrasante Multiusos 1L', 550)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Desengrasante Multiusos 1L', 550)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>5 Litros</span> <span class="precio-chico">$2550</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Desengrasante Multiusos 5L', 2550)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Desengrasante Multiusos 5L', 2550)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>20 Litros</span> <span class="precio-chico">$9990</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Desengrasante Multiusos 20L', 9990)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Desengrasante Multiusos 20L', 9990)">+</button>
-                            </div>
-                        </li>
+                        <li><span>1 Litro</span> <span class="precio-chico">$710</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lavandina Ropa Blanca 1L', 710)">-</button><button class="btn-agregar-chico" onclick="agregar('Lavandina Ropa Blanca 1L', 710)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$3450</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lavandina Ropa Blanca 5L', 3450)">-</button><button class="btn-agregar-chico" onclick="agregar('Lavandina Ropa Blanca 5L', 3450)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$13800</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lavandina Ropa Blanca 20L', 13800)">-</button><button class="btn-agregar-chico" onclick="agregar('Lavandina Ropa Blanca 20L', 13800)">+</button></div></li>
                     </ul>
                 </article>
 
-                <article class="tarjeta promo-item" data-nombre="Jabón Ropa Eco Azul">
-                    <h3>Jabón Ropa Eco (t/ Skip)</h3>
+                <article class="tarjeta promo-item" data-nombre="Lavandina en Gel">
+                    <h3>Lavandina en Gel (5%)</h3>
                     <ul class="lista-precios">
-                        <li>
-                            <span>1 Litro</span> <span class="precio-chico">$600</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Jabón Eco 1L', 600)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Jabón Eco 1L', 600)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>5 Litros</span> <span class="precio-chico">$2890</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Jabón Eco 5L', 2890)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Jabón Eco 5L', 2890)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>20 Litros</span> <span class="precio-chico">$11290</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Jabón Eco 20L', 11290)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Jabón Eco 20L', 11290)">+</button>
-                            </div>
-                        </li>
-                    </ul>
-                </article>
-
-                <article class="tarjeta promo-item" data-nombre="Jabón Ropa Premium">
-                    <h3>Jabón Ropa Premium (Ariel/Ala)</h3>
-                    <ul class="lista-precios">
-                        <li>
-                            <span>1 Litro</span> <span class="precio-chico">$890</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Jabón Premium 1L', 890)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Jabón Premium 1L', 890)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>5 Litros</span> <span class="precio-chico">$4250</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Jabón Premium 5L', 4250)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Jabón Premium 5L', 4250)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>20 Litros</span> <span class="precio-chico">$16890</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Jabón Premium 20L', 16890)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Jabón Premium 20L', 16890)">+</button>
-                            </div>
-                        </li>
-                    </ul>
-                </article>
-
-                <article class="tarjeta promo-item" data-nombre="Jabón Ropa Extra Violeta">
-                    <h3>Jabón Ropa Extra Violeta</h3>
-                    <ul class="lista-precios">
-                        <li>
-                            <span>1 Litro</span> <span class="precio-chico">$990</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Jabón Extra 1L', 990)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Jabón Extra 1L', 990)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>5 Litros</span> <span class="precio-chico">$4550</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Jabón Extra 5L', 4550)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Jabón Extra 5L', 4550)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>20 Litros</span> <span class="precio-chico">$17990</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Jabón Extra 20L', 17990)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Jabón Extra 20L', 17990)">+</button>
-                            </div>
-                        </li>
-                    </ul>
-                </article>
-
-                <article class="tarjeta promo-item" data-nombre="Suavizante Premium Celeste">
-                    <h3>Suavizante Premium (Celeste)</h3>
-                    <ul class="lista-precios">
-                        <li>
-                            <span>1 Litro</span> <span class="precio-chico">$930</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Suavizante Celeste 1L', 930)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Suavizante Celeste 1L', 930)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>5 Litros</span> <span class="precio-chico">$4350</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Suavizante Celeste 5L', 4350)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Suavizante Celeste 5L', 4350)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>20 Litros</span> <span class="precio-chico">$17190</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Suavizante Celeste 20L', 17190)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Suavizante Celeste 20L', 17190)">+</button>
-                            </div>
-                        </li>
-                    </ul>
-                </article>
-
-                <article class="tarjeta promo-item" data-nombre="Suavizante Downy Rosa">
-                    <h3>Suavizante Downy (Rosa)</h3>
-                    <ul class="lista-precios">
-                        <li>
-                            <span>1 Litro</span> <span class="precio-chico">$1250</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Suavizante Downy 1L', 1250)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Suavizante Downy 1L', 1250)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>5 Litros</span> <span class="precio-chico">$5990</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Suavizante Downy 5L', 5990)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Suavizante Downy 5L', 5990)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>20 Litros</span> <span class="precio-chico">$22190</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Suavizante Downy 20L', 22190)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Suavizante Downy 20L', 22190)">+</button>
-                            </div>
-                        </li>
-                    </ul>
-                </article>
-
-                <article class="tarjeta promo-item" data-nombre="Limpia Pisos">
-                    <h3>Limpia Pisos (Varios Aromas)</h3>
-                    <ul class="lista-precios">
-                        <li>
-                            <span>1 Litro</span> <span class="precio-chico">$330</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Limpia Pisos 1L', 330)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Limpia Pisos 1L', 330)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>5 Litros</span> <span class="precio-chico">$1450</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Limpia Pisos 5L', 1450)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Limpia Pisos 5L', 1450)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>20 Litros</span> <span class="precio-chico">$6000</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Limpia Pisos 20L', 6000)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Limpia Pisos 20L', 6000)">+</button>
-                            </div>
-                        </li>
+                        <li><span>1 Litro</span> <span class="precio-chico">$1550</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lavandina en Gel 1L', 1550)">-</button><button class="btn-agregar-chico" onclick="agregar('Lavandina en Gel 1L', 1550)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$7150</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lavandina en Gel 5L', 7150)">-</button><button class="btn-agregar-chico" onclick="agregar('Lavandina en Gel 5L', 7150)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$28950</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lavandina en Gel 20L', 28950)">-</button><button class="btn-agregar-chico" onclick="agregar('Lavandina en Gel 20L', 28950)">+</button></div></li>
                     </ul>
                 </article>
 
                 <article class="tarjeta promo-item" data-nombre="Cloro Puro">
                     <h3>Cloro Puro</h3>
                     <ul class="lista-precios">
-                        <li>
-                            <span>1 Litro</span> <span class="precio-chico">$730</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Cloro Puro 1L', 730)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Cloro Puro 1L', 730)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>5 Litros</span> <span class="precio-chico">$3450</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Cloro Puro 5L', 3450)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Cloro Puro 5L', 3450)">+</button>
-                            </div>
-                        </li>
-                        <li>
-                            <span>20 Litros</span> <span class="precio-chico">$13600</span> 
-                            <div class="botones-cantidad-chicos">
-                                <button class="btn-restar-chico" onclick="quitar('Cloro Puro 20L', 13600)">-</button>
-                                <button class="btn-agregar-chico" onclick="agregar('Cloro Puro 20L', 13600)">+</button>
-                            </div>
-                        </li>
+                        <li><span>1 Litro</span> <span class="precio-chico">$730</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Cloro Puro 1L', 730)">-</button><button class="btn-agregar-chico" onclick="agregar('Cloro Puro 1L', 730)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$3450</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Cloro Puro 5L', 3450)">-</button><button class="btn-agregar-chico" onclick="agregar('Cloro Puro 5L', 3450)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$13600</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Cloro Puro 20L', 13600)">-</button><button class="btn-agregar-chico" onclick="agregar('Cloro Puro 20L', 13600)">+</button></div></li>
                     </ul>
                 </article>
 
+                <article class="tarjeta promo-item" data-nombre="Detergente Ultra Limón">
+                    <h3>Detergente Ultra Limón</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$890</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Detergente Ultra Limón 1L', 890)">-</button><button class="btn-agregar-chico" onclick="agregar('Detergente Ultra Limón 1L', 890)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$3890</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Detergente Ultra Limón 5L', 3890)">-</button><button class="btn-agregar-chico" onclick="agregar('Detergente Ultra Limón 5L', 3890)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$13990</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Detergente Ultra Limón 20L', 13990)">-</button><button class="btn-agregar-chico" onclick="agregar('Detergente Ultra Limón 20L', 13990)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Jabón Ropa Eco Azul">
+                    <h3>Jabón Ropa Eco (t/ Skip)</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$600</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Jabón Eco 1L', 600)">-</button><button class="btn-agregar-chico" onclick="agregar('Jabón Eco 1L', 600)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$2890</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Jabón Eco 5L', 2890)">-</button><button class="btn-agregar-chico" onclick="agregar('Jabón Eco 5L', 2890)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$11290</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Jabón Eco 20L', 11290)">-</button><button class="btn-agregar-chico" onclick="agregar('Jabón Eco 20L', 11290)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Jabón Ropa Premium">
+                    <h3>Jabón Ropa Premium (Ariel/Ala)</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$890</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Jabón Premium 1L', 890)">-</button><button class="btn-agregar-chico" onclick="agregar('Jabón Premium 1L', 890)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$4250</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Jabón Premium 5L', 4250)">-</button><button class="btn-agregar-chico" onclick="agregar('Jabón Premium 5L', 4250)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$16890</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Jabón Premium 20L', 16890)">-</button><button class="btn-agregar-chico" onclick="agregar('Jabón Premium 20L', 16890)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Jabón Ropa Extra Violeta">
+                    <h3>Jabón Ropa Extra Violeta</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$990</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Jabón Extra 1L', 990)">-</button><button class="btn-agregar-chico" onclick="agregar('Jabón Extra 1L', 990)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$4550</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Jabón Extra 5L', 4550)">-</button><button class="btn-agregar-chico" onclick="agregar('Jabón Extra 5L', 4550)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$17990</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Jabón Extra 20L', 17990)">-</button><button class="btn-agregar-chico" onclick="agregar('Jabón Extra 20L', 17990)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Jabón Tocador">
+                    <h3>Jabón Tocador (Cherry/Lux/Nivea)</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$1050</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Jabón Tocador 1L', 1050)">-</button><button class="btn-agregar-chico" onclick="agregar('Jabón Tocador 1L', 1050)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$5050</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Jabón Tocador 5L', 5050)">-</button><button class="btn-agregar-chico" onclick="agregar('Jabón Tocador 5L', 5050)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$19990</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Jabón Tocador 20L', 19990)">-</button><button class="btn-agregar-chico" onclick="agregar('Jabón Tocador 20L', 19990)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Suavizante Premium Celeste">
+                    <h3>Suavizante Premium (Celeste)</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$930</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Suavizante Celeste 1L', 930)">-</button><button class="btn-agregar-chico" onclick="agregar('Suavizante Celeste 1L', 930)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$4350</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Suavizante Celeste 5L', 4350)">-</button><button class="btn-agregar-chico" onclick="agregar('Suavizante Celeste 5L', 4350)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$17190</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Suavizante Celeste 20L', 17190)">-</button><button class="btn-agregar-chico" onclick="agregar('Suavizante Celeste 20L', 17190)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Suavizante Downy Rosa">
+                    <h3>Suavizante Downy (Rosa)</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$1250</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Suavizante Downy 1L', 1250)">-</button><button class="btn-agregar-chico" onclick="agregar('Suavizante Downy 1L', 1250)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$5990</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Suavizante Downy 5L', 5990)">-</button><button class="btn-agregar-chico" onclick="agregar('Suavizante Downy 5L', 5990)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$22190</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Suavizante Downy 20L', 22190)">-</button><button class="btn-agregar-chico" onclick="agregar('Suavizante Downy 20L', 22190)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Quita Manchas Liquido Oxi">
+                    <h3>Quita Manchas Líquido Oxi</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$650</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Quita Manchas Oxi 1L', 650)">-</button><button class="btn-agregar-chico" onclick="agregar('Quita Manchas Oxi 1L', 650)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$3050</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Quita Manchas Oxi 5L', 3050)">-</button><button class="btn-agregar-chico" onclick="agregar('Quita Manchas Oxi 5L', 3050)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$11890</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Quita Manchas Oxi 20L', 11890)">-</button><button class="btn-agregar-chico" onclick="agregar('Quita Manchas Oxi 20L', 11890)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Limpia Pisos">
+                    <h3>Limpia Pisos (Varios Aromas)</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$330</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Limpia Pisos 1L', 330)">-</button><button class="btn-agregar-chico" onclick="agregar('Limpia Pisos 1L', 330)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$1450</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Limpia Pisos 5L', 1450)">-</button><button class="btn-agregar-chico" onclick="agregar('Limpia Pisos 5L', 1450)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$6000</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Limpia Pisos 20L', 6000)">-</button><button class="btn-agregar-chico" onclick="agregar('Limpia Pisos 20L', 6000)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Desinfectante Lisoform">
+                    <h3>Desinfectante Pisos (Lisoform)</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$675</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lisoform 1L', 675)">-</button><button class="btn-agregar-chico" onclick="agregar('Lisoform 1L', 675)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$3190</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lisoform 5L', 3190)">-</button><button class="btn-agregar-chico" onclick="agregar('Lisoform 5L', 3190)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$12550</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lisoform 20L', 12550)">-</button><button class="btn-agregar-chico" onclick="agregar('Lisoform 20L', 12550)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Cera Liquida Roja Negra Incolora">
+                    <h3>Cera Líquida (Roja/Negra/Inc)</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$4090</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Cera Liquida 1L', 4090)">-</button><button class="btn-agregar-chico" onclick="agregar('Cera Liquida 1L', 4090)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$18450</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Cera Liquida 5L', 18450)">-</button><button class="btn-agregar-chico" onclick="agregar('Cera Liquida 5L', 18450)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$75990</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Cera Liquida 20L', 75990)">-</button><button class="btn-agregar-chico" onclick="agregar('Cera Liquida 20L', 75990)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Cera Cremosa Madera">
+                    <h3>Cera Cremosa p/ Madera</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$6950</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Cera Cremosa 1L', 6950)">-</button><button class="btn-agregar-chico" onclick="agregar('Cera Cremosa 1L', 6950)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$32750</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Cera Cremosa 5L', 32750)">-</button><button class="btn-agregar-chico" onclick="agregar('Cera Cremosa 5L', 32750)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$129000</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Cera Cremosa 20L', 129000)">-</button><button class="btn-agregar-chico" onclick="agregar('Cera Cremosa 20L', 129000)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Brillo al Balde Echo">
+                    <h3>Brillo al Balde (Tipo Echo)</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$1065</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Brillo al Balde 1L', 1065)">-</button><button class="btn-agregar-chico" onclick="agregar('Brillo al Balde 1L', 1065)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$5150</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Brillo al Balde 5L', 5150)">-</button><button class="btn-agregar-chico" onclick="agregar('Brillo al Balde 5L', 5150)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$19990</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Brillo al Balde 20L', 19990)">-</button><button class="btn-agregar-chico" onclick="agregar('Brillo al Balde 20L', 19990)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Liquido para Lampazo Flit">
+                    <h3>Líquido p/ Lampazo (Flit)</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$5950</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lampazo Flit 1L', 5950)">-</button><button class="btn-agregar-chico" onclick="agregar('Lampazo Flit 1L', 5950)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$29000</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lampazo Flit 5L', 29000)">-</button><button class="btn-agregar-chico" onclick="agregar('Lampazo Flit 5L', 29000)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$110000</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lampazo Flit 20L', 110000)">-</button><button class="btn-agregar-chico" onclick="agregar('Lampazo Flit 20L', 110000)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Liquido Lampazo Premium">
+                    <h3>Líquido Lampazo Premium</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$6350</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lampazo Premium 1L', 6350)">-</button><button class="btn-agregar-chico" onclick="agregar('Lampazo Premium 1L', 6350)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$30990</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lampazo Premium 5L', 30990)">-</button><button class="btn-agregar-chico" onclick="agregar('Lampazo Premium 5L', 30990)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$120960</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Lampazo Premium 20L', 120960)">-</button><button class="btn-agregar-chico" onclick="agregar('Lampazo Premium 20L', 120960)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Desengrasante Multiusos">
+                    <h3>Desengrasante Multiusos</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$550</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Desengrasante Multiusos 1L', 550)">-</button><button class="btn-agregar-chico" onclick="agregar('Desengrasante Multiusos 1L', 550)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$2550</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Desengrasante Multiusos 5L', 2550)">-</button><button class="btn-agregar-chico" onclick="agregar('Desengrasante Multiusos 5L', 2550)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$9990</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Desengrasante Multiusos 20L', 9990)">-</button><button class="btn-agregar-chico" onclick="agregar('Desengrasante Multiusos 20L', 9990)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Limpia Vidrios">
+                    <h3>Limpia Vidrios</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$550</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Limpia Vidrios 1L', 550)">-</button><button class="btn-agregar-chico" onclick="agregar('Limpia Vidrios 1L', 550)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$2550</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Limpia Vidrios 5L', 2550)">-</button><button class="btn-agregar-chico" onclick="agregar('Limpia Vidrios 5L', 2550)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$10000</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Limpia Vidrios 20L', 10000)">-</button><button class="btn-agregar-chico" onclick="agregar('Limpia Vidrios 20L', 10000)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Quita Sarro Liquido">
+                    <h3>Quita Sarro Líquido</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$960</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Quita Sarro 1L', 960)">-</button><button class="btn-agregar-chico" onclick="agregar('Quita Sarro 1L', 960)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$4250</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Quita Sarro 5L', 4250)">-</button><button class="btn-agregar-chico" onclick="agregar('Quita Sarro 5L', 4250)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$15990</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Quita Sarro 20L', 15990)">-</button><button class="btn-agregar-chico" onclick="agregar('Quita Sarro 20L', 15990)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Destapa Cañerias">
+                    <h3>Destapa Cañerías</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$1125</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Destapa Cañerias 1L', 1125)">-</button><button class="btn-agregar-chico" onclick="agregar('Destapa Cañerias 1L', 1125)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$5400</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Destapa Cañerias 5L', 5400)">-</button><button class="btn-agregar-chico" onclick="agregar('Destapa Cañerias 5L', 5400)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$21000</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Destapa Cañerias 20L', 21000)">-</button><button class="btn-agregar-chico" onclick="agregar('Destapa Cañerias 20L', 21000)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Shampoo Siliconado Automotor">
+                    <h3>Shampoo Siliconado Auto</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$890</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Shampoo Siliconado 1L', 890)">-</button><button class="btn-agregar-chico" onclick="agregar('Shampoo Siliconado 1L', 890)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$4250</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Shampoo Siliconado 5L', 4250)">-</button><button class="btn-agregar-chico" onclick="agregar('Shampoo Siliconado 5L', 4250)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$16690</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Shampoo Siliconado 20L', 16690)">-</button><button class="btn-agregar-chico" onclick="agregar('Shampoo Siliconado 20L', 16690)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Desengrasante Para Motores">
+                    <h3>Desengrasante Motores</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$1490</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Desengrasante Motores 1L', 1490)">-</button><button class="btn-agregar-chico" onclick="agregar('Desengrasante Motores 1L', 1490)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$7250</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Desengrasante Motores 5L', 7250)">-</button><button class="btn-agregar-chico" onclick="agregar('Desengrasante Motores 5L', 7250)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$27000</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Desengrasante Motores 20L', 27000)">-</button><button class="btn-agregar-chico" onclick="agregar('Desengrasante Motores 20L', 27000)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Renovador Caucho Negro">
+                    <h3>Renovador Caucho Negro</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$2010</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Renovador Caucho 1L', 2010)">-</button><button class="btn-agregar-chico" onclick="agregar('Renovador Caucho 1L', 2010)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$9890</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Renovador Caucho 5L', 9890)">-</button><button class="btn-agregar-chico" onclick="agregar('Renovador Caucho 5L', 9890)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$38990</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Renovador Caucho 20L', 38990)">-</button><button class="btn-agregar-chico" onclick="agregar('Renovador Caucho 20L', 38990)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Limpia Parabrisas">
+                    <h3>Limpia Parabrisas</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$710</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Limpia Parabrisas 1L', 710)">-</button><button class="btn-agregar-chico" onclick="agregar('Limpia Parabrisas 1L', 710)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$3250</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Limpia Parabrisas 5L', 3250)">-</button><button class="btn-agregar-chico" onclick="agregar('Limpia Parabrisas 5L', 3250)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$12890</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Limpia Parabrisas 20L', 12890)">-</button><button class="btn-agregar-chico" onclick="agregar('Limpia Parabrisas 20L', 12890)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Alcohol en Gel">
+                    <h3>Alcohol en Gel</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$2700</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Alcohol en Gel 1L', 2700)">-</button><button class="btn-agregar-chico" onclick="agregar('Alcohol en Gel 1L', 2700)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$13200</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Alcohol en Gel 5L', 13200)">-</button><button class="btn-agregar-chico" onclick="agregar('Alcohol en Gel 5L', 13200)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$50010</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Alcohol en Gel 20L', 50010)">-</button><button class="btn-agregar-chico" onclick="agregar('Alcohol en Gel 20L', 50010)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Alcohol Sanitizante 70%">
+                    <h3>Sanitizante al 70%</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$2700</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Sanitizante 70% 1L', 2700)">-</button><button class="btn-agregar-chico" onclick="agregar('Sanitizante 70% 1L', 2700)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$13000</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Sanitizante 70% 5L', 13000)">-</button><button class="btn-agregar-chico" onclick="agregar('Sanitizante 70% 5L', 13000)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$48990</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Sanitizante 70% 20L', 48990)">-</button><button class="btn-agregar-chico" onclick="agregar('Sanitizante 70% 20L', 48990)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Alcohol Liquido 96%">
+                    <h3>Alcohol Líquido 96%</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$3060</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Alcohol 96% 1L', 3060)">-</button><button class="btn-agregar-chico" onclick="agregar('Alcohol 96% 1L', 3060)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$15000</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Alcohol 96% 5L', 15000)">-</button><button class="btn-agregar-chico" onclick="agregar('Alcohol 96% 5L', 15000)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$57990</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Alcohol 96% 20L', 57990)">-</button><button class="btn-agregar-chico" onclick="agregar('Alcohol 96% 20L', 57990)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Shampoo Mascotas Pulguicida">
+                    <h3>Shampoo Mascotas (Pulgas/Garr)</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$1260</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Shampoo Mascotas 1L', 1260)">-</button><button class="btn-agregar-chico" onclick="agregar('Shampoo Mascotas 1L', 1260)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$6000</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Shampoo Mascotas 5L', 6000)">-</button><button class="btn-agregar-chico" onclick="agregar('Shampoo Mascotas 5L', 6000)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$22000</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Shampoo Mascotas 20L', 22000)">-</button><button class="btn-agregar-chico" onclick="agregar('Shampoo Mascotas 20L', 22000)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Repelente Aca No">
+                    <h3>Repelente Aca No</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$1080</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Repelente Aca No 1L', 1080)">-</button><button class="btn-agregar-chico" onclick="agregar('Repelente Aca No 1L', 1080)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$5200</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Repelente Aca No 5L', 5200)">-</button><button class="btn-agregar-chico" onclick="agregar('Repelente Aca No 5L', 5200)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$19780</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Repelente Aca No 20L', 19780)">-</button><button class="btn-agregar-chico" onclick="agregar('Repelente Aca No 20L', 19780)">+</button></div></li>
+                    </ul>
+                </article>
+
+                <article class="tarjeta promo-item" data-nombre="Derribante de Insectos">
+                    <h3>Derribante de Insectos</h3>
+                    <ul class="lista-precios">
+                        <li><span>1 Litro</span> <span class="precio-chico">$442</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Derribante Insectos 1L', 442)">-</button><button class="btn-agregar-chico" onclick="agregar('Derribante Insectos 1L', 442)">+</button></div></li>
+                        <li><span>5 Litros</span> <span class="precio-chico">$2190</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Derribante Insectos 5L', 2190)">-</button><button class="btn-agregar-chico" onclick="agregar('Derribante Insectos 5L', 2190)">+</button></div></li>
+                        <li><span>20 Litros</span> <span class="precio-chico">$8550</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitar('Derribante Insectos 20L', 8550)">-</button><button class="btn-agregar-chico" onclick="agregar('Derribante Insectos 20L', 8550)">+</button></div></li>
+                    </ul>
+                </article>
+                
             </div>
         </section>
 
@@ -552,7 +588,7 @@
             <span class="cerrar-modal" onclick="cerrarCarrito()">&times;</span>
             <h2>Tu Pedido 🛒</h2>
             <ul id="lista-pedido-modal">
-                </ul>
+            </ul>
             <p class="total-modal">Total: $<span id="total-modal-precio">0</span></p>
             <button onclick="enviarWhatsApp()" class="btn-whatsapp-modal">Confirmar por WhatsApp</button>
         </div>
