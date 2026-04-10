@@ -3,11 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-    scroll-behavior: smooth; /* Esto hace que al tocar el menú, la página baje suavemente */
+    scroll-behavior: smooth; 
 }
 
 body {
-    /* Fondo celeste súper clarito */
     background-color: #d0dde4; 
     padding-bottom: 80px; 
 }
@@ -21,17 +20,19 @@ body {
     font-size: 0.95rem;
     font-weight: bold;
     border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombrita sutil */
 }
 
-/* --- ENCABEZADO PRINCIPAL CON BUSCADOR --- */
+/* --- ENCABEZADO PRINCIPAL (EFECTO FLOTANTE) --- */
 header {
-    background-color: #1f4981; /* Tu azul original de Don Limpio */
+    background-color: #1f4981; 
     color: white;
     padding: 15px 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    /* Sombra fuerte para separar el encabezado del resto de la página */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .header-container {
@@ -41,12 +42,14 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     gap: 20px;
-    flex-wrap: wrap; /* Ayuda a que se acomode en pantallas chicas */
+    flex-wrap: wrap; 
 }
 
 #logo-principal {
     max-height: 70px; 
     width: auto;
+    /* Efecto 3D para que el logo resalte del fondo azul */
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));
 }
 
 /* --- MENÚ DE NAVEGACIÓN --- */
@@ -61,15 +64,18 @@ header {
     font-weight: bold;
     font-size: 1.1rem;
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 8px; /* Bordes más redondeados */
     background-color: rgba(255, 255, 255, 0.1); 
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .nav-link:hover {
     background-color: white;
     color: #1f4981; 
+    transform: translateY(-2px); /* Se levanta un poquito */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 /* --- ESTILOS DEL BUSCADOR --- */
@@ -78,25 +84,32 @@ header {
     flex-grow: 1; 
     max-width: 500px;
     background: white;
-    border-radius: 5px;
+    border-radius: 25px; /* Buscador estilo píldora muy moderno */
     overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); /* Sombra hacia adentro para dar profundidad */
 }
 
 .search-container input {
     width: 100%;
-    padding: 12px 15px;
+    padding: 12px 20px;
     border: none;
     outline: none;
     font-size: 1rem;
     color: #333;
+    background: transparent;
 }
 
 .btn-buscar {
     background-color: white;
     border: none;
-    padding: 0 15px;
+    padding: 0 20px;
     cursor: pointer;
     font-size: 1.2rem;
+    transition: transform 0.2s;
+}
+
+.btn-buscar:hover {
+    transform: scale(1.1); /* La lupa crece un poquito */
 }
 
 .resumen-carrito {
@@ -107,26 +120,33 @@ header {
     gap: 5px;
     background-color: #ffcc00;
     color: #1f4981;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 10px 20px;
+    border-radius: 25px; /* Estilo píldora */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+
+.resumen-carrito:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.3);
 }
 
 /* --- TÍTULOS DE CADA CATEGORÍA --- */
 .titulo-seccion {
     text-align: center;
-    color: #1f4981; /* Tu azul principal de Don Limpio */
+    color: #1f4981; 
     margin-top: 60px;
     margin-bottom: 40px;
     font-size: 2.2rem;
     font-weight: 900;
-    text-transform: uppercase; /* Lo pone en mayúsculas automáticamente */
-    letter-spacing: 1px; /* Separa un poquito las letras para más elegancia */
-    position: relative; /* Necesario para la línea nueva */
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    position: relative; 
     padding-bottom: 15px;
-    border-bottom: none; /* Borramos la línea vieja */
+    border-bottom: none; 
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Da volumen a las letras */
 }
 
-/* La magia: una línea amarilla cortita, redondeada y centrada abajo del título */
 .titulo-seccion::after {
     content: "";
     position: absolute;
@@ -135,49 +155,65 @@ header {
     transform: translateX(-50%);
     width: 80px; 
     height: 5px;
-    background-color: #ffcc00; /* Tu amarillo */
+    background-color: #ffcc00; 
     border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 /* --- LA MAGIA DE LAS 3 COLUMNAS --- */
 .grilla-productos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 25px; /* Un poco más de espacio para que no choquen las sombras */
     padding: 0 20px 40px 20px;
     max-width: 1100px;
     margin: 0 auto;
 }
 
-/* --- DISEÑO DE LOS CUADRADOS PRINCIPALES --- */
+/* --- DISEÑO DE LAS TARJETAS (EL GRAN EFECTO 3D) --- */
 .tarjeta {
     background-color: #ffffff; 
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15); 
+    border-radius: 15px; /* Bordes bien suaves */
+    /* Sombra inicial suave */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1); 
     text-align: center;
-    border: 3px solid #1f4981; 
+    border: 1px solid rgba(31, 73, 129, 0.1); /* Borde sutil, no tan marcado como antes */
     overflow: hidden; 
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease; /* Transición súper fluida y rebotona */
+}
+
+/* Cuando pasás el mouse, la tarjeta "salta" hacia vos y la sombra se hace grande */
+.tarjeta:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.2);
 }
 
 .tarjeta h3 {
     background-color: #1f4981; 
     color: white; 
     font-size: 1.3rem;
-    padding: 12px;
+    padding: 15px;
     margin: 0; 
     border-bottom: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Separa el título del cuerpo de la tarjeta */
 }
 
 /* --- ESTILOS DE LOS COMBOS / PROMOS --- */
 .foto-promo {
     width: 100%; 
-    height: 140px; 
+    height: 150px; 
     object-fit: contain; 
-    padding: 10px;
+    padding: 15px;
     background-color: transparent; 
-    border-bottom: 1px dashed #eaf6fc; 
+    border-bottom: 1px solid #eee; 
+    transition: transform 0.3s ease;
+}
+
+/* La foto del bidón hace un zoom re lindo cuando pasás el mouse */
+.tarjeta:hover .foto-promo {
+    transform: scale(1.05);
 }
 
 .lista-productos {
@@ -185,7 +221,7 @@ header {
     margin: 0;
     flex-grow: 1; 
     text-align: left;
-    color: #333;
+    color: #444;
     font-size: 0.9rem;
     line-height: 1.4;
     font-weight: bold; 
@@ -197,10 +233,11 @@ header {
 
 .precio {
     color: #1f4981; 
-    font-weight: bold;
-    font-size: 1.5rem;
-    padding: 5px;
+    font-weight: 900;
+    font-size: 1.6rem;
+    padding: 10px;
     margin-bottom: 10px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
 
 .botones-cantidad-promo {
@@ -208,6 +245,7 @@ header {
     margin-top: auto;
 }
 
+/* --- EFECTO FÍSICO EN LOS BOTONES (SE HUNDEN AL TOCAR) --- */
 .btn-restar-promo {
     background-color: #dc3545; 
     color: white;
@@ -217,28 +255,36 @@ header {
     font-weight: bold;
     cursor: pointer;
     border-radius: 0;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
 }
 
 .btn-restar-promo:hover { background-color: #c82333; }
+.btn-restar-promo:active { background-color: #bd2130; transform: scale(0.95); } /* Efecto click */
 
 .tarjeta button.btn-agregar-promo {
     background-color: #28a745; 
     color: white; 
     border: none;
     border-radius: 0; 
-    padding: 12px;
+    padding: 15px;
     font-size: 1.1rem;
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
     flex-grow: 1; 
-    transition: background-color 0.2s;
+    transition: all 0.2s;
+    /* Sombra interna para darle volumen al botón */
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.1);
 }
 
 .tarjeta button.btn-agregar-promo:hover { background-color: #218838; }
+.tarjeta button.btn-agregar-promo:active { 
+    background-color: #1e7e34; 
+    transform: scale(0.98); /* Efecto click */
+    box-shadow: inset 0 3px 0 rgba(0,0,0,0.2);
+}
 
-/* --- ESTILOS PARA PRODUCTOS SUELTOS (NUEVO) --- */
+/* --- ESTILOS PARA PRODUCTOS SUELTOS --- */
 .lista-precios {
     list-style: none; 
     padding: 15px;
@@ -246,68 +292,68 @@ header {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: 10px; 
+    gap: 12px; 
 }
 
 .lista-precios li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f9fa; 
-    padding: 8px 15px;
-    border-radius: 8px;
+    background-color: white; 
+    padding: 10px 15px;
+    border-radius: 10px;
     border: 1px solid #eaf6fc;
+    /* Le damos volumen a cada renglón */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.lista-precios li:hover {
+    transform: translateX(5px); /* Se mueve un poquito a la derecha al mirar */
+    border-color: #1f4981;
 }
 
 .lista-precios span {
     font-weight: bold;
-    color: #333;
+    color: #555;
     font-size: 0.95rem;
 }
 
 .precio-chico {
     color: #1f4981 !important; 
-    font-size: 1.1rem !important;
+    font-size: 1.2rem !important;
+    font-weight: 900 !important;
 }
 
 .botones-cantidad-chicos {
     display: flex;
-    gap: 5px;
+    gap: 6px;
 }
 
-.btn-restar-chico {
-    background-color: #dc3545; 
+.btn-restar-chico, .btn-agregar-chico {
     color: white;
     border: none;
-    border-radius: 5px;
-    width: 35px;
-    height: 35px;
+    border-radius: 8px; /* Más redondeado */
+    width: 38px;
+    height: 38px;
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2); /* Sombra 3D */
 }
-.btn-restar-chico:hover { background-color: #c82333; }
 
-.btn-agregar-chico {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    width: 35px;
-    height: 35px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.2s;
-}
-.btn-agregar-chico:hover { background-color: #218838; }
+.btn-restar-chico { background-color: #dc3545; }
+.btn-restar-chico:hover { background-color: #c82333; transform: translateY(-2px); }
+.btn-restar-chico:active { transform: translateY(2px); box-shadow: none; } /* Efecto hundido */
+
+.btn-agregar-chico { background-color: #28a745; }
+.btn-agregar-chico:hover { background-color: #218838; transform: translateY(-2px); }
+.btn-agregar-chico:active { transform: translateY(2px); box-shadow: none; } /* Efecto hundido */
+
 
 /* --- BARRA NEGRA INFERIOR (WHATSAPP) --- */
 #barra-flotante {
@@ -317,115 +363,137 @@ header {
     width: 100%;
     background-color: #222;
     color: white;
-    padding: 15px 20px;
+    padding: 15px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
     z-index: 1000;
+    /* Sombra gigante hacia arriba */
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.4);
 }
+
+.footer-izq {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#btn-ver-pedido {
+    background-color: #f8f9fa;
+    color: #1f4981;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px; /* Botón píldora */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+#btn-ver-pedido:hover { 
+    background-color: #e2e6ea; 
+    transform: translateY(-2px);
+}
+#btn-ver-pedido:active { transform: translateY(2px); box-shadow: none; }
 
 #btn-whatsapp {
     background-color: #25d366; 
     width: auto;
     color: white;
     border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
+    padding: 12px 25px;
+    border-radius: 25px;
     font-weight: bold;
+    font-size: 1.1rem;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: all 0.2s;
 }
 
 #btn-whatsapp:hover {
     background-color: #1ebc5a;
+    transform: translateY(-2px);
 }
-
-/* --- ESTILO DEL NUEVO BOTÓN "VER MI PEDIDO" --- */
-.footer-izq {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-#btn-ver-pedido {
-    background-color: #f8f9fa;
-    color: #1f4981;
-    border: 1px solid white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-size: 0.9rem;
-}
-
-#btn-ver-pedido:hover { background-color: #e2e6ea; }
+#btn-whatsapp:active { transform: translateY(2px); box-shadow: none; }
 
 /* --- ESTILOS DE LA VENTANA EMERGENTE (MODAL) --- */
 .modal-oculto {
-    display: none; /* Arranca invisible */
+    display: none; 
     position: fixed;
-    z-index: 2000; /* Para que quede por encima de absolutamente todo */
+    z-index: 2000; 
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.6); /* Fondo negro semi-transparente */
+    /* Fondo difuminado atrás del carrito */
+    background-color: rgba(0,0,0,0.7); 
+    backdrop-filter: blur(5px);
     justify-content: center;
     align-items: center;
 }
 
 .modal-contenido {
     background-color: white;
-    padding: 25px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: 15px;
     width: 90%;
-    max-width: 400px;
+    max-width: 450px;
     color: #333;
     position: relative;
     max-height: 80vh;
-    overflow-y: auto; /* Le pone una barrita de bajar si compraron muchas cosas */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    overflow-y: auto; 
+    /* Efecto de ventana súper elevada */
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    animation: aparecerModal 0.3s ease-out; /* Animación al abrir */
+}
+
+@keyframes aparecerModal {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 .modal-contenido h2 {
     color: #1f4981;
     border-bottom: 2px solid #ffcc00;
     padding-bottom: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
 }
 
 .cerrar-modal {
     position: absolute;
-    top: 10px;
-    right: 15px;
+    top: 15px;
+    right: 20px;
     color: #aaa;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
     cursor: pointer;
+    transition: color 0.2s;
 }
 .cerrar-modal:hover { color: #dc3545; }
 
 #lista-pedido-modal {
     list-style: none;
     padding: 0;
-    margin: 0 0 20px 0;
+    margin: 0 0 25px 0;
 }
 
 #lista-pedido-modal li {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #eee;
-    padding: 10px 0;
-    font-size: 0.95rem;
+    padding: 12px 0;
+    font-size: 1.05rem;
 }
 
 .total-modal {
-    font-size: 1.4rem;
-    font-weight: bold;
+    font-size: 1.6rem;
+    font-weight: 900;
     text-align: right;
     color: #1f4981;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .btn-whatsapp-modal {
@@ -433,17 +501,23 @@ header {
     background-color: #25d366;
     color: white;
     border: none;
-    padding: 12px;
-    border-radius: 5px;
-    font-size: 1.1rem;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
     text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: all 0.2s;
 }
-.btn-whatsapp-modal:hover { background-color: #1ebc5a; }
+.btn-whatsapp-modal:hover { 
+    background-color: #1ebc5a; 
+    transform: translateY(-2px);
+}
+.btn-whatsapp-modal:active { transform: translateY(2px); box-shadow: none; }
 
-/* Corrección chiquita para que la barra negra inferior se acomode bien en celulares */
 @media (max-width: 600px) {
-    #barra-flotante { flex-direction: column; gap: 10px; text-align: center; }
-    .footer-izq { flex-direction: column; gap: 5px;}
+    #barra-flotante { flex-direction: column; gap: 15px; text-align: center; }
+    .footer-izq { flex-direction: column; gap: 10px;}
+    .search-container { order: 3; max-width: 100%; margin-top: 10px; }
 }
