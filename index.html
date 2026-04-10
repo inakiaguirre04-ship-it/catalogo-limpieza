@@ -9,7 +9,7 @@
 <body>
 
     <div class="top-bar">
-        <span>¡No te pierdas las ofertas exclusivas en productos de fabricación propia! Hacemos envíos por Río Cuarto :)</span>
+        <span>¡No te pierdas las ofertas exclusivas! Hacemos envíos por Río Cuarto :)</span>
     </div>
 
     <header>
@@ -32,193 +32,79 @@
         </div>
     </header>
 
-    <main id="seccion-promociones">
-        
-        <h2 class="titulo-seccion">🏠 Promos Hogar</h2>
-        <div class="grilla-productos">
-            <article class="tarjeta promo-item" data-nombre="Promo Hogar 1">
-                <h3>Promo Hogar 1</h3>
-                <img src="img/hogar1.png" alt="Bidones Promo 1" class="foto-promo">
-                <ul class="lista-productos">
-                    <li>5L Lavandina Concentrada</li>
-                    <li>5L Jabón Eco Azul (tipo Skip)</li>
-                    <li>2L Suavizante Celeste</li>
-                </ul>
-                <p class="precio">$9300</p>
-                <button onclick="agregar('Promo Hogar 1', 9300)">Añadir al carrito</button>
-            </article>
+    <main>
+        <section id="seccion-productos">
+            <h2 class="titulo-seccion">🧴 Productos Sueltos</h2>
+            <div class="grilla-productos">
+                
+                <article class="tarjeta promo-item" data-nombre="Lavandina Concentrada">
+                    <h3>Lavandina Concentrada 50%</h3>
+                    <ul class="lista-precios">
+                        <li>
+                            <span>1 Litro</span> <span class="precio-chico">$670</span> 
+                            <div class="botones-cantidad-chicos">
+                                <button class="btn-restar-chico" onclick="quitar('Lavandina Concentrada 1L', 670)">-</button>
+                                <button class="btn-agregar-chico" onclick="agregar('Lavandina Concentrada 1L', 670)">+</button>
+                            </div>
+                        </li>
+                        <li>
+                            <span>5 Litros</span> <span class="precio-chico">$3190</span> 
+                            <div class="botones-cantidad-chicos">
+                                <button class="btn-restar-chico" onclick="quitar('Lavandina Concentrada 5L', 3190)">-</button>
+                                <button class="btn-agregar-chico" onclick="agregar('Lavandina Concentrada 5L', 3190)">+</button>
+                            </div>
+                        </li>
+                        <li>
+                            <span>20 Litros</span> <span class="precio-chico">$12990</span> 
+                            <div class="botones-cantidad-chicos">
+                                <button class="btn-restar-chico" onclick="quitar('Lavandina Concentrada 20L', 12990)">-</button>
+                                <button class="btn-agregar-chico" onclick="agregar('Lavandina Concentrada 20L', 12990)">+</button>
+                            </div>
+                        </li>
+                    </ul>
+                </article>
 
-            <article class="tarjeta promo-item" data-nombre="Promo Hogar 2">
-                <h3>Promo Hogar 2</h3>
-                <img src="img/hogar2.png" alt="Bidones Promo 2" class="foto-promo">
-                <ul class="lista-productos">
-                    <li>5L Lavandina Concentrada</li>
-                    <li>5L Jabón Premium (Ariel o Ala)</li>
-                    <li>5L Limpia Pisos (aroma a elección)</li>
-                    <li>2L Detergente Ultra Limón</li>
-                    <li>2L Suavizante Downy</li>
-                </ul>
-                <p class="precio">$15500</p>
-                <button onclick="agregar('Promo Hogar 2', 15500)">Añadir al carrito</button>
-            </article>
+                </div>
+        </section>
 
-            <article class="tarjeta promo-item" data-nombre="Promo Hogar 3">
-                <h3>Promo Hogar 3</h3>
-                <img src="img/hogar3.png" alt="Bidones Promo 1" class="foto-promo">
-                <ul class="lista-productos">
-                    <li>5L Cloro al 100%</li>
-                    <li>5L Jabón Extra Violeta</li>
-                    <li>5L Limpia Pisos (aroma a elección)</li>
-                    <li>2L Detergente Ultra Limón</li>
-                    <li>2L Suavizante Celeste</li>
-                </ul>
-                <p class="precio">$17000</p>
-                <button onclick="agregar('Promo Hogar 3', 17000)">Añadir al carrito</button>
-            </article>
-        </div>
+        <section id="seccion-promociones">
+            <h2 class="titulo-seccion">🏠 Promos Hogar</h2>
+            <div class="grilla-productos">
+                
+                <article class="tarjeta promo-item" data-nombre="Promo Hogar 1">
+                    <h3>Promo Hogar 1</h3>
+                    <img src="img/hogar1.png" alt="Bidones Promo 1" class="foto-promo">
+                    <ul class="lista-productos">
+                        <li>5L Lavandina Concentrada</li>
+                        <li>5L Jabón Eco Azul (tipo Skip)</li>
+                        <li>2L Suavizante Celeste</li>
+                    </ul>
+                    <p class="precio">$9300</p>
+                    <div class="botones-cantidad-promo">
+                        <button class="btn-restar-promo" onclick="quitar('Promo Hogar 1', 9300)">-</button>
+                        <button class="btn-agregar-promo" onclick="agregar('Promo Hogar 1', 9300)">Añadir al carrito</button>
+                    </div>
+                </article>
 
-        <h2 class="titulo-seccion">🍽️ Promos Gastronómicas</h2>
-        <div class="grilla-productos">
-            <article class="tarjeta promo-item" data-nombre="Promo Gastronómica 1">
-                <h3>Promo Gastronómica 1</h3>
-                <img src="img/gastro1.png" alt="Bidones Promo 1" class="foto-promo">
-                <ul class="lista-productos">
-                    <li>5L Lavandina Concentrada</li>
-                    <li>5L Limpia Pisos (aroma a elección)</li>
-                    <li>5L Detergente Ultra Limón</li>
-                </ul>
-                <p class="precio">$9500</p>
-                <button onclick="agregar('Promo Gastronómica 1', 9500)">Añadir al carrito</button>
-            </article>
+                <article class="tarjeta promo-item" data-nombre="Promo Hogar 2">
+                    <h3>Promo Hogar 2</h3>
+                    <img src="img/hogar2.png" alt="Bidones Promo 2" class="foto-promo">
+                    <ul class="lista-productos">
+                        <li>5L Lavandina Concentrada</li>
+                        <li>5L Jabón Premium (Ariel o Ala)</li>
+                        <li>5L Limpia Pisos (aroma a elección)</li>
+                        <li>2L Detergente Ultra Limón</li>
+                        <li>2L Suavizante Downy</li>
+                    </ul>
+                    <p class="precio">$15500</p>
+                    <div class="botones-cantidad-promo">
+                        <button class="btn-restar-promo" onclick="quitar('Promo Hogar 2', 15500)">-</button>
+                        <button class="btn-agregar-promo" onclick="agregar('Promo Hogar 2', 15500)">Añadir al carrito</button>
+                    </div>
+                </article>
 
-            <article class="tarjeta promo-item" data-nombre="Promo Gastronómica 2">
-                <h3>Promo Gastronómica 2</h3>
-                <img src="img/gastro2.png" alt="Bidones Promo 1" class="foto-promo">
-                <ul class="lista-productos">
-                    <li>5L Lavandina Concentrada</li>
-                    <li>5L Desengrasante Multiuso</li>
-                    <li>5L Detergente Ultra Limón</li>
-                </ul>
-                <p class="precio">$10500</p>
-                <button onclick="agregar('Promo Gastronómica 2', 10500)">Añadir al carrito</button>
-            </article>
-
-            <article class="tarjeta promo-item" data-nombre="Promo Gastronómica 3">
-                <h3>Promo Gastronómica 3</h3>
-                <img src="img/gastro3.png" alt="Bidones Promo 1" class="foto-promo">
-                <ul class="lista-productos">
-                    <li>5L Lavandina Concentrada</li>
-                    <li>5L Limpia Pisos (aroma a elección)</li>
-                    <li>5L Detergente Ultra Limón</li>
-                    <li>5L Desengrasante Multiuso</li>
-                </ul>
-                <p class="precio">$12800</p>
-                <button onclick="agregar('Promo Gastronómica 3', 12800)">Añadir al carrito</button>
-            </article>
-        </div>
-
-        <h2 class="titulo-seccion">🤝 Promos Revendedor</h2>
-        <div class="grilla-productos">
-            <article class="tarjeta promo-item" data-nombre="Promo Revendedor 1">
-                <h3>Promo Revendedor 1</h3>
-                <img src="img/rev1.png" alt="Bidones Promo 1" class="foto-promo">
-                <ul class="lista-productos">
-                    <li>20L Lavandina Concentrada</li>
-                    <li>20L Jabón Eco Azul (tipo Skip)</li>
-                    <li>20L Limpia Pisos (aroma a elección)</li>
-                </ul>
-                <p class="precio">$27000</p>
-                <button onclick="agregar('Promo Revendedor 1', 27000)">Añadir al carrito</button>
-            </article>
-
-            <article class="tarjeta promo-item" data-nombre="Promo Revendedor 2">
-                <h3>Promo Revendedor 2</h3>
-                 <img src="img/rev2.png" alt="Bidones Promo 1" class="foto-promo">
-                <ul class="lista-productos">
-                    <li>20L Lavandina Concentrada</li>
-                    <li>20L Jabón Premium (Ariel o Ala)</li>
-                    <li>20L Limpia Pisos (aroma a elección)</li>
-                    <li>10L Detergente Ultra Limón</li>
-                </ul>
-                <p class="precio">$40500</p>
-                <button onclick="agregar('Promo Revendedor 2', 40500)">Añadir al carrito</button>
-            </article>
-
-            <article class="tarjeta promo-item" data-nombre="Promo Revendedor 3">
-                <h3>Promo Revendedor 3</h3>
-                 <img src="img/rev3.png" alt="Bidones Promo 1" class="foto-promo">
-                <ul class="lista-productos">
-                    <li>20L Cloro 100%</li>
-                    <li>20L Jabón Extra Violeta</li>
-                    <li>20L Limpia Pisos (aroma a elección)</li>
-                    <li>10L Detergente Ultra Limón</li>
-                </ul>
-                <p class="precio">$47400</p>
-                <button onclick="agregar('Promo Revendedor 3', 47400)">Añadir al carrito</button>
-            </article>
-
-            <article class="tarjeta promo-item" data-nombre="Promo Revendedor 4">
-                <h3>Promo Revendedor 4</h3>
-                 <img src="img/rev4.png" alt="Bidones Promo 1" class="foto-promo">
-                <ul class="lista-productos">
-                    <li>20L Lavandina Concentrada</li>
-                    <li>20L Jabón Eco Azul (tipo Skip)</li>
-                    <li>20L Limpia Pisos (aroma a elección)</li>
-                    <li>10L Suavizante Celeste</li>
-                </ul>
-                <p class="precio">$37000</p>
-                <button onclick="agregar('Promo Revendedor 4', 37000)">Añadir al carrito</button>
-            </article>
-
-            <article class="tarjeta promo-item" data-nombre="Promo Revendedor 5">
-                <h3>Promo Revendedor 5</h3>
-                 <img src="img/rev5.png" alt="Bidones Promo 1" class="foto-promo">
-                <ul class="lista-productos">
-                    <li>20L Lavandina Concentrada</li>
-                    <li>20L Jabón Premium (Ariel o Ala)</li>
-                    <li>20L Limpia Pisos (aroma a elección)</li>
-                    <li>10L Detergente Ultra Limón</li>
-                    <li>10L Suavizante Celeste</li>
-                </ul>
-                <p class="precio">$49000</p>
-                <button onclick="agregar('Promo Revendedor 5', 49000)">Añadir al carrito</button>
-            </article>
-
-            <article class="tarjeta promo-item" data-nombre="Promo Revendedor 6">
-                <h3>Promo Revendedor 6</h3>
-                 <img src="img/rev6.png" alt="Bidones Promo 1" class="foto-promo">
-                <ul class="lista-productos">
-                    <li>20L Cloro 100%</li>
-                    <li>20L Jabón Extra Violeta</li>
-                    <li>20L Limpia Pisos (aroma a elección)</li>
-                    <li>10L Detergente Ultra Limón</li>
-                    <li>10L Suavizante tipo Downy</li>
-                </ul>
-                <p class="precio">$58700</p>
-                <button onclick="agregar('Promo Revendedor 6', 58700)">Añadir al carrito</button>
-            </article>
-        </div>
-
-        <h2 class="titulo-seccion">🚀 Promo Emprendedor</h2>
-        <div class="grilla-productos">
-            <article class="tarjeta promo-item" data-nombre="Combo Súper Emprendedor">
-                <h3>Combo Súper Emprendedor</h3>
-                 <img src="img/empre1.png" alt="Bidones Promo 1" class="foto-promo">
-                <ul class="lista-productos">
-                    <li>20L Jabón Eco Azul T/ Skip</li>
-                    <li>20L Jabón Premium T/ Ariel</li>
-                    <li>20L Jabón Premium T/ Ala</li>
-                    <li>20L Jabón Extra Violeta</li>
-                    <li>20L Detergente Ultra Limón</li>
-                    <li>40L Suavizante Celeste</li>
-                    <li>60L Lavandina Concentrada</li>
-                    <li>60L Limpia Pisos (hasta 3 aromas)</li>
-                </ul>
-                <p class="precio">$155300</p>
-                <button onclick="agregar('Combo Súper Emprendedor', 155300)">Añadir al carrito</button>
-            </article>
-        </div>
-
+            </div>
+        </section>
     </main>
 
     <footer id="barra-flotante">

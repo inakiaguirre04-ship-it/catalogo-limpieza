@@ -170,19 +170,7 @@ header {
     margin-bottom: 10px;
 }
 
-/* --- BOTÓN DE AÑADIR AL CARRITO EN VERDE LINDO --- */
-.tarjeta button {
-    background-color: #28a745; 
-    color: white; 
-    border: none;
-    border-radius: 0; 
-    margin-top: auto; 
-    padding: 12px;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    cursor: pointer;
-}
+
 
 .tarjeta button:hover {
     background-color: #218838; 
@@ -227,3 +215,118 @@ header {
     background-color: transparent; 
     border-bottom: 1px dashed #eaf6fc; 
 }
+
+/* --- ESTILOS PARA LA LISTA DE PRECIOS SUELTOS --- */
+.lista-precios {
+    list-style: none; /* Le saca los puntitos a la lista */
+    padding: 15px;
+    margin: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Separación entre cada renglón */
+}
+
+.lista-precios li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa; /* Un fondo gris super clarito para cada renglón */
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 1px solid #eaf6fc;
+}
+
+.lista-precios span {
+    font-weight: bold;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.precio-chico {
+    color: #1f4981 !important; /* Azul oscuro para que resalte el precio */
+    font-size: 1.1rem !important;
+}
+
+/* Botón cuadradito verde con el "+" */
+.btn-agregar-chico {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+    margin: 0; /* Le saca cualquier margen que herede */
+    padding: 0;
+}
+
+.btn-agregar-chico:hover {
+    background-color: #218838;
+}
+
+/* --- ESTILOS BOTONES RESTAR Y SUMAR (CHICOS) --- */
+.botones-cantidad-chicos {
+    display: flex;
+    gap: 5px;
+}
+
+.btn-restar-chico {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.btn-restar-chico:hover { background-color: #c82333; }
+
+/* --- ESTILOS BOTONES RESTAR Y SUMAR (PROMOS GRANDES) --- */
+.botones-cantidad-promo {
+    display: flex;
+    margin-top: auto;
+}
+
+.btn-restar-promo {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.btn-restar-promo:hover { background-color: #c82333; }
+
+/* Ajustamos el botón agregar de la promo para que comparta el espacio */
+.tarjeta button.btn-agregar-promo {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 0;
+    padding: 12px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    flex-grow: 1; /* Ocupa todo el resto del ancho */
+}
+.tarjeta button.btn-agregar-promo:hover { background-color: #218838; }
+
+/* IMPORTANTE: Borrá del CSS viejo la parte que decía ".tarjeta button" a secas, porque ahora usamos las clases de arriba */
