@@ -7,7 +7,7 @@
 
 body {
     /* Fondo celeste súper clarito basado en el fondo de tu flyer */
-    background-color: #a3cde2; 
+    background-color: #d0dde4; 
     padding-bottom: 80px; 
 }
 
@@ -25,7 +25,7 @@ header {
 /* --- TÍTULOS DE CADA CATEGORÍA --- */
 .titulo-seccion {
     text-align: center;
-    color: #266bc5; /* Azul oscuro */
+    color: #000000; /* Azul oscuro */
     margin-top: 40px;
     margin-bottom: 20px;
     font-size: 1.8rem;
@@ -49,7 +49,7 @@ header {
 
 /* --- DISEÑO DE LOS CUADRADOS DE LAS PROMOS --- */
 .tarjeta h3 {
-    background-color: #1563c9; 
+    background-color: #ffffff; 
     color: white; 
     font-size: 1.2rem;
     padding: 10px;
@@ -58,7 +58,7 @@ header {
 }
 
 .tarjeta h3 {
-    background-color: #1f68c7; /* Azul oscuro */
+    background-color: #ffffff; /* Azul oscuro */
     color: white; 
     font-size: 1.5rem;
     padding: 15px;
@@ -91,7 +91,7 @@ header {
 /* --- BOTÓN DE AÑADIR AL CARRITO --- */
 .tarjeta button {
     background-color: #26e950;
-    color: #004aad; 
+    color: #000000; 
     border: none;
     border-radius: 0; 
     margin-top: auto; 
