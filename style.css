@@ -1,4 +1,4 @@
-* * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -11,15 +11,71 @@ body {
     padding-bottom: 80px; 
 }
 
-/* --- ENCABEZADO SUPERIOR --- */
+/* --- BARRA DE ANUNCIO BLANCA SUPERIOR --- */
+.top-bar {
+    background-color: white;
+    color: #1f4981; /* Azul oscuro para que combine */
+    text-align: center;
+    padding: 10px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
+
+/* --- ENCABEZADO PRINCIPAL CON BUSCADOR --- */
 header {
-    /* Azul oscuro principal del logo "Don Limpio" */
-    background-color: #1f4981;
-    color: rgb(232, 236, 175);
-    padding: 20px;
+    background-color: #1f4981; /* Tu azul original de Don Limpio */
+    color: white;
+    padding: 15px 20px;
+}
+
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+#logo-principal {
+    max-height: 70px; 
+    width: auto;
+}
+
+/* --- ESTILOS DEL BUSCADOR --- */
+.search-container {
+    display: flex;
+    flex-grow: 1; /* Ocupa el espacio del medio */
+    max-width: 600px;
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #333;
+}
+
+.btn-buscar {
+    background-color: white;
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.resumen-carrito {
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 /* --- TÍTULOS DE CADA CATEGORÍA --- */
@@ -48,7 +104,6 @@ header {
 }
 
 /* --- DISEÑO DE LOS CUADRADOS DE LAS PROMOS --- */
-/* ¡ACÁ RECUPERAMOS EL CUADRADO! Fondo blanco uniforme y borde azul */
 .tarjeta {
     background-color: #ffffff; 
     border-radius: 12px;
@@ -60,7 +115,6 @@ header {
     flex-direction: column;
 }
 
-/* Título de la promo azul oscuro con letra blanca (antes estaba blanco sobre blanco) */
 .tarjeta h3 {
     background-color: #1f4981; 
     color: white; 
@@ -79,7 +133,7 @@ header {
     color: #333;
     font-size: 0.9rem;
     line-height: 1.4;
-    font-weight: bold; /* Esto las hace negritas */
+    font-weight: bold; 
 }
 
 .lista-productos li {
@@ -96,7 +150,7 @@ header {
 
 /* --- BOTÓN DE AÑADIR AL CARRITO EN VERDE LINDO --- */
 .tarjeta button {
-    background-color: #28a745; /* Verde llamativo y comercial */
+    background-color: #28a745; 
     color: white; 
     border: none;
     border-radius: 0; 
@@ -109,7 +163,7 @@ header {
 }
 
 .tarjeta button:hover {
-    background-color: #218838; /* Verde apenitas más oscuro si le pasas el mouse */
+    background-color: #218838; 
 }
 
 /* --- BARRA NEGRA INFERIOR (WHATSAPP) --- */
@@ -142,18 +196,12 @@ header {
     background-color: #1ebc5a;
 }
 
-/* --- TAMAÑO DEL LOGO PRINCIPAL --- */
-#logo-principal {
-    max-height: 80px; 
-    width: auto;
-}
-
 /* --- TAMAÑO DE LAS FOTOS DE LOS BIDONES --- */
 .foto-promo {
     width: 100%; 
     height: 140px; 
     object-fit: contain; 
     padding: 10px;
-    background-color: transparent; /* Transparente para que tome el mismo fondo blanco de la tarjeta entera */
+    background-color: transparent; 
     border-bottom: 1px dashed #eaf6fc; 
 }

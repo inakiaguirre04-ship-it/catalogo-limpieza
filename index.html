@@ -7,17 +7,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div class="top-bar">
+        <span>¡No te pierdas las ofertas exclusivas en productos de fabricación propia! Hacemos envíos por Río Cuarto :)</span>
+    </div>
+
     <header>
-        <img src="img/logo.png" alt="Don Limpio Logo" id="logo-principal">
-        <div class="resumen-carrito">
-            🛒 <span id="cantidad-items">0</span> combos
+        <div class="header-container">
+            <img src="img/logo.png" alt="Don Limpio Logo" id="logo-principal">
+            
+            <div class="search-container">
+                <input type="text" id="buscador" placeholder="¿Qué promoción estás buscando? (Ej: Hogar, Emprendedor...)" onkeyup="filtrarPromos()">
+                <button class="btn-buscar">🔍</button>
+            </div>
+
+            <div class="resumen-carrito">
+                🛒 <span id="cantidad-items">0</span> combos
+            </div>
         </div>
     </header>
 
     <main>
         <h2 class="titulo-seccion">🏠 Promos Hogar</h2>
         <div class="grilla-productos">
-            <article class="tarjeta">
+            <article class="tarjeta promo-item" data-nombre="Promo Hogar 1">
                 <h3>Promo Hogar 1</h3>
                 <img src="img/hogar1.png" alt="Bidones Promo 1" class="foto-promo">
                 <ul class="lista-productos">
@@ -29,7 +42,7 @@
                 <button onclick="agregar('Promo Hogar 1', 9300)">Añadir al carrito</button>
             </article>
 
-            <article class="tarjeta">
+            <article class="tarjeta promo-item" data-nombre="Promo Hogar 2">
                 <h3>Promo Hogar 2</h3>
                 <img src="img/hogar2.png" alt="Bidones Promo 2" class="foto-promo">
                 <ul class="lista-productos">
@@ -43,7 +56,7 @@
                 <button onclick="agregar('Promo Hogar 2', 15500)">Añadir al carrito</button>
             </article>
 
-            <article class="tarjeta">
+            <article class="tarjeta promo-item" data-nombre="Promo Hogar 3">
                 <h3>Promo Hogar 3</h3>
                 <img src="img/hogar3.png" alt="Bidones Promo 1" class="foto-promo">
                 <ul class="lista-productos">
@@ -60,7 +73,7 @@
 
         <h2 class="titulo-seccion">🍽️ Promos Gastronómicas</h2>
         <div class="grilla-productos">
-            <article class="tarjeta">
+            <article class="tarjeta promo-item" data-nombre="Promo Gastronómica 1">
                 <h3>Promo Gastronómica 1</h3>
                 <img src="img/gastro1.png" alt="Bidones Promo 1" class="foto-promo">
                 <ul class="lista-productos">
@@ -72,7 +85,7 @@
                 <button onclick="agregar('Promo Gastronómica 1', 9500)">Añadir al carrito</button>
             </article>
 
-            <article class="tarjeta">
+            <article class="tarjeta promo-item" data-nombre="Promo Gastronómica 2">
                 <h3>Promo Gastronómica 2</h3>
                 <img src="img/gastro2.png" alt="Bidones Promo 1" class="foto-promo">
                 <ul class="lista-productos">
@@ -84,7 +97,7 @@
                 <button onclick="agregar('Promo Gastronómica 2', 10500)">Añadir al carrito</button>
             </article>
 
-            <article class="tarjeta">
+            <article class="tarjeta promo-item" data-nombre="Promo Gastronómica 3">
                 <h3>Promo Gastronómica 3</h3>
                 <img src="img/gastro3.png" alt="Bidones Promo 1" class="foto-promo">
                 <ul class="lista-productos">
@@ -100,7 +113,7 @@
 
         <h2 class="titulo-seccion">🤝 Promos Revendedor</h2>
         <div class="grilla-productos">
-            <article class="tarjeta">
+            <article class="tarjeta promo-item" data-nombre="Promo Revendedor 1">
                 <h3>Promo Revendedor 1</h3>
                 <img src="img/rev1.png" alt="Bidones Promo 1" class="foto-promo">
                 <ul class="lista-productos">
@@ -112,7 +125,7 @@
                 <button onclick="agregar('Promo Revendedor 1', 27000)">Añadir al carrito</button>
             </article>
 
-            <article class="tarjeta">
+            <article class="tarjeta promo-item" data-nombre="Promo Revendedor 2">
                 <h3>Promo Revendedor 2</h3>
                  <img src="img/rev2.png" alt="Bidones Promo 1" class="foto-promo">
                 <ul class="lista-productos">
@@ -125,7 +138,7 @@
                 <button onclick="agregar('Promo Revendedor 2', 40500)">Añadir al carrito</button>
             </article>
 
-            <article class="tarjeta">
+            <article class="tarjeta promo-item" data-nombre="Promo Revendedor 3">
                 <h3>Promo Revendedor 3</h3>
                  <img src="img/rev3.png" alt="Bidones Promo 1" class="foto-promo">
                 <ul class="lista-productos">
@@ -138,7 +151,7 @@
                 <button onclick="agregar('Promo Revendedor 3', 47400)">Añadir al carrito</button>
             </article>
 
-            <article class="tarjeta">
+            <article class="tarjeta promo-item" data-nombre="Promo Revendedor 4">
                 <h3>Promo Revendedor 4</h3>
                  <img src="img/rev4.png" alt="Bidones Promo 1" class="foto-promo">
                 <ul class="lista-productos">
@@ -151,7 +164,7 @@
                 <button onclick="agregar('Promo Revendedor 4', 37000)">Añadir al carrito</button>
             </article>
 
-            <article class="tarjeta">
+            <article class="tarjeta promo-item" data-nombre="Promo Revendedor 5">
                 <h3>Promo Revendedor 5</h3>
                  <img src="img/rev5.png" alt="Bidones Promo 1" class="foto-promo">
                 <ul class="lista-productos">
@@ -165,7 +178,7 @@
                 <button onclick="agregar('Promo Revendedor 5', 49000)">Añadir al carrito</button>
             </article>
 
-            <article class="tarjeta">
+            <article class="tarjeta promo-item" data-nombre="Promo Revendedor 6">
                 <h3>Promo Revendedor 6</h3>
                  <img src="img/rev6.png" alt="Bidones Promo 1" class="foto-promo">
                 <ul class="lista-productos">
@@ -182,7 +195,7 @@
 
         <h2 class="titulo-seccion">🚀 Promo Emprendedor</h2>
         <div class="grilla-productos">
-            <article class="tarjeta">
+            <article class="tarjeta promo-item" data-nombre="Combo Súper Emprendedor">
                 <h3>Combo Súper Emprendedor</h3>
                  <img src="img/empre1.png" alt="Bidones Promo 1" class="foto-promo">
                 <ul class="lista-productos">
