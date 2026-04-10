@@ -3,10 +3,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    scroll-behavior: smooth; /* Esto hace que al tocar el menú, la página baje suavemente */
 }
 
 body {
-    /* Fondo celeste súper clarito basado en el fondo de tu flyer */
+    /* Fondo celeste súper clarito */
     background-color: #d0dde4; 
     padding-bottom: 80px; 
 }
@@ -14,7 +15,7 @@ body {
 /* --- BARRA DE ANUNCIO BLANCA SUPERIOR --- */
 .top-bar {
     background-color: white;
-    color: #1f4981; /* Azul oscuro para que combine */
+    color: #1f4981; 
     text-align: center;
     padding: 10px;
     font-size: 0.95rem;
@@ -27,6 +28,10 @@ header {
     background-color: #1f4981; /* Tu azul original de Don Limpio */
     color: white;
     padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .header-container {
@@ -36,12 +41,14 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     gap: 20px;
+    flex-wrap: wrap; /* Ayuda a que se acomode en pantallas chicas */
 }
 
 #logo-principal {
     max-height: 70px; 
     width: auto;
 }
+
 /* --- MENÚ DE NAVEGACIÓN --- */
 .menu-navegacion {
     display: flex;
@@ -50,26 +57,26 @@ header {
 
 .nav-link {
     color: white;
-    text-decoration: none; /* Le saca la rayita de abajo al link */
+    text-decoration: none; 
     font-weight: bold;
     font-size: 1.1rem;
     padding: 10px 15px;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    background-color: rgba(255, 255, 255, 0.1); 
     border: 1px solid rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease;
 }
 
 .nav-link:hover {
     background-color: white;
-    color: #1f4981; /* Al pasar el mouse, se invierten los colores */
+    color: #1f4981; 
 }
 
 /* --- ESTILOS DEL BUSCADOR --- */
 .search-container {
     display: flex;
-    flex-grow: 1; /* Ocupa el espacio del medio */
-    max-width: 600px;
+    flex-grow: 1; 
+    max-width: 500px;
     background: white;
     border-radius: 5px;
     overflow: hidden;
@@ -93,11 +100,15 @@ header {
 }
 
 .resumen-carrito {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     display: flex;
     align-items: center;
     gap: 5px;
+    background-color: #ffcc00;
+    color: #1f4981;
+    padding: 10px 15px;
+    border-radius: 5px;
 }
 
 /* --- TÍTULOS DE CADA CATEGORÍA --- */
@@ -107,7 +118,6 @@ header {
     margin-top: 40px;
     margin-bottom: 20px;
     font-size: 1.8rem;
-    /* Línea amarilla debajo del título para separar */
     border-bottom: 3px solid #ffcc00; 
     padding-bottom: 10px;
     max-width: 1100px;
@@ -125,7 +135,7 @@ header {
     margin: 0 auto;
 }
 
-/* --- DISEÑO DE LOS CUADRADOS DE LAS PROMOS --- */
+/* --- DISEÑO DE LOS CUADRADOS PRINCIPALES --- */
 .tarjeta {
     background-color: #ffffff; 
     border-radius: 12px;
@@ -146,7 +156,16 @@ header {
     border-bottom: none;
 }
 
-/* Letras de los productos en NEGRITA */
+/* --- ESTILOS DE LOS COMBOS / PROMOS --- */
+.foto-promo {
+    width: 100%; 
+    height: 140px; 
+    object-fit: contain; 
+    padding: 10px;
+    background-color: transparent; 
+    border-bottom: 1px dashed #eaf6fc; 
+}
+
 .lista-productos {
     padding: 15px 15px 15px 30px;
     margin: 0;
@@ -170,11 +189,111 @@ header {
     margin-bottom: 10px;
 }
 
-
-
-.tarjeta button:hover {
-    background-color: #218838; 
+.botones-cantidad-promo {
+    display: flex;
+    margin-top: auto;
 }
+
+.btn-restar-promo {
+    background-color: #dc3545; 
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0;
+    transition: background-color 0.2s;
+}
+
+.btn-restar-promo:hover { background-color: #c82333; }
+
+.tarjeta button.btn-agregar-promo {
+    background-color: #28a745; 
+    color: white; 
+    border: none;
+    border-radius: 0; 
+    padding: 12px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    flex-grow: 1; 
+    transition: background-color 0.2s;
+}
+
+.tarjeta button.btn-agregar-promo:hover { background-color: #218838; }
+
+/* --- ESTILOS PARA PRODUCTOS SUELTOS (NUEVO) --- */
+.lista-precios {
+    list-style: none; 
+    padding: 15px;
+    margin: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.lista-precios li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa; 
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 1px solid #eaf6fc;
+}
+
+.lista-precios span {
+    font-weight: bold;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.precio-chico {
+    color: #1f4981 !important; 
+    font-size: 1.1rem !important;
+}
+
+.botones-cantidad-chicos {
+    display: flex;
+    gap: 5px;
+}
+
+.btn-restar-chico {
+    background-color: #dc3545; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+.btn-restar-chico:hover { background-color: #c82333; }
+
+.btn-agregar-chico {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+.btn-agregar-chico:hover { background-color: #218838; }
 
 /* --- BARRA NEGRA INFERIOR (WHATSAPP) --- */
 #barra-flotante {
@@ -189,6 +308,7 @@ header {
     justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
+    z-index: 1000;
 }
 
 #btn-whatsapp {
@@ -205,128 +325,3 @@ header {
 #btn-whatsapp:hover {
     background-color: #1ebc5a;
 }
-
-/* --- TAMAÑO DE LAS FOTOS DE LOS BIDONES --- */
-.foto-promo {
-    width: 100%; 
-    height: 140px; 
-    object-fit: contain; 
-    padding: 10px;
-    background-color: transparent; 
-    border-bottom: 1px dashed #eaf6fc; 
-}
-
-/* --- ESTILOS PARA LA LISTA DE PRECIOS SUELTOS --- */
-.lista-precios {
-    list-style: none; /* Le saca los puntitos a la lista */
-    padding: 15px;
-    margin: 0;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Separación entre cada renglón */
-}
-
-.lista-precios li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f8f9fa; /* Un fondo gris super clarito para cada renglón */
-    padding: 8px 15px;
-    border-radius: 8px;
-    border: 1px solid #eaf6fc;
-}
-
-.lista-precios span {
-    font-weight: bold;
-    color: #333;
-    font-size: 0.95rem;
-}
-
-.precio-chico {
-    color: #1f4981 !important; /* Azul oscuro para que resalte el precio */
-    font-size: 1.1rem !important;
-}
-
-/* Botón cuadradito verde con el "+" */
-.btn-agregar-chico {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    width: 35px;
-    height: 35px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.2s;
-    margin: 0; /* Le saca cualquier margen que herede */
-    padding: 0;
-}
-
-.btn-agregar-chico:hover {
-    background-color: #218838;
-}
-
-/* --- ESTILOS BOTONES RESTAR Y SUMAR (CHICOS) --- */
-.botones-cantidad-chicos {
-    display: flex;
-    gap: 5px;
-}
-
-.btn-restar-chico {
-    background-color: #dc3545; /* Rojo */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    width: 35px;
-    height: 35px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.2s;
-}
-
-.btn-restar-chico:hover { background-color: #c82333; }
-
-/* --- ESTILOS BOTONES RESTAR Y SUMAR (PROMOS GRANDES) --- */
-.botones-cantidad-promo {
-    display: flex;
-    margin-top: auto;
-}
-
-.btn-restar-promo {
-    background-color: #dc3545; /* Rojo */
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 0;
-}
-
-.btn-restar-promo:hover { background-color: #c82333; }
-
-/* Ajustamos el botón agregar de la promo para que comparta el espacio */
-.tarjeta button.btn-agregar-promo {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 0;
-    padding: 12px;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    cursor: pointer;
-    flex-grow: 1; /* Ocupa todo el resto del ancho */
-}
-.tarjeta button.btn-agregar-promo:hover { background-color: #218838; }
-
-/* IMPORTANTE: Borrá del CSS viejo la parte que decía ".tarjeta button" a secas, porque ahora usamos las clases de arriba */
