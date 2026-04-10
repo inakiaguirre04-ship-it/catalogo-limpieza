@@ -16,18 +16,24 @@
         <div class="header-container">
             <img src="img/logo.png" alt="Don Limpio Logo" id="logo-principal">
             
+            <nav class="menu-navegacion">
+                <a href="#seccion-productos" class="nav-link">Productos</a>
+                <a href="#seccion-promociones" class="nav-link">Promociones</a>
+            </nav>
+
             <div class="search-container">
-                <input type="text" id="buscador" placeholder="¿Qué promoción estás buscando? (Ej: Hogar, Emprendedor...)" onkeyup="filtrarPromos()">
+                <input type="text" id="buscador" placeholder="¿Qué estás buscando? (Ej: Hogar...)" onkeyup="filtrarPromos()">
                 <button class="btn-buscar">🔍</button>
             </div>
 
             <div class="resumen-carrito">
-                🛒 <span id="cantidad-items">0</span> combos
+                🛒 <span id="cantidad-items">0</span>
             </div>
         </div>
     </header>
 
-    <main>
+    <main id="seccion-promociones">
+        
         <h2 class="titulo-seccion">🏠 Promos Hogar</h2>
         <div class="grilla-productos">
             <article class="tarjeta promo-item" data-nombre="Promo Hogar 1">
