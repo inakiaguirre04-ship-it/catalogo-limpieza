@@ -325,3 +325,111 @@ header {
 #btn-whatsapp:hover {
     background-color: #1ebc5a;
 }
+
+/* --- ESTILO DEL NUEVO BOTÓN "VER MI PEDIDO" --- */
+.footer-izq {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#btn-ver-pedido {
+    background-color: #f8f9fa;
+    color: #1f4981;
+    border: 1px solid white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+#btn-ver-pedido:hover { background-color: #e2e6ea; }
+
+/* --- ESTILOS DE LA VENTANA EMERGENTE (MODAL) --- */
+.modal-oculto {
+    display: none; /* Arranca invisible */
+    position: fixed;
+    z-index: 2000; /* Para que quede por encima de absolutamente todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6); /* Fondo negro semi-transparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    color: #333;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto; /* Le pone una barrita de bajar si compraron muchas cosas */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.modal-contenido h2 {
+    color: #1f4981;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.cerrar-modal:hover { color: #dc3545; }
+
+#lista-pedido-modal {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+#lista-pedido-modal li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    font-size: 0.95rem;
+}
+
+.total-modal {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: right;
+    color: #1f4981;
+    margin-bottom: 15px;
+}
+
+.btn-whatsapp-modal {
+    width: 100%;
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.btn-whatsapp-modal:hover { background-color: #1ebc5a; }
+
+/* Corrección chiquita para que la barra negra inferior se acomode bien en celulares */
+@media (max-width: 600px) {
+    #barra-flotante { flex-direction: column; gap: 10px; text-align: center; }
+    .footer-izq { flex-direction: column; gap: 5px;}
+}

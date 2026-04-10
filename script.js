@@ -67,3 +67,37 @@ function filtrarPromos() {
         }
     }
 }
+
+// --- FUNCIONALIDAD PARA VER LA LISTA DEL PEDIDO ---
+
+function abrirCarrito() {
+    let modal = document.getElementById('modal-carrito');
+    let lista = document.getElementById('lista-pedido-modal');
+    
+    // Primero, limpiamos la lista visual para que no se dupliquen cosas viejas
+    lista.innerHTML = "";
+    
+    // Nos fijamos si el carrito está vacío
+    if (carrito.length === 0) {
+        lista.innerHTML = "<li><span style='color: #888;'>Tu pedido está vacío. ¡Agregá algunos productos!</span></li>";
+    } else {
+        // Si hay cosas, recorremos el carrito y dibujamos un renglón por cada producto
+        carrito.forEach((producto) => {
+            lista.innerHTML += `
+                <li>
+                    <span>${producto.nombre}</span>
+                    <span style="font-weight: bold;">$${producto.precio}</span>
+                </li>
+            `;
+        });
+    }
+    
+    // Actualizamos el total que se muestra en la ventana y la hacemos visible
+    document.getElementById('total-modal-precio').innerText = total;
+    modal.style.display = "flex"; 
+}
+
+function cerrarCarrito() {
+    // Vuelve a ocultar la ventana
+    document.getElementById('modal-carrito').style.display = "none";
+}

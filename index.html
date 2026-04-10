@@ -540,9 +540,23 @@
     </main>
 
     <footer id="barra-flotante">
-        <p>Total a pagar: $<span id="total-precio">0</span></p>
+        <div class="footer-izq">
+            <p>Total a pagar: $<span id="total-precio">0</span></p>
+            <button onclick="abrirCarrito()" id="btn-ver-pedido">Ver mi pedido</button>
+        </div>
         <button onclick="enviarWhatsApp()" id="btn-whatsapp">Pedir por WhatsApp</button>
     </footer>
+
+    <div id="modal-carrito" class="modal-oculto">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" onclick="cerrarCarrito()">&times;</span>
+            <h2>Tu Pedido 🛒</h2>
+            <ul id="lista-pedido-modal">
+                </ul>
+            <p class="total-modal">Total: $<span id="total-modal-precio">0</span></p>
+            <button onclick="enviarWhatsApp()" class="btn-whatsapp-modal">Confirmar por WhatsApp</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
