@@ -1,4 +1,4 @@
-* {
+* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -25,7 +25,7 @@ header {
 /* --- TÍTULOS DE CADA CATEGORÍA --- */
 .titulo-seccion {
     text-align: center;
-    color: #000000; /* Azul oscuro */
+    color: #000000; 
     margin-top: 40px;
     margin-bottom: 20px;
     font-size: 1.8rem;
@@ -48,62 +48,68 @@ header {
 }
 
 /* --- DISEÑO DE LOS CUADRADOS DE LAS PROMOS --- */
-.tarjeta h3 {
+/* ¡ACÁ RECUPERAMOS EL CUADRADO! Fondo blanco uniforme y borde azul */
+.tarjeta {
     background-color: #ffffff; 
-    color: white; 
-    font-size: 1.2rem;
-    padding: 10px;
-    margin: 0; 
-    border-bottom: none;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); 
+    text-align: center;
+    border: 3px solid #1f4981; 
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
 }
 
+/* Título de la promo azul oscuro con letra blanca (antes estaba blanco sobre blanco) */
 .tarjeta h3 {
-    background-color: #ffffff; /* Azul oscuro */
+    background-color: #1f4981; 
     color: white; 
-    font-size: 1.5rem;
-    padding: 15px;
+    font-size: 1.3rem;
+    padding: 12px;
     margin: 0; 
     border-bottom: none;
 }
 
+/* Letras de los productos en NEGRITA */
 .lista-productos {
     padding: 15px 15px 15px 30px;
     margin: 0;
     flex-grow: 1; 
     text-align: left;
     color: #333;
-    font-size: 0.85rem;
-    line-height: 1.3;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    font-weight: bold; /* Esto las hace negritas */
 }
 
 .lista-productos li {
-    margin-bottom: 2px;
+    margin-bottom: 5px;
 }
 
 .precio {
-    color: #004aad; 
+    color: #1f4981; 
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     padding: 5px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
 
-/* --- BOTÓN DE AÑADIR AL CARRITO --- */
+/* --- BOTÓN DE AÑADIR AL CARRITO EN VERDE LINDO --- */
 .tarjeta button {
-    background-color: #26e950;
-    color: #000000; 
+    background-color: #28a745; /* Verde llamativo y comercial */
+    color: white; 
     border: none;
     border-radius: 0; 
     margin-top: auto; 
-    padding: 10px;
-    font-size: 1rem;
+    padding: 12px;
+    font-size: 1.1rem;
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
 }
 
 .tarjeta button:hover {
-    background-color: #e6b800; /* Un amarillo apenas más oscuro al pasar el mouse */
+    background-color: #218838; /* Verde apenitas más oscuro si le pasas el mouse */
 }
 
 /* --- BARRA NEGRA INFERIOR (WHATSAPP) --- */
@@ -138,16 +144,16 @@ header {
 
 /* --- TAMAÑO DEL LOGO PRINCIPAL --- */
 #logo-principal {
-    max-height: 80px; /* Controla que el logo no sea gigante */
+    max-height: 80px; 
     width: auto;
 }
 
 /* --- TAMAÑO DE LAS FOTOS DE LOS BIDONES --- */
 .foto-promo {
     width: 100%; 
-    height: 130px; 
+    height: 140px; 
     object-fit: contain; 
     padding: 10px;
-    background-color: white; 
-    border-bottom: 2px dashed #eaf6fc; 
+    background-color: transparent; /* Transparente para que tome el mismo fondo blanco de la tarjeta entera */
+    border-bottom: 1px dashed #eaf6fc; 
 }
