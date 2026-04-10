@@ -140,3 +140,19 @@ header {
 #btn-whatsapp:hover {
     background-color: #1ebc5a;
 }
+
+/* --- TAMAÑO DEL LOGO PRINCIPAL --- */
+#logo-principal {
+    max-height: 80px; /* Controla que el logo no sea gigante */
+    width: auto;
+}
+
+/* --- TAMAÑO DE LAS FOTOS DE LOS BIDONES --- */
+.foto-promo {
+    width: 100%; /* Hace que ocupe el ancho del cuadrado */
+    height: 200px; /* Les da a todas las fotos la misma altura */
+    object-fit: contain; /* Evita que la foto se estire o se deforme */
+    padding: 15px;
+    background-color: white; /* Por si la imagen tiene fondo transparente */
+    border-bottom: 2px dashed #eaf6fc; /* Una rayita para separar la foto del texto */
+}
