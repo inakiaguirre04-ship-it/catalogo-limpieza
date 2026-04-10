@@ -516,8 +516,78 @@ header {
 }
 .btn-whatsapp-modal:active { transform: translateY(2px); box-shadow: none; }
 
-@media (max-width: 600px) {
-    #barra-flotante { flex-direction: column; gap: 15px; text-align: center; }
-    .footer-izq { flex-direction: column; gap: 10px;}
-    .search-container { order: 3; max-width: 100%; margin-top: 10px; }
+/* --- ADAPTACIÓN PARA CELULARES (DISEÑO RESPONSIVE) --- */
+@media (max-width: 768px) {
+    /* 1. Achicamos el encabezado principal */
+    header {
+        padding: 10px 15px; /* Menos relleno arriba y abajo */
+    }
+
+    .header-container {
+        flex-direction: column; /* Ponemos los elementos uno abajo del otro */
+        gap: 10px; /* Menos espacio entre el logo, menú y buscador */
+    }
+
+    #logo-principal {
+        max-height: 50px; /* Hacemos el logo más chiquito */
+    }
+
+    /* 2. Achicamos el menú de navegación */
+    .menu-navegacion {
+        width: 100%;
+        justify-content: center; /* Centramos los botones */
+        gap: 10px;
+    }
+
+    .nav-link {
+        font-size: 0.95rem; /* Letra un poquito más chica */
+        padding: 8px 12px;
+    }
+
+    /* 3. Ajustamos el buscador y el carrito para que no ocupen tanto lugar */
+    .search-container {
+        width: 100%; /* Que ocupe todo el ancho disponible */
+        order: 3; /* Lo mandamos abajo en el encabezado */
+    }
+
+    .resumen-carrito {
+        position: absolute; /* Lo ubicamos libremente... */
+        top: 15px;          /* ...arriba... */
+        right: 15px;        /* ...y a la derecha */
+        padding: 6px 12px;
+        font-size: 1rem;
+    }
+
+    /* 4. Achicamos los títulos de cada sección */
+    .titulo-seccion {
+        font-size: 1.6rem;
+        margin-top: 40px;
+        margin-bottom: 25px;
+    }
+
+    /* 5. Acomodamos la grilla para que las tarjetas no queden aplastadas */
+    .grilla-productos {
+        grid-template-columns: 1fr; /* Forzamos a que haya solo 1 columna (1 tarjeta por renglón) */
+        gap: 15px;
+        padding: 0 15px 30px 15px;
+    }
+
+    /* 6. Arreglamos la barra negra inferior */
+    #barra-flotante { 
+        flex-direction: column; 
+        gap: 10px; 
+        text-align: center; 
+        padding: 10px 15px;
+    }
+    
+    .footer-izq { 
+        flex-direction: column; 
+        gap: 5px;
+    }
+
+    #btn-ver-pedido, #btn-whatsapp {
+        width: 100%; /* Que los botones de abajo ocupen todo el ancho */
+        font-size: 1rem;
+        padding: 10px;
+    }
 }
