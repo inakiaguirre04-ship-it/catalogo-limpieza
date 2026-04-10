@@ -7,15 +7,15 @@
 
 body {
     /* Fondo celeste súper clarito basado en el fondo de tu flyer */
-    background-color: #eaf6fc; 
+    background-color: #a3cde2; 
     padding-bottom: 80px; 
 }
 
 /* --- ENCABEZADO SUPERIOR --- */
 header {
     /* Azul oscuro principal del logo "Don Limpio" */
-    background-color: #004aad;
-    color: white;
+    background-color: #1f4981;
+    color: rgb(232, 236, 175);
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -25,7 +25,7 @@ header {
 /* --- TÍTULOS DE CADA CATEGORÍA --- */
 .titulo-seccion {
     text-align: center;
-    color: #004aad; /* Azul oscuro */
+    color: #266bc5; /* Azul oscuro */
     margin-top: 40px;
     margin-bottom: 20px;
     font-size: 1.8rem;
@@ -48,20 +48,17 @@ header {
 }
 
 /* --- DISEÑO DE LOS CUADRADOS DE LAS PROMOS --- */
-.tarjeta {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15); 
-    text-align: center;
-    /* Borde celeste brillante basado en las burbujas y recuadros */
-    border: 4px solid #00c3ff; 
-    overflow: hidden; 
-    display: flex;
-    flex-direction: column;
+.tarjeta h3 {
+    background-color: #1563c9; 
+    color: white; 
+    font-size: 1.2rem;
+    padding: 10px;
+    margin: 0; 
+    border-bottom: none;
 }
 
 .tarjeta h3 {
-    background-color: #004aad; /* Azul oscuro */
+    background-color: #1f68c7; /* Azul oscuro */
     color: white; 
     font-size: 1.5rem;
     padding: 15px;
@@ -70,38 +67,36 @@ header {
 }
 
 .lista-productos {
-    padding: 20px 20px 20px 40px;
+    padding: 15px 15px 15px 30px;
     margin: 0;
     flex-grow: 1; 
     text-align: left;
     color: #333;
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 0.85rem;
+    line-height: 1.3;
 }
 
 .lista-productos li {
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 .precio {
-    /* Azul oscuro para el precio, haciendo juego con el resto */
     color: #004aad; 
     font-weight: bold;
-    font-size: 1.8rem;
-    padding: 10px;
-    margin-bottom: 5px;
+    font-size: 1.4rem;
+    padding: 5px;
+    margin-bottom: 0px;
 }
 
 /* --- BOTÓN DE AÑADIR AL CARRITO --- */
 .tarjeta button {
-    /* Amarillo oro basado en el banner "Expertos en limpieza" y los precios */
-    background-color: #ffcc00;
-    color: #004aad; /* Texto azul oscuro para que lea bien sobre el amarillo */
+    background-color: #26e950;
+    color: #004aad; 
     border: none;
     border-radius: 0; 
     margin-top: auto; 
-    padding: 15px;
-    font-size: 1.1rem;
+    padding: 10px;
+    font-size: 1rem;
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
@@ -149,10 +144,10 @@ header {
 
 /* --- TAMAÑO DE LAS FOTOS DE LOS BIDONES --- */
 .foto-promo {
-    width: 100%; /* Hace que ocupe el ancho del cuadrado */
-    height: 200px; /* Les da a todas las fotos la misma altura */
-    object-fit: contain; /* Evita que la foto se estire o se deforme */
-    padding: 15px;
-    background-color: white; /* Por si la imagen tiene fondo transparente */
-    border-bottom: 2px dashed #eaf6fc; /* Una rayita para separar la foto del texto */
+    width: 100%; 
+    height: 130px; 
+    object-fit: contain; 
+    padding: 10px;
+    background-color: white; 
+    border-bottom: 2px dashed #eaf6fc; 
 }
