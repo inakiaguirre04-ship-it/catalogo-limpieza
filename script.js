@@ -1,26 +1,65 @@
-let carrito = [];
-let total = 0;
+let carrito = {}; // Ahora guarda las cantidades de cada producto
+let esMayorista = false;
 
-// --- FUNCIONALIDAD PARA SUMAR ---
-function agregar(nombre, precio) {
-    carrito.push({ nombre: nombre, precio: precio });
-    total += precio;
+// --- FUNCIÓN PARA CAMBIAR ENTRE MINORISTA Y MAYORISTA ---
+function setModo(modo) {
+    esMayorista = (modo === 'mayorista');
+    
+    // Cambia los colores de los botones de arriba
+    document.getElementById('btn-minorista').classList.toggle('activo', !esMayorista);
+    document.getElementById('btn-mayorista').classList.toggle('activo', esMayorista);
+    
+    // Recorre todos los productos y les cambia el precio en la pantalla
+    let items = document.querySelectorAll('.item-producto');
+    items.forEach(item => {
+        let precioDisplay = item.querySelector('.precio-display');
+        if(precioDisplay) {
+            let pMin = parseFloat(item.getAttribute('data-precio-min'));
+            let pMay = parseFloat(item.getAttribute('data-precio-may'));
+            let precioActual = esMayorista ? pMay : pMin;
+            
+            // Si el precio tiene decimales, le pone la coma. Si no, lo deja entero.
+            if(precioActual % 1 !== 0) {
+                precioDisplay.innerText = '$' + precioActual.toFixed(2);
+            } else {
+                precioDisplay.innerText = '$' + precioActual;
+            }
+        }
+    });
+    
+    // Si tenían cosas en el carrito, se recalcula el total con los nuevos precios
     actualizarPantalla();
 }
 
-// --- FUNCIONALIDAD PARA RESTAR ---
-function quitar(nombre, precio) {
-    // Busca en la memoria si ya habías agregado este producto
-    let indice = carrito.findIndex(producto => producto.nombre === nombre);
+// --- FUNCIONES DEL CARRITO ---
+function agregarProd(btn) {
+    let li = btn.closest('.item-producto');
+    let nombre = li.getAttribute('data-nombre');
+    let pMin = parseFloat(li.getAttribute('data-precio-min'));
+    let pMay = parseFloat(li.getAttribute('data-precio-may'));
     
-    if (indice !== -1) {
-        // Si lo encuentra, borra 1 unidad y resta la plata
-        carrito.splice(indice, 1);
-        total -= precio;
+    // Si no estaba en el carrito, lo crea
+    if(!carrito[nombre]) {
+        carrito[nombre] = {cantidad: 0, pMin: pMin, pMay: pMay};
+    }
+    // Le suma uno
+    carrito[nombre].cantidad++;
+    
+    actualizarPantalla();
+}
+
+function quitarProd(btn) {
+    let li = btn.closest('.item-producto');
+    let nombre = li.getAttribute('data-nombre');
+    
+    // Si está en el carrito y hay más de 0, le resta
+    if(carrito[nombre] && carrito[nombre].cantidad > 0) {
+        carrito[nombre].cantidad--;
         
-        // Evita que el total quede en negativo por error
-        if (total < 0) total = 0; 
-        
+        // Si llegó a 0, lo borra de la memoria para que no moleste
+        if(carrito[nombre].cantidad === 0) {
+            delete carrito[nombre];
+        }
         actualizarPantalla();
     } else {
         alert("No tenés este producto en el carrito.");
@@ -29,24 +68,90 @@ function quitar(nombre, precio) {
 
 // --- ACTUALIZAR LOS NÚMEROS EN PANTALLA ---
 function actualizarPantalla() {
-    document.getElementById('cantidad-items').innerText = carrito.length;
-    document.getElementById('total-precio').innerText = total;
+    let totalItems = 0;
+    let totalPrecio = 0;
+    
+    // Calcula todo recorriendo el carrito
+    for (let nombre in carrito) {
+        let item = carrito[nombre];
+        let precio = esMayorista ? item.pMay : item.pMin;
+        totalItems += item.cantidad;
+        totalPrecio += precio * item.cantidad;
+    }
+    
+    document.getElementById('cantidad-items').innerText = totalItems;
+    
+    // Formatear decimales si hacen falta
+    let totalFormateado = totalPrecio % 1 !== 0 ? totalPrecio.toFixed(2) : totalPrecio;
+    document.getElementById('total-precio').innerText = totalFormateado;
+    document.getElementById('total-modal-precio').innerText = totalFormateado;
+    
+    // Actualiza el texto que dice "(Minorista)" o "(Mayorista)" en la ventanita
+    document.getElementById('modo-pedido-modal').innerText = esMayorista ? "(Precios Mayoristas)" : "(Precios Minoristas)";
+    
+    // Dibuja la lista por si la ventanita está abierta
+    actualizarListaModal();
+}
+
+// --- FUNCIONES DE LA VENTANA EMERGENTE (MODAL) ---
+function abrirCarrito() {
+    actualizarListaModal();
+    document.getElementById('modal-carrito').style.display = "flex"; 
+}
+
+function cerrarCarrito() {
+    document.getElementById('modal-carrito').style.display = "none";
+}
+
+function actualizarListaModal() {
+    let lista = document.getElementById('lista-pedido-modal');
+    lista.innerHTML = "";
+    
+    let vacio = true;
+    for (let nombre in carrito) {
+        vacio = false;
+        let item = carrito[nombre];
+        let precio = esMayorista ? item.pMay : item.pMin;
+        let subtotal = precio * item.cantidad;
+        let subFormateado = subtotal % 1 !== 0 ? subtotal.toFixed(2) : subtotal;
+        
+        lista.innerHTML += `
+            <li>
+                <span>${item.cantidad}x ${nombre}</span>
+                <span style="font-weight: bold;">$${subFormateado}</span>
+            </li>
+        `;
+    }
+    
+    if(vacio) {
+        lista.innerHTML = "<li><span style='color: #888;'>Tu pedido está vacío.</span></li>";
+    }
 }
 
 // --- FUNCIONALIDAD DE WHATSAPP ---
 function enviarWhatsApp() {
-    if (carrito.length === 0) {
+    if (Object.keys(carrito).length === 0) {
         alert("Todavía no agregaste nada al pedido.");
         return; 
     }
     
-    let texto = "Hola! Quiero hacer el siguiente pedido para envío en Río Cuarto:%0A%0A";
+    let modoTexto = esMayorista ? "MAYORISTA" : "MINORISTA";
+    let texto = `Hola! Quiero hacer el siguiente pedido *${modoTexto}* para envío en Río Cuarto:%0A%0A`;
     
-    carrito.forEach(producto => {
-        texto += `- ${producto.nombre} ($${producto.precio})%0A`;
-    });
+    let totalPrecio = 0;
     
-    texto += `%0ATotal a abonar: $${total}`;
+    for (let nombre in carrito) {
+        let item = carrito[nombre];
+        let precio = esMayorista ? item.pMay : item.pMin;
+        let subtotal = precio * item.cantidad;
+        totalPrecio += subtotal;
+        
+        let subFormateado = subtotal % 1 !== 0 ? subtotal.toFixed(2) : subtotal;
+        texto += `- ${item.cantidad}x ${nombre} ($${subFormateado})%0A`;
+    }
+    
+    let totalFormateado = totalPrecio % 1 !== 0 ? totalPrecio.toFixed(2) : totalPrecio;
+    texto += `%0ATotal a abonar: $${totalFormateado}`;
     
     let miNumero = "5493584866061"; 
     let url = `https://wa.me/${miNumero}?text=${texto}`;
@@ -66,38 +171,4 @@ function filtrarPromos() {
             promos[i].style.display = "none";
         }
     }
-}
-
-// --- FUNCIONALIDAD PARA VER LA LISTA DEL PEDIDO ---
-
-function abrirCarrito() {
-    let modal = document.getElementById('modal-carrito');
-    let lista = document.getElementById('lista-pedido-modal');
-    
-    // Primero, limpiamos la lista visual para que no se dupliquen cosas viejas
-    lista.innerHTML = "";
-    
-    // Nos fijamos si el carrito está vacío
-    if (carrito.length === 0) {
-        lista.innerHTML = "<li><span style='color: #888;'>Tu pedido está vacío. ¡Agregá algunos productos!</span></li>";
-    } else {
-        // Si hay cosas, recorremos el carrito y dibujamos un renglón por cada producto
-        carrito.forEach((producto) => {
-            lista.innerHTML += `
-                <li>
-                    <span>${producto.nombre}</span>
-                    <span style="font-weight: bold;">$${producto.precio}</span>
-                </li>
-            `;
-        });
-    }
-    
-    // Actualizamos el total que se muestra en la ventana y la hacemos visible
-    document.getElementById('total-modal-precio').innerText = total;
-    modal.style.display = "flex"; 
-}
-
-function cerrarCarrito() {
-    // Vuelve a ocultar la ventana
-    document.getElementById('modal-carrito').style.display = "none";
 }
