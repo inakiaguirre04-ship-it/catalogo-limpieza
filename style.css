@@ -499,7 +499,7 @@ header {
 .btn-whatsapp-modal:hover { background-color: #1ebc5a; transform: translateY(-2px); }
 .btn-whatsapp-modal:active { transform: translateY(2px); box-shadow: none; }
 
-/* --- RESPONSIVE PARA CELULARES --- */
+/* --- ADAPTACIÓN PARA CELULARES (DISEÑO RESPONSIVE) --- */
 @media (max-width: 768px) {
     .top-bar { font-size: 0.8rem; padding: 8px 5px; }
 
@@ -508,28 +508,23 @@ header {
     .header-container {
         display: grid;
         grid-template-columns: 1fr auto; 
+        /* Sacamos el buscador de la estructura */
         grid-template-areas: 
             "logo carrito"
-            "menu menu"
-            "buscar buscar";
-        gap: 15px;
+            "menu menu";
+        gap: 10px;
     }
 
     .logo-y-toggle {
         grid-area: logo;
-        flex-direction: column; /* Apila el logo y el botón en celu */
+        flex-direction: column; 
         align-items: flex-start;
         gap: 8px;
     }
 
-    #logo-principal {
-        max-height: 45px; 
-    }
+    #logo-principal { max-height: 45px; }
 
-    .toggle-tipo-cliente {
-        flex-direction: row;
-    }
-    
+    .toggle-tipo-cliente { flex-direction: row; }
     .btn-tipo { padding: 6px 10px; font-size: 0.85rem;}
 
     .resumen-carrito {
@@ -547,16 +542,46 @@ header {
         justify-content: center;
     }
 
+    /* 1. OCULTAMOS EL BUSCADOR EN EL CELULAR */
     .search-container {
-        grid-area: buscar;
-        width: 100%;
-        margin: 0;
+        display: none !important;
     }
 
     .titulo-seccion { font-size: 1.6rem; margin-top: 30px; margin-bottom: 25px; }
     .grilla-productos { grid-template-columns: 1fr; gap: 15px; padding: 0 15px 30px 15px; }
 
-    #barra-flotante { flex-direction: column; gap: 10px; text-align: center; padding: 10px 15px; }
-    .footer-izq { flex-direction: column; gap: 5px; }
-    #btn-ver-pedido, #btn-whatsapp { width: 100%; font-size: 1rem; padding: 12px; }
+    /* 2. ACHICAMOS LA BARRA INFERIOR AL MÁXIMO */
+    #barra-flotante { 
+        flex-direction: column; 
+        gap: 5px; 
+        padding: 6px 10px; /* Mucho menos relleno */
+    }
+    
+    /* Ponemos el Total y el botón "Ver pedido" en la misma línea */
+    .footer-izq { 
+        flex-direction: row; 
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        gap: 10px; 
+    }
+
+    /* Achicamos la letra del total */
+    #barra-flotante p {
+        font-size: 0.95rem;
+        margin: 0;
+    }
+
+    /* Achicamos los botones para que no ocupen media pantalla */
+    #btn-ver-pedido { 
+        width: auto; 
+        font-size: 0.85rem; 
+        padding: 6px 12px; 
+    }
+
+    #btn-whatsapp { 
+        width: 100%; 
+        font-size: 0.95rem; 
+        padding: 10px; 
+    }
 }
