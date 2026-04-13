@@ -1,15 +1,13 @@
-let carrito = {}; // Ahora guarda las cantidades de cada producto
+let carrito = {}; 
 let esMayorista = false;
 
 // --- FUNCIÓN PARA CAMBIAR ENTRE MINORISTA Y MAYORISTA ---
 function setModo(modo) {
     esMayorista = (modo === 'mayorista');
     
-    // Cambia los colores de los botones de arriba
     document.getElementById('btn-minorista').classList.toggle('activo', !esMayorista);
     document.getElementById('btn-mayorista').classList.toggle('activo', esMayorista);
     
-    // Recorre todos los productos y les cambia el precio en la pantalla
     let items = document.querySelectorAll('.item-producto');
     items.forEach(item => {
         let precioDisplay = item.querySelector('.precio-display');
@@ -18,7 +16,6 @@ function setModo(modo) {
             let pMay = parseFloat(item.getAttribute('data-precio-may'));
             let precioActual = esMayorista ? pMay : pMin;
             
-            // Si el precio tiene decimales, le pone la coma. Si no, lo deja entero.
             if(precioActual % 1 !== 0) {
                 precioDisplay.innerText = '$' + precioActual.toFixed(2);
             } else {
@@ -27,7 +24,6 @@ function setModo(modo) {
         }
     });
     
-    // Si tenían cosas en el carrito, se recalcula el total con los nuevos precios
     actualizarPantalla();
 }
 
@@ -38,12 +34,16 @@ function agregarProd(btn) {
     let pMin = parseFloat(li.getAttribute('data-precio-min'));
     let pMay = parseFloat(li.getAttribute('data-precio-may'));
     
-    // Si no estaba en el carrito, lo crea
     if(!carrito[nombre]) {
         carrito[nombre] = {cantidad: 0, pMin: pMin, pMay: pMay};
     }
-    // Le suma uno
     carrito[nombre].cantidad++;
+    
+    // Actualiza el numerito del medio
+    let contadorUI = btn.parentElement.querySelector('.cantidad-prod, .cantidad-prod-promo');
+    if(contadorUI) {
+        contadorUI.innerText = carrito[nombre].cantidad;
+    }
     
     actualizarPantalla();
 }
@@ -52,11 +52,15 @@ function quitarProd(btn) {
     let li = btn.closest('.item-producto');
     let nombre = li.getAttribute('data-nombre');
     
-    // Si está en el carrito y hay más de 0, le resta
     if(carrito[nombre] && carrito[nombre].cantidad > 0) {
         carrito[nombre].cantidad--;
         
-        // Si llegó a 0, lo borra de la memoria para que no moleste
+        // Actualiza el numerito del medio
+        let contadorUI = btn.parentElement.querySelector('.cantidad-prod, .cantidad-prod-promo');
+        if(contadorUI) {
+            contadorUI.innerText = carrito[nombre].cantidad;
+        }
+        
         if(carrito[nombre].cantidad === 0) {
             delete carrito[nombre];
         }
@@ -71,7 +75,6 @@ function actualizarPantalla() {
     let totalItems = 0;
     let totalPrecio = 0;
     
-    // Calcula todo recorriendo el carrito
     for (let nombre in carrito) {
         let item = carrito[nombre];
         let precio = esMayorista ? item.pMay : item.pMin;
@@ -81,15 +84,12 @@ function actualizarPantalla() {
     
     document.getElementById('cantidad-items').innerText = totalItems;
     
-    // Formatear decimales si hacen falta
     let totalFormateado = totalPrecio % 1 !== 0 ? totalPrecio.toFixed(2) : totalPrecio;
     document.getElementById('total-precio').innerText = totalFormateado;
     document.getElementById('total-modal-precio').innerText = totalFormateado;
     
-    // Actualiza el texto que dice "(Minorista)" o "(Mayorista)" en la ventanita
     document.getElementById('modo-pedido-modal').innerText = esMayorista ? "(Precios Mayoristas)" : "(Precios Minoristas)";
     
-    // Dibuja la lista por si la ventanita está abierta
     actualizarListaModal();
 }
 

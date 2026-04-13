@@ -42,7 +42,6 @@ header {
     flex-wrap: wrap; 
 }
 
-/* --- NUEVOS BOTONES MINORISTA/MAYORISTA --- */
 .logo-y-toggle {
     display: flex;
     align-items: center;
@@ -81,7 +80,6 @@ header {
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-/* --- MENÚ DE NAVEGACIÓN --- */
 .menu-navegacion {
     display: flex;
     gap: 15px;
@@ -107,7 +105,6 @@ header {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* --- ESTILOS DEL BUSCADOR --- */
 .search-container {
     display: flex;
     flex-grow: 1; 
@@ -136,7 +133,6 @@ header {
     font-size: 1.2rem;
     transition: transform 0.2s;
 }
-
 .btn-buscar:hover { transform: scale(1.1); }
 
 .resumen-carrito {
@@ -158,19 +154,18 @@ header {
     box-shadow: 0 6px 10px rgba(0,0,0,0.3);
 }
 
-/* --- TÍTULOS Y GRILLA --- */
+/* --- TÍTULOS Y GRILLA EN 4 COLUMNAS --- */
 .titulo-seccion {
     text-align: center;
     color: #1f4981; 
-    margin-top: 60px;
-    margin-bottom: 40px;
+    margin-top: 50px;
+    margin-bottom: 30px;
     font-size: 2.2rem;
     font-weight: 900;
     text-transform: uppercase; 
     letter-spacing: 1px; 
     position: relative; 
     padding-bottom: 15px;
-    border-bottom: none; 
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1); 
 }
 
@@ -187,12 +182,23 @@ header {
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
+.subtitulo-categoria {
+    text-align: left;
+    color: #1f4981;
+    font-size: 1.4rem;
+    margin: 20px auto 15px auto;
+    max-width: 1250px;
+    padding: 0 20px;
+    border-bottom: 2px solid #eaf6fc;
+}
+
+/* Hacemos que entren 4 por fila y la centramos */
 .grilla-productos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px; 
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; 
     padding: 0 20px 40px 20px;
-    max-width: 1100px;
+    max-width: 1250px;
     margin: 0 auto;
 }
 
@@ -210,24 +216,23 @@ header {
 }
 
 .tarjeta:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.15);
 }
 
 .tarjeta h3 {
     background-color: #1f4981; 
     color: white; 
-    font-size: 1.3rem;
-    padding: 15px;
+    font-size: 1.1rem;
+    padding: 12px;
     margin: 0; 
-    border-bottom: none;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
 }
 
 /* --- PROMOS --- */
 .foto-promo {
     width: 100%; 
-    height: 150px; 
+    height: 130px; 
     object-fit: contain; 
     padding: 15px;
     background-color: transparent; 
@@ -238,13 +243,13 @@ header {
 .tarjeta:hover .foto-promo { transform: scale(1.05); }
 
 .lista-productos {
-    padding: 15px 15px 15px 30px;
+    padding: 15px 15px 15px 25px;
     margin: 0;
     flex-grow: 1; 
     text-align: left;
     color: #444;
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 0.85rem;
+    line-height: 1.3;
     font-weight: bold; 
 }
 .lista-productos li { margin-bottom: 5px; }
@@ -252,61 +257,64 @@ header {
 .precio {
     color: #1f4981; 
     font-weight: 900;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     padding: 10px;
     margin-bottom: 10px;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
 
 .botones-cantidad-promo {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
     margin-top: auto;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-top: 1px solid #eee;
 }
 
-.btn-restar-promo {
-    background-color: #dc3545; 
+/* Rediseñamos los botones de combos para que sean como los de productos sueltos */
+.btn-restar-promo, .btn-agregar-promo {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
     color: white;
+    font-weight: bold;
+    font-size: 1.8rem;
     border: none;
-    padding: 12px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2); 
+}
+
+.btn-restar-promo { background-color: #dc3545; }
+.btn-restar-promo:hover { background-color: #c82333; transform: translateY(-2px); }
+.btn-restar-promo:active { transform: translateY(2px); box-shadow: none; } 
+
+.btn-agregar-promo { background-color: #28a745; }
+.btn-agregar-promo:hover { background-color: #218838; transform: translateY(-2px); }
+.btn-agregar-promo:active { transform: translateY(2px); box-shadow: none; } 
+
+.cantidad-prod-promo {
     font-size: 1.5rem;
     font-weight: bold;
-    cursor: pointer;
-    border-radius: 0;
-    transition: all 0.2s;
+    color: #1f4981;
+    width: 30px;
 }
-.btn-restar-promo:hover { background-color: #c82333; }
-.btn-restar-promo:active { background-color: #bd2130; transform: scale(0.95); } 
 
-.tarjeta button.btn-agregar-promo {
-    background-color: #28a745; 
-    color: white; 
-    border: none;
-    border-radius: 0; 
-    padding: 15px;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    cursor: pointer;
-    flex-grow: 1; 
-    transition: all 0.2s;
-    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.1);
-}
-.tarjeta button.btn-agregar-promo:hover { background-color: #218838; }
-.tarjeta button.btn-agregar-promo:active { 
-    background-color: #1e7e34; 
-    transform: scale(0.98); 
-    box-shadow: inset 0 3px 0 rgba(0,0,0,0.2);
-}
 
 /* --- PRODUCTOS SUELTOS --- */
 .lista-precios {
     list-style: none; 
-    padding: 15px;
+    padding: 12px;
     margin: 0;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: 12px; 
+    gap: 10px; 
 }
 
 .lista-precios li {
@@ -314,7 +322,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: white; 
-    padding: 10px 15px;
+    padding: 8px 10px;
     border-radius: 10px;
     border: 1px solid #eaf6fc;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -322,34 +330,43 @@ header {
 }
 
 .lista-precios li:hover {
-    transform: translateX(5px); 
+    transform: translateX(3px); 
     border-color: #1f4981;
 }
 
 .lista-precios span {
     font-weight: bold;
     color: #555;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .precio-chico {
     color: #1f4981 !important; 
-    font-size: 1.2rem !important;
+    font-size: 1.1rem !important;
     font-weight: 900 !important;
 }
 
 .botones-cantidad-chicos {
     display: flex;
-    gap: 6px;
+    align-items: center;
+    gap: 8px;
+}
+
+.cantidad-prod {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #1f4981;
+    width: 20px;
+    text-align: center;
 }
 
 .btn-restar-chico, .btn-agregar-chico {
     color: white;
     border: none;
     border-radius: 8px; 
-    width: 38px;
-    height: 38px;
-    font-size: 1.5rem;
+    width: 32px;
+    height: 32px;
+    font-size: 1.4rem;
     font-weight: bold;
     cursor: pointer;
     display: flex;
@@ -366,6 +383,7 @@ header {
 .btn-agregar-chico { background-color: #28a745; }
 .btn-agregar-chico:hover { background-color: #218838; transform: translateY(-2px); }
 .btn-agregar-chico:active { transform: translateY(2px); box-shadow: none; } 
+
 
 /* --- BARRA NEGRA INFERIOR (WHATSAPP) --- */
 #barra-flotante {
@@ -416,6 +434,7 @@ header {
 }
 #btn-whatsapp:hover { background-color: #1ebc5a; transform: translateY(-2px); }
 #btn-whatsapp:active { transform: translateY(2px); box-shadow: none; }
+
 
 /* --- MODAL (CARRITO) --- */
 .modal-oculto {
@@ -499,89 +518,50 @@ header {
 .btn-whatsapp-modal:hover { background-color: #1ebc5a; transform: translateY(-2px); }
 .btn-whatsapp-modal:active { transform: translateY(2px); box-shadow: none; }
 
-/* --- ADAPTACIÓN PARA CELULARES (DISEÑO RESPONSIVE) --- */
-@media (max-width: 768px) {
-    .top-bar { font-size: 0.8rem; padding: 8px 5px; }
 
+/* --- RESPONSIVE ADAPTATIVO A DISTINTAS PANTALLAS --- */
+@media (max-width: 1150px) {
+    /* En pantallas un poco más chicas pasamos de 4 a 3 tarjetas por fila */
+    .grilla-productos { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 900px) {
+    /* En tablets pasamos a 2 tarjetas por fila */
+    .grilla-productos { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    /* Diseño exclusivo para celulares */
+    .top-bar { font-size: 0.8rem; padding: 8px 5px; }
     header { padding: 10px; }
 
     .header-container {
         display: grid;
         grid-template-columns: 1fr auto; 
-        /* Sacamos el buscador de la estructura */
         grid-template-areas: 
             "logo carrito"
             "menu menu";
         gap: 10px;
     }
 
-    .logo-y-toggle {
-        grid-area: logo;
-        flex-direction: column; 
-        align-items: flex-start;
-        gap: 8px;
-    }
-
+    .logo-y-toggle { grid-area: logo; flex-direction: column; align-items: flex-start; gap: 8px; }
     #logo-principal { max-height: 45px; }
 
     .toggle-tipo-cliente { flex-direction: row; }
     .btn-tipo { padding: 6px 10px; font-size: 0.85rem;}
 
-    .resumen-carrito {
-        grid-area: carrito;
-        position: static; 
-        align-self: flex-start;
-        margin-top: 5px;
-        padding: 6px 12px;
-        font-size: 1rem;
-    }
+    .resumen-carrito { grid-area: carrito; position: static; align-self: flex-start; margin-top: 5px; padding: 6px 12px; font-size: 1rem; }
+    .menu-navegacion { grid-area: menu; width: 100%; justify-content: center; }
 
-    .menu-navegacion {
-        grid-area: menu;
-        width: 100%;
-        justify-content: center;
-    }
-
-    /* 1. OCULTAMOS EL BUSCADOR EN EL CELULAR */
-    .search-container {
-        display: none !important;
-    }
+    .search-container { display: none !important; }
 
     .titulo-seccion { font-size: 1.6rem; margin-top: 30px; margin-bottom: 25px; }
+    .subtitulo-categoria { font-size: 1.2rem; margin-top: 20px; }
     .grilla-productos { grid-template-columns: 1fr; gap: 15px; padding: 0 15px 30px 15px; }
 
-    /* 2. ACHICAMOS LA BARRA INFERIOR AL MÁXIMO */
-    #barra-flotante { 
-        flex-direction: column; 
-        gap: 5px; 
-        padding: 6px 10px; /* Mucho menos relleno */
-    }
-    
-    /* Ponemos el Total y el botón "Ver pedido" en la misma línea */
-    .footer-izq { 
-        flex-direction: row; 
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        gap: 10px; 
-    }
-
-    /* Achicamos la letra del total */
-    #barra-flotante p {
-        font-size: 0.95rem;
-        margin: 0;
-    }
-
-    /* Achicamos los botones para que no ocupen media pantalla */
-    #btn-ver-pedido { 
-        width: auto; 
-        font-size: 0.85rem; 
-        padding: 6px 12px; 
-    }
-
-    #btn-whatsapp { 
-        width: 100%; 
-        font-size: 0.95rem; 
-        padding: 10px; 
-    }
+    #barra-flotante { flex-direction: column; gap: 5px; padding: 6px 10px; }
+    .footer-izq { flex-direction: row; justify-content: space-between; align-items: center; width: 100%; gap: 10px; }
+    #barra-flotante p { font-size: 0.95rem; margin: 0; }
+    #btn-ver-pedido { width: auto; font-size: 0.85rem; padding: 6px 12px; }
+    #btn-whatsapp { width: 100%; font-size: 0.95rem; padding: 10px; }
 }
