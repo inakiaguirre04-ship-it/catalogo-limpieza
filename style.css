@@ -1,5 +1,5 @@
 /* --- FUENTE MODERNA DE GOOGLE FONTS --- */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
 
 * {
     margin: 0;
@@ -13,7 +13,7 @@
 body {
     background-color: #f9f4ed; 
     padding-bottom: 80px; 
-    color: #355c8a;
+    color: #4a5568; /* Gris oscuro para el texto general en vez de azul */
 }
 
 /* --- ENCABEZADOS --- */
@@ -67,9 +67,9 @@ header {
 }
 
 .btn-tipo.activo {
-    background: #e3b04b; /* Amarillo tostado elegante */
-    color: #fff;
-    font-weight: 800;
+    background: #e3b04b; 
+    color: #1a202c; /* Texto oscuro para contraste */
+    font-weight: 900;
 }
 
 .search-container {
@@ -99,12 +99,12 @@ header {
 
 .resumen-carrito {
     font-size: 1.1rem;
-    font-weight: 800;
+    font-weight: 900;
     display: flex;
     align-items: center;
     gap: 5px;
     background-color: #e3b04b;
-    color: white;
+    color: #1a202c; /* Texto oscuro para que se lea mejor */
     padding: 10px 15px;
     border-radius: 8px; 
     transition: transform 0.2s;
@@ -114,11 +114,11 @@ header {
 
 .top-bar {
     background-color: transparent;
-    color: #355c8a; 
+    color: #6c757d; /* Gris para que no compita con los títulos */
     text-align: left;
     padding: 15px 20px;
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 700;
     max-width: 1300px;
     margin: 0 auto;
 }
@@ -132,14 +132,14 @@ header {
     padding: 0 20px 40px 20px;
 }
 
-/* --- BARRA LATERAL DE FILTROS REDISEÑADA --- */
+/* --- BARRA LATERAL DE FILTROS --- */
 .sidebar-filtros {
     width: 260px;
     flex-shrink: 0;
 }
 
 .sidebar-filtros h3 {
-    color: #355c8a;
+    color: #1a365d; /* Azul mucho más oscuro e imponente */
     font-size: 1.6rem;
     font-weight: 900;
     margin-bottom: 20px;
@@ -167,10 +167,10 @@ header {
 .btn-filtro {
     background: transparent;
     border: none;
-    color: #557599;
+    color: #4a5568; /* Gris oscuro para el menú */
     text-align: left;
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     padding: 10px 15px; 
     border-radius: 8px; 
@@ -180,7 +180,7 @@ header {
 
 .btn-filtro:hover {
     background-color: rgba(53, 92, 138, 0.05); 
-    color: #355c8a;
+    color: #1a365d;
     transform: translateX(5px); 
 }
 
@@ -202,11 +202,11 @@ header {
 }
 
 .titulo-seccion {
-    color: #355c8a; 
-    font-size: 2rem;
+    color: #1a365d; /* Títulos de sección en azul noche para destacar */
+    font-size: 2.2rem;
     margin-bottom: 20px;
     text-transform: uppercase;
-    font-weight: 800;
+    font-weight: 900;
 }
 
 /* --- GRILLA Y TARJETAS MINIMALISTAS --- */
@@ -225,10 +225,10 @@ header {
 }
 
 .tarjeta h3 {
-    color: #355c8a; 
-    font-size: 1.1rem;
-    padding: 10px 0;
-    font-weight: 800;
+    color: #1a365d; /* Nombre del producto súper oscuro y contrastante */
+    font-size: 1.2rem;
+    padding: 15px 0 10px 0;
+    font-weight: 900;
     text-transform: uppercase;
 }
 
@@ -253,16 +253,16 @@ header {
     margin-bottom: 15px;
     text-align: center;
     list-style: none;
-    color: #666;
-    font-size: 0.9rem;
+    color: #6c757d; /* Letra de las listas en gris */
+    font-size: 0.95rem;
     font-weight: 600;
 }
-.lista-productos li { margin-bottom: 2px; }
+.lista-productos li { margin-bottom: 4px; }
 
 .precio {
-    color: #355c8a; 
+    color: #1a202c; /* Precio de promos en un color casi negro y más grande */
     font-weight: 900;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin-bottom: 15px;
 }
 
@@ -300,15 +300,18 @@ header {
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-.lista-precios span {
-    color: #355c8a;
+/* El texto de "1 Litro", "5 Litros", etc. */
+.lista-precios span:first-child {
+    color: #718096; /* Gris medio para que pase a segundo plano */
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
+/* EL PRECIO */
 .precio-chico {
+    color: #1a202c !important; /* Casi negro para que resalte muchísimo */
     font-weight: 900 !important; 
-    font-size: 1.1rem !important;
+    font-size: 1.25rem !important; /* Lo hacemos más grandecito */
 }
 
 /* Botones de + y - */
@@ -320,7 +323,7 @@ header {
 
 .cantidad-prod, .cantidad-prod-promo {
     font-weight: 900;
-    color: #355c8a;
+    color: #1a365d; /* Azul oscuro para los números del contador */
     width: 20px;
     text-align: center;
     font-size: 1.1rem;
@@ -357,7 +360,7 @@ header {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #2c5282;
+    background-color: #1a365d; /* Barra inferior en azul noche */
     color: white;
     padding: 15px 25px;
     display: flex;
@@ -372,10 +375,10 @@ header {
 
 #btn-ver-pedido {
     background-color: white;
-    color: #355c8a;
+    color: #1a365d;
     border: none;
     padding: 10px 18px;
-    font-weight: 800;
+    font-weight: 900;
     font-size: 1rem;
     border-radius: 8px;
     cursor: pointer;
@@ -388,7 +391,7 @@ header {
     color: white;
     border: none;
     padding: 12px 25px;
-    font-weight: 800;
+    font-weight: 900;
     font-size: 1.1rem;
     border-radius: 8px;
     cursor: pointer;
@@ -399,13 +402,13 @@ header {
 /* --- MODAL (CARRITO) --- */
 .modal-oculto { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(3px); justify-content: center; align-items: center; }
 .modal-contenido { background-color: #f9f4ed; padding: 30px; width: 90%; max-width: 420px; border-radius: 12px; position: relative; max-height: 80vh; overflow-y: auto; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-.modal-contenido h2 { color: #355c8a; border-bottom: 2px solid #e1d8cd; padding-bottom: 10px; margin-bottom: 20px; font-weight: 900;}
-.cerrar-modal { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #355c8a; transition: color 0.2s;}
+.modal-contenido h2 { color: #1a365d; border-bottom: 2px solid #e1d8cd; padding-bottom: 10px; margin-bottom: 20px; font-weight: 900;}
+.cerrar-modal { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #1a365d; transition: color 0.2s;}
 .cerrar-modal:hover { color: #e06c6c; }
 #lista-pedido-modal { list-style: none; margin-bottom: 20px; }
-#lista-pedido-modal li { display: flex; justify-content: space-between; border-bottom: 1px solid #e1d8cd; padding: 12px 0; color: #333; font-weight: 600;}
-.total-modal { font-size: 1.6rem; font-weight: 900; text-align: right; color: #355c8a; margin-bottom: 20px; }
-.btn-whatsapp-modal { width: 100%; background-color: #25d366; color: white; border: none; padding: 15px; border-radius: 8px; font-size: 1.2rem; font-weight: 800; cursor: pointer; transition: background-color 0.2s;}
+#lista-pedido-modal li { display: flex; justify-content: space-between; border-bottom: 1px solid #e1d8cd; padding: 12px 0; color: #4a5568; font-weight: 700;}
+.total-modal { font-size: 1.6rem; font-weight: 900; text-align: right; color: #1a365d; margin-bottom: 20px; }
+.btn-whatsapp-modal { width: 100%; background-color: #25d366; color: white; border: none; padding: 15px; border-radius: 8px; font-size: 1.2rem; font-weight: 900; cursor: pointer; transition: background-color 0.2s;}
 .btn-whatsapp-modal:hover { background-color: #1ebc5a; }
 
 /* --- RESPONSIVE (PANTALLAS CHICAS Y CELULARES) --- */
@@ -416,7 +419,7 @@ header {
 @media (max-width: 900px) {
     .layout-tienda { flex-direction: column; }
     .sidebar-filtros { width: 100%; margin-bottom: 20px; }
-    .sidebar-filtros h3 { display: none; } /* Ocultamos el título "Categorías" en tablet/celular */
+    .sidebar-filtros h3 { display: none; } 
     .lista-categorias { flex-direction: row; overflow-x: auto; white-space: nowrap; padding-bottom: 10px; }
     .btn-filtro { width: auto; padding: 8px 15px; background: white; border-radius: 20px; border: 1px solid #e1d8cd; text-align: center; font-size: 1rem;}
     .btn-filtro.activo { border-left: 1px solid #e3b04b; border: 2px solid #e3b04b; border-radius: 20px; background-color: white;}
