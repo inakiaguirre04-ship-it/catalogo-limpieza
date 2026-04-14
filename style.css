@@ -502,3 +502,38 @@ header {
     /* Ocultamos "Pedir por WhatsApp" en la barra inferior del celular */
     #btn-whatsapp { display: none !important; }
 }
+
+/* --- ESTILOS PARA EL MENOS DENTRO DEL MODAL --- */
+.item-modal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e1d8cd;
+    padding: 10px 0;
+}
+
+.info-item-modal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-quitar-modal {
+    background-color: #e06c6c;
+    color: white;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.btn-quitar-modal:hover {
+    background-color: #d15b5b;
+}
