@@ -1,8 +1,11 @@
+/* --- FUENTE MODERNA DE GOOGLE FONTS --- */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Nunito', sans-serif; 
     scroll-behavior: smooth; 
 }
 
@@ -48,7 +51,7 @@ header {
 .toggle-tipo-cliente {
     display: flex;
     background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+    border-radius: 8px;
     overflow: hidden;
 }
 
@@ -57,15 +60,16 @@ header {
     color: #d1e0f0;
     border: none;
     padding: 8px 15px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     cursor: pointer;
     transition: all 0.3s;
+    font-weight: 600;
 }
 
 .btn-tipo.activo {
     background: #e3b04b; /* Amarillo tostado elegante */
     color: #fff;
-    font-weight: bold;
+    font-weight: 800;
 }
 
 .search-container {
@@ -73,7 +77,7 @@ header {
     flex-grow: 1; 
     max-width: 400px;
     background: white;
-    border-radius: 5px; 
+    border-radius: 8px; 
     overflow: hidden;
 }
 
@@ -82,7 +86,7 @@ header {
     padding: 10px 15px;
     border: none;
     outline: none;
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #333;
 }
 
@@ -95,14 +99,14 @@ header {
 
 .resumen-carrito {
     font-size: 1.1rem;
-    font-weight: bold;
+    font-weight: 800;
     display: flex;
     align-items: center;
     gap: 5px;
     background-color: #e3b04b;
     color: white;
     padding: 10px 15px;
-    border-radius: 5px; 
+    border-radius: 8px; 
     transition: transform 0.2s;
 }
 
@@ -113,7 +117,8 @@ header {
     color: #355c8a; 
     text-align: left;
     padding: 15px 20px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    font-weight: 600;
     max-width: 1300px;
     margin: 0 auto;
 }
@@ -127,17 +132,18 @@ header {
     padding: 0 20px 40px 20px;
 }
 
-/* BARRA LATERAL */
+/* --- BARRA LATERAL DE FILTROS REDISEÑADA --- */
 .sidebar-filtros {
-    width: 250px;
+    width: 260px;
     flex-shrink: 0;
 }
 
 .sidebar-filtros h3 {
     color: #355c8a;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+    font-weight: 900;
     margin-bottom: 20px;
-    border-bottom: 2px solid #e1d8cd;
+    border-bottom: 3px solid #e3b04b; 
     padding-bottom: 10px;
 }
 
@@ -149,10 +155,12 @@ header {
 }
 
 .subtitulo-filtro {
-    color: #8c7e6c;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-size: 0.9rem;
+    color: #a39581;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    font-weight: 900;
+    letter-spacing: 1.5px; 
     text-transform: uppercase;
 }
 
@@ -161,19 +169,30 @@ header {
     border: none;
     color: #557599;
     text-align: left;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
-    padding: 5px 0;
-    transition: color 0.2s;
+    padding: 10px 15px; 
+    border-radius: 8px; 
+    transition: all 0.2s ease;
     width: 100%;
 }
 
-.btn-filtro:hover, .btn-filtro.activo {
-    color: #e3b04b;
-    font-weight: bold;
+.btn-filtro:hover {
+    background-color: rgba(53, 92, 138, 0.05); 
+    color: #355c8a;
+    transform: translateX(5px); 
 }
 
-/* ÁREA DE PRODUCTOS */
+.btn-filtro.activo {
+    color: #e3b04b;
+    font-weight: 900;
+    background-color: rgba(227, 176, 75, 0.1); 
+    border-left: 4px solid #e3b04b; 
+    border-radius: 4px 8px 8px 4px;
+}
+
+/* --- ÁREA DE PRODUCTOS --- */
 .contenido-productos {
     flex-grow: 1;
 }
@@ -184,16 +203,16 @@ header {
 
 .titulo-seccion {
     color: #355c8a; 
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 20px;
     text-transform: uppercase;
-    font-weight: normal;
+    font-weight: 800;
 }
 
 /* --- GRILLA Y TARJETAS MINIMALISTAS --- */
 .grilla-productos {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 por fila queda mejor con la barra lateral */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 20px; 
 }
 
@@ -207,9 +226,9 @@ header {
 
 .tarjeta h3 {
     color: #355c8a; 
-    font-size: 1rem;
+    font-size: 1.1rem;
     padding: 10px 0;
-    font-weight: bold;
+    font-weight: 800;
     text-transform: uppercase;
 }
 
@@ -217,10 +236,16 @@ header {
 .foto-promo {
     width: 100%; 
     height: 180px; 
-    object-fit: cover; /* Estilo foto cuadrada Mates */
+    object-fit: cover; 
     background-color: white; 
     transition: transform 0.3s ease;
     margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.tarjeta:hover .foto-promo {
+    transform: scale(1.02);
 }
 
 .lista-productos {
@@ -229,14 +254,15 @@ header {
     text-align: center;
     list-style: none;
     color: #666;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 .lista-productos li { margin-bottom: 2px; }
 
 .precio {
     color: #355c8a; 
-    font-weight: bold;
-    font-size: 1.4rem;
+    font-weight: 900;
+    font-size: 1.6rem;
     margin-bottom: 15px;
 }
 
@@ -248,7 +274,7 @@ header {
     margin-top: auto;
 }
 
-/* --- Renglones de Productos Sueltos --- */
+/* --- RENGLONES DE PRODUCTOS SUELTOS --- */
 .lista-precios {
     list-style: none; 
     margin: 0;
@@ -263,18 +289,26 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: white; 
-    padding: 10px;
-    border: 1px solid #e1d8cd; /* Borde suavecito */
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #e1d8cd; 
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.lista-precios li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 .lista-precios span {
     color: #355c8a;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
 .precio-chico {
-    font-weight: bold !important; 
-    font-size: 1rem !important;
+    font-weight: 900 !important; 
+    font-size: 1.1rem !important;
 }
 
 /* Botones de + y - */
@@ -285,26 +319,37 @@ header {
 }
 
 .cantidad-prod, .cantidad-prod-promo {
-    font-weight: bold;
+    font-weight: 900;
     color: #355c8a;
     width: 20px;
     text-align: center;
+    font-size: 1.1rem;
 }
 
 .btn-restar-chico, .btn-agregar-chico, .btn-restar-promo, .btn-agregar-promo {
     color: white;
     border: none;
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     font-size: 1.2rem;
+    font-weight: bold;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 6px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-restar-chico:active, .btn-agregar-chico:active, .btn-restar-promo:active, .btn-agregar-promo:active {
+    transform: scale(0.9);
 }
 
 .btn-restar-chico, .btn-restar-promo { background-color: #e06c6c; }
+.btn-restar-chico:hover, .btn-restar-promo:hover { background-color: #d15b5b; }
+
 .btn-agregar-chico, .btn-agregar-promo { background-color: #355c8a; }
+.btn-agregar-chico:hover, .btn-agregar-promo:hover { background-color: #2a4a6f; }
 
 /* --- BARRA FLOTANTE (WHATSAPP) --- */
 #barra-flotante {
@@ -318,8 +363,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     z-index: 1000;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.15);
 }
 
 .footer-izq { display: flex; align-items: center; gap: 20px; }
@@ -328,46 +374,69 @@ header {
     background-color: white;
     color: #355c8a;
     border: none;
-    padding: 8px 15px;
-    font-weight: bold;
+    padding: 10px 18px;
+    font-weight: 800;
+    font-size: 1rem;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
+#btn-ver-pedido:hover { background-color: #f0f0f0; }
 
 #btn-whatsapp {
     background-color: #25d366; 
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-weight: bold;
-    font-size: 1rem;
+    padding: 12px 25px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
+#btn-whatsapp:hover { background-color: #1ebc5a; }
 
 /* --- MODAL (CARRITO) --- */
-.modal-oculto { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); justify-content: center; align-items: center; }
-.modal-contenido { background-color: #f9f4ed; padding: 30px; width: 90%; max-width: 400px; position: relative; max-height: 80vh; overflow-y: auto; }
-.modal-contenido h2 { color: #355c8a; border-bottom: 1px solid #e1d8cd; padding-bottom: 10px; margin-bottom: 20px; }
-.cerrar-modal { position: absolute; top: 10px; right: 15px; font-size: 25px; cursor: pointer; color: #355c8a; }
+.modal-oculto { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(3px); justify-content: center; align-items: center; }
+.modal-contenido { background-color: #f9f4ed; padding: 30px; width: 90%; max-width: 420px; border-radius: 12px; position: relative; max-height: 80vh; overflow-y: auto; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+.modal-contenido h2 { color: #355c8a; border-bottom: 2px solid #e1d8cd; padding-bottom: 10px; margin-bottom: 20px; font-weight: 900;}
+.cerrar-modal { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #355c8a; transition: color 0.2s;}
+.cerrar-modal:hover { color: #e06c6c; }
 #lista-pedido-modal { list-style: none; margin-bottom: 20px; }
-#lista-pedido-modal li { display: flex; justify-content: space-between; border-bottom: 1px solid #e1d8cd; padding: 10px 0; color: #333;}
-.total-modal { font-size: 1.4rem; font-weight: bold; text-align: right; color: #355c8a; margin-bottom: 20px; }
-.btn-whatsapp-modal { width: 100%; background-color: #25d366; color: white; border: none; padding: 15px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+#lista-pedido-modal li { display: flex; justify-content: space-between; border-bottom: 1px solid #e1d8cd; padding: 12px 0; color: #333; font-weight: 600;}
+.total-modal { font-size: 1.6rem; font-weight: 900; text-align: right; color: #355c8a; margin-bottom: 20px; }
+.btn-whatsapp-modal { width: 100%; background-color: #25d366; color: white; border: none; padding: 15px; border-radius: 8px; font-size: 1.2rem; font-weight: 800; cursor: pointer; transition: background-color 0.2s;}
+.btn-whatsapp-modal:hover { background-color: #1ebc5a; }
 
-/* --- RESPONSIVE (CELULARES) --- */
-@media (max-width: 900px) {
-    .layout-tienda { flex-direction: column; }
-    .sidebar-filtros { width: 100%; margin-bottom: 20px; }
-    .lista-categorias { flex-direction: row; overflow-x: auto; white-space: nowrap; padding-bottom: 10px; }
-    .btn-filtro { width: auto; padding: 5px 15px; background: white; border-radius: 20px; border: 1px solid #e1d8cd; }
-    .subtitulo-filtro { display: none; }
+/* --- RESPONSIVE (PANTALLAS CHICAS Y CELULARES) --- */
+@media (max-width: 1024px) {
     .grilla-productos { grid-template-columns: repeat(2, 1fr); }
 }
 
+@media (max-width: 900px) {
+    .layout-tienda { flex-direction: column; }
+    .sidebar-filtros { width: 100%; margin-bottom: 20px; }
+    .sidebar-filtros h3 { display: none; } /* Ocultamos el título "Categorías" en tablet/celular */
+    .lista-categorias { flex-direction: row; overflow-x: auto; white-space: nowrap; padding-bottom: 10px; }
+    .btn-filtro { width: auto; padding: 8px 15px; background: white; border-radius: 20px; border: 1px solid #e1d8cd; text-align: center; font-size: 1rem;}
+    .btn-filtro.activo { border-left: 1px solid #e3b04b; border: 2px solid #e3b04b; border-radius: 20px; background-color: white;}
+    .subtitulo-filtro { display: none; }
+}
+
 @media (max-width: 600px) {
-    .header-container { flex-direction: column; gap: 10px; }
+    header { padding: 10px; }
+    .header-container { flex-direction: column; gap: 12px; align-items: flex-start; }
+    .logo-y-toggle { width: 100%; justify-content: space-between; }
+    #logo-principal { max-height: 45px; }
+    
     .search-container { display: none !important; }
-    .grilla-productos { grid-template-columns: 1fr; }
-    #barra-flotante { flex-direction: column; gap: 10px; padding: 10px; }
+    .resumen-carrito { position: absolute; top: 15px; right: 15px; font-size: 1rem; padding: 6px 10px;}
+    
+    .grilla-productos { grid-template-columns: 1fr; gap: 15px;}
+    .titulo-seccion { font-size: 1.5rem; text-align: center;}
+    
+    #barra-flotante { flex-direction: column; gap: 10px; padding: 12px; }
     .footer-izq { justify-content: space-between; width: 100%; }
+    #btn-ver-pedido { font-size: 0.9rem; padding: 8px 12px; }
     #btn-whatsapp { width: 100%; }
 }
