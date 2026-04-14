@@ -9,16 +9,15 @@
     scroll-behavior: smooth; 
 }
 
-/* Fondo color crema suave estilo TiendaNube */
 body {
     background-color: #f9f4ed; 
     padding-bottom: 80px; 
-    color: #4a5568; /* Gris oscuro para el texto general en vez de azul */
+    color: #4a5568; 
 }
 
 /* --- ENCABEZADOS --- */
 header {
-    background-color: #355c8a; /* Azul elegante */
+    background-color: #355c8a; 
     color: white;
     padding: 15px 20px;
     position: sticky;
@@ -47,7 +46,6 @@ header {
     max-height: 60px; 
 }
 
-/* Botones Minorista/Mayorista arriba */
 .toggle-tipo-cliente {
     display: flex;
     background-color: rgba(0, 0, 0, 0.2);
@@ -68,7 +66,7 @@ header {
 
 .btn-tipo.activo {
     background: #e3b04b; 
-    color: #1a202c; /* Texto oscuro para contraste */
+    color: #1a202c; 
     font-weight: 900;
 }
 
@@ -97,24 +95,10 @@ header {
     cursor: pointer;
 }
 
-.resumen-carrito {
-    font-size: 1.1rem;
-    font-weight: 900;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    background-color: #e3b04b;
-    color: #1a202c; /* Texto oscuro para que se lea mejor */
-    padding: 10px 15px;
-    border-radius: 8px; 
-    transition: transform 0.2s;
-}
-
-.resumen-carrito:hover { transform: translateY(-2px); }
-
+/* --- BARRA "INICIO / PRODUCTOS" --- */
 .top-bar {
     background-color: transparent;
-    color: #6c757d; /* Gris para que no compita con los títulos */
+    color: #6c757d; 
     text-align: left;
     padding: 15px 20px;
     font-size: 0.95rem;
@@ -123,7 +107,18 @@ header {
     margin: 0 auto;
 }
 
-/* --- ESTRUCTURA PRINCIPAL (MENÚ LATERAL + PRODUCTOS) --- */
+.btn-inicio {
+    cursor: pointer;
+    color: #1a365d;
+    font-weight: 900;
+    transition: color 0.2s;
+}
+
+.btn-inicio:hover {
+    color: #e3b04b;
+}
+
+/* --- ESTRUCTURA PRINCIPAL --- */
 .layout-tienda {
     display: flex;
     gap: 30px;
@@ -139,7 +134,7 @@ header {
 }
 
 .sidebar-filtros h3 {
-    color: #1a365d; /* Azul mucho más oscuro e imponente */
+    color: #1a365d; 
     font-size: 1.6rem;
     font-weight: 900;
     margin-bottom: 20px;
@@ -167,7 +162,7 @@ header {
 .btn-filtro {
     background: transparent;
     border: none;
-    color: #4a5568; /* Gris oscuro para el menú */
+    color: #4a5568; 
     text-align: left;
     font-size: 1.1rem;
     font-weight: 700;
@@ -201,15 +196,30 @@ header {
     margin-bottom: 40px;
 }
 
+/* --- TITULOS DE CATEGORÍA CON SUBRAYADO --- */
 .titulo-seccion {
-    color: #1a365d; /* Títulos de sección en azul noche para destacar */
+    color: #1a365d; 
     font-size: 2.2rem;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     text-transform: uppercase;
     font-weight: 900;
+    text-align: left; /* Alineado a la izquierda */
+    position: relative; 
+    padding-bottom: 10px;
 }
 
-/* --- GRILLA Y TARJETAS MINIMALISTAS --- */
+.titulo-seccion::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0; /* Anclado a la izquierda */
+    width: 60px; /* Línea cortita elegante */
+    height: 4px;
+    background-color: #e3b04b; 
+    border-radius: 5px;
+}
+
+/* --- GRILLA Y TARJETAS --- */
 .grilla-productos {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
@@ -225,14 +235,13 @@ header {
 }
 
 .tarjeta h3 {
-    color: #1a365d; /* Nombre del producto súper oscuro y contrastante */
-    font-size: 1.2rem;
-    padding: 15px 0 10px 0;
+    color: #1a365d; 
+    font-size: 0.95rem; /* Letra de tarjetas achicada */
+    padding: 10px 5px;
     font-weight: 900;
     text-transform: uppercase;
 }
 
-/* Fotos de combos */
 .foto-promo {
     width: 100%; 
     height: 180px; 
@@ -253,14 +262,14 @@ header {
     margin-bottom: 15px;
     text-align: center;
     list-style: none;
-    color: #6c757d; /* Letra de las listas en gris */
+    color: #6c757d; 
     font-size: 0.95rem;
     font-weight: 600;
 }
 .lista-productos li { margin-bottom: 4px; }
 
 .precio {
-    color: #1a202c; /* Precio de promos en un color casi negro y más grande */
+    color: #1a202c; 
     font-weight: 900;
     font-size: 1.8rem;
     margin-bottom: 15px;
@@ -300,21 +309,18 @@ header {
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-/* El texto de "1 Litro", "5 Litros", etc. */
 .lista-precios span:first-child {
-    color: #718096; /* Gris medio para que pase a segundo plano */
+    color: #718096; 
     font-size: 0.95rem;
     font-weight: 700;
 }
 
-/* EL PRECIO */
 .precio-chico {
-    color: #1a202c !important; /* Casi negro para que resalte muchísimo */
+    color: #1a202c !important; 
     font-weight: 900 !important; 
-    font-size: 1.25rem !important; /* Lo hacemos más grandecito */
+    font-size: 1.25rem !important; 
 }
 
-/* Botones de + y - */
 .botones-cantidad-chicos {
     display: flex;
     align-items: center;
@@ -323,7 +329,7 @@ header {
 
 .cantidad-prod, .cantidad-prod-promo {
     font-weight: 900;
-    color: #1a365d; /* Azul oscuro para los números del contador */
+    color: #1a365d; 
     width: 20px;
     text-align: center;
     font-size: 1.1rem;
@@ -360,7 +366,7 @@ header {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #1a365d; /* Barra inferior en azul noche */
+    background-color: #1a365d; 
     color: white;
     padding: 15px 25px;
     display: flex;
@@ -411,7 +417,7 @@ header {
 .btn-whatsapp-modal { width: 100%; background-color: #25d366; color: white; border: none; padding: 15px; border-radius: 8px; font-size: 1.2rem; font-weight: 900; cursor: pointer; transition: background-color 0.2s;}
 .btn-whatsapp-modal:hover { background-color: #1ebc5a; }
 
-/* --- RESPONSIVE (PANTALLAS CHICAS Y CELULARES) --- */
+/* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
     .grilla-productos { grid-template-columns: repeat(2, 1fr); }
 }
@@ -428,15 +434,14 @@ header {
 
 @media (max-width: 600px) {
     header { padding: 10px; }
-    .header-container { flex-direction: column; gap: 12px; align-items: flex-start; }
-    .logo-y-toggle { width: 100%; justify-content: space-between; }
+    .header-container { flex-direction: column; gap: 12px; align-items: center; }
+    .logo-y-toggle { width: 100%; flex-direction: column; align-items: center; gap: 10px;}
     #logo-principal { max-height: 45px; }
     
     .search-container { display: none !important; }
-    .resumen-carrito { position: absolute; top: 15px; right: 15px; font-size: 1rem; padding: 6px 10px;}
     
     .grilla-productos { grid-template-columns: 1fr; gap: 15px;}
-    .titulo-seccion { font-size: 1.5rem; text-align: center;}
+    .titulo-seccion { font-size: 1.6rem; text-align: left; }
     
     #barra-flotante { flex-direction: column; gap: 10px; padding: 12px; }
     .footer-izq { justify-content: space-between; width: 100%; }

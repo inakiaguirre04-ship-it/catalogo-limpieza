@@ -1,14 +1,24 @@
 let carrito = {}; 
 let esMayorista = false;
 
+// --- FUNCIÓN PARA EL BOTÓN "INICIO" ---
+function mostrarTodo() {
+    let secciones = document.querySelectorAll('.seccion-categoria');
+    secciones.forEach(sec => sec.style.display = "block");
+    
+    let botones = document.querySelectorAll('.btn-filtro');
+    botones.forEach(b => b.classList.remove('activo'));
+    if(botones.length > 0) botones[0].classList.add('activo');
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 // --- FILTRO DE CATEGORÍAS (MENÚ LATERAL) ---
 function filtrarCategoria(idCategoria, btnPulsado) {
-    // Cambia el color del botón pulsado
     let botones = document.querySelectorAll('.btn-filtro');
     botones.forEach(b => b.classList.remove('activo'));
     btnPulsado.classList.add('activo');
 
-    // Oculta/Muestra las secciones
     let secciones = document.querySelectorAll('.seccion-categoria');
     secciones.forEach(sec => {
         if (idCategoria === 'todas') {
@@ -86,7 +96,10 @@ function actualizarPantalla() {
         totalPrecio += precio * item.cantidad;
     }
     
-    document.getElementById('cantidad-items').innerText = totalItems;
+    // Si sacaste el carrito de arriba, esta línea ya no hace nada pero no afecta al código
+    let carritoArriba = document.getElementById('cantidad-items');
+    if (carritoArriba) carritoArriba.innerText = totalItems;
+
     let totalFormateado = totalPrecio % 1 !== 0 ? totalPrecio.toFixed(2) : totalPrecio;
     document.getElementById('total-precio').innerText = totalFormateado;
     document.getElementById('total-modal-precio').innerText = totalFormateado;

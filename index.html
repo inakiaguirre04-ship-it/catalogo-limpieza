@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Don Limpio - Distribuidora</title>
-    <link rel="stylesheet" href="style.css?v=4.0">
+    <link rel="stylesheet" href="style.css?v=6.0">
 </head>
 <body>
 
@@ -22,14 +22,12 @@
                 <input type="text" id="buscador" placeholder="¿Qué estás buscando? (Ej: Cera, Hogar...)" onkeyup="filtrarPromos()">
                 <button class="btn-buscar">🔍</button>
             </div>
-
-            <div class="resumen-carrito" onclick="abrirCarrito()" style="cursor:pointer;">
-                🛒 <span id="cantidad-items">0</span>
             </div>
-        </div>
     </header>
 
     <div class="top-bar">
+        <span onclick="mostrarTodo()" class="btn-inicio">Inicio</span> <span style="color: #6c757d;">/ Productos</span>
+    </div>
         <span>Inicio / Productos</span>
     </div>
 
@@ -663,6 +661,6 @@
         </div>
     </div>
 
-    <script src="script.js?v=5.0"></script>
+    <script src="script.js?v=6.0"></script>
 </body>
 </html>
