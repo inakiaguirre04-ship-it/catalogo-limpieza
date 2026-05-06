@@ -128,9 +128,29 @@ function enviarWhatsApp() {
 
 function filtrarPromos() {
     let input = document.getElementById('buscador').value.toLowerCase();
-    let promos = document.getElementsByClassName('promo-item');
-    for (let i = 0; i < promos.length; i++) {
-        let nombrePromo = promos[i].getAttribute('data-nombre').toLowerCase();
-        promos[i].style.display = nombrePromo.includes(input) ? "flex" : "none";
-    }
+    let secciones = document.querySelectorAll('.seccion-categoria');
+
+    secciones.forEach(sec => {
+        let productos = sec.querySelectorAll('.promo-item');
+        let seccionVisible = false; // Variable para saber si quedó algo visible en esta sección
+
+        productos.forEach(prod => {
+            let nombreProd = prod.getAttribute('data-nombre').toLowerCase();
+            // Si el nombre incluye lo que busco, lo muestro y marco la sección como visible
+            if (nombreProd.includes(input)) {
+                prod.style.display = "flex";
+                seccionVisible = true;
+            } else {
+                prod.style.display = "none";
+            }
+        });
+
+        // Si la sección tiene al menos un producto que coincide, mostramos todo el bloque (con su título)
+        // Si no tiene ninguno, ocultamos la sección entera para que no moleste
+        if (seccionVisible) {
+            sec.style.display = "block";
+        } else {
+            sec.style.display = "none";
+        }
+    });
 }
