@@ -438,11 +438,15 @@ header {
 
 @media (max-width: 600px) {
     header { padding: 10px; }
-    .header-container { flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 10px; }
-    .logo-y-toggle { width: 100%; flex-direction: row; justify-content: space-between; align-items: center; gap: 5px; }
-    #logo-principal { max-height: 40px; }
+    /* Ponemos las cosas en columna: Logo arriba, buscador abajo */
+    .header-container { flex-direction: column; align-items: stretch; gap: 12px; }
     
-    .search-container { display: none !important; }
+    .logo-y-toggle { justify-content: center; width: 100%; }
+    #logo-principal { max-height: 55px; }
+    
+    /* VOLVEMOS A MOSTRAR EL BUSCADOR */
+    .search-container { display: flex !important; width: 100%; }
+    .search-container input { padding: 8px 12px; font-size: 0.95rem; }
     
     .grilla-productos { grid-template-columns: 1fr; gap: 15px;}
     .titulo-seccion { font-size: 1.5rem; text-align: left; }
