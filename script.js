@@ -1,6 +1,4 @@
 let carrito = {}; 
-let esMayorista = false;
-const MINIMO_MAYORISTA = 100000;
 
 function mostrarTodo() {
     let secciones = document.querySelectorAll('.seccion-categoria');
@@ -21,25 +19,6 @@ function filtrarCategoria(idCategoria, btnPulsado) {
     });
 }
 
-function setModo(modo) {
-    esMayorista = (modo === 'mayorista');
-    document.getElementById('btn-minorista').classList.toggle('activo', !esMayorista);
-    document.getElementById('btn-mayorista').classList.toggle('activo', esMayorista);
-    
-    let items = document.querySelectorAll('.item-producto');
-    items.forEach(item => {
-        let precioDisplay = item.querySelector('.precio-display');
-        if(precioDisplay) {
-            let pMin = parseFloat(item.getAttribute('data-precio-min'));
-            let pMay = parseFloat(item.getAttribute('data-precio-may'));
-            let precioActual = esMayorista ? pMay : pMin;
-            precioDisplay.innerText = '$' + (precioActual % 1 !== 0 ? precioActual.toFixed(2) : precioActual);
-        }
-    });
-    actualizarPantalla();
-}
-
-// Función genérica para actualizar el contador visual en la lista principal
 function actualizarContadorPrincipal(nombre, cantidad) {
     let items = document.querySelectorAll('.item-producto');
     items.forEach(item => {
@@ -53,11 +32,10 @@ function actualizarContadorPrincipal(nombre, cantidad) {
 function agregarProd(btn) {
     let li = btn.closest('.item-producto');
     let nombre = li.getAttribute('data-nombre');
-    let pMin = parseFloat(li.getAttribute('data-precio-min'));
-    let pMay = parseFloat(li.getAttribute('data-precio-may'));
+    let precio = parseFloat(li.getAttribute('data-precio'));
     
     if(!carrito[nombre]) {
-        carrito[nombre] = {cantidad: 0, pMin: pMin, pMay: pMay};
+        carrito[nombre] = {cantidad: 0, precio: precio};
     }
     carrito[nombre].cantidad++;
     actualizarContadorPrincipal(nombre, carrito[nombre].cantidad);
@@ -70,7 +48,6 @@ function quitarProd(btn) {
     quitarPorNombre(nombre);
 }
 
-// Nueva función para poder quitar desde el modal también
 function quitarPorNombre(nombre) {
     if(carrito[nombre] && carrito[nombre].cantidad > 0) {
         carrito[nombre].cantidad--;
@@ -86,14 +63,12 @@ function actualizarPantalla() {
     let totalPrecio = 0;
     for (let nombre in carrito) {
         let item = carrito[nombre];
-        let precio = esMayorista ? item.pMay : item.pMin;
         totalItems += item.cantidad;
-        totalPrecio += precio * item.cantidad;
+        totalPrecio += item.precio * item.cantidad;
     }
     let totalFormateado = totalPrecio % 1 !== 0 ? totalPrecio.toFixed(2) : totalPrecio;
     document.getElementById('total-precio').innerText = totalFormateado;
     document.getElementById('total-modal-precio').innerText = totalFormateado;
-    document.getElementById('modo-pedido-modal').innerText = esMayorista ? "(Precios Mayoristas)" : "(Precios Minoristas)";
     actualizarListaModal();
 }
 
@@ -113,11 +88,9 @@ function actualizarListaModal() {
     for (let nombre in carrito) {
         vacio = false;
         let item = carrito[nombre];
-        let precio = esMayorista ? item.pMay : item.pMin;
-        let subtotal = precio * item.cantidad;
+        let subtotal = item.precio * item.cantidad;
         let subFormateado = subtotal % 1 !== 0 ? subtotal.toFixed(2) : subtotal;
         
-        // Agregamos el botón de menos en el modal
         lista.innerHTML += `
             <li class="item-modal">
                 <div class="info-item-modal">
@@ -132,28 +105,17 @@ function actualizarListaModal() {
 }
 
 function enviarWhatsApp() {
-    let totalActual = parseFloat(document.getElementById('total-modal-precio').innerText);
-
     if (Object.keys(carrito).length === 0) {
         alert("Todavía no agregaste nada al pedido.");
         return; 
     }
 
-    // --- LÓGICA DE VALIDACIÓN MAYORISTA ---
-    if (esMayorista && totalActual < MINIMO_MAYORISTA) {
-        alert(`Atención: El mínimo para compra mayorista es $${MINIMO_MAYORISTA}. Tu pedido se cambiará automáticamente a precios minoristas.`);
-        setModo('minorista');
-        return; // Detenemos el envío para que el cliente vea el nuevo total
-    }
-
-    let modoTexto = esMayorista ? "MAYORISTA" : "MINORISTA";
-    let texto = `Hola! Quiero hacer el siguiente pedido *${modoTexto}* para envío en Río Cuarto:%0A%0A`;
+    let texto = `Hola! Quiero hacer el siguiente pedido para envío en Río Cuarto:%0A%0A`;
     let totalFinal = 0;
 
     for (let nombre in carrito) {
         let item = carrito[nombre];
-        let precio = esMayorista ? item.pMay : item.pMin;
-        let subtotal = precio * item.cantidad;
+        let subtotal = item.precio * item.cantidad;
         totalFinal += subtotal;
         let subFormateado = subtotal % 1 !== 0 ? subtotal.toFixed(2) : subtotal;
         texto += `- ${item.cantidad}x ${nombre} ($${subFormateado})%0A`;
