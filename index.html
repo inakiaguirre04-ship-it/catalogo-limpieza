@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Don Limpio - Distribuidora</title>
     <link rel="icon" type="image/png" href="img/logo.png">
-    <link rel="stylesheet" href="style.css?v=13">
+    <link rel="stylesheet" href="style.css?v=14">
 </head>
 <body>
 
@@ -196,7 +196,7 @@
                     <article class="tarjeta promo-item" data-nombre="Limpia Pisos">
                         <h3>Limpia Pisos</h3>
                         
-                        <!-- NUEVO SELECTOR DE AROMAS -->
+                        <!-- SELECTOR DE AROMAS -->
                         <select class="selector-aroma">
                             <option value="Arpege">Arpege</option>
                             <option value="Colonia">Colonia</option>
@@ -212,9 +212,12 @@
                         </select>
 
                         <ul class="lista-precios">
-                            <li class="item-producto" data-nombre="Limpia Pisos LPU 1L" data-precio="900"><span>1 Litro</span> <span class="precio-chico precio-display">$900</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-chico" onclick="agregarProd(this)">+</button></div></li>
-                            <li class="item-producto" data-nombre="Limpia Pisos LPU 5L" data-precio="2600"><span>5 Litros</span> <span class="precio-chico precio-display">$2600</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-chico" onclick="agregarProd(this)">+</button></div></li>
-                            <li class="item-producto" data-nombre="Limpia Pisos Concent. 20L" data-precio="3900"><span>20 Litros (Conc.)</span> <span class="precio-chico precio-display">$3900</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-chico" onclick="agregarProd(this)">+</button></div></li>
+                            <!-- ACÁ LE SACAMOS EL "LPU" AL data-nombre -->
+                            <li class="item-producto" data-nombre="Limpia Pisos 1L" data-precio="900"><span>1 Litro</span> <span class="precio-chico precio-display">$900</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-chico" onclick="agregarProd(this)">+</button></div></li>
+                            
+                            <li class="item-producto" data-nombre="Limpia Pisos 5L" data-precio="2600"><span>5 Litros</span> <span class="precio-chico precio-display">$2600</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-chico" onclick="agregarProd(this)">+</button></div></li>
+                            
+                            <li class="item-producto" data-nombre="Limpia Pisos Concentrado 20L" data-precio="3900"><span>20 Litros (Conc.)</span> <span class="precio-chico precio-display">$3900</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-chico" onclick="agregarProd(this)">+</button></div></li>
                         </ul>
                     </article>
 
@@ -659,6 +662,6 @@
         </div>
     </div>
 
-    <script src="script.js?v=13"></script>
+    <script src="script.js?v=14"></script>
 </body>
 </html>
