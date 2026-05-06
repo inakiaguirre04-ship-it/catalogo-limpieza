@@ -31,49 +31,78 @@ function actualizarContadorPrincipal(nombre, cantidad) {
 
 function agregarProd(btn) {
     let li = btn.closest('.item-producto');
-    let nombre = li.getAttribute('data-nombre');
+    let baseNombre = li.getAttribute('data-nombre');
     let precio = parseFloat(li.getAttribute('data-precio'));
     
-    if(!carrito[nombre]) {
-        carrito[nombre] = {cantidad: 0, precio: precio};
+    // Leemos el aroma si existe en la tarjeta
+    let nombreFinal = baseNombre;
+    let tarjeta = btn.closest('.tarjeta');
+    if (tarjeta) {
+        let selector = tarjeta.querySelector('.selector-aroma');
+        if (selector) {
+            nombreFinal = baseNombre + " (" + selector.value + ")";
+        }
     }
-    carrito[nombre].cantidad++;
-    actualizarContadorPrincipal(nombre, carrito[nombre].cantidad);
+    
+    if(!carrito[nombreFinal]) {
+        carrito[nombreFinal] = {cantidad: 0, precio: precio};
+    }
+    carrito[nombreFinal].cantidad++;
+    
     actualizarPantalla();
 }
 
 function quitarProd(btn) {
     let li = btn.closest('.item-producto');
-    let nombre = li.getAttribute('data-nombre');
-    quitarPorNombre(nombre);
+    let baseNombre = li.getAttribute('data-nombre');
+    
+    let nombreFinal = baseNombre;
+    let tarjeta = btn.closest('.tarjeta');
+    if (tarjeta) {
+        let selector = tarjeta.querySelector('.selector-aroma');
+        if (selector) {
+            nombreFinal = baseNombre + " (" + selector.value + ")";
+        }
+    }
+    
+    quitarPorNombre(nombreFinal);
 }
 
 function quitarPorNombre(nombre) {
     if(carrito[nombre] && carrito[nombre].cantidad > 0) {
         carrito[nombre].cantidad--;
-        let nuevaCant = carrito[nombre].cantidad;
-        actualizarContadorPrincipal(nombre, nuevaCant);
-        if(nuevaCant === 0) delete carrito[nombre];
+        if(carrito[nombre].cantidad === 0) delete carrito[nombre];
         actualizarPantalla();
     }
 }
 
 function actualizarPantalla() {
-    let totalItems = 0;
     let totalPrecio = 0;
+    
     for (let nombre in carrito) {
-        let item = carrito[nombre];
-        totalItems += item.cantidad;
-        totalPrecio += item.precio * item.cantidad;
+        totalPrecio += carrito[nombre].precio * carrito[nombre].cantidad;
     }
     let totalFormateado = totalPrecio % 1 !== 0 ? totalPrecio.toFixed(2) : totalPrecio;
     document.getElementById('total-precio').innerText = totalFormateado;
     document.getElementById('total-modal-precio').innerText = totalFormateado;
+    
+    let items = document.querySelectorAll('.item-producto');
+    items.forEach(item => {
+        let baseNombre = item.getAttribute('data-nombre');
+        let sum = 0;
+        for (let nombreCarrito in carrito) {
+            if (nombreCarrito === baseNombre || nombreCarrito.startsWith(baseNombre + " (")) {
+                sum += carrito[nombreCarrito].cantidad;
+            }
+        }
+        let contador = item.querySelector('.cantidad-prod, .cantidad-prod-promo');
+        if(contador) contador.innerText = sum;
+    });
+
     actualizarListaModal();
 }
 
 function abrirCarrito() {
-    actualizarListaModal();
     document.getElementById('modal-carrito').style.display = "flex"; 
 }
 
@@ -110,7 +139,6 @@ function enviarWhatsApp() {
         return; 
     }
 
-    // Armamos el texto normal, usando \n para los saltos de línea
     let texto = "Hola! Quiero hacer el siguiente pedido para envío en Río Cuarto:\n\n";
     let totalFinal = 0;
 
@@ -125,7 +153,6 @@ function enviarWhatsApp() {
     let totalFormateado = totalFinal % 1 !== 0 ? totalFinal.toFixed(2) : totalFinal;
     texto += `\nTotal a abonar: $${totalFormateado}`;
     
-    // Usamos encodeURIComponent para que los espacios y paréntesis viajen perfecto a WhatsApp
     let url = `https://wa.me/5493584866061?text=${encodeURIComponent(texto)}`;
     window.open(url, '_blank');
 }
@@ -136,11 +163,10 @@ function filtrarPromos() {
 
     secciones.forEach(sec => {
         let productos = sec.querySelectorAll('.promo-item');
-        let seccionVisible = false; // Variable para saber si quedó algo visible en esta sección
+        let seccionVisible = false; 
 
         productos.forEach(prod => {
             let nombreProd = prod.getAttribute('data-nombre').toLowerCase();
-            // Si el nombre incluye lo que busco, lo muestro y marco la sección como visible
             if (nombreProd.includes(input)) {
                 prod.style.display = "flex";
                 seccionVisible = true;
@@ -149,8 +175,6 @@ function filtrarPromos() {
             }
         });
 
-        // Si la sección tiene al menos un producto que coincide, mostramos todo el bloque (con su título)
-        // Si no tiene ninguno, ocultamos la sección entera para que no moleste
         if (seccionVisible) {
             sec.style.display = "block";
         } else {
