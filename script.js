@@ -110,7 +110,8 @@ function enviarWhatsApp() {
         return; 
     }
 
-    let texto = `Hola! Quiero hacer el siguiente pedido para envío en Río Cuarto:%0A%0A`;
+    // Armamos el texto normal, usando \n para los saltos de línea
+    let texto = "Hola! Quiero hacer el siguiente pedido para envío en Río Cuarto:\n\n";
     let totalFinal = 0;
 
     for (let nombre in carrito) {
@@ -118,12 +119,15 @@ function enviarWhatsApp() {
         let subtotal = item.precio * item.cantidad;
         totalFinal += subtotal;
         let subFormateado = subtotal % 1 !== 0 ? subtotal.toFixed(2) : subtotal;
-        texto += `- ${item.cantidad}x ${nombre} ($${subFormateado})%0A`;
+        texto += `- ${item.cantidad}x ${nombre} ($${subFormateado})\n`;
     }
     
     let totalFormateado = totalFinal % 1 !== 0 ? totalFinal.toFixed(2) : totalFinal;
-    texto += `%0ATotal a abonar: $${totalFormateado}`;
-    window.open(`https://wa.me/5493584866061?text=${texto}`, '_blank');
+    texto += `\nTotal a abonar: $${totalFormateado}`;
+    
+    // Usamos encodeURIComponent para que los espacios y paréntesis viajen perfecto a WhatsApp
+    let url = `https://wa.me/5493584866061?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
 }
 
 function filtrarPromos() {
