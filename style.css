@@ -19,7 +19,7 @@
 body {
     background-color: var(--body-bg); 
     color: #4a5568; 
-    padding-bottom: 80px; 
+    padding-bottom: 30px; /* Reduje esto porque ya no hay barra inferior */
 }
 
 /* =========================================
@@ -231,6 +231,13 @@ body {
     object-fit: contain;
 }
 
+/* CAJA DE TEXTO (Alinear precio y botones) */
+.info-destacado {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
 .info-destacado h3 {
     font-size: 0.95rem;
     color: #333;
@@ -239,43 +246,51 @@ body {
     padding: 0;
 }
 
+/* =========================================
+   3. PRECIOS Y BOTONES (BLANCO Y NEGRO)
+   ========================================= */
+.precio-y-botones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Empuja esto siempre hacia abajo */
+    padding-top: 5px;
+}
+
 .precio-nuevo {
     font-size: 1.15rem;
-    color: #111;
+    color: #000000;
     font-weight: 800;
-    display: block;
 }
 
-/* =========================================
-   3. BOTONES AGREGAR / RESTAR
-   ========================================= */
 .botones-cantidad-destacado {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    gap: 12px;
-    margin-top: 10px;
+    gap: 8px;
 }
 
+/* Estilo Blanco y Negro Moderno */
 .btn-restar-destacado, .btn-agregar-destacado {
-    background-color: var(--bubble-primary);
-    color: white;
-    border: none;
-    width: 32px; 
-    height: 32px;
-    border-radius: 6px; 
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    width: 28px; 
+    height: 28px;
+    border-radius: 4px; 
     font-weight: 900;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.1s, background-color 0.2s;
+    transition: all 0.2s ease;
 }
 
-.btn-restar-destacado { background-color: #e06c6c; }
-.btn-restar-destacado:hover { background-color: #d15b5b; }
-.btn-agregar-destacado:hover { background-color: #2980b9; }
+/* Al pasar el mouse se invierten (Negro con letras blancas) */
+.btn-restar-destacado:hover, .btn-agregar-destacado:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
 
 .btn-restar-destacado:active, .btn-agregar-destacado:active {
     transform: scale(0.9); 
@@ -283,37 +298,15 @@ body {
 
 .cantidad-prod { 
     font-weight: 800; 
-    color: var(--text-main); 
+    color: #000000; 
     font-size: 1.1rem;
     min-width: 15px;
     text-align: center;
 }
 
 /* =========================================
-   4. BARRA FLOTANTE Y MODAL (CARRITO)
+   4. MODAL DEL CARRITO
    ========================================= */
-#barra-flotante { 
-    position: fixed; 
-    bottom: 0; 
-    left: 0; 
-    width: 100%; 
-    background-color: var(--text-main); 
-    color: white; 
-    padding: 15px 40px; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    font-size: 1.2rem; 
-    z-index: 1000; 
-    box-shadow: 0 -4px 10px rgba(0,0,0,0.15); 
-}
-
-.footer-izq { display: flex; align-items: center; gap: 20px; }
-#btn-ver-pedido { background-color: white; color: var(--text-main); border: none; padding: 10px 18px; font-weight: 900; font-size: 1rem; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; }
-#btn-ver-pedido:hover { background-color: #f0f0f0; }
-#btn-whatsapp { background-color: #25d366; color: white; border: none; padding: 12px 25px; font-weight: 900; font-size: 1.1rem; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; }
-#btn-whatsapp:hover { background-color: #1ebc5a; }
-
 .modal-oculto { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(3px); justify-content: center; align-items: center; }
 .modal-contenido { background-color: var(--body-bg); padding: 30px; width: 90%; max-width: 420px; border-radius: 12px; position: relative; max-height: 80vh; overflow-y: auto; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
 .modal-contenido h2 { color: var(--text-main); border-bottom: 2px solid #e1d8cd; padding-bottom: 10px; margin-bottom: 20px; font-weight: 900;}
@@ -362,12 +355,7 @@ body {
         gap: 15px;
     }
     .tarjeta-destacado { 
-        min-width: 160px; 
+        min-width: 180px; /* Un poco más ancha en el celu para que entre bien precio y botón */
         scroll-snap-align: start; 
     }
-    #barra-flotante { flex-direction: row; gap: 10px; padding: 12px 15px; }
-    .footer-izq { justify-content: space-between; width: 100%; flex-direction: row; align-items: center; }
-    #barra-flotante p { font-size: 1.1rem; margin: 0;}
-    #btn-ver-pedido { font-size: 1rem; padding: 10px 20px; }
-    #btn-whatsapp { display: none !important; }
 }
