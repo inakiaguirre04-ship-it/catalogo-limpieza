@@ -307,21 +307,21 @@ body {
 /* --- SECCIÓN DESTACADOS (Estilo Tiendanube) --- */
 .seccion-destacados {
     max-width: 1300px;
-    margin: 40px auto 10px auto;
+    margin: 40px auto 40px auto;
     padding: 0 40px;
 }
 
 .titulo-destacados {
     font-size: 1.8rem;
     color: #333;
-    font-weight: 400; /* Letra fina como en la imagen */
+    font-weight: 400;
     margin-bottom: 25px;
     text-align: left;
 }
 
 .grilla-destacados {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columnas iguales */
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
 }
 
@@ -335,8 +335,9 @@ body {
 
 .imagen-destacado {
     position: relative;
-    background-color: #f5f5f5; /* Fondo gris claro estilo placeholder */
-    aspect-ratio: 1 / 1; /* Cuadrado perfecto */
+    background-color: #f5f5f5;
+    width: 100%;
+    aspect-ratio: 1 / 1; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -349,21 +350,20 @@ body {
     max-width: 80%;
     max-height: 80%;
     object-fit: contain;
-    mix-blend-mode: multiply; /* Para que la imagen se funda con el gris si tiene fondo blanco */
+    mix-blend-mode: multiply;
 }
 
-/* Etiquetas sobre la imagen */
 .etiqueta-descuento {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    background-color: #61c478; /* Verde Tiendanube */
+    background-color: #61c478;
     color: white;
     font-size: 0.65rem;
     font-weight: 800;
     padding: 4px 8px;
     border-radius: 3px;
-    letter-spacing: 0.5px;
+    z-index: 2;
 }
 
 .etiqueta-gratis {
@@ -380,16 +380,15 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
+    z-index: 2;
 }
 
-/* Textos debajo de la imagen */
 .info-destacado h3 {
     font-size: 0.95rem;
     color: #333;
     font-weight: 400;
     margin-bottom: 5px;
     padding: 0;
-    text-transform: none; /* Quitamos las mayúsculas forzadas para que quede como el ejemplo */
 }
 
 .precio-viejo {
