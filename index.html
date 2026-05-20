@@ -46,12 +46,26 @@
 
         <div class="header-bottom">
             <nav class="nav-black">
-                <a href="#" class="nav-cat">CATEGORÍAS 
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </a>
-                <a href="#" onclick="mostrarTodo()">INICIO</a>
-                <a href="#" onclick="mostrarTodo()">PRODUCTOS</a>
-                <a href="#">CONTACTO</a>
+                
+                <div class="dropdown-categorias">
+                    <a href="#" class="nav-cat">CATEGORÍAS 
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </a>
+                    <div class="dropdown-contenido">
+                        <a href="productos.html#lavandinas">Lavandinas y Cloros</a>
+                        <a href="productos.html#detergentes">Detergentes y Jabones</a>
+                        <a href="productos.html#suavizantes">Suavizantes y Manchas</a>
+                        <a href="productos.html#pisos">Limpiadores y Ceras</a>
+                        <a href="productos.html#general">Limpieza General</a>
+                        <a href="productos.html#autos">Línea Automotor</a>
+                        <a href="productos.html#alcoholes">Alcohol y Sanitizantes</a>
+                        <a href="productos.html#mascotas">Mascotas e Insectos</a>
+                    </div>
+                </div>
+
+                <a href="#" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">INICIO</a>
+                <a href="productos.html">PRODUCTOS</a>
+                <a href="#contacto">CONTACTO</a>
             </nav>
         </div>
     </header>
@@ -243,6 +257,14 @@
             </div>
         </div>
     </section>
+
+    <footer id="contacto" class="seccion-contacto">
+        <h2>Contacto</h2>
+        <p>📍 Río Cuarto, Córdoba</p>
+        <p>📞 WhatsApp: +54 9 358 486 6061</p>
+        <p>✉️ Email: info@bubblecleaning.com</p>
+        <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">Bubble Cleaning © 2026</p>
+    </footer>
 
     <div id="modal-carrito" class="modal-oculto">
         <div class="modal-contenido">
