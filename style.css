@@ -304,11 +304,11 @@ body {
 .btn-quitar-modal { background-color: #e06c6c; color: white; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-weight: bold; display: flex; justify-content: center; align-items: center; font-size: 1rem; transition: background-color 0.2s;}
 .btn-quitar-modal:hover { background-color: #d15b5b; }
 
-/* --- SECCIÓN DESTACADOS (Estilo Plano y Simple) --- */
+/* --- SECCIÓN DESTACADOS (Fondo gris + Hover tarjetas) --- */
 .fondo-gris-destacados {
-    background-color: #ededed; /* El fondo gris oscuro/medio que ocupa todo el ancho */
+    background-color: #ededed; /* Franja gris que ocupa toda la pantalla */
     width: 100%;
-    padding: 40px 0; /* Espacio arriba y abajo */
+    padding: 40px 0; 
     margin-bottom: 40px;
 }
 
@@ -332,24 +332,38 @@ body {
     gap: 20px;
 }
 
+/* LA TARJETA CON LA ANIMACIÓN */
 .tarjeta-destacado {
-    background: transparent; /* El texto apoya directo sobre el gris */
+    background: transparent; 
     display: flex;
     flex-direction: column;
     text-align: left;
     cursor: pointer;
+    /* Transición suave para cuando entra y sale el mouse */
+    transition: transform 0.3s ease; 
+}
+
+/* EFECTO: Se mueve un poquito hacia arriba al pasar el mouse */
+.tarjeta-destacado:hover {
+    transform: translateY(-5px); 
 }
 
 .imagen-destacado {
     position: relative;
-    background-color: #ffffff; /* Cuadro blanco limpio para las imágenes */
+    background-color: #ffffff; /* Cuadro blanco limpio */
     width: 100%;
     aspect-ratio: 1 / 1; 
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 15px;
-    /* Sin bordes redondeados ni sombras, simple como pediste */
+    /* Le agregamos una sombrita que también se anima para que resalte más */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    transition: box-shadow 0.3s ease;
+}
+
+.tarjeta-destacado:hover .imagen-destacado {
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08); /* La sombra se hace más grande al levantar */
 }
 
 .imagen-destacado img {
@@ -372,6 +386,7 @@ body {
     font-weight: 800;
     display: block;
 }
+
 /* --- RESPONSIVE (CELULARES) --- */
 @media (max-width: 1024px) {
     .grilla-productos { grid-template-columns: repeat(2, 1fr); }
