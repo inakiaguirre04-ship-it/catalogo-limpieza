@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Don Limpio - Distribuidora</title>
+    <title>Bubble Cleaning</title>
     <link rel="icon" type="image/png" href="img/logo.jpg">
     <link rel="stylesheet" href="style.css?v=18.0">
 </head>
@@ -120,74 +120,7 @@
 
         </div>
     </section>
-    <main class="layout-tienda">
-        
-        <aside class="sidebar-filtros">
-            <h3>Categorías</h3>
-            <ul class="lista-categorias">
-                <li><button class="btn-filtro activo" onclick="filtrarCategoria('todas', this)">Mostrar Todo</button></li>
-                <h4 class="subtitulo-filtro">Promociones</h4>
-                <li><button class="btn-filtro" onclick="filtrarCategoria('cat-promos-hogar', this)">Promos Hogar</button></li>
-                <li><button class="btn-filtro" onclick="filtrarCategoria('cat-promos-gastro', this)">Promos Gastronómicas</button></li>
-                <li><button class="btn-filtro" onclick="filtrarCategoria('cat-promos-revendedor', this)">Promos Revendedor</button></li>
-                <li><button class="btn-filtro" onclick="filtrarCategoria('cat-promos-emprendedor', this)">Promo Emprendedor</button></li>
-                <h4 class="subtitulo-filtro">Productos Sueltos</h4>
-                <li><button class="btn-filtro" onclick="filtrarCategoria('cat-lavandinas', this)">Lavandinas y Cloros</button></li>
-                <li><button class="btn-filtro" onclick="filtrarCategoria('cat-detergentes', this)">Detergentes y Jabones</button></li>
-                <li><button class="btn-filtro" onclick="filtrarCategoria('cat-suavizantes', this)">Suavizantes y Manchas</button></li>
-                <li><button class="btn-filtro" onclick="filtrarCategoria('cat-pisos', this)">Limpiadores y Ceras</button></li>
-                <li><button class="btn-filtro" onclick="filtrarCategoria('cat-general', this)">Limpieza General</button></li>
-                <li><button class="btn-filtro" onclick="filtrarCategoria('cat-autos', this)">Línea Automotor</button></li>
-                <li><button class="btn-filtro" onclick="filtrarCategoria('cat-alcoholes', this)">Alcohol y Sanitizantes</button></li>
-                <li><button class="btn-filtro" onclick="filtrarCategoria('cat-mascotas', this)">Mascotas e Insectos</button></li>
-            </ul>
-        </aside>
-
-        <section class="contenido-productos">
-            
-            <div id="cat-lavandinas" class="seccion-categoria">
-                <h2 class="titulo-seccion">Lavandinas y Cloros</h2>
-                <div class="grilla-productos">
-                    <article class="tarjeta promo-item" data-nombre="Lavandina Concentrada 50%">
-                        <h3>Lavandina Concentrada 50%</h3>
-                        <ul class="lista-precios">
-                            <li class="item-producto" data-nombre="Lavandina Concentrada 1L" data-precio="370"><span>1 Litro</span> <span class="precio-chico precio-display">$370</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-chico" onclick="agregarProd(this)">+</button></div></li>
-                            <li class="item-producto" data-nombre="Lavandina Concentrada 5L" data-precio="1850"><span>5 Litros</span> <span class="precio-chico precio-display">$1850</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-chico" onclick="agregarProd(this)">+</button></div></li>
-                            <li class="item-producto" data-nombre="Lavandina Concentrada 20L" data-precio="7400"><span>20 Litros</span> <span class="precio-chico precio-display">$7400</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-chico" onclick="agregarProd(this)">+</button></div></li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-
-            <div id="cat-pisos" class="seccion-categoria">
-                <h2 class="titulo-seccion">Limpiadores de Piso y Ceras</h2>
-                <div class="grilla-productos">
-                    <article class="tarjeta promo-item" data-nombre="Limpia Pisos">
-                        <h3>Limpia Pisos</h3>
-                        <select class="selector-aroma">
-                            <option value="Arpege">Arpege</option>
-                            <option value="Colonia">Colonia</option>
-                            <option value="Primavera">Primavera</option>
-                            <option value="Frutos Rojos">Frutos Rojos</option>
-                            <option value="Limón">Limón</option>
-                            <option value="Coco Vainilla">Coco Vainilla</option>
-                            <option value="Lavanda">Lavanda</option>
-                            <option value="Pino">Pino</option>
-                            <option value="Citronella">Citronella</option>
-                            <option value="Marina">Marina</option>
-                            <option value="Cherry">Cherry</option>
-                        </select>
-                        <ul class="lista-precios">
-                            <li class="item-producto" data-nombre="Limpia Pisos 1L" data-precio="900"><span>1 Litro</span> <span class="precio-chico precio-display">$900</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-chico" onclick="agregarProd(this)">+</button></div></li>
-                            <li class="item-producto" data-nombre="Limpia Pisos 5L" data-precio="2600"><span>5 Litros</span> <span class="precio-chico precio-display">$2600</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-chico" onclick="agregarProd(this)">+</button></div></li>
-                            <li class="item-producto" data-nombre="Limpia Pisos Concentrado 20L" data-precio="3900"><span>20 Litros (Conc.)</span> <span class="precio-chico precio-display">$3900</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-chico" onclick="agregarProd(this)">+</button></div></li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-
-            </section>
-    </main>
+   
 
     <footer id="barra-flotante">
         <div class="footer-izq">
