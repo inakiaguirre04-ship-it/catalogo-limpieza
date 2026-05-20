@@ -1,6 +1,7 @@
 let carrito = {}; 
 
 function mostrarTodo() {
+    // Si tuvieras un menú lateral de categorías, esto lo resetea
     let secciones = document.querySelectorAll('.seccion-categoria');
     secciones.forEach(sec => sec.style.display = "block");
     let botones = document.querySelectorAll('.btn-filtro');
@@ -19,29 +20,16 @@ function filtrarCategoria(idCategoria, btnPulsado) {
     });
 }
 
-function actualizarContadorPrincipal(nombre, cantidad) {
-    let items = document.querySelectorAll('.item-producto');
-    items.forEach(item => {
-        if(item.getAttribute('data-nombre') === nombre) {
-            let contador = item.querySelector('.cantidad-prod, .cantidad-prod-promo');
-            if(contador) contador.innerText = cantidad;
-        }
-    });
-}
-
 function agregarProd(btn) {
-    let li = btn.closest('.item-producto');
-    let baseNombre = li.getAttribute('data-nombre');
-    let precio = parseFloat(li.getAttribute('data-precio'));
+    let articulo = btn.closest('.item-producto');
+    let baseNombre = articulo.getAttribute('data-nombre');
+    let precio = parseFloat(articulo.getAttribute('data-precio'));
     
-    // Leemos el aroma si existe en la tarjeta
+    // Leemos el aroma por si volvés a usar el selector en algún momento
     let nombreFinal = baseNombre;
-    let tarjeta = btn.closest('.tarjeta');
-    if (tarjeta) {
-        let selector = tarjeta.querySelector('.selector-aroma');
-        if (selector) {
-            nombreFinal = baseNombre + " (" + selector.value + ")";
-        }
+    let selector = articulo.querySelector('.selector-aroma');
+    if (selector) {
+        nombreFinal = baseNombre + " (" + selector.value + ")";
     }
     
     if(!carrito[nombreFinal]) {
@@ -53,16 +41,13 @@ function agregarProd(btn) {
 }
 
 function quitarProd(btn) {
-    let li = btn.closest('.item-producto');
-    let baseNombre = li.getAttribute('data-nombre');
+    let articulo = btn.closest('.item-producto');
+    let baseNombre = articulo.getAttribute('data-nombre');
     
     let nombreFinal = baseNombre;
-    let tarjeta = btn.closest('.tarjeta');
-    if (tarjeta) {
-        let selector = tarjeta.querySelector('.selector-aroma');
-        if (selector) {
-            nombreFinal = baseNombre + " (" + selector.value + ")";
-        }
+    let selector = articulo.querySelector('.selector-aroma');
+    if (selector) {
+        nombreFinal = baseNombre + " (" + selector.value + ")";
     }
     
     quitarPorNombre(nombreFinal);
@@ -80,34 +65,39 @@ function actualizarPantalla() {
     let totalItems = 0;
     let totalPrecio = 0;
     
-    // 1. Calculamos el total de plata y de items
+    // 1. Calculamos los totales
     for (let nombre in carrito) {
         totalPrecio += carrito[nombre].precio * carrito[nombre].cantidad;
         totalItems += carrito[nombre].cantidad;
     }
+    
+    // Formatear a 2 decimales si tiene centavos
     let totalFormateado = totalPrecio % 1 !== 0 ? totalPrecio.toFixed(2) : totalPrecio;
     
-    // 2. Actualizamos el resumen del header
+    // 2. Actualizamos el Carrito del Encabezado (Arriba a la derecha)
     let headerTotalItems = document.getElementById('header-total-items');
     let headerTotalPrecio = document.getElementById('header-total-precio');
     if(headerTotalItems) headerTotalItems.innerText = totalItems;
     if(headerTotalPrecio) headerTotalPrecio.innerText = totalFormateado;
 
-    // 3. Actualizamos la barra flotante y modal
-    document.getElementById('total-precio').innerText = totalFormateado;
-    document.getElementById('total-modal-precio').innerText = totalFormateado;
+    // 3. Actualizamos la Barra Flotante y el Modal
+    let footerPrecio = document.getElementById('total-precio');
+    let modalPrecio = document.getElementById('total-modal-precio');
+    if(footerPrecio) footerPrecio.innerText = totalFormateado;
+    if(modalPrecio) modalPrecio.innerText = totalFormateado;
     
-    // 4. Actualizamos los numeritos (+ y -) sumando las variantes
+    // 4. Sincronizamos los numeritos (+ y -) de TODOS los productos en pantalla
     let items = document.querySelectorAll('.item-producto');
     items.forEach(item => {
         let baseNombre = item.getAttribute('data-nombre');
         let sum = 0;
         for (let nombreCarrito in carrito) {
+            // Suma si es el producto exacto o una variante de aroma
             if (nombreCarrito === baseNombre || nombreCarrito.startsWith(baseNombre + " (")) {
                 sum += carrito[nombreCarrito].cantidad;
             }
         }
-        let contador = item.querySelector('.cantidad-prod, .cantidad-prod-promo');
+        let contador = item.querySelector('.cantidad-prod');
         if(contador) contador.innerText = sum;
     });
 
@@ -125,8 +115,10 @@ function cerrarCarrito() {
 
 function actualizarListaModal() {
     let lista = document.getElementById('lista-pedido-modal');
+    if(!lista) return;
     lista.innerHTML = "";
     let vacio = true;
+    
     for (let nombre in carrito) {
         vacio = false;
         let item = carrito[nombre];
@@ -166,32 +158,22 @@ function enviarWhatsApp() {
     let totalFormateado = totalFinal % 1 !== 0 ? totalFinal.toFixed(2) : totalFinal;
     texto += `\nTotal a abonar: $${totalFormateado}`;
     
+    // Usamos encodeURIComponent para que los espacios y caracteres viajen perfectos a WhatsApp
     let url = `https://wa.me/5493584866061?text=${encodeURIComponent(texto)}`;
     window.open(url, '_blank');
 }
 
 function filtrarPromos() {
     let input = document.getElementById('buscador').value.toLowerCase();
-    let secciones = document.querySelectorAll('.seccion-categoria');
+    let productos = document.querySelectorAll('.item-producto');
 
-    secciones.forEach(sec => {
-        let productos = sec.querySelectorAll('.promo-item');
-        let seccionVisible = false; 
-
-        productos.forEach(prod => {
-            let nombreProd = prod.getAttribute('data-nombre').toLowerCase();
-            if (nombreProd.includes(input)) {
-                prod.style.display = "flex";
-                seccionVisible = true;
-            } else {
-                prod.style.display = "none";
-            }
-        });
-
-        if (seccionVisible) {
-            sec.style.display = "block";
+    productos.forEach(prod => {
+        let nombreProd = prod.getAttribute('data-nombre').toLowerCase();
+        // Si el nombre incluye lo que busco, lo muestro. Si no, lo oculto.
+        if (nombreProd.includes(input)) {
+            prod.style.display = "flex"; 
         } else {
-            sec.style.display = "none";
+            prod.style.display = "none";
         }
     });
 }

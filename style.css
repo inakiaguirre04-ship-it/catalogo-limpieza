@@ -19,6 +19,7 @@
 body {
     background-color: var(--body-bg); 
     color: #4a5568; 
+    padding-bottom: 80px; 
 }
 
 /* =========================================
@@ -32,7 +33,6 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Franja Blanca */
 .header-top {
     display: flex;
     align-items: center;
@@ -53,13 +53,12 @@ body {
 .texto-logo {
     font-size: 1.4rem;
     font-weight: 900;
-    color: var(--text-main); 
+    color: #000000; 
     margin-left: 12px;
     letter-spacing: 0.5px;
     white-space: nowrap; 
 }
 
-/* Buscador */
 .search-container {
     display: flex;
     flex: 1; 
@@ -95,7 +94,6 @@ body {
     background-color: #2980b9;
 }
 
-/* Íconos de Usuario y Carrito */
 .header-user-cart {
     display: flex;
     align-items: center;
@@ -132,7 +130,6 @@ body {
     font-weight: 800;
 }
 
-/* Franja Negra (Menú) */
 .header-bottom {
     background-color: #000000;
     width: 100%;
@@ -169,19 +166,19 @@ body {
 }
 
 /* =========================================
-   2. SECCIÓN DESTACADOS
+   2. SECCIÓN DESTACADOS Y PROMOCIONES
    ========================================= */
 .fondo-gris-destacados {
     background-color: #ededed; 
-    width: 100%;
-    padding: 40px 0; 
-    margin-bottom: 40px;
+    width: 92%; 
+    max-width: 1300px; 
+    margin: 30px auto 40px auto; 
+    padding: 35px 40px; 
+    border-radius: 16px; 
 }
 
 .seccion-destacados {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 40px;
+    width: 100%;
 }
 
 .titulo-destacados {
@@ -198,7 +195,6 @@ body {
     gap: 20px;
 }
 
-/* Tarjeta y Animación */
 .tarjeta-destacado {
     background: transparent; 
     display: flex;
@@ -251,7 +247,90 @@ body {
 }
 
 /* =========================================
-   3. RESPONSIVE (CELULARES Y TABLETS)
+   3. BOTONES AGREGAR / RESTAR
+   ========================================= */
+.botones-cantidad-destacado {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.btn-restar-destacado, .btn-agregar-destacado {
+    background-color: var(--bubble-primary);
+    color: white;
+    border: none;
+    width: 32px; 
+    height: 32px;
+    border-radius: 6px; 
+    font-weight: 900;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.1s, background-color 0.2s;
+}
+
+.btn-restar-destacado { background-color: #e06c6c; }
+.btn-restar-destacado:hover { background-color: #d15b5b; }
+.btn-agregar-destacado:hover { background-color: #2980b9; }
+
+.btn-restar-destacado:active, .btn-agregar-destacado:active {
+    transform: scale(0.9); 
+}
+
+.cantidad-prod { 
+    font-weight: 800; 
+    color: var(--text-main); 
+    font-size: 1.1rem;
+    min-width: 15px;
+    text-align: center;
+}
+
+/* =========================================
+   4. BARRA FLOTANTE Y MODAL (CARRITO)
+   ========================================= */
+#barra-flotante { 
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    background-color: var(--text-main); 
+    color: white; 
+    padding: 15px 40px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    font-size: 1.2rem; 
+    z-index: 1000; 
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.15); 
+}
+
+.footer-izq { display: flex; align-items: center; gap: 20px; }
+#btn-ver-pedido { background-color: white; color: var(--text-main); border: none; padding: 10px 18px; font-weight: 900; font-size: 1rem; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; }
+#btn-ver-pedido:hover { background-color: #f0f0f0; }
+#btn-whatsapp { background-color: #25d366; color: white; border: none; padding: 12px 25px; font-weight: 900; font-size: 1.1rem; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; }
+#btn-whatsapp:hover { background-color: #1ebc5a; }
+
+.modal-oculto { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(3px); justify-content: center; align-items: center; }
+.modal-contenido { background-color: var(--body-bg); padding: 30px; width: 90%; max-width: 420px; border-radius: 12px; position: relative; max-height: 80vh; overflow-y: auto; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+.modal-contenido h2 { color: var(--text-main); border-bottom: 2px solid #e1d8cd; padding-bottom: 10px; margin-bottom: 20px; font-weight: 900;}
+.cerrar-modal { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: var(--text-main); transition: color 0.2s;}
+.cerrar-modal:hover { color: #e06c6c; }
+#lista-pedido-modal { list-style: none; margin-bottom: 20px; }
+#lista-pedido-modal li { display: flex; justify-content: space-between; border-bottom: 1px solid #e1d8cd; padding: 12px 0; color: #4a5568; font-weight: 700;}
+.total-modal { font-size: 1.6rem; font-weight: 900; text-align: right; color: var(--text-main); margin-bottom: 20px; }
+.btn-whatsapp-modal { width: 100%; background-color: #25d366; color: white; border: none; padding: 15px; border-radius: 8px; font-size: 1.2rem; font-weight: 900; cursor: pointer; transition: background-color 0.2s;}
+.btn-whatsapp-modal:hover { background-color: #1ebc5a; }
+.item-modal { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e1d8cd; padding: 10px 0; }
+.info-item-modal { display: flex; align-items: center; gap: 10px; }
+.btn-quitar-modal { background-color: #e06c6c; color: white; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-weight: bold; display: flex; justify-content: center; align-items: center; font-size: 1rem; transition: background-color 0.2s;}
+.btn-quitar-modal:hover { background-color: #d15b5b; }
+
+/* =========================================
+   5. RESPONSIVE (CELULARES Y TABLETS)
    ========================================= */
 @media (max-width: 1024px) {
     .header-top { padding: 15px 20px; }
@@ -268,9 +347,13 @@ body {
     .header-user-cart { display: none; } 
     .nav-black { overflow-x: auto; white-space: nowrap; padding: 10px 15px; gap: 20px;}
     
-    /* Adaptación Destacados para Móvil (Scroll Horizontal) */
-    .fondo-gris-destacados { padding: 25px 0; margin-top: 15px; }
-    .seccion-destacados { padding: 0 15px; }
+    .fondo-gris-destacados { 
+        width: 94%; 
+        padding: 25px 15px; 
+        margin: 20px auto; 
+        border-radius: 12px;
+    }
+    .seccion-destacados { padding: 0; }
     .grilla-destacados { 
         display: flex; 
         overflow-x: auto; 
@@ -282,4 +365,9 @@ body {
         min-width: 160px; 
         scroll-snap-align: start; 
     }
+    #barra-flotante { flex-direction: row; gap: 10px; padding: 12px 15px; }
+    .footer-izq { justify-content: space-between; width: 100%; flex-direction: row; align-items: center; }
+    #barra-flotante p { font-size: 1.1rem; margin: 0;}
+    #btn-ver-pedido { font-size: 1rem; padding: 10px 20px; }
+    #btn-whatsapp { display: none !important; }
 }

@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubble Cleaning</title>
     <link rel="icon" type="image/png" href="img/logo.jpg">
-    <link rel="stylesheet" href="style.css?v=18.0">
+    <link rel="stylesheet" href="style.css?v=23.0">
 </head>
 <body>
 
     <header class="header-principal">
-        
         <div class="header-top">
             <div class="header-logo">
                 <img src="img/logo.png" alt="Logo Bubble Cleaning" id="logo-principal">
@@ -55,60 +54,85 @@
                 <a href="#">CONTACTO</a>
             </nav>
         </div>
-
     </header>
-<section class="fondo-gris-destacados">
+
+    <section class="fondo-gris-destacados">
         <div class="seccion-destacados">
             <h2 class="titulo-destacados">Destacados</h2>
             <div class="grilla-destacados">
                 
-                <article class="tarjeta-destacado">
+                <article class="tarjeta-destacado item-producto" data-nombre="Detergente Eco Azul" data-precio="6500">
                     <div class="imagen-destacado">
                         <img src="img/Detecoazul.png" alt="Detergente Eco Azul">
                     </div>
                     <div class="info-destacado">
                         <h3>Detergente Eco Azul</h3>
                         <span class="precio-nuevo">$6.500,00</span>
+                        <div class="botones-cantidad-destacado">
+                            <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                            <span class="cantidad-prod">0</span>
+                            <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                        </div>
                     </div>
                 </article>
 
-                <article class="tarjeta-destacado">
+                <article class="tarjeta-destacado item-producto" data-nombre="Lavandina Concentrada 50%" data-precio="136620">
                     <div class="imagen-destacado">
                         <img src="img/Lavcon50.png" alt="Lavandina Concentrada 50%">
                     </div>
                     <div class="info-destacado">
                         <h3>Lavandina Concentrada 50%</h3>
                         <span class="precio-nuevo">$136.620,00</span>
+                        <div class="botones-cantidad-destacado">
+                            <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                            <span class="cantidad-prod">0</span>
+                            <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                        </div>
                     </div>
                 </article>
 
-                <article class="tarjeta-destacado">
+                <article class="tarjeta-destacado item-producto" data-nombre="Promo Revendedor 1" data-precio="23700">
                     <div class="imagen-destacado">
                         <img src="img/rev1.png" alt="Promo Revendedor">
                     </div>
                     <div class="info-destacado">
                         <h3>Promo Revendedor 1</h3>
                         <span class="precio-nuevo">$23.700,00</span>
+                        <div class="botones-cantidad-destacado">
+                            <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                            <span class="cantidad-prod">0</span>
+                            <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                        </div>
                     </div>
                 </article>
 
-                <article class="tarjeta-destacado">
+                <article class="tarjeta-destacado item-producto" data-nombre="Promo Gastronomica 3" data-precio="10530">
                     <div class="imagen-destacado">
                         <img src="img/gastro3.png" alt="Promo Gastro">
                     </div>
                     <div class="info-destacado">
                         <h3>Promo Gastronómica 3</h3>
                         <span class="precio-nuevo">$10.530,00</span>
+                        <div class="botones-cantidad-destacado">
+                            <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                            <span class="cantidad-prod">0</span>
+                            <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                        </div>
                     </div>
                 </article>
 
-                <article class="tarjeta-destacado">
+                <article class="tarjeta-destacado item-producto" data-nombre="Promo Hogar 2" data-precio="12500">
                     <div class="imagen-destacado">
                         <img src="img/hogar2.png" alt="Promo Hogar 2">
                     </div>
                     <div class="info-destacado">
                         <h3>Promo Hogar 2</h3>
                         <span class="precio-nuevo">$12.500,00</span>
+                        <div class="botones-cantidad-destacado">
+                            <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                            <span class="cantidad-prod">0</span>
+                            <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                        </div>
                     </div>
                 </article>
 
@@ -121,56 +145,103 @@
             <h2 class="titulo-destacados">Promociones</h2>
             <div class="grilla-destacados">
                 
-                <article class="tarjeta-destacado">
+                <article class="tarjeta-destacado item-producto" data-nombre="Promo Hogar 1" data-precio="6500">
                     <div class="imagen-destacado">
                         <img src="img/hogar1.png" alt="Promo Hogar 1">
                     </div>
                     <div class="info-destacado">
                         <h3>Promo Hogar 1</h3>
                         <span class="precio-nuevo">$6.500,00</span>
+                        <div class="botones-cantidad-destacado">
+                            <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                            <span class="cantidad-prod">0</span>
+                            <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                        </div>
                     </div>
                 </article>
 
-                <article class="tarjeta-destacado">
+                <article class="tarjeta-destacado item-producto" data-nombre="Promo Hogar 2" data-precio="12500">
                     <div class="imagen-destacado">
                         <img src="img/hogar2.png" alt="Promo Hogar 2">
                     </div>
                     <div class="info-destacado">
                         <h3>Promo Hogar 2</h3>
                         <span class="precio-nuevo">$12.500,00</span>
+                        <div class="botones-cantidad-destacado">
+                            <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                            <span class="cantidad-prod">0</span>
+                            <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                        </div>
                     </div>
                 </article>
 
-                <article class="tarjeta-destacado">
+                <article class="tarjeta-destacado item-producto" data-nombre="Promo Gastronomica 3" data-precio="10530">
                     <div class="imagen-destacado">
                         <img src="img/gastro3.png" alt="Promo Gastronómica 3">
                     </div>
                     <div class="info-destacado">
                         <h3>Promo Gastronómica 3</h3>
                         <span class="precio-nuevo">$10.530,00</span>
+                        <div class="botones-cantidad-destacado">
+                            <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                            <span class="cantidad-prod">0</span>
+                            <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                        </div>
                     </div>
                 </article>
 
-                <article class="tarjeta-destacado">
+                <article class="tarjeta-destacado item-producto" data-nombre="Promo Revendedor 1" data-precio="23700">
                     <div class="imagen-destacado">
                         <img src="img/rev1.png" alt="Promo Revendedor 1">
                     </div>
                     <div class="info-destacado">
                         <h3>Promo Revendedor 1</h3>
                         <span class="precio-nuevo">$23.700,00</span>
+                        <div class="botones-cantidad-destacado">
+                            <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                            <span class="cantidad-prod">0</span>
+                            <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                        </div>
                     </div>
                 </article>
 
-                <article class="tarjeta-destacado">
+                <article class="tarjeta-destacado item-producto" data-nombre="Combo Super Emprendedor" data-precio="136620">
                     <div class="imagen-destacado">
                         <img src="img/empre1.png" alt="Combo Súper Emprendedor">
                     </div>
                     <div class="info-destacado">
                         <h3>Combo Súper Emprendedor</h3>
                         <span class="precio-nuevo">$136.620,00</span>
+                        <div class="botones-cantidad-destacado">
+                            <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                            <span class="cantidad-prod">0</span>
+                            <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                        </div>
                     </div>
                 </article>
 
             </div>
         </div>
     </section>
+
+    <footer id="barra-flotante">
+        <div class="footer-izq">
+            <p>Total: $<span id="total-precio">0.00</span></p>
+            <button onclick="abrirCarrito()" id="btn-ver-pedido">Ver mi pedido</button>
+        </div>
+        <button onclick="enviarWhatsApp()" id="btn-whatsapp">Confirmar Pedido</button>
+    </footer>
+
+    <div id="modal-carrito" class="modal-oculto">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" onclick="cerrarCarrito()">&times;</span>
+            <h2>Tu Pedido 🛒</h2>
+            <ul id="lista-pedido-modal"></ul>
+            <p class="total-modal">Total: $<span id="total-modal-precio">0.00</span></p>
+            <button onclick="enviarWhatsApp()" class="btn-whatsapp-modal">Confirmar por WhatsApp</button>
+        </div>
+    </div>
+
+    <script src="script.js?v=23.0"></script>
+</body>
+</html>
