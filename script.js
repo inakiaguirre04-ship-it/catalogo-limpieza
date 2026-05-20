@@ -77,15 +77,27 @@ function quitarPorNombre(nombre) {
 }
 
 function actualizarPantalla() {
+    let totalItems = 0;
     let totalPrecio = 0;
     
+    // 1. Calculamos el total de plata y de items
     for (let nombre in carrito) {
         totalPrecio += carrito[nombre].precio * carrito[nombre].cantidad;
+        totalItems += carrito[nombre].cantidad;
     }
     let totalFormateado = totalPrecio % 1 !== 0 ? totalPrecio.toFixed(2) : totalPrecio;
+    
+    // 2. Actualizamos el resumen del header
+    let headerTotalItems = document.getElementById('header-total-items');
+    let headerTotalPrecio = document.getElementById('header-total-precio');
+    if(headerTotalItems) headerTotalItems.innerText = totalItems;
+    if(headerTotalPrecio) headerTotalPrecio.innerText = totalFormateado;
+
+    // 3. Actualizamos la barra flotante y modal
     document.getElementById('total-precio').innerText = totalFormateado;
     document.getElementById('total-modal-precio').innerText = totalFormateado;
     
+    // 4. Actualizamos los numeritos (+ y -) sumando las variantes
     let items = document.querySelectorAll('.item-producto');
     items.forEach(item => {
         let baseNombre = item.getAttribute('data-nombre');
@@ -103,6 +115,7 @@ function actualizarPantalla() {
 }
 
 function abrirCarrito() {
+    actualizarListaModal();
     document.getElementById('modal-carrito').style.display = "flex"; 
 }
 
