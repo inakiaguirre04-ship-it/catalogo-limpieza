@@ -304,10 +304,17 @@ body {
 .btn-quitar-modal { background-color: #e06c6c; color: white; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-weight: bold; display: flex; justify-content: center; align-items: center; font-size: 1rem; transition: background-color 0.2s;}
 .btn-quitar-modal:hover { background-color: #d15b5b; }
 
-/* --- SECCIÓN DESTACADOS (Estilo Tiendanube) --- */
+/* --- SECCIÓN DESTACADOS (Estilo Plano y Simple) --- */
+.fondo-gris-destacados {
+    background-color: #ededed; /* El fondo gris oscuro/medio que ocupa todo el ancho */
+    width: 100%;
+    padding: 40px 0; /* Espacio arriba y abajo */
+    margin-bottom: 40px;
+}
+
 .seccion-destacados {
     max-width: 1300px;
-    margin: 40px auto 40px auto;
+    margin: 0 auto;
     padding: 0 40px;
 }
 
@@ -326,7 +333,7 @@ body {
 }
 
 .tarjeta-destacado {
-    background: transparent;
+    background: transparent; /* El texto apoya directo sobre el gris */
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -335,52 +342,20 @@ body {
 
 .imagen-destacado {
     position: relative;
-    background-color: #f5f5f5;
+    background-color: #ffffff; /* Cuadro blanco limpio para las imágenes */
     width: 100%;
     aspect-ratio: 1 / 1; 
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 15px;
-    border-radius: 4px;
-    overflow: hidden;
+    /* Sin bordes redondeados ni sombras, simple como pediste */
 }
 
 .imagen-destacado img {
     max-width: 80%;
     max-height: 80%;
     object-fit: contain;
-    mix-blend-mode: multiply;
-}
-
-.etiqueta-descuento {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background-color: #61c478;
-    color: white;
-    font-size: 0.65rem;
-    font-weight: 800;
-    padding: 4px 8px;
-    border-radius: 3px;
-    z-index: 2;
-}
-
-.etiqueta-gratis {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: white;
-    color: #333;
-    font-size: 0.65rem;
-    font-weight: 800;
-    padding: 5px 8px;
-    border-radius: 3px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    z-index: 2;
 }
 
 .info-destacado h3 {
@@ -391,21 +366,12 @@ body {
     padding: 0;
 }
 
-.precio-viejo {
-    font-size: 0.85rem;
-    color: #999;
-    text-decoration: line-through;
-    display: block;
-    margin-bottom: 2px;
-}
-
 .precio-nuevo {
     font-size: 1.15rem;
-    color: #222;
+    color: #111;
     font-weight: 800;
     display: block;
 }
-
 /* --- RESPONSIVE (CELULARES) --- */
 @media (max-width: 1024px) {
     .grilla-productos { grid-template-columns: repeat(2, 1fr); }
