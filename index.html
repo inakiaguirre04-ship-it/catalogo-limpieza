@@ -5,30 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Don Limpio - Distribuidora</title>
     <link rel="icon" type="image/png" href="img/logo.png">
-    <link rel="stylesheet" href="style.css?v=17.0">
+    <link rel="stylesheet" href="style.css?v=18.0">
 </head>
 <body>
 
-    <header>
-        <div class="header-container">
+    <header class="header-principal">
+        
+        <div class="header-top">
             <div class="header-logo">
                 <img src="img/logo.png" alt="Logo Bubble Cleaning" id="logo-principal">
             </div>
             
             <div class="search-container">
-                <input type="text" id="buscador" placeholder="¿Qué estás buscando? (Ej: Cera, Hogar...)" onkeyup="filtrarPromos()">
-                <button class="btn-buscar">Buscar</button>
+                <input type="text" id="buscador" placeholder="¿Qué estás buscando?" onkeyup="filtrarPromos()">
+                <button class="btn-buscar">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
             </div>
 
-            <div class="header-right">
-                <nav class="header-nav">
-                    <span onclick="mostrarTodo()" class="btn-inicio">Inicio</span> <span class="nav-divider">/</span> <span class="nav-current">Productos</span>
-                </nav>
-                <div class="resumen-carrito" onclick="abrirCarrito()">
-                    🛒 <span id="header-total-items">0</span> items - $<span id="header-total-precio">0</span>
+            <div class="header-user-cart">
+                <div class="user-action">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <div class="action-text">
+                        <strong>Entrá /</strong><br>Registráte
+                    </div>
+                </div>
+                
+                <div class="cart-action" onclick="abrirCarrito()">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    </div>
+                    <div class="action-text">
+                        <strong>Carrito (<span id="header-total-items">0</span>)</strong><br>$<span id="header-total-precio">0.00</span>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div class="header-bottom">
+            <nav class="nav-black">
+                <a href="#" class="nav-cat">CATEGORÍAS 
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </a>
+                <a href="#" onclick="mostrarTodo()">INICIO</a>
+                <a href="#" onclick="mostrarTodo()">PRODUCTOS</a>
+                <a href="#">CONTACTO</a>
+            </nav>
+        </div>
+
     </header>
 
     <main class="layout-tienda">
@@ -37,13 +63,11 @@
             <h3>Categorías</h3>
             <ul class="lista-categorias">
                 <li><button class="btn-filtro activo" onclick="filtrarCategoria('todas', this)">Mostrar Todo</button></li>
-                
                 <h4 class="subtitulo-filtro">Promociones</h4>
                 <li><button class="btn-filtro" onclick="filtrarCategoria('cat-promos-hogar', this)">Promos Hogar</button></li>
                 <li><button class="btn-filtro" onclick="filtrarCategoria('cat-promos-gastro', this)">Promos Gastronómicas</button></li>
                 <li><button class="btn-filtro" onclick="filtrarCategoria('cat-promos-revendedor', this)">Promos Revendedor</button></li>
                 <li><button class="btn-filtro" onclick="filtrarCategoria('cat-promos-emprendedor', this)">Promo Emprendedor</button></li>
-                
                 <h4 class="subtitulo-filtro">Productos Sueltos</h4>
                 <li><button class="btn-filtro" onclick="filtrarCategoria('cat-lavandinas', this)">Lavandinas y Cloros</button></li>
                 <li><button class="btn-filtro" onclick="filtrarCategoria('cat-detergentes', this)">Detergentes y Jabones</button></li>
@@ -69,7 +93,7 @@
                             <li class="item-producto" data-nombre="Lavandina Concentrada 20L" data-precio="7400"><span>20 Litros</span> <span class="precio-chico precio-display">$7400</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-chico" onclick="agregarProd(this)">+</button></div></li>
                         </ul>
                     </article>
-                    </div>
+                </div>
             </div>
 
             <div id="cat-pisos" class="seccion-categoria">
@@ -77,7 +101,6 @@
                 <div class="grilla-productos">
                     <article class="tarjeta promo-item" data-nombre="Limpia Pisos">
                         <h3>Limpia Pisos</h3>
-                        
                         <select class="selector-aroma">
                             <option value="Arpege">Arpege</option>
                             <option value="Colonia">Colonia</option>
@@ -91,7 +114,6 @@
                             <option value="Marina">Marina</option>
                             <option value="Cherry">Cherry</option>
                         </select>
-
                         <ul class="lista-precios">
                             <li class="item-producto" data-nombre="Limpia Pisos 1L" data-precio="900"><span>1 Litro</span> <span class="precio-chico precio-display">$900</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-chico" onclick="agregarProd(this)">+</button></div></li>
                             <li class="item-producto" data-nombre="Limpia Pisos 5L" data-precio="2600"><span>5 Litros</span> <span class="precio-chico precio-display">$2600</span> <div class="botones-cantidad-chicos"><button class="btn-restar-chico" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-chico" onclick="agregarProd(this)">+</button></div></li>
@@ -101,33 +123,12 @@
                 </div>
             </div>
 
-            <div id="cat-promos-hogar" class="seccion-categoria">
-                <h2 class="titulo-seccion">Promos Hogar</h2>
-                <div class="grilla-productos">
-                    <article class="tarjeta promo-item item-producto" data-nombre="Promo Hogar 1" data-precio="6500">
-                        <h3>Promo Hogar 1</h3>
-                        <img src="img/hogar1.png" alt="Promo Hogar 1" class="foto-promo">
-                        <ul class="lista-productos">
-                            <li>5L Lavandina Concentrada</li>
-                            <li>5L Jabón Eco Azul (T/ Skip)</li>
-                            <li>2L Suavizante Celeste</li>
-                        </ul>
-                        <p class="precio precio-display">$6500</p>
-                        <div class="botones-cantidad-promo">
-                            <button class="btn-restar-promo" onclick="quitarProd(this)">-</button>
-                            <span class="cantidad-prod-promo">0</span>
-                            <button class="btn-agregar-promo" onclick="agregarProd(this)">+</button>
-                        </div>
-                    </article>
-                    </div>
-            </div>
-
             </section>
     </main>
 
     <footer id="barra-flotante">
         <div class="footer-izq">
-            <p>Total: $<span id="total-precio">0</span></p>
+            <p>Total: $<span id="total-precio">0.00</span></p>
             <button onclick="abrirCarrito()" id="btn-ver-pedido">Ver mi pedido</button>
         </div>
         <button onclick="enviarWhatsApp()" id="btn-whatsapp">Confirmar Pedido</button>
@@ -138,11 +139,11 @@
             <span class="cerrar-modal" onclick="cerrarCarrito()">&times;</span>
             <h2>Tu Pedido 🛒</h2>
             <ul id="lista-pedido-modal"></ul>
-            <p class="total-modal">Total: $<span id="total-modal-precio">0</span></p>
+            <p class="total-modal">Total: $<span id="total-modal-precio">0.00</span></p>
             <button onclick="enviarWhatsApp()" class="btn-whatsapp-modal">Confirmar por WhatsApp</button>
         </div>
     </div>
 
-    <script src="script.js?v=17.0"></script>
+    <script src="script.js?v=18.0"></script>
 </body>
 </html>
