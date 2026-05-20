@@ -19,7 +19,7 @@
 body {
     background-color: var(--body-bg); 
     color: #4a5568; 
-    padding-bottom: 30px; /* Reduje esto porque ya no hay barra inferior */
+    padding-bottom: 30px; 
 }
 
 /* =========================================
@@ -50,6 +50,7 @@ body {
     max-height: 45px; 
 }
 
+/* Título de la marca en NEGRO */
 .texto-logo {
     font-size: 1.4rem;
     font-weight: 900;
@@ -231,7 +232,6 @@ body {
     object-fit: contain;
 }
 
-/* CAJA DE TEXTO (Alinear precio y botones) */
 .info-destacado {
     display: flex;
     flex-direction: column;
@@ -253,7 +253,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto; /* Empuja esto siempre hacia abajo */
+    margin-top: auto; 
     padding-top: 5px;
 }
 
@@ -269,7 +269,7 @@ body {
     gap: 8px;
 }
 
-/* Estilo Blanco y Negro Moderno */
+/* Botones en blanco y negro al lado del precio */
 .btn-restar-destacado, .btn-agregar-destacado {
     background-color: #ffffff;
     color: #000000;
@@ -286,7 +286,6 @@ body {
     transition: all 0.2s ease;
 }
 
-/* Al pasar el mouse se invierten (Negro con letras blancas) */
 .btn-restar-destacado:hover, .btn-agregar-destacado:hover {
     background-color: #000000;
     color: #ffffff;
@@ -305,22 +304,128 @@ body {
 }
 
 /* =========================================
-   4. MODAL DEL CARRITO
+   4. MODAL DEL CARRITO (Títulos en Negro)
    ========================================= */
-.modal-oculto { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(3px); justify-content: center; align-items: center; }
-.modal-contenido { background-color: var(--body-bg); padding: 30px; width: 90%; max-width: 420px; border-radius: 12px; position: relative; max-height: 80vh; overflow-y: auto; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-.modal-contenido h2 { color: var(--text-main); border-bottom: 2px solid #e1d8cd; padding-bottom: 10px; margin-bottom: 20px; font-weight: 900;}
-.cerrar-modal { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: var(--text-main); transition: color 0.2s;}
-.cerrar-modal:hover { color: #e06c6c; }
-#lista-pedido-modal { list-style: none; margin-bottom: 20px; }
-#lista-pedido-modal li { display: flex; justify-content: space-between; border-bottom: 1px solid #e1d8cd; padding: 12px 0; color: #4a5568; font-weight: 700;}
-.total-modal { font-size: 1.6rem; font-weight: 900; text-align: right; color: var(--text-main); margin-bottom: 20px; }
-.btn-whatsapp-modal { width: 100%; background-color: #25d366; color: white; border: none; padding: 15px; border-radius: 8px; font-size: 1.2rem; font-weight: 900; cursor: pointer; transition: background-color 0.2s;}
-.btn-whatsapp-modal:hover { background-color: #1ebc5a; }
-.item-modal { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e1d8cd; padding: 10px 0; }
-.info-item-modal { display: flex; align-items: center; gap: 10px; }
-.btn-quitar-modal { background-color: #e06c6c; color: white; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-weight: bold; display: flex; justify-content: center; align-items: center; font-size: 1rem; transition: background-color 0.2s;}
-.btn-quitar-modal:hover { background-color: #d15b5b; }
+.modal-oculto { 
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.6); 
+    backdrop-filter: blur(3px); 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.modal-contenido { 
+    background-color: var(--body-bg); 
+    padding: 30px; 
+    width: 90%; 
+    max-width: 420px; 
+    border-radius: 12px; 
+    position: relative; 
+    max-height: 80vh; 
+    overflow-y: auto; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+}
+
+.modal-contenido h2 { 
+    color: #000000; 
+    border-bottom: 2px solid #e1d8cd; 
+    padding-bottom: 10px; 
+    margin-bottom: 20px; 
+    font-weight: 900;
+}
+
+.cerrar-modal { 
+    position: absolute; 
+    top: 15px; 
+    right: 20px; 
+    font-size: 28px; 
+    cursor: pointer; 
+    color: #000000; 
+    transition: color 0.2s;
+}
+
+.cerrar-modal:hover { 
+    color: #e06c6c; 
+}
+
+#lista-pedido-modal { 
+    list-style: none; 
+    margin-bottom: 20px; 
+}
+
+#lista-pedido-modal li { 
+    display: flex; 
+    justify-content: space-between; 
+    border-bottom: 1px solid #e1d8cd; 
+    padding: 12px 0; 
+    color: #4a5568; 
+    font-weight: 700;
+}
+
+.total-modal { 
+    font-size: 1.6rem; 
+    font-weight: 900; 
+    text-align: right; 
+    color: #000000; 
+    margin-bottom: 20px; 
+}
+
+.btn-whatsapp-modal { 
+    width: 100%; 
+    background-color: #25d366; 
+    color: white; 
+    border: none; 
+    padding: 15px; 
+    border-radius: 8px; 
+    font-size: 1.2rem; 
+    font-weight: 900; 
+    cursor: pointer; 
+    transition: background-color 0.2s;
+}
+
+.btn-whatsapp-modal:hover { 
+    background-color: #1ebc5a; 
+}
+
+.item-modal { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-bottom: 1px solid #e1d8cd; 
+    padding: 10px 0; 
+}
+
+.info-item-modal { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+.btn-quitar-modal { 
+    background-color: #e06c6c; 
+    color: white; 
+    border: none; 
+    width: 24px; 
+    height: 24px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 1rem; 
+    transition: background-color 0.2s;
+}
+
+.btn-quitar-modal:hover { 
+    background-color: #d15b5b; 
+}
 
 /* =========================================
    5. RESPONSIVE (CELULARES Y TABLETS)
@@ -355,7 +460,7 @@ body {
         gap: 15px;
     }
     .tarjeta-destacado { 
-        min-width: 180px; /* Un poco más ancha en el celu para que entre bien precio y botón */
+        min-width: 180px; 
         scroll-snap-align: start; 
     }
 }
