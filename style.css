@@ -186,7 +186,7 @@ body {
 /* =========================================
    6. FOOTER EN BLANCO Y NEGRO
    ========================================= */
-.footer-completo { background-color: #000000; color: #ffffff; padding: 40px 40px 15px 40px; margin-top: 50px; }
+.footer-completo { background-color: #B8D060; color: #000; padding: 40px 40px 15px 40px; margin-top: 50px; }
 .footer-columnas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1300px; margin: 0 auto; border-bottom: 1px solid #333333; padding-bottom: 30px; }
 .col-footer h4 { font-size: 0.9rem; font-weight: 800; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
 
