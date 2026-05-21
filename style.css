@@ -233,6 +233,53 @@ body {
 .texto-como-comprar strong { color: #000; }
 
 /* =========================================
+   8. CATÁLOGO COMPLETO (Vista de Productos)
+   ========================================= */
+.contenedor-catalogo {
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 0 40px;
+}
+
+.titulo-catalogo-principal {
+    font-size: 2.5rem;
+    color: #000;
+    font-weight: 900;
+    margin-bottom: 40px;
+    border-bottom: 3px solid #ededed;
+    padding-bottom: 10px;
+}
+
+.titulo-categoria {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 800;
+    margin: 50px 0 20px 0;
+    /* Esto es CLAVE para que al bajar a la categoría, el menú negro no la tape */
+    scroll-margin-top: 120px; 
+}
+
+.grilla-catalogo {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+/* En celular, que la grilla del catálogo se acomode a 2 columnas */
+@media (max-width: 900px) {
+    .grilla-catalogo {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .contenedor-catalogo { padding: 0 15px; margin: 20px auto; }
+    .titulo-catalogo-principal { font-size: 2rem; margin-bottom: 20px; }
+    .grilla-catalogo { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .titulo-categoria { margin-top: 30px; font-size: 1.4rem; scroll-margin-top: 140px; }
+}
+
+/* =========================================
    7. RESPONSIVE (CELULARES)
    ========================================= */
 @media (max-width: 1024px) {
