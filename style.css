@@ -118,11 +118,14 @@ body {
 /* =========================================
    5. FOOTER EN BLANCO Y NEGRO (Estilo Columnas)
    ========================================= */
+/* =========================================
+   5. FOOTER EN BLANCO Y NEGRO (Estilo Columnas)
+   ========================================= */
 .footer-completo {
     background-color: #000000;
     color: #ffffff;
-    padding: 60px 40px 20px 40px;
-    margin-top: 60px;
+    padding: 40px 40px 15px 40px; /* Le bajamos de 60px a 40px para hacerlo más petiso */
+    margin-top: 50px;
 }
 
 .footer-columnas {
@@ -132,7 +135,7 @@ body {
     max-width: 1300px;
     margin: 0 auto;
     border-bottom: 1px solid #333333;
-    padding-bottom: 40px;
+    padding-bottom: 30px; /* Acá también achicamos el espacio interior */
 }
 
 .col-footer h4 {
@@ -143,58 +146,33 @@ body {
     letter-spacing: 1px;
 }
 
-.col-footer ul {
-    list-style: none;
-    padding: 0;
+.col-footer ul { list-style: none; padding: 0; }
+.col-footer ul li { margin-bottom: 12px; }
+.col-footer ul li a, .col-footer ul li { color: #cccccc; text-decoration: none; font-size: 0.95rem; transition: color 0.2s; line-height: 1.4; }
+.col-footer ul li a:hover { color: #ffffff; }
+
+.iconos-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.iconos-badges span { background-color: #ffffff; color: #000000; padding: 5px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 800; }
+
+/* Redes Sociales (Nuevo estilo de Instagram) */
+.redes-sociales {
+    margin-bottom: 15px;
 }
 
-.col-footer ul li {
-    margin-bottom: 12px;
-}
-
-.col-footer ul li a, .col-footer ul li {
-    color: #cccccc;
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.2s;
-    line-height: 1.4;
-}
-
-.col-footer ul li a:hover {
-    color: #ffffff;
-}
-
-/* Badges para simular tarjetas y medios de envío */
-.iconos-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-.iconos-badges span {
-    background-color: #ffffff;
-    color: #000000;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 800;
-}
-
-/* Redes Sociales y Newsletter */
-.redes-sociales a {
+.link-ig {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background-color: #ffffff;
-    color: #000000;
-    border-radius: 50%;
+    gap: 8px;
+    color: #cccccc;
     text-decoration: none;
-    font-weight: 900;
-    transition: transform 0.2s;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.2s, transform 0.2s;
 }
-.redes-sociales a:hover {
-    transform: scale(1.1);
+
+.link-ig:hover {
+    color: #ffffff;
+    transform: translateX(4px); /* Se mueve un poquitito a la derecha al pasar el mouse */
 }
 
 .form-newsletter {
