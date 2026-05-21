@@ -175,7 +175,6 @@ function procesarPedido(event) {
     texto += `- Teléfono: ${telefono}\n`;
     texto += `- Dirección: ${direccion}\n`;
     texto += `- Horario: ${horario}\n\n`;
-    texto += `- Vendedor: ${'vendedor'}\n\n`;
     texto += `*Detalle del Pedido:*\n`;
 
     let totalFinal = 0;
