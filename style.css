@@ -192,7 +192,7 @@ body {
 
 .col-footer ul { list-style: none; padding: 0; }
 .col-footer ul li { margin-bottom: 12px; }
-.col-footer ul li a, .col-footer ul li { color: #cccccc; text-decoration: none; font-size: 0.95rem; transition: color 0.2s; line-height: 1.4; }
+.col-footer ul li a, .col-footer ul li { color: #000; text-decoration: none; font-size: 0.95rem; transition: color 0.2s; line-height: 1.4; }
 .col-footer ul li a:hover { color: #ffffff; }
 
 .iconos-badges { display: flex; flex-wrap: wrap; gap: 8px; }
