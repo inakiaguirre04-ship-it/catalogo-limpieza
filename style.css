@@ -19,7 +19,6 @@
 body {
     background-color: var(--body-bg); 
     color: #4a5568; 
-    padding-bottom: 30px; 
 }
 
 /* =========================================
@@ -50,7 +49,6 @@ body {
     max-height: 45px; 
 }
 
-/* Título de la marca en NEGRO */
 .texto-logo {
     font-size: 1.4rem;
     font-weight: 900;
@@ -166,80 +164,74 @@ body {
     gap: 6px;
 }
 
+/* MENÚ DESPLEGABLE CATEGORÍAS */
+.dropdown-categorias { position: relative; display: inline-block; }
+.dropdown-contenido { display: none; position: absolute; background-color: #ffffff; min-width: 240px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); z-index: 2000; top: 100%; left: 0; border-radius: 0 0 8px 8px; overflow: hidden; border-top: 2px solid var(--bubble-primary); }
+.dropdown-contenido a { color: #333 !important; padding: 12px 18px; text-decoration: none; display: block; font-size: 0.9rem !important; font-weight: 600 !important; border-bottom: 1px solid #f0f0f0; letter-spacing: 0 !important; }
+.dropdown-contenido a:last-child { border-bottom: none; }
+.dropdown-contenido a:hover { background-color: #f9f9f9; color: var(--bubble-primary) !important; padding-left: 22px; transition: all 0.2s; }
+.dropdown-categorias:hover .dropdown-contenido { display: block; }
+
 /* =========================================
-   MENÚ DESPLEGABLE (DROPDOWN DE CATEGORÍAS)
+   2. BANNERS SUPERIORES (PROMOS/PROD/ART)
    ========================================= */
-.dropdown-categorias {
+.banners-superiores {
+    max-width: 1300px;
+    margin: 40px auto 0 auto;
+    padding: 0 40px;
+}
+
+.contenedor-banners {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.banner-item {
     position: relative;
-    display: inline-block;
-}
-
-.dropdown-contenido {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    min-width: 240px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-    z-index: 2000;
-    top: 100%;
-    left: 0;
-    border-radius: 0 0 8px 8px;
+    height: 180px;
+    border-radius: 12px;
     overflow: hidden;
-    border-top: 2px solid var(--bubble-primary);
-}
-
-.dropdown-contenido a {
-    color: #333 !important;
-    padding: 12px 18px;
-    text-decoration: none;
     display: block;
-    font-size: 0.9rem !important;
-    font-weight: 600 !important;
-    border-bottom: 1px solid #f0f0f0;
-    letter-spacing: 0 !important;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.dropdown-contenido a:last-child {
-    border-bottom: none;
+.banner-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
-.dropdown-contenido a:hover {
-    background-color: #f9f9f9;
-    color: var(--bubble-primary) !important;
-    padding-left: 22px; /* Efecto sutil que mueve el texto a la derecha */
-    transition: all 0.2s;
+.banner-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.25); /* Tono oscuro inicial */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
 }
 
-/* Mostrar el menú cuando paso el mouse por arriba */
-.dropdown-categorias:hover .dropdown-contenido {
-    display: block;
+/* EFECTO: Oscurece más y hace pequeño zoom al pasar el mouse */
+.banner-item:hover .banner-overlay {
+    background-color: rgba(0,0,0,0.55); 
+}
+.banner-item:hover img {
+    transform: scale(1.05); 
+}
+
+.banner-overlay h3 {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
 /* =========================================
-   SECCIÓN CONTACTO (FOOTER)
-   ========================================= */
-.seccion-contacto {
-    background-color: #000000;
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-    margin-top: 40px;
-}
-
-.seccion-contacto h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    font-weight: 800;
-}
-
-.seccion-contacto p {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    color: #dcdcdc;
-}
-
-/* =========================================
-   2. SECCIÓN DESTACADOS Y PROMOCIONES
+   3. SECCIÓN DESTACADOS Y PROMOCIONES
    ========================================= */
 .fondo-gris-destacados {
     background-color: #ededed; 
@@ -250,9 +242,7 @@ body {
     border-radius: 16px; 
 }
 
-.seccion-destacados {
-    width: 100%;
-}
+.seccion-destacados { width: 100%; }
 
 .titulo-destacados {
     font-size: 1.8rem;
@@ -276,10 +266,7 @@ body {
     cursor: pointer;
     transition: transform 0.3s ease; 
 }
-
-.tarjeta-destacado:hover {
-    transform: translateY(-5px); 
-}
+.tarjeta-destacado:hover { transform: translateY(-5px); }
 
 .imagen-destacado {
     position: relative;
@@ -293,33 +280,14 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.02);
     transition: box-shadow 0.3s ease;
 }
+.tarjeta-destacado:hover .imagen-destacado { box-shadow: 0 8px 15px rgba(0,0,0,0.08); }
+.imagen-destacado img { max-width: 80%; max-height: 80%; object-fit: contain; }
 
-.tarjeta-destacado:hover .imagen-destacado {
-    box-shadow: 0 8px 15px rgba(0,0,0,0.08); 
-}
-
-.imagen-destacado img {
-    max-width: 80%;
-    max-height: 80%;
-    object-fit: contain;
-}
-
-.info-destacado {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; 
-}
-
-.info-destacado h3 {
-    font-size: 0.95rem;
-    color: #333;
-    font-weight: 400;
-    margin-bottom: 5px;
-    padding: 0;
-}
+.info-destacado { display: flex; flex-direction: column; flex-grow: 1; }
+.info-destacado h3 { font-size: 0.95rem; color: #333; font-weight: 400; margin-bottom: 5px; padding: 0; }
 
 /* =========================================
-   3. PRECIOS Y BOTONES (BLANCO Y NEGRO)
+   4. PRECIOS Y BOTONES (BLANCO Y NEGRO)
    ========================================= */
 .precio-y-botones {
     display: flex;
@@ -329,178 +297,68 @@ body {
     padding-top: 5px;
 }
 
-.precio-nuevo {
-    font-size: 1.15rem;
-    color: #000000;
-    font-weight: 800;
-}
+.precio-nuevo { font-size: 1.15rem; color: #000000; font-weight: 800; }
 
-.botones-cantidad-destacado {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+.botones-cantidad-destacado { display: flex; align-items: center; gap: 8px; }
 
-/* Botones en blanco y negro al lado del precio */
 .btn-restar-destacado, .btn-agregar-destacado {
     background-color: #ffffff;
     color: #000000;
     border: 1px solid #000000;
-    width: 28px; 
-    height: 28px;
+    width: 28px; height: 28px;
     border-radius: 4px; 
     font-weight: 900;
     font-size: 1.1rem;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; justify-content: center; align-items: center;
     transition: all 0.2s ease;
 }
 
-.btn-restar-destacado:hover, .btn-agregar-destacado:hover {
-    background-color: #000000;
-    color: #ffffff;
-}
-
-.btn-restar-destacado:active, .btn-agregar-destacado:active {
-    transform: scale(0.9); 
-}
-
-.cantidad-prod { 
-    font-weight: 800; 
-    color: #000000; 
-    font-size: 1.1rem;
-    min-width: 15px;
-    text-align: center;
-}
+.btn-restar-destacado:hover, .btn-agregar-destacado:hover { background-color: #000000; color: #ffffff; }
+.btn-restar-destacado:active, .btn-agregar-destacado:active { transform: scale(0.9); }
+.cantidad-prod { font-weight: 800; color: #000000; font-size: 1.1rem; min-width: 15px; text-align: center; }
 
 /* =========================================
-   4. MODAL DEL CARRITO (Títulos en Negro)
+   5. CONTACTO FOOTER
    ========================================= */
-.modal-oculto { 
-    display: none; 
-    position: fixed; 
-    z-index: 2000; 
-    left: 0; 
-    top: 0; 
-    width: 100%; 
-    height: 100%; 
-    background-color: rgba(0,0,0,0.6); 
-    backdrop-filter: blur(3px); 
-    justify-content: center; 
-    align-items: center; 
+.seccion-contacto {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    margin-top: 40px;
 }
-
-.modal-contenido { 
-    background-color: var(--body-bg); 
-    padding: 30px; 
-    width: 90%; 
-    max-width: 420px; 
-    border-radius: 12px; 
-    position: relative; 
-    max-height: 80vh; 
-    overflow-y: auto; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
-}
-
-.modal-contenido h2 { 
-    color: #000000; 
-    border-bottom: 2px solid #e1d8cd; 
-    padding-bottom: 10px; 
-    margin-bottom: 20px; 
-    font-weight: 900;
-}
-
-.cerrar-modal { 
-    position: absolute; 
-    top: 15px; 
-    right: 20px; 
-    font-size: 28px; 
-    cursor: pointer; 
-    color: #000000; 
-    transition: color 0.2s;
-}
-
-.cerrar-modal:hover { 
-    color: #e06c6c; 
-}
-
-#lista-pedido-modal { 
-    list-style: none; 
-    margin-bottom: 20px; 
-}
-
-#lista-pedido-modal li { 
-    display: flex; 
-    justify-content: space-between; 
-    border-bottom: 1px solid #e1d8cd; 
-    padding: 12px 0; 
-    color: #4a5568; 
-    font-weight: 700;
-}
-
-.total-modal { 
-    font-size: 1.6rem; 
-    font-weight: 900; 
-    text-align: right; 
-    color: #000000; 
-    margin-bottom: 20px; 
-}
-
-.btn-whatsapp-modal { 
-    width: 100%; 
-    background-color: #25d366; 
-    color: white; 
-    border: none; 
-    padding: 15px; 
-    border-radius: 8px; 
-    font-size: 1.2rem; 
-    font-weight: 900; 
-    cursor: pointer; 
-    transition: background-color 0.2s;
-}
-
-.btn-whatsapp-modal:hover { 
-    background-color: #1ebc5a; 
-}
-
-.item-modal { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    border-bottom: 1px solid #e1d8cd; 
-    padding: 10px 0; 
-}
-
-.info-item-modal { 
-    display: flex; 
-    align-items: center; 
-    gap: 10px; 
-}
-
-.btn-quitar-modal { 
-    background-color: #e06c6c; 
-    color: white; 
-    border: none; 
-    width: 24px; 
-    height: 24px; 
-    border-radius: 4px; 
-    cursor: pointer; 
-    font-weight: bold; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    font-size: 1rem; 
-    transition: background-color 0.2s;
-}
-
-.btn-quitar-modal:hover { 
-    background-color: #d15b5b; 
-}
+.seccion-contacto h2 { font-size: 1.8rem; margin-bottom: 20px; font-weight: 800; }
+.seccion-contacto p { font-size: 1.1rem; margin-bottom: 10px; color: #dcdcdc; }
 
 /* =========================================
-   5. RESPONSIVE (CELULARES Y TABLETS)
+   6. MODALES (CARRITO Y CÓMO COMPRAR)
+   ========================================= */
+.modal-oculto { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(3px); justify-content: center; align-items: center; }
+.modal-contenido { background-color: var(--body-bg); padding: 30px; width: 90%; max-width: 420px; border-radius: 12px; position: relative; max-height: 80vh; overflow-y: auto; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+.modal-contenido h2 { color: #000000; border-bottom: 2px solid #e1d8cd; padding-bottom: 10px; margin-bottom: 20px; font-weight: 900;}
+.cerrar-modal { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #000000; transition: color 0.2s;}
+.cerrar-modal:hover { color: #e06c6c; }
+
+/* Lista del carrito */
+#lista-pedido-modal { list-style: none; margin-bottom: 20px; }
+#lista-pedido-modal li { display: flex; justify-content: space-between; border-bottom: 1px solid #e1d8cd; padding: 12px 0; color: #4a5568; font-weight: 700;}
+.item-modal { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e1d8cd; padding: 10px 0; }
+.info-item-modal { display: flex; align-items: center; gap: 10px; }
+.btn-quitar-modal { background-color: #e06c6c; color: white; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-weight: bold; display: flex; justify-content: center; align-items: center; font-size: 1rem; transition: background-color 0.2s;}
+.btn-quitar-modal:hover { background-color: #d15b5b; }
+
+/* Totales y Botón (Blanco y Negro) */
+.total-modal { font-size: 1.6rem; font-weight: 900; text-align: right; color: #000000; margin-top: 20px; margin-bottom: 20px; padding-top: 15px; border-top: 2px solid #000000;}
+.btn-whatsapp-modal { width: 100%; background-color: #000000; color: #ffffff; border: 2px solid #000000; padding: 15px; border-radius: 4px; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;}
+.btn-whatsapp-modal:hover { background-color: #ffffff; color: #000000; }
+
+/* Texto de Cómo Comprar */
+.texto-como-comprar p { font-size: 1.1rem; color: #444; margin-bottom: 15px; line-height: 1.5; }
+.texto-como-comprar strong { color: #000; }
+
+/* =========================================
+   7. RESPONSIVE (CELULARES)
    ========================================= */
 @media (max-width: 1024px) {
     .header-top { padding: 15px 20px; }
@@ -517,22 +375,12 @@ body {
     .header-user-cart { display: none; } 
     .nav-black { overflow-x: auto; white-space: nowrap; padding: 10px 15px; gap: 20px;}
     
-    .fondo-gris-destacados { 
-        width: 94%; 
-        padding: 25px 15px; 
-        margin: 20px auto; 
-        border-radius: 12px;
-    }
+    .banners-superiores { padding: 0 15px; }
+    .contenedor-banners { grid-template-columns: 1fr; gap: 15px; }
+    .banner-item { height: 120px; }
+    
+    .fondo-gris-destacados { width: 94%; padding: 25px 15px; margin: 20px auto; border-radius: 12px;}
     .seccion-destacados { padding: 0; }
-    .grilla-destacados { 
-        display: flex; 
-        overflow-x: auto; 
-        scroll-snap-type: x mandatory; 
-        padding-bottom: 15px;
-        gap: 15px;
-    }
-    .tarjeta-destacado { 
-        min-width: 180px; 
-        scroll-snap-align: start; 
-    }
+    .grilla-destacados { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 15px; gap: 15px;}
+    .tarjeta-destacado { min-width: 180px; scroll-snap-align: start; }
 }

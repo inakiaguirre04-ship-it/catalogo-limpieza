@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubble Cleaning</title>
     <link rel="icon" type="image/png" href="img/logo.jpg">
-    <link rel="stylesheet" href="style.css?v=24.0">
+    <link rel="stylesheet" href="style.css?v=25.0">
 </head>
 <body>
 
@@ -46,7 +46,6 @@
 
         <div class="header-bottom">
             <nav class="nav-black">
-                
                 <div class="dropdown-categorias">
                     <a href="#" class="nav-cat">CATEGORÍAS 
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -62,13 +61,30 @@
                         <a href="productos.html#mascotas">Mascotas e Insectos</a>
                     </div>
                 </div>
-
                 <a href="#" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">INICIO</a>
                 <a href="productos.html">PRODUCTOS</a>
                 <a href="#contacto">CONTACTO</a>
+                <a href="#" onclick="abrirComoComprar(); return false;">CÓMO COMPRAR</a>
             </nav>
         </div>
     </header>
+
+    <section class="banners-superiores">
+        <div class="contenedor-banners">
+            <a href="#promociones" class="banner-item">
+                <img src="img/hogar1.png" alt="Promos">
+                <div class="banner-overlay"><h3>PROMOS</h3></div>
+            </a>
+            <a href="productos.html" class="banner-item">
+                <img src="img/Detecoazul.png" alt="Productos">
+                <div class="banner-overlay"><h3>PRODUCTOS</h3></div>
+            </a>
+            <a href="#" class="banner-item">
+                <img src="img/gastro3.png" alt="Artículos">
+                <div class="banner-overlay"><h3>ARTÍCULOS</h3></div>
+            </a>
+        </div>
+    </section>
 
     <section class="fondo-gris-destacados">
         <div class="seccion-destacados">
@@ -164,7 +180,7 @@
         </div>
     </section>
 
-    <section class="fondo-gris-destacados">
+    <section id="promociones" class="fondo-gris-destacados">
         <div class="seccion-destacados">
             <h2 class="titulo-destacados">Promociones</h2>
             <div class="grilla-destacados">
@@ -177,57 +193,6 @@
                         <h3>Promo Hogar 1</h3>
                         <div class="precio-y-botones">
                             <span class="precio-nuevo">$6.500,00</span>
-                            <div class="botones-cantidad-destacado">
-                                <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
-                                <span class="cantidad-prod">0</span>
-                                <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="tarjeta-destacado item-producto" data-nombre="Promo Hogar 2" data-precio="12500">
-                    <div class="imagen-destacado">
-                        <img src="img/hogar2.png" alt="Promo Hogar 2">
-                    </div>
-                    <div class="info-destacado">
-                        <h3>Promo Hogar 2</h3>
-                        <div class="precio-y-botones">
-                            <span class="precio-nuevo">$12.500,00</span>
-                            <div class="botones-cantidad-destacado">
-                                <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
-                                <span class="cantidad-prod">0</span>
-                                <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="tarjeta-destacado item-producto" data-nombre="Promo Gastronomica 3" data-precio="10530">
-                    <div class="imagen-destacado">
-                        <img src="img/gastro3.png" alt="Promo Gastronómica 3">
-                    </div>
-                    <div class="info-destacado">
-                        <h3>Promo Gastronómica 3</h3>
-                        <div class="precio-y-botones">
-                            <span class="precio-nuevo">$10.530,00</span>
-                            <div class="botones-cantidad-destacado">
-                                <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
-                                <span class="cantidad-prod">0</span>
-                                <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="tarjeta-destacado item-producto" data-nombre="Promo Revendedor 1" data-precio="23700">
-                    <div class="imagen-destacado">
-                        <img src="img/rev1.png" alt="Promo Revendedor 1">
-                    </div>
-                    <div class="info-destacado">
-                        <h3>Promo Revendedor 1</h3>
-                        <div class="precio-y-botones">
-                            <span class="precio-nuevo">$23.700,00</span>
                             <div class="botones-cantidad-destacado">
                                 <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
                                 <span class="cantidad-prod">0</span>
@@ -269,13 +234,25 @@
     <div id="modal-carrito" class="modal-oculto">
         <div class="modal-contenido">
             <span class="cerrar-modal" onclick="cerrarCarrito()">&times;</span>
-            <h2>Tu Pedido </h2>
+            <h2>Tu Pedido</h2>
             <ul id="lista-pedido-modal"></ul>
             <p class="total-modal">Total: $<span id="total-modal-precio">0.00</span></p>
             <button onclick="enviarWhatsApp()" class="btn-whatsapp-modal">Confirmar por WhatsApp</button>
         </div>
     </div>
 
-    <script src="script.js?v=24.0"></script>
+    <div id="modal-como-comprar" class="modal-oculto">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" onclick="cerrarComoComprar()">&times;</span>
+            <h2>¿Cómo comprar?</h2>
+            <div class="texto-como-comprar">
+                <p><strong>1. Elegí tus productos:</strong> Navegá por nuestra tienda y agregá los productos usando los botones <strong>+</strong> y <strong>-</strong>.</p>
+                <p><strong>2. Revisá tu carrito:</strong> Arriba a la derecha vas a poder ver el resumen y el total de tu pedido.</p>
+                <p><strong>3. Confirmá tu pedido:</strong> Hacé clic en "Confirmar por WhatsApp". Nos llegará tu detalle completo para coordinar el pago y el envío en Río Cuarto.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=25.0"></script>
 </body>
 </html>
