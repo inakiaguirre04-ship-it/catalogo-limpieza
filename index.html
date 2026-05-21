@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubble Cleaning</title>
     <link rel="icon" type="image/png" href="img/logo.jpg">
-    <link rel="stylesheet" href="style.css?v=32.0">
+    <link rel="stylesheet" href="style.css?v=33.0">
 </head>
 <body>
 
@@ -52,7 +52,6 @@
                     </a>
                     
                     <ul class="dropdown-contenido">
-                        
                         <li class="dropdown-submenu">
                             <a href="#" onclick="mostrarVista('promociones'); return false;">Promociones<span class="flecha-der">›</span></a>
                             <ul class="submenu-contenido">
@@ -81,7 +80,6 @@
                                 <li><a href="#">Novedades y Noticias</a></li>
                             </ul>
                         </li>
-
                     </ul>
                 </div>
                 <a href="#" onclick="mostrarVista('inicio'); return false;">INICIO</a>
@@ -145,6 +143,16 @@
                         <div class="imagen-destacado"><img src="img/Lavcon50.png" alt="Limpiapisos Perfumado"></div>
                         <div class="info-destacado">
                             <h3>Limpiapisos Perfumado</h3>
+                            <div class="contenedor-select-aroma">
+                                <select class="select-aroma">
+                                    <option value="Lavanda">Lavanda</option>
+                                    <option value="Pino">Pino</option>
+                                    <option value="Cítrico">Cítrico</option>
+                                    <option value="Floral">Floral</option>
+                                    <option value="Marina">Marina</option>
+                                    <option value="Manzana">Manzana</option>
+                                </select>
+                            </div>
                             <div class="precio-y-botones"><span class="precio-nuevo">$720,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div>
                         </div>
                     </article>
@@ -163,7 +171,6 @@
             <div class="seccion-destacados">
                 <h2 class="titulo-destacados">Promociones</h2>
                 <div class="grilla-destacados">
-                    
                     <article class="tarjeta-destacado item-producto" data-nombre="Promo Hogar (1)" data-precio="6500">
                         <div class="imagen-destacado">
                             <img src="img/hogar1.png" alt="Promo Hogar 1">
@@ -194,6 +201,16 @@
                         </div>
                         <div class="info-destacado">
                             <h3>Promo Gastronómica (1)</h3>
+                            <div class="contenedor-select-aroma">
+                                <select class="select-aroma">
+                                    <option value="Lavanda">Lavanda</option>
+                                    <option value="Pino">Pino</option>
+                                    <option value="Cítrico">Cítrico</option>
+                                    <option value="Floral">Floral</option>
+                                    <option value="Marina">Marina</option>
+                                    <option value="Manzana">Manzana</option>
+                                </select>
+                            </div>
                             <div class="precio-y-botones"><span class="precio-nuevo">$7.600,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div>
                         </div>
                     </article>
@@ -211,10 +228,19 @@
                         </div>
                         <div class="info-destacado">
                             <h3>Promo Revendedor (1)</h3>
+                            <div class="contenedor-select-aroma">
+                                <select class="select-aroma">
+                                    <option value="Lavanda">Lavanda</option>
+                                    <option value="Pino">Pino</option>
+                                    <option value="Cítrico">Cítrico</option>
+                                    <option value="Floral">Floral</option>
+                                    <option value="Marina">Marina</option>
+                                    <option value="Manzana">Manzana</option>
+                                </select>
+                            </div>
                             <div class="precio-y-botones"><span class="precio-nuevo">$23.700,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div>
                         </div>
                     </article>
-
                 </div>
             </div>
         </section>
@@ -229,13 +255,7 @@
                 <article class="tarjeta-destacado item-producto" data-nombre="Promo Hogar (1)" data-precio="6500">
                     <div class="imagen-destacado">
                         <img src="img/hogar1.png" alt="Promo">
-                        <div class="detalle-promo">
-                            <ul>
-                                <li>5L Lavandina Concentrada</li>
-                                <li>5L Jabón Eco Azul</li>
-                                <li>2L Suavizante Celeste</li>
-                            </ul>
-                        </div>
+                        <div class="detalle-promo"><ul><li>5L Lavandina Concentrada</li><li>5L Jabón Eco Azul</li><li>2L Suavizante Celeste</li></ul></div>
                     </div>
                     <div class="info-destacado"><h3>Promo Hogar (1)</h3><div class="precio-y-botones"><span class="precio-nuevo">$6.500,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div></div>
                 </article>
@@ -243,33 +263,43 @@
                 <article class="tarjeta-destacado item-producto" data-nombre="Promo Hogar (2)" data-precio="12500">
                     <div class="imagen-destacado">
                         <img src="img/hogar2.png" alt="Promo">
-                        <div class="detalle-promo">
-                            <ul>
-                                <li>5L Lavandina Concentrada</li>
-                                <li>5L Jabón Premium</li>
-                                <li>5L Limpia Pisos</li>
-                                <li>2L Detergente Limón</li>
-                                <li>2L Suavizante Downy</li>
-                            </ul>
-                        </div>
+                        <div class="detalle-promo"><ul><li>5L Lavandina Concentrada</li><li>5L Jabón Premium</li><li>5L Limpia Pisos</li><li>2L Detergente Limón</li><li>2L Suavizante Downy</li></ul></div>
                     </div>
-                    <div class="info-destacado"><h3>Promo Hogar (2)</h3><div class="precio-y-botones"><span class="precio-nuevo">$12.500,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div></div>
+                    <div class="info-destacado">
+                        <h3>Promo Hogar (2)</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma">
+                                <option value="Lavanda">Lavanda</option>
+                                <option value="Pino">Pino</option>
+                                <option value="Cítrico">Cítrico</option>
+                                <option value="Floral">Floral</option>
+                                <option value="Marina">Marina</option>
+                                <option value="Manzana">Manzana</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones"><span class="precio-nuevo">$12.500,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div>
+                    </div>
                 </article>
 
                 <article class="tarjeta-destacado item-producto" data-nombre="Promo Hogar (3)" data-precio="13000">
                     <div class="imagen-destacado">
                         <img src="img/logo.png" alt="Promo">
-                        <div class="detalle-promo">
-                            <ul>
-                                <li>5L Cloro 100%</li>
-                                <li>5L Jabón Violeta</li>
-                                <li>5L Limpia Pisos</li>
-                                <li>2L Detergente Limón</li>
-                                <li>2L Suavizante Celeste</li>
-                            </ul>
-                        </div>
+                        <div class="detalle-promo"><ul><li>5L Cloro 100%</li><li>5L Jabón Violeta</li><li>5L Limpia Pisos</li><li>2L Detergente Limón</li><li>2L Suavizante Celeste</li></ul></div>
                     </div>
-                    <div class="info-destacado"><h3>Promo Hogar (3)</h3><div class="precio-y-botones"><span class="precio-nuevo">$13.000,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div></div>
+                    <div class="info-destacado">
+                        <h3>Promo Hogar (3)</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma">
+                                <option value="Lavanda">Lavanda</option>
+                                <option value="Pino">Pino</option>
+                                <option value="Cítrico">Cítrico</option>
+                                <option value="Floral">Floral</option>
+                                <option value="Marina">Marina</option>
+                                <option value="Manzana">Manzana</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones"><span class="precio-nuevo">$13.000,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div>
+                    </div>
                 </article>
             </div>
 
@@ -278,27 +308,28 @@
                 <article class="tarjeta-destacado item-producto" data-nombre="Promo Gastronómica (1)" data-precio="7600">
                     <div class="imagen-destacado">
                         <img src="img/logo.png" alt="Promo">
-                        <div class="detalle-promo">
-                            <ul>
-                                <li>5L Lavandina Concentrada</li>
-                                <li>5L Limpia Pisos</li>
-                                <li>5L Detergente Limón</li>
-                            </ul>
-                        </div>
+                        <div class="detalle-promo"><ul><li>5L Lavandina Concentrada</li><li>5L Limpia Pisos</li><li>5L Detergente Limón</li></ul></div>
                     </div>
-                    <div class="info-destacado"><h3>Promo Gastronómica (1)</h3><div class="precio-y-botones"><span class="precio-nuevo">$7.600,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div></div>
+                    <div class="info-destacado">
+                        <h3>Promo Gastronómica (1)</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma">
+                                <option value="Lavanda">Lavanda</option>
+                                <option value="Pino">Pino</option>
+                                <option value="Cítrico">Cítrico</option>
+                                <option value="Floral">Floral</option>
+                                <option value="Marina">Marina</option>
+                                <option value="Manzana">Manzana</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones"><span class="precio-nuevo">$7.600,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div>
+                    </div>
                 </article>
 
                 <article class="tarjeta-destacado item-producto" data-nombre="Promo Gastronómica (2)" data-precio="8200">
                     <div class="imagen-destacado">
                         <img src="img/logo.png" alt="Promo">
-                        <div class="detalle-promo">
-                            <ul>
-                                <li>5L Lavandina Concentrada</li>
-                                <li>5L Desengrasante</li>
-                                <li>5L Detergente Limón</li>
-                            </ul>
-                        </div>
+                        <div class="detalle-promo"><ul><li>5L Lavandina Concentrada</li><li>5L Desengrasante</li><li>5L Detergente Limón</li></ul></div>
                     </div>
                     <div class="info-destacado"><h3>Promo Gastronómica (2)</h3><div class="precio-y-botones"><span class="precio-nuevo">$8.200,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div></div>
                 </article>
@@ -306,16 +337,22 @@
                 <article class="tarjeta-destacado item-producto" data-nombre="Promo Gastronómica (3)" data-precio="10530">
                     <div class="imagen-destacado">
                         <img src="img/gastro3.png" alt="Promo">
-                        <div class="detalle-promo">
-                            <ul>
-                                <li>5L Lavandina Concentrada</li>
-                                <li>5L Limpia Pisos</li>
-                                <li>5L Detergente Limón</li>
-                                <li>5L Desengrasante</li>
-                            </ul>
-                        </div>
+                        <div class="detalle-promo"><ul><li>5L Lavandina Concentrada</li><li>5L Limpia Pisos</li><li>5L Detergente Limón</li><li>5L Desengrasante</li></ul></div>
                     </div>
-                    <div class="info-destacado"><h3>Promo Gastronómica (3)</h3><div class="precio-y-botones"><span class="precio-nuevo">$10.530,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div></div>
+                    <div class="info-destacado">
+                        <h3>Promo Gastronómica (3)</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma">
+                                <option value="Lavanda">Lavanda</option>
+                                <option value="Pino">Pino</option>
+                                <option value="Cítrico">Cítrico</option>
+                                <option value="Floral">Floral</option>
+                                <option value="Marina">Marina</option>
+                                <option value="Manzana">Manzana</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones"><span class="precio-nuevo">$10.530,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div>
+                    </div>
                 </article>
             </div>
 
@@ -324,97 +361,131 @@
                 <article class="tarjeta-destacado item-producto" data-nombre="Promo Revendedor (1)" data-precio="23700">
                     <div class="imagen-destacado">
                         <img src="img/rev1.png" alt="Promo">
-                        <div class="detalle-promo">
-                            <ul>
-                                <li>20L Lavandina Concentrada</li>
-                                <li>20L Jabón Eco Azul</li>
-                                <li>20L Limpia Pisos</li>
-                            </ul>
-                        </div>
+                        <div class="detalle-promo"><ul><li>20L Lavandina Concentrada</li><li>20L Jabón Eco Azul</li><li>20L Limpia Pisos</li></ul></div>
                     </div>
-                    <div class="info-destacado"><h3>Promo Revendedor (1)</h3><div class="precio-y-botones"><span class="precio-nuevo">$23.700,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div></div>
+                    <div class="info-destacado">
+                        <h3>Promo Revendedor (1)</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma">
+                                <option value="Lavanda">Lavanda</option>
+                                <option value="Pino">Pino</option>
+                                <option value="Cítrico">Cítrico</option>
+                                <option value="Floral">Floral</option>
+                                <option value="Marina">Marina</option>
+                                <option value="Manzana">Manzana</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones"><span class="precio-nuevo">$23.700,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div>
+                    </div>
                 </article>
 
                 <article class="tarjeta-destacado item-producto" data-nombre="Promo Revendedor (2)" data-precio="35730">
                     <div class="imagen-destacado">
                         <img src="img/logo.png" alt="Promo">
-                        <div class="detalle-promo">
-                            <ul>
-                                <li>20L Lavandina Concentrada</li>
-                                <li>20L Jabón Premium</li>
-                                <li>20L Limpia Pisos</li>
-                                <li>10L Detergente Limón</li>
-                            </ul>
-                        </div>
+                        <div class="detalle-promo"><ul><li>20L Lavandina Concentrada</li><li>20L Jabón Premium</li><li>20L Limpia Pisos</li><li>10L Detergente Limón</li></ul></div>
                     </div>
-                    <div class="info-destacado"><h3>Promo Revendedor (2)</h3><div class="precio-y-botones"><span class="precio-nuevo">$35.730,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div></div>
+                    <div class="info-destacado">
+                        <h3>Promo Revendedor (2)</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma">
+                                <option value="Lavanda">Lavanda</option>
+                                <option value="Pino">Pino</option>
+                                <option value="Cítrico">Cítrico</option>
+                                <option value="Floral">Floral</option>
+                                <option value="Marina">Marina</option>
+                                <option value="Manzana">Manzana</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones"><span class="precio-nuevo">$35.730,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div>
+                    </div>
                 </article>
 
                 <article class="tarjeta-destacado item-producto" data-nombre="Promo Revendedor (3)" data-precio="40700">
                     <div class="imagen-destacado">
                         <img src="img/logo.png" alt="Promo">
-                        <div class="detalle-promo">
-                            <ul>
-                                <li>20L Cloro 100%</li>
-                                <li>20L Jabón Violeta</li>
-                                <li>20L Limpia Pisos</li>
-                                <li>10L Detergente Limón</li>
-                            </ul>
-                        </div>
+                        <div class="detalle-promo"><ul><li>20L Cloro 100%</li><li>20L Jabón Violeta</li><li>20L Limpia Pisos</li><li>10L Detergente Limón</li></ul></div>
                     </div>
-                    <div class="info-destacado"><h3>Promo Revendedor (3)</h3><div class="precio-y-botones"><span class="precio-nuevo">$40.700,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div></div>
+                    <div class="info-destacado">
+                        <h3>Promo Revendedor (3)</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma">
+                                <option value="Lavanda">Lavanda</option>
+                                <option value="Pino">Pino</option>
+                                <option value="Cítrico">Cítrico</option>
+                                <option value="Floral">Floral</option>
+                                <option value="Marina">Marina</option>
+                                <option value="Manzana">Manzana</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones"><span class="precio-nuevo">$40.700,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div>
+                    </div>
                 </article>
 
                 <article class="tarjeta-destacado item-producto" data-nombre="Promo Revendedor (4)" data-precio="29000">
                     <div class="imagen-destacado">
                         <img src="img/logo.png" alt="Promo">
-                        <div class="detalle-promo">
-                            <ul>
-                                <li>20L Lavandina Concentrada</li>
-                                <li>20L Jabón Eco Azul</li>
-                                <li>20L Limpia Pisos</li>
-                                <li>10L Suavizante Celeste</li>
-                            </ul>
-                        </div>
+                        <div class="detalle-promo"><ul><li>20L Lavandina Concentrada</li><li>20L Jabón Eco Azul</li><li>20L Limpia Pisos</li><li>10L Suavizante Celeste</li></ul></div>
                     </div>
-                    <div class="info-destacado"><h3>Promo Revendedor (4)</h3><div class="precio-y-botones"><span class="precio-nuevo">$29.000,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div></div>
+                    <div class="info-destacado">
+                        <h3>Promo Revendedor (4)</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma">
+                                <option value="Lavanda">Lavanda</option>
+                                <option value="Pino">Pino</option>
+                                <option value="Cítrico">Cítrico</option>
+                                <option value="Floral">Floral</option>
+                                <option value="Marina">Marina</option>
+                                <option value="Manzana">Manzana</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones"><span class="precio-nuevo">$29.000,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div>
+                    </div>
                 </article>
 
                 <article class="tarjeta-destacado item-producto" data-nombre="Promo Revendedor (5)" data-precio="41200">
                     <div class="imagen-destacado">
                         <img src="img/logo.png" alt="Promo">
-                        <div class="detalle-promo">
-                            <ul>
-                                <li>20L Lavandina Concentrada</li>
-                                <li>20L Jabón Premium</li>
-                                <li>20L Limpia Pisos</li>
-                                <li>10L Detergente Limón</li>
-                                <li>10L Suavizante Celeste</li>
-                            </ul>
-                        </div>
+                        <div class="detalle-promo"><ul><li>20L Lavandina Concentrada</li><li>20L Jabón Premium</li><li>20L Limpia Pisos</li><li>10L Detergente Limón</li><li>10L Suavizante Celeste</li></ul></div>
                     </div>
-                    <div class="info-destacado"><h3>Promo Revendedor (5)</h3><div class="precio-y-botones"><span class="precio-nuevo">$41.200,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div></div>
+                    <div class="info-destacado">
+                        <h3>Promo Revendedor (5)</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma">
+                                <option value="Lavanda">Lavanda</option>
+                                <option value="Pino">Pino</option>
+                                <option value="Cítrico">Cítrico</option>
+                                <option value="Floral">Floral</option>
+                                <option value="Marina">Marina</option>
+                                <option value="Manzana">Manzana</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones"><span class="precio-nuevo">$41.200,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div>
+                    </div>
                 </article>
 
                 <article class="tarjeta-destacado item-producto" data-nombre="Promo Revendedor (6)" data-precio="50600">
                     <div class="imagen-destacado">
                         <img src="img/logo.png" alt="Promo">
-                        <div class="detalle-promo">
-                            <ul>
-                                <li>20L Cloro 100%</li>
-                                <li>20L Jabón Violeta</li>
-                                <li>20L Limpia Pisos</li>
-                                <li>10L Detergente Limón</li>
-                                <li>10L Suavizante Downy</li>
-                            </ul>
-                        </div>
+                        <div class="detalle-promo"><ul><li>20L Cloro 100%</li><li>20L Jabón Violeta</li><li>20L Limpia Pisos</li><li>10L Detergente Limón</li><li>10L Suavizante Downy</li></ul></div>
                     </div>
-                    <div class="info-destacado"><h3>Promo Revendedor (6)</h3><div class="precio-y-botones"><span class="precio-nuevo">$50.600,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div></div>
+                    <div class="info-destacado">
+                        <h3>Promo Revendedor (6)</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma">
+                                <option value="Lavanda">Lavanda</option>
+                                <option value="Pino">Pino</option>
+                                <option value="Cítrico">Cítrico</option>
+                                <option value="Floral">Floral</option>
+                                <option value="Marina">Marina</option>
+                                <option value="Manzana">Manzana</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones"><span class="precio-nuevo">$50.600,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div>
+                    </div>
                 </article>
             </div>
         </div>
     </div>
-
 
     <div id="vista-productos" style="display: none;">
         <div class="contenedor-catalogo">
@@ -476,7 +547,20 @@
             <div class="grilla-catalogo">
                 <article class="tarjeta-destacado item-producto" data-nombre="Limpiapisos perfumado" data-precio="720">
                     <div class="imagen-destacado"><img src="img/logo.png" alt="Limpiapisos"></div>
-                    <div class="info-destacado"><h3>Limpiapisos perfumado</h3><div class="precio-y-botones"><span class="precio-nuevo">$720,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div></div>
+                    <div class="info-destacado">
+                        <h3>Limpiapisos perfumado</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma">
+                                <option value="Lavanda">Lavanda</option>
+                                <option value="Pino">Pino</option>
+                                <option value="Cítrico">Cítrico</option>
+                                <option value="Floral">Floral</option>
+                                <option value="Marina">Marina</option>
+                                <option value="Manzana">Manzana</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones"><span class="precio-nuevo">$720,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div>
+                    </div>
                 </article>
                 <article class="tarjeta-destacado item-producto" data-nombre="Cera incolora" data-precio="1250">
                     <div class="imagen-destacado"><img src="img/logo.png" alt="Cera"></div>
@@ -519,10 +603,8 @@
                     <div class="info-destacado"><h3>Shampoo autos</h3><div class="precio-y-botones"><span class="precio-nuevo">$650,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div></div>
                 </article>
             </div>
-
         </div>
     </div>
-
 
     <footer id="contacto" class="footer-completo">
         <div class="footer-columnas">
@@ -532,7 +614,7 @@
                     <li><a href="#" onclick="mostrarVista('inicio'); return false;">Inicio</a></li>
                     <li><a href="#" onclick="mostrarVista('productos'); return false;">Productos</a></li>
                     <li><a href="#contacto">Contacto</a></li>
-                    <li><a href="https://instagram.com/bubblecleaning_rc" target="_blank">INSTAGRAM</a></li>
+                    <li><a href="https://instagram.com/bubblecleaning.rc" target="_blank">INSTAGRAM</a></li>
                     <li><a href="#" onclick="abrirComoComprar(); return false;">Cómo Comprar</a></li>
                 </ul>
             </div>
@@ -540,7 +622,11 @@
             <div class="col-footer">
                 <h4>Medios de Pago</h4>
                 <div class="iconos-badges">
-                    <span>Visa</span><span>Mastercard</span><span>Cabal</span><span>MercadoPago</span><span>Transferencia</span>
+                    <img src="img/visa.png" alt="Visa" class="img-badge-pago">
+                    <img src="img/mastercard.png" alt="Mastercard" class="img-badge-pago">
+                    <img src="img/cabal.png" alt="Cabal" class="img-badge-pago">
+                    <img src="img/mercadopago.png" alt="MercadoPago" class="img-badge-pago">
+                    <img src="img/transferencia.png" alt="Transferencia" class="img-badge-pago">
                 </div>
                 <h4 style="margin-top: 25px;">Formas de Envío</h4>
                 <div class="iconos-badges">
@@ -624,8 +710,8 @@
                 </div>
                 
                 <div class="grupo-input">
-                    <label for="cliente-notas">Aromas y Aclaraciones (Opcional)</label>
-                    <textarea id="cliente-notas" rows="3" placeholder="Si llevás limpiapisos, indicanos el aroma acá: Lavanda, Pino, Cítrico, Floral, Marina o Manzana."></textarea>
+                    <label for="cliente-notas">Aclaraciones u Observaciones (Opcional)</label>
+                    <textarea id="cliente-notas" rows="3" placeholder="Ingresá acá cualquier indicación extra para la entrega."></textarea>
                 </div>
                 
                 <button type="submit" class="btn-whatsapp-modal" style="margin-top: 10px;">Confirmar y Enviar</button>
@@ -638,13 +724,13 @@
             <span class="cerrar-modal" onclick="cerrarComoComprar()">&times;</span>
             <h2>¿Cómo comprar?</h2>
             <div class="texto-como-comprar">
-                <p><strong>1. Elegí tus productos:</strong> Navegá por nuestra tienda y agregá los productos usando los botones <strong>+</strong> y <strong>-</strong>.</p>
+                <p><strong>1. Elegí tus productos:</strong> Navegá por nuestra tienda, seleccioná el aroma si corresponde y agregá los productos usando los botones <strong>+</strong> y <strong>-</strong>.</p>
                 <p><strong>2. Revisá tu carrito:</strong> Arriba a la derecha vas a poder ver el resumen y el total de tu pedido.</p>
-                <p><strong>3. Confirmá tu pedido:</strong> Hacé clic en "Confirmar por WhatsApp". Nos llegará tu detalle completo para coordinar el pago y el envío en Río Cuarto.</p>
+                <p><strong>3. Confirmá tu pedido:</strong> Hacé clic en "Completar Datos de Envío", completá el formulario y envianos el WhatsApp. ¡Listo!</p>
             </div>
         </div>
     </div>
 
-    <script src="script.js?v=32.0"></script>
+    <script src="script.js?v=33.0"></script>
 </body>
 </html>

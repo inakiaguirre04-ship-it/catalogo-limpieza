@@ -309,6 +309,39 @@ body {
 }
 
 /* =========================================
+   ESTILOS PARA SELECTOR DE AROMAS E IMÁGENES
+   ========================================= */
+.contenedor-select-aroma {
+    margin: 8px 0;
+    width: 100%;
+}
+
+.select-aroma {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-family: 'Onest', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background-color: #ffffff;
+    color: #000000;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Redimensionar las imágenes de los bancos en el footer de forma prolija */
+.img-badge-pago {
+    height: 28px;
+    width: auto;
+    object-fit: contain;
+    background-color: #ffffff; /* Le da un fondo blanco limpio si la imagen es transparente */
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* =========================================
    10. RESPONSIVE (CELULARES)
    ========================================= */
 @media (max-width: 1024px) {

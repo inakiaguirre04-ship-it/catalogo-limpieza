@@ -4,12 +4,10 @@ let carrito = {};
 // 1. CONTROL DE VISTAS (SPA)
 // =========================================
 function mostrarVista(vista) {
-    // Ocultamos todas primero
     document.getElementById('vista-inicio').style.display = 'none';
     document.getElementById('vista-productos').style.display = 'none';
     document.getElementById('vista-promociones').style.display = 'none';
 
-    // Mostramos solo la que corresponde
     if (vista === 'inicio') document.getElementById('vista-inicio').style.display = 'block';
     if (vista === 'productos') document.getElementById('vista-productos').style.display = 'block';
     if (vista === 'promociones') document.getElementById('vista-promociones').style.display = 'block';
@@ -18,42 +16,61 @@ function mostrarVista(vista) {
 }
 
 function irASeccion(idElemento, idVista) {
-    // Apagamos todas las vistas
     document.getElementById('vista-inicio').style.display = 'none';
     document.getElementById('vista-productos').style.display = 'none';
     document.getElementById('vista-promociones').style.display = 'none';
     
-    // Prendemos la que nos pasaron por parámetro
     document.getElementById(idVista).style.display = 'block';
     
-    // Le damos tiempo al navegador a dibujar la página y saltamos al título
     setTimeout(() => {
         let elemento = document.getElementById(idElemento);
-        if (elemento) {
+        if (element) {
             elemento.scrollIntoView({ behavior: 'smooth' });
         }
     }, 100);
 }
 
 // =========================================
-// 2. LÓGICA DEL CARRITO
+// 2. LÓGICA DEL CARRITO (CON SOPORTE DE AROMAS)
 // =========================================
 function agregarProd(btn) {
     let articulo = btn.closest('.item-producto');
     let baseNombre = articulo.getAttribute('data-nombre');
     let precio = parseFloat(articulo.getAttribute('data-precio'));
     
-    if(!carrito[baseNombre]) {
-        carrito[baseNombre] = {cantidad: 0, precio: precio};
+    // Verificamos si este producto específico tiene un selector de aromas activo
+    let selectAroma = articulo.querySelector('.select-aroma');
+    let nombreFinal = baseNombre;
+    
+    if (selectAroma) {
+        let aromaElegido = selectAroma.value;
+        nombreFinal = `${baseNombre} (${aromaElegido})`;
     }
-    carrito[baseNombre].cantidad++;
+    
+    if(!carrito[nombreFinal]) {
+        carrito[nombreFinal] = {cantidad: 0, precio: precio, baseNombre: baseNombre};
+    }
+    carrito[nombreFinal].cantidad++;
     actualizarPantalla();
 }
 
 function quitarProd(btn) {
     let articulo = btn.closest('.item-producto');
     let baseNombre = articulo.getAttribute('data-nombre');
-    quitarPorNombre(baseNombre);
+    
+    // Buscamos si tiene selector para restar de la variante exacta
+    let selectAroma = articulo.querySelector('.select-aroma');
+    let nombreFinal = baseNombre;
+    
+    if (selectAroma) {
+        nombreFinal = `${baseNombre} (${selectAroma.value})`;
+    }
+    
+    if(carrito[nombreFinal] && carrito[nombreFinal].cantidad > 0) {
+        carrito[nombreFinal].cantidad--;
+        if(carrito[nombreFinal].cantidad === 0) delete carrito[nombreFinal];
+        actualizarPantalla();
+    }
 }
 
 function quitarPorNombre(nombre) {
@@ -83,12 +100,20 @@ function actualizarPantalla() {
     let modalPrecio = document.getElementById('total-modal-precio');
     if(modalPrecio) modalPrecio.innerText = totalFormateado;
     
+    // Sincronizar los contadores visuales sumando todas las variantes de aroma del mismo producto
     let items = document.querySelectorAll('.item-producto');
     items.forEach(item => {
         let baseNombre = item.getAttribute('data-nombre');
-        let sum = carrito[baseNombre] ? carrito[baseNombre].cantidad : 0;
+        let totalUnidades = 0;
+        
+        for (let nombre in carrito) {
+            if (nombre === baseNombre || nombre.startsWith(baseNombre + " (")) {
+                totalUnidades += carrito[nombre].cantidad;
+            }
+        }
+        
         let contador = item.querySelector('.cantidad-prod');
-        if(contador) contador.innerText = sum;
+        if(contador) contador.innerText = totalUnidades;
     });
 
     actualizarListaModal();
@@ -111,8 +136,8 @@ function abrirCheckout() {
         alert("Todavía no agregaste nada al pedido.");
         return; 
     }
-    cerrarCarrito(); // Ocultamos el carrito
-    document.getElementById('modal-checkout').style.display = "flex"; // Mostramos el formulario
+    cerrarCarrito();
+    document.getElementById('modal-checkout').style.display = "flex";
 }
 
 function cerrarCheckout() {
@@ -153,7 +178,7 @@ function actualizarListaModal() {
 }
 
 // =========================================
-// 4. ENVÍO A WHATSAPP CON FORMULARIO
+// 4. ENVÍO A WHATSAPP CON DATOS COMPLETOS
 // =========================================
 function procesarPedido(event) {
     event.preventDefault(); 
@@ -163,7 +188,7 @@ function procesarPedido(event) {
     let telefono = document.getElementById('cliente-telefono').value;
     let direccion = document.getElementById('cliente-direccion').value;
     let horario = document.getElementById('cliente-horario').value;
-    let notas = document.getElementById('cliente-notas').value; // NUEVO
+    let notas = document.getElementById('cliente-notes') ? document.getElementById('cliente-notes').value : document.getElementById('cliente-notas').value;
 
     let texto = `*NUEVO PEDIDO - BUBBLE CLEANING*\n\n`;
     texto += `*Datos de Entrega:*\n`;
@@ -172,13 +197,11 @@ function procesarPedido(event) {
     texto += `- Dirección: ${direccion}\n`;
     texto += `- Horario: ${horario}\n\n`;
     
-    // NUEVO: Agregamos las notas si el cliente escribió algo
-    if (notas.trim() !== "") {
-        texto += `*Aromas/Aclaraciones:*\n_${notas}_\n\n`;
+    if (notas && notas.trim() !== "") {
+        texto += `*Aclaraciones:*\n_${notas}_\n\n`;
     }
 
     texto += `*Detalle del Pedido:*\n`;
-
     let totalFinal = 0;
 
     for (let nombreProd in carrito) {
@@ -192,31 +215,25 @@ function procesarPedido(event) {
     let totalFormateado = totalFinal % 1 !== 0 ? totalFinal.toFixed(2) : totalFinal;
     texto += `\n*TOTAL A ABONAR: $${totalFormateado}*`;
     
-    // Abrimos el WhatsApp enviando todo al número del vendedor que eligió
     let url = `https://wa.me/${vendedorNum}?text=${encodeURIComponent(texto)}`;
     window.open(url, '_blank');
-    
-    // Opcional: cerramos la ventanita
     cerrarCheckout();
 }
 
 // =========================================
-// 5. BUSCADOR INTELIGENTE (MEJORADO)
+// 5. BUSCADOR INTELIGENTE
 // =========================================
 function filtrarPromos() {
     let input = document.getElementById('buscador').value.toLowerCase();
     
-    // Si escribe algo, abrimos AMBOS catálogos y ocultamos el inicio
     if(input.length > 0) {
         document.getElementById('vista-inicio').style.display = 'none';
         document.getElementById('vista-productos').style.display = 'block';
         document.getElementById('vista-promociones').style.display = 'block';
     } else {
-        // Si borra el texto, volvemos a la normalidad (Inicio)
         mostrarVista('inicio');
     }
 
-    // 1. Ocultar o mostrar cada producto individual
     let productos = document.querySelectorAll('.item-producto');
     productos.forEach(prod => {
         let nombreProd = prod.getAttribute('data-nombre').toLowerCase();
@@ -227,7 +244,6 @@ function filtrarPromos() {
         }
     });
 
-    // 2. Ocultar títulos de categorías (H2) que quedan vacías
     let categorias = document.querySelectorAll('.titulo-categoria');
     categorias.forEach(titulo => {
         let grilla = titulo.nextElementSibling; 
@@ -244,18 +260,13 @@ function filtrarPromos() {
         }
     });
 
-    // 3. NUEVO: Ocultar los Catálogos completos (H1) si no tienen NINGÚN producto visible
     if(input.length > 0) {
         let vistaPromos = document.getElementById('vista-promociones');
         let visiblesEnPromos = Array.from(vistaPromos.querySelectorAll('.item-producto')).filter(p => p.style.display !== 'none');
-        if (visiblesEnPromos.length === 0) {
-            vistaPromos.style.display = 'none'; // Si no hay promos que coincidan, ocultamos todo el bloque
-        }
+        if (visiblesEnPromos.length === 0) vistaPromos.style.display = 'none';
 
         let vistaProds = document.getElementById('vista-productos');
         let visiblesEnProds = Array.from(vistaProds.querySelectorAll('.item-producto')).filter(p => p.style.display !== 'none');
-        if (visiblesEnProds.length === 0) {
-            vistaProds.style.display = 'none'; // Si no hay productos que coincidan, ocultamos todo el bloque
-        }
+        if (visiblesEnProds.length === 0) vistaProds.style.display = 'none';
     }
 }
