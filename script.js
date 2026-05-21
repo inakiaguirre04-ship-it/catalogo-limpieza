@@ -179,7 +179,7 @@ function filtrarPromos() {
         document.getElementById('vista-productos').style.display = 'block';
     }
 
-    // Filtramos solo los productos que están dentro del catálogo
+    // 1. Filtramos solo los productos que están dentro del catálogo
     let productos = document.querySelectorAll('#vista-productos .item-producto');
 
     productos.forEach(prod => {
@@ -188,6 +188,27 @@ function filtrarPromos() {
             prod.style.display = "flex"; 
         } else {
             prod.style.display = "none";
+        }
+    });
+
+    // 2. Revisamos las categorías para ocultar los títulos vacíos
+    let categorias = document.querySelectorAll('#vista-productos .titulo-categoria');
+    
+    categorias.forEach(titulo => {
+        // Seleccionamos la grilla que le sigue al título
+        let grilla = titulo.nextElementSibling; 
+        
+        // Contamos cuántos productos quedaron visibles adentro de esa grilla
+        let productosVisibles = Array.from(grilla.querySelectorAll('.item-producto')).filter(p => p.style.display !== 'none');
+        
+        // Si no hay ninguno visible, ocultamos el título y la grilla
+        if (productosVisibles.length === 0) {
+            titulo.style.display = 'none';
+            grilla.style.display = 'none';
+        } else {
+            // Si hay productos, volvemos a mostrar el título y la grilla
+            titulo.style.display = ''; 
+            grilla.style.display = ''; 
         }
     });
 }
