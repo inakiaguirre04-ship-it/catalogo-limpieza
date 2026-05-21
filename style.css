@@ -152,7 +152,7 @@ body {
 /* =========================================
    4. SECCIÓN DESTACADOS Y PROMOCIONES
    ========================================= */
-.fondo-gris-destacados { background-color: #ededed; width: 92%; max-width: 1300px; margin: 30px auto 40px auto; padding: 35px 40px; border-radius: 16px; }
+.fondo-gris-destacados { background-color: #dee4e0; width: 92%; max-width: 1300px; margin: 30px auto 40px auto; padding: 35px 40px; border-radius: 16px; }
 .seccion-destacados { width: 100%; }
 .titulo-destacados { font-size: 1.8rem; color: #333; font-weight: 400; margin-bottom: 25px; text-align: left; }
 .grilla-destacados { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
