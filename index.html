@@ -50,14 +50,38 @@
                     <a href="#" class="nav-cat">CATEGORÍAS 
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </a>
-                    <div class="dropdown-contenido">
-                        <a href="#" onclick="irACategoria('cat-lavandinas'); return false;">Lavandinas y Cloros</a>
-                        <a href="#" onclick="irACategoria('cat-detergentes'); return false;">Detergentes y Jabones</a>
-                        <a href="#" onclick="irACategoria('cat-suavizantes'); return false;">Suavizantes y Manchas</a>
-                        <a href="#" onclick="irACategoria('cat-pisos'); return false;">Limpiadores y Ceras</a>
-                        <a href="#" onclick="irACategoria('cat-general'); return false;">Limpieza General</a>
-                        <a href="#" onclick="irACategoria('cat-autos'); return false;">Línea Automotor</a>
-                    </div>
+                    
+                    <ul class="dropdown-contenido">
+                        
+                        <li class="dropdown-submenu">
+                            <a href="#" onclick="mostrarVista('inicio'); setTimeout(()=>document.getElementById('promociones').scrollIntoView({behavior:'smooth'}), 100); return false;">Promociones <span class="flecha-der">›</span></a>
+                            <ul class="submenu-contenido">
+                                <li><a href="#" onclick="mostrarVista('inicio'); setTimeout(()=>document.getElementById('promociones').scrollIntoView({behavior:'smooth'}), 100); return false;">Ver todas las Promos</a></li>
+                                <li><a href="#" onclick="mostrarVista('inicio'); setTimeout(()=>document.getElementById('promociones').scrollIntoView({behavior:'smooth'}), 100); return false;">Combos Especiales</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown-submenu">
+                            <a href="#" onclick="mostrarVista('productos'); return false;">Productos <span class="flecha-der">›</span></a>
+                            <ul class="submenu-contenido">
+                                <li><a href="#" onclick="irACategoria('cat-lavandinas'); return false;">Lavandinas y Cloros</a></li>
+                                <li><a href="#" onclick="irACategoria('cat-detergentes'); return false;">Detergentes y Jabones</a></li>
+                                <li><a href="#" onclick="irACategoria('cat-suavizantes'); return false;">Suavizantes y Manchas</a></li>
+                                <li><a href="#" onclick="irACategoria('cat-pisos'); return false;">Limpiadores y Ceras</a></li>
+                                <li><a href="#" onclick="irACategoria('cat-general'); return false;">Limpieza General</a></li>
+                                <li><a href="#" onclick="irACategoria('cat-autos'); return false;">Línea Automotor</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown-submenu">
+                            <a href="#">Artículos <span class="flecha-der">›</span></a>
+                            <ul class="submenu-contenido">
+                                <li><a href="#">Tips de Limpieza</a></li>
+                                <li><a href="#">Novedades y Noticias</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
                 </div>
                 <a href="#" onclick="mostrarVista('inicio'); return false;">INICIO</a>
                 <a href="#" onclick="mostrarVista('productos'); return false;">PRODUCTOS</a>

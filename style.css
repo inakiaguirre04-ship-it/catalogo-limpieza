@@ -47,13 +47,83 @@ body {
 .nav-black a:hover { color: var(--bubble-primary); }
 .nav-cat { text-decoration: underline !important; text-underline-offset: 6px; display: flex; align-items: center; gap: 6px; }
 
-/* MENÚ DESPLEGABLE CATEGORÍAS */
+/* MENÚ DESPLEGABLE MULTINIVEL (Cascada) */
 .dropdown-categorias { position: relative; display: inline-block; }
-.dropdown-contenido { display: none; position: absolute; background-color: #ffffff; min-width: 240px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); z-index: 2000; top: 100%; left: 0; border-radius: 0 0 8px 8px; overflow: hidden; border-top: 2px solid var(--bubble-primary); }
-.dropdown-contenido a { color: #333 !important; padding: 12px 18px; text-decoration: none; display: block; font-size: 0.9rem !important; font-weight: 600 !important; border-bottom: 1px solid #f0f0f0; letter-spacing: 0 !important; }
-.dropdown-contenido a:last-child { border-bottom: none; }
-.dropdown-contenido a:hover { background-color: #f9f9f9; color: var(--bubble-primary) !important; padding-left: 22px; transition: all 0.2s; }
+
+/* Reset de listas para que no tengan viñetas */
+.dropdown-contenido, .submenu-contenido { list-style: none; margin: 0; padding: 0; }
+
+/* Caja principal del desplegable (Nivel 1) */
+.dropdown-contenido { 
+    display: none; 
+    position: absolute; 
+    background-color: #ffffff; 
+    min-width: 240px; 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15); 
+    z-index: 2000; 
+    top: 100%; 
+    left: 0; 
+    border-radius: 0 0 8px 8px; 
+    border-top: 2px solid var(--bubble-primary); 
+}
+
+/* Mostrar Nivel 1 al pasar el mouse por "CATEGORÍAS" */
 .dropdown-categorias:hover .dropdown-contenido { display: block; }
+
+/* Estilo de los links de todos los menús */
+.dropdown-contenido a { 
+    color: #333 !important; 
+    padding: 12px 18px; 
+    text-decoration: none; 
+    display: flex; 
+    justify-content: space-between; /* Separa el texto de la flechita */
+    align-items: center;
+    font-size: 0.9rem !important; 
+    font-weight: 600 !important; 
+    border-bottom: 1px solid #f0f0f0; 
+}
+
+.dropdown-contenido li:last-child > a { border-bottom: none; }
+
+.dropdown-contenido a:hover { 
+    background-color: #f9f9f9; 
+    color: var(--bubble-primary) !important; 
+    padding-left: 22px; /* Pequeño salto a la derecha al hacer hover */
+    transition: all 0.2s; 
+}
+
+.flecha-der { font-size: 1.2rem; line-height: 0; margin-left: 10px; color: #888; }
+
+/* SUBMENÚ (Nivel 2) */
+.dropdown-submenu { position: relative; }
+
+.submenu-contenido {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%; /* Se abre hacia la derecha del menú padre */
+    background-color: #ffffff;
+    min-width: 250px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    border-radius: 0 8px 8px 8px;
+    border-left: 2px solid var(--bubble-primary); /* Rayita azul para indicar el salto */
+}
+
+/* Mostrar Nivel 2 al pasar el mouse por las opciones principales */
+.dropdown-submenu:hover .submenu-contenido { display: block; }
+
+/* Corrección en celulares para que el menú no se salga de la pantalla */
+@media (max-width: 900px) {
+    .submenu-contenido {
+        left: 0;
+        top: 100%;
+        position: relative;
+        box-shadow: none;
+        border-left: none;
+        border-top: 1px solid #eee;
+        padding-left: 15px;
+    }
+}
 
 /* =========================================
    2. BANNERS SUPERIORES 
