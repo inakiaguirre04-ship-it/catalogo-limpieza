@@ -201,20 +201,23 @@ function procesarPedido(event) {
 }
 
 // =========================================
-// 5. BUSCADOR INTELIGENTE
+// 5. BUSCADOR INTELIGENTE (MEJORADO)
 // =========================================
 function filtrarPromos() {
     let input = document.getElementById('buscador').value.toLowerCase();
     
-    // Mostramos TODOS los catálogos al buscar
+    // Si escribe algo, abrimos AMBOS catálogos y ocultamos el inicio
     if(input.length > 0) {
         document.getElementById('vista-inicio').style.display = 'none';
         document.getElementById('vista-productos').style.display = 'block';
         document.getElementById('vista-promociones').style.display = 'block';
+    } else {
+        // Si borra el texto, volvemos a la normalidad (Inicio)
+        mostrarVista('inicio');
     }
 
+    // 1. Ocultar o mostrar cada producto individual
     let productos = document.querySelectorAll('.item-producto');
-
     productos.forEach(prod => {
         let nombreProd = prod.getAttribute('data-nombre').toLowerCase();
         if (nombreProd.includes(input)) {
@@ -224,8 +227,8 @@ function filtrarPromos() {
         }
     });
 
+    // 2. Ocultar títulos de categorías (H2) que quedan vacías
     let categorias = document.querySelectorAll('.titulo-categoria');
-    
     categorias.forEach(titulo => {
         let grilla = titulo.nextElementSibling; 
         if(!grilla) return;
@@ -240,4 +243,19 @@ function filtrarPromos() {
             grilla.style.display = ''; 
         }
     });
+
+    // 3. NUEVO: Ocultar los Catálogos completos (H1) si no tienen NINGÚN producto visible
+    if(input.length > 0) {
+        let vistaPromos = document.getElementById('vista-promociones');
+        let visiblesEnPromos = Array.from(vistaPromos.querySelectorAll('.item-producto')).filter(p => p.style.display !== 'none');
+        if (visiblesEnPromos.length === 0) {
+            vistaPromos.style.display = 'none'; // Si no hay promos que coincidan, ocultamos todo el bloque
+        }
+
+        let vistaProds = document.getElementById('vista-productos');
+        let visiblesEnProds = Array.from(vistaProds.querySelectorAll('.item-producto')).filter(p => p.style.display !== 'none');
+        if (visiblesEnProds.length === 0) {
+            vistaProds.style.display = 'none'; // Si no hay productos que coincidan, ocultamos todo el bloque
+        }
+    }
 }
