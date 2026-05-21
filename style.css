@@ -196,7 +196,7 @@ body {
 .col-footer ul li a:hover { color: #ffffff; }
 
 .iconos-badges { display: flex; flex-wrap: wrap; gap: 8px; }
-.iconos-badges span { background-color: #ffffff; color: #000000; padding: 5px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 800; }
+.iconos-badges span { background-color: #dee4e0; color: #000000; padding: 5px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 800; }
 
 .redes-sociales { margin-bottom: 15px; }
 .link-ig { display: inline-flex; align-items: center; gap: 8px; color: #000; text-decoration: none; font-size: 1rem; font-weight: 600; transition: color 0.2s, transform 0.2s; }
