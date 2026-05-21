@@ -234,7 +234,41 @@ body {
 .texto-como-comprar strong { color: #000; }
 
 /* =========================================
-   8. RESPONSIVE (CELULARES)
+   8. ESTILOS DEL FORMULARIO DE CHECKOUT
+   ========================================= */
+.grupo-input {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.grupo-input label {
+    display: block;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
+.grupo-input input, .grupo-input select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-family: 'Onest', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    background-color: #ffffff;
+    color: #333333;
+    transition: border-color 0.2s;
+}
+
+/* Cuando hacés clic para escribir, se pone el borde negro */
+.grupo-input input:focus, .grupo-input select:focus {
+    border-color: #000000;
+}
+
+/* =========================================
+   9. RESPONSIVE (CELULARES)
    ========================================= */
 @media (max-width: 1024px) {
     .header-top { padding: 15px 20px; }

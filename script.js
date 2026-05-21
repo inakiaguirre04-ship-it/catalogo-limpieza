@@ -106,6 +106,19 @@ function cerrarCarrito() {
     document.getElementById('modal-carrito').style.display = "none";
 }
 
+function abrirCheckout() {
+    if (Object.keys(carrito).length === 0) {
+        alert("Todavía no agregaste nada al pedido.");
+        return; 
+    }
+    cerrarCarrito(); // Ocultamos el carrito
+    document.getElementById('modal-checkout').style.display = "flex"; // Mostramos el formulario
+}
+
+function cerrarCheckout() {
+    document.getElementById('modal-checkout').style.display = "none";
+}
+
 function abrirComoComprar() {
     document.getElementById('modal-como-comprar').style.display = "flex";
 }
@@ -142,28 +155,47 @@ function actualizarListaModal() {
 // =========================================
 // 4. ENVÍO A WHATSAPP
 // =========================================
-function enviarWhatsApp() {
-    if (Object.keys(carrito).length === 0) {
-        alert("Todavía no agregaste nada al pedido.");
-        return; 
-    }
+// =========================================
+// 4. ENVÍO A WHATSAPP CON FORMULARIO
+// =========================================
+function procesarPedido(event) {
+    event.preventDefault(); // Evitamos que la página se recargue
 
-    let texto = "Hola! Quiero hacer el siguiente pedido para envío en Río Cuarto:\n\n";
+    // Tomamos los datos que escribió el cliente
+    let vendedorNum = document.getElementById('vendedor').value;
+    let nombre = document.getElementById('cliente-nombre').value;
+    let telefono = document.getElementById('cliente-telefono').value;
+    let direccion = document.getElementById('cliente-direccion').value;
+    let horario = document.getElementById('cliente-horario').value;
+
+    // Armamos el texto elegante para WhatsApp
+    let texto = `*NUEVO PEDIDO - BUBBLE CLEANING*\n\n`;
+    texto += `*Datos de Entrega:*\n`;
+    texto += `- Nombre: ${nombre}\n`;
+    texto += `- Teléfono: ${telefono}\n`;
+    texto += `- Dirección: ${direccion}\n`;
+    texto += `- Horario: ${horario}\n\n`;
+    texto += `*Detalle del Pedido:*\n`;
+
     let totalFinal = 0;
 
-    for (let nombre in carrito) {
-        let item = carrito[nombre];
+    for (let nombreProd in carrito) {
+        let item = carrito[nombreProd];
         let subtotal = item.precio * item.cantidad;
         totalFinal += subtotal;
         let subFormateado = subtotal % 1 !== 0 ? subtotal.toFixed(2) : subtotal;
-        texto += `- ${item.cantidad}x ${nombre} ($${subFormateado})\n`;
+        texto += `- ${item.cantidad}x ${nombreProd} ($${subFormateado})\n`;
     }
     
     let totalFormateado = totalFinal % 1 !== 0 ? totalFinal.toFixed(2) : totalFinal;
-    texto += `\nTotal a abonar: $${totalFormateado}`;
+    texto += `\n*TOTAL A ABONAR: $${totalFormateado}*`;
     
-    let url = `https://wa.me/5493584866061?text=${encodeURIComponent(texto)}`;
+    // Abrimos el WhatsApp enviando todo al número del vendedor que eligió
+    let url = `https://wa.me/${vendedorNum}?text=${encodeURIComponent(texto)}`;
     window.open(url, '_blank');
+    
+    // Opcional: cerramos la ventanita
+    cerrarCheckout();
 }
 
 // =========================================
