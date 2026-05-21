@@ -28,7 +28,7 @@ body {
 .header-top { display: flex; align-items: center; justify-content: space-between; background-color: #FFFFFF; padding: 15px 40px; }
 .header-logo { display: flex; align-items: center; }
 #logo-principal { max-height: 80px; }
-.texto-logo { font-size: 1.4rem; font-weight: 900; color: #2CB7B3; margin-left: 12px; letter-spacing: 0.5px; white-space: nowrap; }
+.texto-logo { font-size: 1.4rem; font-weight: 900; color: #000; margin-left: 12px; letter-spacing: 0.5px; white-space: nowrap; }
 
 .search-container { display: flex; flex: 1; max-width: 600px; margin: 0 40px; border: 1px solid #dcdcdc; border-radius: 4px; overflow: hidden; }
 .search-container input { flex: 1; border: none; padding: 10px 15px; background-color: #f7f7f7; font-size: 0.95rem; outline: none; color: #333; }
