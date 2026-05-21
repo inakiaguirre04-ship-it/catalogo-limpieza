@@ -43,7 +43,7 @@ body {
 
 .header-bottom { background-color: #B8D060; width: 100%; }
 .nav-black { display: flex; align-items: center; max-width: 1300px; margin: 0 auto; padding: 15px 40px; gap: 40px; }
-.nav-black a { color: #FFFFFF; text-decoration: none; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; transition: color 0.2s; }
+.nav-black a { color: #000; text-decoration: none; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; transition: color 0.2s; }
 .nav-black a:hover { color: var(--bubble-primary); }
 .nav-cat { text-decoration: underline !important; text-underline-offset: 6px; display: flex; align-items: center; gap: 6px; }
 
