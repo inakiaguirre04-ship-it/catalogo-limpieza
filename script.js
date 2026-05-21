@@ -270,3 +270,33 @@ function filtrarPromos() {
         if (visiblesEnProds.length === 0) vistaProds.style.display = 'none';
     }
 }
+
+// =========================================
+// 6. TOQUES EN CELULAR (PROMOS Y MENÚ)
+// =========================================
+
+// Función para abrir y cerrar el menú de categorías en celular
+function toggleMenuCelular() {
+    let menu = document.querySelector('.dropdown-contenido');
+    menu.classList.toggle('mostrar-menu-celular');
+}
+
+// Lógica para que al tocar las promos se fije la información (sin tener que mantener)
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.tarjeta-destacado').forEach(tarjeta => {
+        tarjeta.addEventListener('click', (e) => {
+            // Si el cliente tocó el botón de "+" o "-" o el menú de Aromas, no hacemos nada
+            if(e.target.tagName.toLowerCase() === 'button' || e.target.tagName.toLowerCase() === 'select') return;
+            
+            let yaEstaActiva = tarjeta.classList.contains('activo-touch');
+            
+            // Apagamos todas las demás promos primero
+            document.querySelectorAll('.tarjeta-destacado').forEach(t => t.classList.remove('activo-touch'));
+            
+            // Y si esta no estaba prendida, la prendemos
+            if (!yaEstaActiva) {
+                tarjeta.classList.add('activo-touch');
+            }
+        });
+    });
+});

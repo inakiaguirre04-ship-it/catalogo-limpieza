@@ -355,14 +355,45 @@ body {
     .grilla-catalogo { grid-template-columns: repeat(3, 1fr); }
 }
 
+/* CLASES EXTRAS PARA CELULARES (Menú y Toques) */
+.tarjeta-destacado:hover .detalle-promo,
+.tarjeta-destacado.activo-touch .detalle-promo {
+    opacity: 1;
+}
+.mostrar-menu-celular {
+    display: block !important;
+}
+
 @media (max-width: 600px) {
-    .header-top { flex-direction: column; gap: 15px; padding: 15px; }
-    .header-logo { width: 100%; justify-content: center; }
+    /* 1. Encabezado: Logo Izquierda, Carrito Derecha, Buscador Abajo */
+    .header-top { 
+        display: flex; 
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: space-between; 
+        align-items: center; 
+        padding: 15px; 
+        gap: 0; 
+    }
+    .header-logo { width: auto; justify-content: flex-start; }
     .texto-logo { font-size: 1.1rem; margin-left: 8px; }
     
-    .search-container { width: 100%; max-width: 100%; margin: 0; }
-    .header-user-cart { display: none; } 
-    .nav-black { overflow-x: auto; white-space: nowrap; padding: 10px 15px; gap: 20px;}
+    /* Mostrar Carrito pero esconder texto y usuario para hacer espacio */
+    .header-user-cart { display: flex; width: auto; gap: 10px; }
+    .user-action { display: none; } 
+    .action-text { display: none; } 
+    
+    .search-container { width: 100%; max-width: 100%; margin: 15px 0 0 0; order: 3; }
+    
+    /* 2. Arreglar el Menú que se cortaba o desaparecía */
+    .nav-black { 
+        overflow: visible; /* Clave: Deja que el menú desplegable salga del cuadro */
+        white-space: normal; 
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 15px; 
+        gap: 20px;
+    }
     
     .banners-superiores { padding: 0 15px; }
     .contenedor-banners { grid-template-columns: 1fr; gap: 15px; }
