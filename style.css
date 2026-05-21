@@ -1,207 +1,279 @@
-let carrito = {}; 
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@400;600;700;800;900&display=swap');
 
-// =========================================
-// 1. CONTROL DE VISTAS (SPA)
-// =========================================
-function mostrarVista(vista) {
-    // Ocultamos todas primero
-    document.getElementById('vista-inicio').style.display = 'none';
-    document.getElementById('vista-productos').style.display = 'none';
-    document.getElementById('vista-promociones').style.display = 'none';
-
-    // Mostramos solo la que corresponde
-    if (vista === 'inicio') document.getElementById('vista-inicio').style.display = 'block';
-    if (vista === 'productos') document.getElementById('vista-productos').style.display = 'block';
-    if (vista === 'promociones') document.getElementById('vista-promociones').style.display = 'block';
-    
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+:root {
+    --bubble-primary: #3498DB; 
+    --bubble-accent: #FFB800;
+    --text-main: #1a365d;
+    --text-muted: #6c757d;
+    --body-bg: #f4f5f7; 
 }
 
-function irASeccion(idElemento, idVista) {
-    document.getElementById('vista-inicio').style.display = 'none';
-    document.getElementById('vista-productos').style.display = 'none';
-    document.getElementById('vista-promociones').style.display = 'none';
-    
-    document.getElementById(idVista).style.display = 'block';
-    
-    setTimeout(() => {
-        let elemento = document.getElementById(idElemento);
-        if (elemento) {
-            elemento.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, 100);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Onest', sans-serif; 
+    scroll-behavior: smooth; 
 }
 
-// =========================================
-// 2. LÓGICA DEL CARRITO
-// =========================================
-function agregarProd(btn) {
-    let articulo = btn.closest('.item-producto');
-    let baseNombre = articulo.getAttribute('data-nombre');
-    let precio = parseFloat(articulo.getAttribute('data-precio'));
-    
-    if(!carrito[baseNombre]) {
-        carrito[baseNombre] = {cantidad: 0, precio: precio};
+body {
+    background-color: var(--body-bg); 
+    color: #4a5568; 
+}
+
+/* =========================================
+   1. ENCABEZADO (HEADER)
+   ========================================= */
+.header-principal { width: 100%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.header-top { display: flex; align-items: center; justify-content: space-between; background-color: #FFFFFF; padding: 15px 40px; }
+.header-logo { display: flex; align-items: center; }
+#logo-principal { max-height: 45px; }
+.texto-logo { font-size: 1.4rem; font-weight: 900; color: #000000; margin-left: 12px; letter-spacing: 0.5px; white-space: nowrap; }
+
+.search-container { display: flex; flex: 1; max-width: 600px; margin: 0 40px; border: 1px solid #dcdcdc; border-radius: 4px; overflow: hidden; }
+.search-container input { flex: 1; border: none; padding: 10px 15px; background-color: #f7f7f7; font-size: 0.95rem; outline: none; color: #333; }
+.btn-buscar { background-color: var(--bubble-primary); border: none; width: 55px; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: background-color 0.2s; }
+.btn-buscar:hover { background-color: #2980b9; }
+
+.header-user-cart { display: flex; align-items: center; gap: 30px; }
+.user-action, .cart-action { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+.icon-circle { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #ddd; display: flex; justify-content: center; align-items: center; color: #333; background-color: #fff; }
+.action-text { font-size: 0.85rem; line-height: 1.3; color: #000; }
+.action-text strong { font-size: 0.9rem; font-weight: 800; }
+
+.header-bottom { background-color: #000000; width: 100%; }
+.nav-black { display: flex; align-items: center; max-width: 1300px; margin: 0 auto; padding: 15px 40px; gap: 40px; }
+.nav-black a { color: #FFFFFF; text-decoration: none; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; transition: color 0.2s; }
+.nav-black a:hover { color: var(--bubble-primary); }
+.nav-cat { text-decoration: underline !important; text-underline-offset: 6px; display: flex; align-items: center; gap: 6px; }
+
+/* MENÚ DESPLEGABLE MULTINIVEL (Cascada) */
+.dropdown-categorias { position: relative; display: inline-block; }
+
+/* Reset de listas para que no tengan viñetas */
+.dropdown-contenido, .submenu-contenido { list-style: none; margin: 0; padding: 0; }
+
+/* Caja principal del desplegable (Nivel 1) */
+.dropdown-contenido { 
+    display: none; 
+    position: absolute; 
+    background-color: #ffffff; 
+    min-width: 240px; 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15); 
+    z-index: 2000; 
+    top: 100%; 
+    left: 0; 
+    border-radius: 0 0 8px 8px; 
+    border-top: 2px solid var(--bubble-primary); 
+}
+
+/* Mostrar Nivel 1 al pasar el mouse por "CATEGORÍAS" */
+.dropdown-categorias:hover .dropdown-contenido { display: block; }
+
+/* Estilo de los links de todos los menús */
+.dropdown-contenido a { 
+    color: #333 !important; 
+    padding: 12px 18px; 
+    text-decoration: none; 
+    display: flex; 
+    justify-content: space-between; /* Separa el texto de la flechita */
+    align-items: center;
+    font-size: 0.9rem !important; 
+    font-weight: 600 !important; 
+    border-bottom: 1px solid #f0f0f0; 
+}
+
+.dropdown-contenido li:last-child > a { border-bottom: none; }
+
+.dropdown-contenido a:hover { 
+    background-color: #f9f9f9; 
+    color: var(--bubble-primary) !important; 
+    padding-left: 22px; /* Pequeño salto a la derecha al hacer hover */
+    transition: all 0.2s; 
+}
+
+.flecha-der { font-size: 1.2rem; line-height: 0; margin-left: 10px; color: #888; }
+
+/* SUBMENÚ (Nivel 2) */
+.dropdown-submenu { position: relative; }
+
+.submenu-contenido {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%; /* Se abre hacia la derecha del menú padre */
+    background-color: #ffffff;
+    min-width: 250px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    border-radius: 0 8px 8px 8px;
+    border-left: 2px solid var(--bubble-primary); /* Rayita azul para indicar el salto */
+}
+
+/* Mostrar Nivel 2 al pasar el mouse por las opciones principales */
+.dropdown-submenu:hover .submenu-contenido { display: block; }
+
+/* Corrección en celulares para que el menú no se salga de la pantalla */
+@media (max-width: 900px) {
+    .submenu-contenido {
+        left: 0;
+        top: 100%;
+        position: relative;
+        box-shadow: none;
+        border-left: none;
+        border-top: 1px solid #eee;
+        padding-left: 15px;
     }
-    carrito[baseNombre].cantidad++;
-    actualizarPantalla();
 }
 
-function quitarProd(btn) {
-    let articulo = btn.closest('.item-producto');
-    let baseNombre = articulo.getAttribute('data-nombre');
-    quitarPorNombre(baseNombre);
+/* =========================================
+   2. BANNERS SUPERIORES 
+   ========================================= */
+.banners-superiores { max-width: 1300px; margin: 40px auto 0 auto; padding: 0 40px; }
+.contenedor-banners { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.banner-item { position: relative; height: 180px; border-radius: 12px; overflow: hidden; display: block; background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.banner-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.banner-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; transition: background-color 0.3s ease; }
+.banner-item:hover .banner-overlay { background-color: rgba(0,0,0,0.55); }
+.banner-item:hover img { transform: scale(1.05); }
+.banner-overlay h3 { color: #ffffff; font-size: 2rem; font-weight: 900; letter-spacing: 2px; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+
+/* =========================================
+   3. SECCIÓN BIENVENIDOS
+   ========================================= */
+.seccion-bienvenidos {
+    text-align: center;
+    max-width: 900px;
+    margin: 50px auto 10px auto;
+    padding: 0 20px;
+}
+.seccion-bienvenidos h2 { font-size: 2.2rem; color: #000000; font-weight: 900; margin-bottom: 15px; text-transform: uppercase; }
+.seccion-bienvenidos p { font-size: 1.1rem; color: #555555; line-height: 1.6; }
+
+/* =========================================
+   4. SECCIÓN DESTACADOS Y PROMOCIONES
+   ========================================= */
+.fondo-gris-destacados { background-color: #ededed; width: 92%; max-width: 1300px; margin: 30px auto 40px auto; padding: 35px 40px; border-radius: 16px; }
+.seccion-destacados { width: 100%; }
+.titulo-destacados { font-size: 1.8rem; color: #333; font-weight: 400; margin-bottom: 25px; text-align: left; }
+.grilla-destacados { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+
+.tarjeta-destacado { background: transparent; display: flex; flex-direction: column; text-align: left; cursor: pointer; transition: transform 0.3s ease; }
+.tarjeta-destacado:hover { transform: translateY(-5px); }
+.imagen-destacado { position: relative; background-color: #ffffff; width: 100%; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); transition: box-shadow 0.3s ease; }
+.tarjeta-destacado:hover .imagen-destacado { box-shadow: 0 8px 15px rgba(0,0,0,0.08); }
+.imagen-destacado img { max-width: 80%; max-height: 80%; object-fit: contain; }
+
+.info-destacado { display: flex; flex-direction: column; flex-grow: 1; }
+.info-destacado h3 { font-size: 0.95rem; color: #333; font-weight: 400; margin-bottom: 5px; padding: 0; }
+
+.precio-y-botones { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 5px; }
+.precio-nuevo { font-size: 1.15rem; color: #000000; font-weight: 800; }
+.botones-cantidad-destacado { display: flex; align-items: center; gap: 8px; }
+
+.btn-restar-destacado, .btn-agregar-destacado { background-color: #ffffff; color: #000000; border: 1px solid #000000; width: 28px; height: 28px; border-radius: 4px; font-weight: 900; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: all 0.2s ease; }
+.btn-restar-destacado:hover, .btn-agregar-destacado:hover { background-color: #000000; color: #ffffff; }
+.btn-restar-destacado:active, .btn-agregar-destacado:active { transform: scale(0.9); }
+.cantidad-prod { font-weight: 800; color: #000000; font-size: 1.1rem; min-width: 15px; text-align: center; }
+
+/* =========================================
+   5. CATÁLOGO COMPLETO (Vista de Productos)
+   ========================================= */
+.contenedor-catalogo { max-width: 1300px; margin: 40px auto; padding: 0 40px; }
+.titulo-catalogo-principal { font-size: 2.5rem; color: #000; font-weight: 900; margin-bottom: 40px; border-bottom: 3px solid #ededed; padding-bottom: 10px; }
+.titulo-categoria { font-size: 1.8rem; color: #333; font-weight: 800; margin: 50px 0 20px 0; scroll-margin-top: 120px; }
+.grilla-catalogo { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+
+/* =========================================
+   6. FOOTER EN BLANCO Y NEGRO
+   ========================================= */
+.footer-completo { background-color: #000000; color: #ffffff; padding: 40px 40px 15px 40px; margin-top: 50px; }
+.footer-columnas { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1300px; margin: 0 auto; border-bottom: 1px solid #333333; padding-bottom: 30px; }
+.col-footer h4 { font-size: 0.9rem; font-weight: 800; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+
+.col-footer ul { list-style: none; padding: 0; }
+.col-footer ul li { margin-bottom: 12px; }
+.col-footer ul li a, .col-footer ul li { color: #cccccc; text-decoration: none; font-size: 0.95rem; transition: color 0.2s; line-height: 1.4; }
+.col-footer ul li a:hover { color: #ffffff; }
+
+.iconos-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.iconos-badges span { background-color: #ffffff; color: #000000; padding: 5px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 800; }
+
+.redes-sociales { margin-bottom: 15px; }
+.link-ig { display: inline-flex; align-items: center; gap: 8px; color: #cccccc; text-decoration: none; font-size: 1rem; font-weight: 600; transition: color 0.2s, transform 0.2s; }
+.link-ig:hover { color: #ffffff; transform: translateX(4px); }
+
+.form-newsletter { display: flex; margin-top: 15px; }
+.form-newsletter input { flex-grow: 1; padding: 10px 15px; background-color: transparent; border: 1px solid #555555; color: #ffffff; font-size: 0.9rem; outline: none; border-right: none; }
+.form-newsletter input::placeholder { color: #888888; }
+.form-newsletter button { background-color: #ffffff; color: #000000; border: 1px solid #ffffff; padding: 0 15px; cursor: pointer; font-weight: 900; font-size: 1.2rem; transition: background-color 0.2s; }
+.form-newsletter button:hover { background-color: #cccccc; }
+
+.footer-legal { text-align: center; padding-top: 20px; color: #777777; font-size: 0.85rem; }
+
+/* =========================================
+   7. MODALES (CARRITO Y CÓMO COMPRAR)
+   ========================================= */
+.modal-oculto { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(3px); justify-content: center; align-items: center; }
+.modal-contenido { background-color: var(--body-bg); padding: 30px; width: 90%; max-width: 420px; border-radius: 12px; position: relative; max-height: 80vh; overflow-y: auto; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+.modal-contenido h2 { color: #000000; border-bottom: 2px solid #e1d8cd; padding-bottom: 10px; margin-bottom: 20px; font-weight: 900;}
+.cerrar-modal { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #000000; transition: color 0.2s;}
+.cerrar-modal:hover { color: #e06c6c; }
+
+#lista-pedido-modal { list-style: none; margin-bottom: 20px; }
+#lista-pedido-modal li { display: flex; justify-content: space-between; border-bottom: 1px solid #e1d8cd; padding: 12px 0; color: #4a5568; font-weight: 700;}
+.item-modal { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e1d8cd; padding: 10px 0; }
+.info-item-modal { display: flex; align-items: center; gap: 10px; }
+.btn-quitar-modal { background-color: #e06c6c; color: white; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-weight: bold; display: flex; justify-content: center; align-items: center; font-size: 1rem; transition: background-color 0.2s;}
+.btn-quitar-modal:hover { background-color: #d15b5b; }
+
+.total-modal { font-size: 1.6rem; font-weight: 900; text-align: right; color: #000000; margin-top: 20px; margin-bottom: 20px; padding-top: 15px; border-top: 2px solid #000000;}
+.btn-whatsapp-modal { width: 100%; background-color: #000000; color: #ffffff; border: 2px solid #000000; padding: 15px; border-radius: 4px; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;}
+.btn-whatsapp-modal:hover { background-color: #ffffff; color: #000000; }
+
+.texto-como-comprar p { font-size: 1.1rem; color: #444; margin-bottom: 15px; line-height: 1.5; }
+.texto-como-comprar strong { color: #000; }
+
+/* =========================================
+   8. RESPONSIVE (CELULARES)
+   ========================================= */
+@media (max-width: 1024px) {
+    .header-top { padding: 15px 20px; }
+    .nav-black { padding: 15px 20px; gap: 20px;}
+    .search-container { margin: 0 15px; }
+    .footer-columnas { grid-template-columns: repeat(2, 1fr); }
 }
 
-function quitarPorNombre(nombre) {
-    if(carrito[nombre] && carrito[nombre].cantidad > 0) {
-        carrito[nombre].cantidad--;
-        if(carrito[nombre].cantidad === 0) delete carrito[nombre];
-        actualizarPantalla();
-    }
+@media (max-width: 900px) {
+    .grilla-catalogo { grid-template-columns: repeat(3, 1fr); }
 }
 
-function actualizarPantalla() {
-    let totalItems = 0;
-    let totalPrecio = 0;
+@media (max-width: 600px) {
+    .header-top { flex-direction: column; gap: 15px; padding: 15px; }
+    .header-logo { width: 100%; justify-content: center; }
+    .texto-logo { font-size: 1.1rem; margin-left: 8px; }
     
-    for (let nombre in carrito) {
-        totalPrecio += carrito[nombre].precio * carrito[nombre].cantidad;
-        totalItems += carrito[nombre].cantidad;
-    }
+    .search-container { width: 100%; max-width: 100%; margin: 0; }
+    .header-user-cart { display: none; } 
+    .nav-black { overflow-x: auto; white-space: nowrap; padding: 10px 15px; gap: 20px;}
     
-    let totalFormateado = totalPrecio % 1 !== 0 ? totalPrecio.toFixed(2) : totalPrecio;
+    .banners-superiores { padding: 0 15px; }
+    .contenedor-banners { grid-template-columns: 1fr; gap: 15px; }
+    .banner-item { height: 120px; }
     
-    let headerTotalItems = document.getElementById('header-total-items');
-    let headerTotalPrecio = document.getElementById('header-total-precio');
-    if(headerTotalItems) headerTotalItems.innerText = totalItems;
-    if(headerTotalPrecio) headerTotalPrecio.innerText = totalFormateado;
+    .seccion-bienvenidos { margin-top: 30px; }
+    .seccion-bienvenidos h2 { font-size: 1.6rem; }
+    .seccion-bienvenidos p { font-size: 1rem; }
 
-    let modalPrecio = document.getElementById('total-modal-precio');
-    if(modalPrecio) modalPrecio.innerText = totalFormateado;
+    .fondo-gris-destacados { width: 94%; padding: 25px 15px; margin: 20px auto; border-radius: 12px;}
+    .seccion-destacados { padding: 0; }
+    .grilla-destacados { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 15px; gap: 15px;}
+    .tarjeta-destacado { min-width: 180px; scroll-snap-align: start; }
     
-    let items = document.querySelectorAll('.item-producto');
-    items.forEach(item => {
-        let baseNombre = item.getAttribute('data-nombre');
-        let sum = carrito[baseNombre] ? carrito[baseNombre].cantidad : 0;
-        let contador = item.querySelector('.cantidad-prod');
-        if(contador) contador.innerText = sum;
-    });
+    .contenedor-catalogo { padding: 0 15px; margin: 20px auto; }
+    .titulo-catalogo-principal { font-size: 2rem; margin-bottom: 20px; }
+    .grilla-catalogo { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .titulo-categoria { margin-top: 30px; font-size: 1.4rem; scroll-margin-top: 140px; }
 
-    actualizarListaModal();
-}
-
-// =========================================
-// 3. CONTROL DE MODALES
-// =========================================
-function abrirCarrito() {
-    actualizarListaModal();
-    document.getElementById('modal-carrito').style.display = "flex"; 
-}
-
-function cerrarCarrito() {
-    document.getElementById('modal-carrito').style.display = "none";
-}
-
-function abrirComoComprar() {
-    document.getElementById('modal-como-comprar').style.display = "flex";
-}
-
-function cerrarComoComprar() {
-    document.getElementById('modal-como-comprar').style.display = "none";
-}
-
-function actualizarListaModal() {
-    let lista = document.getElementById('lista-pedido-modal');
-    if(!lista) return;
-    lista.innerHTML = "";
-    let vacio = true;
-    
-    for (let nombre in carrito) {
-        vacio = false;
-        let item = carrito[nombre];
-        let subtotal = item.precio * item.cantidad;
-        let subFormateado = subtotal % 1 !== 0 ? subtotal.toFixed(2) : subtotal;
-        
-        lista.innerHTML += `
-            <li class="item-modal">
-                <div class="info-item-modal">
-                    <button class="btn-quitar-modal" onclick="quitarPorNombre('${nombre}')">-</button>
-                    <span>${item.cantidad}x ${nombre}</span>
-                </div>
-                <span style="font-weight: bold;">$${subFormateado}</span>
-            </li>
-        `;
-    }
-    if(vacio) lista.innerHTML = "<li><span style='color: #888;'>Tu pedido está vacío.</span></li>";
-}
-
-// =========================================
-// 4. ENVÍO A WHATSAPP
-// =========================================
-function enviarWhatsApp() {
-    if (Object.keys(carrito).length === 0) {
-        alert("Todavía no agregaste nada al pedido.");
-        return; 
-    }
-
-    let texto = "Hola! Quiero hacer el siguiente pedido para envío en Río Cuarto:\n\n";
-    let totalFinal = 0;
-
-    for (let nombre in carrito) {
-        let item = carrito[nombre];
-        let subtotal = item.precio * item.cantidad;
-        totalFinal += subtotal;
-        let subFormateado = subtotal % 1 !== 0 ? subtotal.toFixed(2) : subtotal;
-        texto += `- ${item.cantidad}x ${nombre} ($${subFormateado})\n`;
-    }
-    
-    let totalFormateado = totalFinal % 1 !== 0 ? totalFinal.toFixed(2) : totalFinal;
-    texto += `\nTotal a abonar: $${totalFormateado}`;
-    
-    let url = `https://wa.me/5493584866061?text=${encodeURIComponent(texto)}`;
-    window.open(url, '_blank');
-}
-
-// =========================================
-// 5. BUSCADOR SUPERIOR (INTELIGENTE)
-// =========================================
-function filtrarPromos() {
-    let input = document.getElementById('buscador').value.toLowerCase();
-    
-    // Si escribe algo, abrimos AMBOS catálogos para buscar ahí adentro
-    if(input.length > 0) {
-        document.getElementById('vista-inicio').style.display = 'none';
-        document.getElementById('vista-productos').style.display = 'block';
-        document.getElementById('vista-promociones').style.display = 'block';
-    }
-
-    let productos = document.querySelectorAll('.item-producto');
-
-    productos.forEach(prod => {
-        let nombreProd = prod.getAttribute('data-nombre').toLowerCase();
-        if (nombreProd.includes(input)) {
-            prod.style.display = "flex"; 
-        } else {
-            prod.style.display = "none";
-        }
-    });
-
-    // Ocultar títulos de categorías que quedan vacías después de filtrar
-    let categorias = document.querySelectorAll('.titulo-categoria');
-    
-    categorias.forEach(titulo => {
-        let grilla = titulo.nextElementSibling; 
-        if(!grilla) return;
-        
-        let productosVisibles = Array.from(grilla.querySelectorAll('.item-producto')).filter(p => p.style.display !== 'none');
-        
-        if (productosVisibles.length === 0) {
-            titulo.style.display = 'none';
-            grilla.style.display = 'none';
-        } else {
-            titulo.style.display = ''; 
-            grilla.style.display = ''; 
-        }
-    });
+    .footer-completo { padding: 40px 20px 20px 20px; }
+    .footer-columnas { grid-template-columns: 1fr; gap: 30px; }
 }
