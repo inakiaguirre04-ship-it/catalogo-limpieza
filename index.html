@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubble Cleaning</title>
     <link rel="icon" type="image/png" href="img/logo.jpg">
-    <link rel="stylesheet" href="style.css?v=28.0">
+    <link rel="stylesheet" href="style.css?v=29.0">
 </head>
 <body>
 
@@ -97,9 +97,7 @@
                 <div class="grilla-destacados">
                     
                     <article class="tarjeta-destacado item-producto" data-nombre="Detergente Eco Azul" data-precio="6500">
-                        <div class="imagen-destacado">
-                            <img src="img/Detecoazul.png" alt="Detergente Eco Azul">
-                        </div>
+                        <div class="imagen-destacado"><img src="img/Detecoazul.png" alt="Detergente Eco Azul"></div>
                         <div class="info-destacado">
                             <h3>Detergente Eco Azul</h3>
                             <div class="precio-y-botones">
@@ -114,9 +112,7 @@
                     </article>
 
                     <article class="tarjeta-destacado item-producto" data-nombre="Lavandina Concentrada 50%" data-precio="136620">
-                        <div class="imagen-destacado">
-                            <img src="img/Lavcon50.png" alt="Lavandina">
-                        </div>
+                        <div class="imagen-destacado"><img src="img/Lavcon50.png" alt="Lavandina"></div>
                         <div class="info-destacado">
                             <h3>Lavandina Concentrada 50%</h3>
                             <div class="precio-y-botones">
@@ -130,7 +126,22 @@
                         </div>
                     </article>
 
-                    </div>
+                    <article class="tarjeta-destacado item-producto" data-nombre="Promo Revendedor 1" data-precio="23700">
+                        <div class="imagen-destacado"><img src="img/rev1.png" alt="Promo"></div>
+                        <div class="info-destacado">
+                            <h3>Promo Revendedor 1</h3>
+                            <div class="precio-y-botones">
+                                <span class="precio-nuevo">$23.700,00</span>
+                                <div class="botones-cantidad-destacado">
+                                    <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                                    <span class="cantidad-prod">0</span>
+                                    <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
             </div>
         </section>
 
@@ -140,9 +151,7 @@
                 <div class="grilla-destacados">
                     
                     <article class="tarjeta-destacado item-producto" data-nombre="Promo Hogar 1" data-precio="6500">
-                        <div class="imagen-destacado">
-                            <img src="img/hogar1.png" alt="Promo Hogar 1">
-                        </div>
+                        <div class="imagen-destacado"><img src="img/hogar1.png" alt="Promo Hogar 1"></div>
                         <div class="info-destacado">
                             <h3>Promo Hogar 1</h3>
                             <div class="precio-y-botones">
@@ -156,7 +165,22 @@
                         </div>
                     </article>
                     
-                    </div>
+                    <article class="tarjeta-destacado item-producto" data-nombre="Combo Super Emprendedor" data-precio="136620">
+                        <div class="imagen-destacado"><img src="img/empre1.png" alt="Combo Súper Emprendedor"></div>
+                        <div class="info-destacado">
+                            <h3>Combo Súper Emprendedor</h3>
+                            <div class="precio-y-botones">
+                                <span class="precio-nuevo">$136.620,00</span>
+                                <div class="botones-cantidad-destacado">
+                                    <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                                    <span class="cantidad-prod">0</span>
+                                    <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
             </div>
         </section>
     </div>
@@ -402,6 +426,6 @@
         </div>
     </div>
 
-    <script src="script.js?v=28.0"></script>
+    <script src="script.js?v=29.0"></script>
 </body>
 </html>
