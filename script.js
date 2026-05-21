@@ -1,37 +1,42 @@
 let carrito = {}; 
 
 // =========================================
-// 1. CONTROL DE VISTAS (CAMBIAR DE PÁGINA)
+// 1. CONTROL DE VISTAS (SPA)
 // =========================================
 function mostrarVista(vista) {
-    if (vista === 'inicio') {
-        document.getElementById('vista-inicio').style.display = 'block';
-        document.getElementById('vista-productos').style.display = 'none';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (vista === 'productos') {
-        document.getElementById('vista-inicio').style.display = 'none';
-        document.getElementById('vista-productos').style.display = 'block';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    // Ocultamos todas primero
+    document.getElementById('vista-inicio').style.display = 'none';
+    document.getElementById('vista-productos').style.display = 'none';
+    document.getElementById('vista-promociones').style.display = 'none';
+
+    // Mostramos solo la que corresponde
+    if (vista === 'inicio') document.getElementById('vista-inicio').style.display = 'block';
+    if (vista === 'productos') document.getElementById('vista-productos').style.display = 'block';
+    if (vista === 'promociones') document.getElementById('vista-promociones').style.display = 'block';
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function irACategoria(idCat) {
-    // Primero mostramos la vista de productos
+function irASeccion(idElemento, idVista) {
+    // Apagamos todas las vistas
     document.getElementById('vista-inicio').style.display = 'none';
-    document.getElementById('vista-productos').style.display = 'block';
+    document.getElementById('vista-productos').style.display = 'none';
+    document.getElementById('vista-promociones').style.display = 'none';
     
-    // Le damos un microsegundo a la página para que se dibuje y después bajamos a la categoría
+    // Prendemos la que nos pasaron por parámetro
+    document.getElementById(idVista).style.display = 'block';
+    
+    // Le damos tiempo al navegador a dibujar la página y saltamos al título
     setTimeout(() => {
-        let elemento = document.getElementById(idCat);
+        let elemento = document.getElementById(idElemento);
         if (elemento) {
             elemento.scrollIntoView({ behavior: 'smooth' });
         }
     }, 100);
 }
 
-
 // =========================================
-// 2. LÓGICA DEL CARRITO (SUMAR Y RESTAR)
+// 2. LÓGICA DEL CARRITO
 // =========================================
 function agregarProd(btn) {
     let articulo = btn.closest('.item-producto');
@@ -70,17 +75,14 @@ function actualizarPantalla() {
     
     let totalFormateado = totalPrecio % 1 !== 0 ? totalPrecio.toFixed(2) : totalPrecio;
     
-    // Actualizar encabezado
     let headerTotalItems = document.getElementById('header-total-items');
     let headerTotalPrecio = document.getElementById('header-total-precio');
     if(headerTotalItems) headerTotalItems.innerText = totalItems;
     if(headerTotalPrecio) headerTotalPrecio.innerText = totalFormateado;
 
-    // Actualizar modal
     let modalPrecio = document.getElementById('total-modal-precio');
     if(modalPrecio) modalPrecio.innerText = totalFormateado;
     
-    // Sincronizar todos los botones en pantalla (Inicio y Productos a la vez)
     let items = document.querySelectorAll('.item-producto');
     items.forEach(item => {
         let baseNombre = item.getAttribute('data-nombre');
@@ -92,9 +94,8 @@ function actualizarPantalla() {
     actualizarListaModal();
 }
 
-
 // =========================================
-// 3. CONTROL DE MODALES (VENTANAS FLOTANTES)
+// 3. CONTROL DE MODALES
 // =========================================
 function abrirCarrito() {
     actualizarListaModal();
@@ -138,7 +139,6 @@ function actualizarListaModal() {
     if(vacio) lista.innerHTML = "<li><span style='color: #888;'>Tu pedido está vacío.</span></li>";
 }
 
-
 // =========================================
 // 4. ENVÍO A WHATSAPP
 // =========================================
@@ -166,21 +166,20 @@ function enviarWhatsApp() {
     window.open(url, '_blank');
 }
 
-
 // =========================================
-// 5. BUSCADOR SUPERIOR
+// 5. BUSCADOR INTELIGENTE
 // =========================================
 function filtrarPromos() {
     let input = document.getElementById('buscador').value.toLowerCase();
     
-    // Si la persona empieza a escribir, lo llevamos automáticamente al catálogo completo
+    // Mostramos TODOS los catálogos al buscar
     if(input.length > 0) {
         document.getElementById('vista-inicio').style.display = 'none';
         document.getElementById('vista-productos').style.display = 'block';
+        document.getElementById('vista-promociones').style.display = 'block';
     }
 
-    // 1. Filtramos solo los productos que están dentro del catálogo
-    let productos = document.querySelectorAll('#vista-productos .item-producto');
+    let productos = document.querySelectorAll('.item-producto');
 
     productos.forEach(prod => {
         let nombreProd = prod.getAttribute('data-nombre').toLowerCase();
@@ -191,22 +190,18 @@ function filtrarPromos() {
         }
     });
 
-    // 2. Revisamos las categorías para ocultar los títulos vacíos
-    let categorias = document.querySelectorAll('#vista-productos .titulo-categoria');
+    let categorias = document.querySelectorAll('.titulo-categoria');
     
     categorias.forEach(titulo => {
-        // Seleccionamos la grilla que le sigue al título
         let grilla = titulo.nextElementSibling; 
+        if(!grilla) return;
         
-        // Contamos cuántos productos quedaron visibles adentro de esa grilla
         let productosVisibles = Array.from(grilla.querySelectorAll('.item-producto')).filter(p => p.style.display !== 'none');
         
-        // Si no hay ninguno visible, ocultamos el título y la grilla
         if (productosVisibles.length === 0) {
             titulo.style.display = 'none';
             grilla.style.display = 'none';
         } else {
-            // Si hay productos, volvemos a mostrar el título y la grilla
             titulo.style.display = ''; 
             grilla.style.display = ''; 
         }
