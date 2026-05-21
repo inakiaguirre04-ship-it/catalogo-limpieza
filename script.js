@@ -153,28 +153,30 @@ function actualizarListaModal() {
 }
 
 // =========================================
-// 4. ENVÍO A WHATSAPP
-// =========================================
-// =========================================
 // 4. ENVÍO A WHATSAPP CON FORMULARIO
 // =========================================
 function procesarPedido(event) {
-    event.preventDefault(); // Evitamos que la página se recargue
+    event.preventDefault(); 
 
-    // Tomamos los datos que escribió el cliente
     let vendedorNum = document.getElementById('vendedor').value;
     let nombre = document.getElementById('cliente-nombre').value;
     let telefono = document.getElementById('cliente-telefono').value;
     let direccion = document.getElementById('cliente-direccion').value;
     let horario = document.getElementById('cliente-horario').value;
+    let notas = document.getElementById('cliente-notas').value; // NUEVO
 
-    // Armamos el texto elegante para WhatsApp
     let texto = `*NUEVO PEDIDO - BUBBLE CLEANING*\n\n`;
     texto += `*Datos de Entrega:*\n`;
     texto += `- Nombre: ${nombre}\n`;
     texto += `- Teléfono: ${telefono}\n`;
     texto += `- Dirección: ${direccion}\n`;
     texto += `- Horario: ${horario}\n\n`;
+    
+    // NUEVO: Agregamos las notas si el cliente escribió algo
+    if (notas.trim() !== "") {
+        texto += `*Aromas/Aclaraciones:*\n_${notas}_\n\n`;
+    }
+
     texto += `*Detalle del Pedido:*\n`;
 
     let totalFinal = 0;

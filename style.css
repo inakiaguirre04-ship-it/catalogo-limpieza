@@ -249,7 +249,7 @@ body {
     font-size: 0.9rem;
 }
 
-.grupo-input input, .grupo-input select {
+.grupo-input input, .grupo-input select, .grupo-input textarea {
     width: 100%;
     padding: 12px 15px;
     border: 1px solid #cccccc;
