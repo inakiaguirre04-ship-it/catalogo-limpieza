@@ -24,145 +24,28 @@ body {
 /* =========================================
    1. ENCABEZADO (HEADER)
    ========================================= */
-.header-principal {
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+.header-principal { width: 100%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.header-top { display: flex; align-items: center; justify-content: space-between; background-color: #FFFFFF; padding: 15px 40px; }
+.header-logo { display: flex; align-items: center; }
+#logo-principal { max-height: 45px; }
+.texto-logo { font-size: 1.4rem; font-weight: 900; color: #000000; margin-left: 12px; letter-spacing: 0.5px; white-space: nowrap; }
 
-.header-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #FFFFFF;
-    padding: 15px 40px;
-}
+.search-container { display: flex; flex: 1; max-width: 600px; margin: 0 40px; border: 1px solid #dcdcdc; border-radius: 4px; overflow: hidden; }
+.search-container input { flex: 1; border: none; padding: 10px 15px; background-color: #f7f7f7; font-size: 0.95rem; outline: none; color: #333; }
+.btn-buscar { background-color: var(--bubble-primary); border: none; width: 55px; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: background-color 0.2s; }
+.btn-buscar:hover { background-color: #2980b9; }
 
-.header-logo {
-    display: flex;
-    align-items: center;
-}
+.header-user-cart { display: flex; align-items: center; gap: 30px; }
+.user-action, .cart-action { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+.icon-circle { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #ddd; display: flex; justify-content: center; align-items: center; color: #333; background-color: #fff; }
+.action-text { font-size: 0.85rem; line-height: 1.3; color: #000; }
+.action-text strong { font-size: 0.9rem; font-weight: 800; }
 
-#logo-principal {
-    max-height: 45px; 
-}
-
-.texto-logo {
-    font-size: 1.4rem;
-    font-weight: 900;
-    color: #000000; 
-    margin-left: 12px;
-    letter-spacing: 0.5px;
-    white-space: nowrap; 
-}
-
-.search-container {
-    display: flex;
-    flex: 1; 
-    max-width: 600px;
-    margin: 0 40px;
-    border: 1px solid #dcdcdc; 
-    border-radius: 4px; 
-    overflow: hidden;
-}
-
-.search-container input {
-    flex: 1;
-    border: none;
-    padding: 10px 15px;
-    background-color: #f7f7f7; 
-    font-size: 0.95rem;
-    outline: none;
-    color: #333;
-}
-
-.btn-buscar {
-    background-color: var(--bubble-primary); 
-    border: none;
-    width: 55px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.btn-buscar:hover {
-    background-color: #2980b9;
-}
-
-.header-user-cart {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.user-action, .cart-action {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-}
-
-.icon-circle {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid #ddd;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #333;
-    background-color: #fff;
-}
-
-.action-text {
-    font-size: 0.85rem;
-    line-height: 1.3;
-    color: #000;
-}
-
-.action-text strong {
-    font-size: 0.9rem;
-    font-weight: 800;
-}
-
-.header-bottom {
-    background-color: #000000;
-    width: 100%;
-}
-
-.nav-black {
-    display: flex;
-    align-items: center;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 15px 40px;
-    gap: 40px;
-}
-
-.nav-black a {
-    color: #FFFFFF;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    transition: color 0.2s;
-}
-
-.nav-black a:hover {
-    color: var(--bubble-primary);
-}
-
-.nav-cat {
-    text-decoration: underline !important;
-    text-underline-offset: 6px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
+.header-bottom { background-color: #000000; width: 100%; }
+.nav-black { display: flex; align-items: center; max-width: 1300px; margin: 0 auto; padding: 15px 40px; gap: 40px; }
+.nav-black a { color: #FFFFFF; text-decoration: none; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; transition: color 0.2s; }
+.nav-black a:hover { color: var(--bubble-primary); }
+.nav-cat { text-decoration: underline !important; text-underline-offset: 6px; display: flex; align-items: center; gap: 6px; }
 
 /* MENÚ DESPLEGABLE CATEGORÍAS */
 .dropdown-categorias { position: relative; display: inline-block; }
@@ -173,163 +56,180 @@ body {
 .dropdown-categorias:hover .dropdown-contenido { display: block; }
 
 /* =========================================
-   2. BANNERS SUPERIORES (PROMOS/PROD/ART)
+   2. BANNERS SUPERIORES 
    ========================================= */
-.banners-superiores {
-    max-width: 1300px;
-    margin: 40px auto 0 auto;
-    padding: 0 40px;
-}
+.banners-superiores { max-width: 1300px; margin: 40px auto 0 auto; padding: 0 40px; }
+.contenedor-banners { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.banner-item { position: relative; height: 180px; border-radius: 12px; overflow: hidden; display: block; background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.banner-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.banner-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; transition: background-color 0.3s ease; }
+.banner-item:hover .banner-overlay { background-color: rgba(0,0,0,0.55); }
+.banner-item:hover img { transform: scale(1.05); }
+.banner-overlay h3 { color: #ffffff; font-size: 2rem; font-weight: 900; letter-spacing: 2px; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
 
-.contenedor-banners {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+/* =========================================
+   3. SECCIÓN BIENVENIDOS
+   ========================================= */
+.seccion-bienvenidos {
+    text-align: center;
+    max-width: 900px;
+    margin: 50px auto 10px auto;
+    padding: 0 20px;
 }
-
-.banner-item {
-    position: relative;
-    height: 180px;
-    border-radius: 12px;
-    overflow: hidden;
-    display: block;
-    background-color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.banner-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-.banner-overlay {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0,0,0,0.25); /* Tono oscuro inicial */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
-}
-
-/* EFECTO: Oscurece más y hace pequeño zoom al pasar el mouse */
-.banner-item:hover .banner-overlay {
-    background-color: rgba(0,0,0,0.55); 
-}
-.banner-item:hover img {
-    transform: scale(1.05); 
-}
-
-.banner-overlay h3 {
-    color: #ffffff;
-    font-size: 2rem;
+.seccion-bienvenidos h2 {
+    font-size: 2.2rem;
+    color: #000000;
     font-weight: 900;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.seccion-bienvenidos p {
+    font-size: 1.1rem;
+    color: #555555;
+    line-height: 1.6;
 }
 
 /* =========================================
-   3. SECCIÓN DESTACADOS Y PROMOCIONES
+   4. SECCIÓN DESTACADOS Y PROMOCIONES
    ========================================= */
-.fondo-gris-destacados {
-    background-color: #ededed; 
-    width: 92%; 
-    max-width: 1300px; 
-    margin: 30px auto 40px auto; 
-    padding: 35px 40px; 
-    border-radius: 16px; 
-}
-
+.fondo-gris-destacados { background-color: #ededed; width: 92%; max-width: 1300px; margin: 30px auto 40px auto; padding: 35px 40px; border-radius: 16px; }
 .seccion-destacados { width: 100%; }
+.titulo-destacados { font-size: 1.8rem; color: #333; font-weight: 400; margin-bottom: 25px; text-align: left; }
+.grilla-destacados { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
 
-.titulo-destacados {
-    font-size: 1.8rem;
-    color: #333;
-    font-weight: 400;
-    margin-bottom: 25px;
-    text-align: left;
-}
-
-.grilla-destacados {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-}
-
-.tarjeta-destacado {
-    background: transparent; 
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    cursor: pointer;
-    transition: transform 0.3s ease; 
-}
+.tarjeta-destacado { background: transparent; display: flex; flex-direction: column; text-align: left; cursor: pointer; transition: transform 0.3s ease; }
 .tarjeta-destacado:hover { transform: translateY(-5px); }
-
-.imagen-destacado {
-    position: relative;
-    background-color: #ffffff; 
-    width: 100%;
-    aspect-ratio: 1 / 1; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-    transition: box-shadow 0.3s ease;
-}
+.imagen-destacado { position: relative; background-color: #ffffff; width: 100%; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); transition: box-shadow 0.3s ease; }
 .tarjeta-destacado:hover .imagen-destacado { box-shadow: 0 8px 15px rgba(0,0,0,0.08); }
 .imagen-destacado img { max-width: 80%; max-height: 80%; object-fit: contain; }
 
 .info-destacado { display: flex; flex-direction: column; flex-grow: 1; }
 .info-destacado h3 { font-size: 0.95rem; color: #333; font-weight: 400; margin-bottom: 5px; padding: 0; }
 
-/* =========================================
-   4. PRECIOS Y BOTONES (BLANCO Y NEGRO)
-   ========================================= */
-.precio-y-botones {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: auto; 
-    padding-top: 5px;
-}
-
+.precio-y-botones { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 5px; }
 .precio-nuevo { font-size: 1.15rem; color: #000000; font-weight: 800; }
-
 .botones-cantidad-destacado { display: flex; align-items: center; gap: 8px; }
 
-.btn-restar-destacado, .btn-agregar-destacado {
-    background-color: #ffffff;
-    color: #000000;
-    border: 1px solid #000000;
-    width: 28px; height: 28px;
-    border-radius: 4px; 
-    font-weight: 900;
-    font-size: 1.1rem;
-    cursor: pointer;
-    display: flex; justify-content: center; align-items: center;
-    transition: all 0.2s ease;
-}
-
+.btn-restar-destacado, .btn-agregar-destacado { background-color: #ffffff; color: #000000; border: 1px solid #000000; width: 28px; height: 28px; border-radius: 4px; font-weight: 900; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: all 0.2s ease; }
 .btn-restar-destacado:hover, .btn-agregar-destacado:hover { background-color: #000000; color: #ffffff; }
 .btn-restar-destacado:active, .btn-agregar-destacado:active { transform: scale(0.9); }
 .cantidad-prod { font-weight: 800; color: #000000; font-size: 1.1rem; min-width: 15px; text-align: center; }
 
 /* =========================================
-   5. CONTACTO FOOTER
+   5. FOOTER EN BLANCO Y NEGRO (Estilo Columnas)
    ========================================= */
-.seccion-contacto {
+.footer-completo {
     background-color: #000000;
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-    margin-top: 40px;
+    color: #ffffff;
+    padding: 60px 40px 20px 40px;
+    margin-top: 60px;
 }
-.seccion-contacto h2 { font-size: 1.8rem; margin-bottom: 20px; font-weight: 800; }
-.seccion-contacto p { font-size: 1.1rem; margin-bottom: 10px; color: #dcdcdc; }
+
+.footer-columnas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 40px;
+}
+
+.col-footer h4 {
+    font-size: 0.9rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.col-footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.col-footer ul li {
+    margin-bottom: 12px;
+}
+
+.col-footer ul li a, .col-footer ul li {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    line-height: 1.4;
+}
+
+.col-footer ul li a:hover {
+    color: #ffffff;
+}
+
+/* Badges para simular tarjetas y medios de envío */
+.iconos-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.iconos-badges span {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+/* Redes Sociales y Newsletter */
+.redes-sociales a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 50%;
+    text-decoration: none;
+    font-weight: 900;
+    transition: transform 0.2s;
+}
+.redes-sociales a:hover {
+    transform: scale(1.1);
+}
+
+.form-newsletter {
+    display: flex;
+    margin-top: 15px;
+}
+.form-newsletter input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    background-color: transparent;
+    border: 1px solid #555555;
+    color: #ffffff;
+    font-size: 0.9rem;
+    outline: none;
+    border-right: none;
+}
+.form-newsletter input::placeholder { color: #888888; }
+.form-newsletter button {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #ffffff;
+    padding: 0 15px;
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 1.2rem;
+    transition: background-color 0.2s;
+}
+.form-newsletter button:hover { background-color: #cccccc; }
+
+.footer-legal {
+    text-align: center;
+    padding-top: 20px;
+    color: #777777;
+    font-size: 0.85rem;
+}
 
 /* =========================================
    6. MODALES (CARRITO Y CÓMO COMPRAR)
@@ -340,7 +240,6 @@ body {
 .cerrar-modal { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #000000; transition: color 0.2s;}
 .cerrar-modal:hover { color: #e06c6c; }
 
-/* Lista del carrito */
 #lista-pedido-modal { list-style: none; margin-bottom: 20px; }
 #lista-pedido-modal li { display: flex; justify-content: space-between; border-bottom: 1px solid #e1d8cd; padding: 12px 0; color: #4a5568; font-weight: 700;}
 .item-modal { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e1d8cd; padding: 10px 0; }
@@ -348,12 +247,10 @@ body {
 .btn-quitar-modal { background-color: #e06c6c; color: white; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-weight: bold; display: flex; justify-content: center; align-items: center; font-size: 1rem; transition: background-color 0.2s;}
 .btn-quitar-modal:hover { background-color: #d15b5b; }
 
-/* Totales y Botón (Blanco y Negro) */
 .total-modal { font-size: 1.6rem; font-weight: 900; text-align: right; color: #000000; margin-top: 20px; margin-bottom: 20px; padding-top: 15px; border-top: 2px solid #000000;}
 .btn-whatsapp-modal { width: 100%; background-color: #000000; color: #ffffff; border: 2px solid #000000; padding: 15px; border-radius: 4px; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;}
 .btn-whatsapp-modal:hover { background-color: #ffffff; color: #000000; }
 
-/* Texto de Cómo Comprar */
 .texto-como-comprar p { font-size: 1.1rem; color: #444; margin-bottom: 15px; line-height: 1.5; }
 .texto-como-comprar strong { color: #000; }
 
@@ -364,6 +261,7 @@ body {
     .header-top { padding: 15px 20px; }
     .nav-black { padding: 15px 20px; gap: 20px;}
     .search-container { margin: 0 15px; }
+    .footer-columnas { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 600px) {
@@ -379,8 +277,15 @@ body {
     .contenedor-banners { grid-template-columns: 1fr; gap: 15px; }
     .banner-item { height: 120px; }
     
+    .seccion-bienvenidos { margin-top: 30px; }
+    .seccion-bienvenidos h2 { font-size: 1.6rem; }
+    .seccion-bienvenidos p { font-size: 1rem; }
+
     .fondo-gris-destacados { width: 94%; padding: 25px 15px; margin: 20px auto; border-radius: 12px;}
     .seccion-destacados { padding: 0; }
     .grilla-destacados { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 15px; gap: 15px;}
     .tarjeta-destacado { min-width: 180px; scroll-snap-align: start; }
+    
+    .footer-completo { padding: 40px 20px 20px 20px; }
+    .footer-columnas { grid-template-columns: 1fr; gap: 30px; }
 }

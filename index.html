@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bubble Cleaning</title>
     <link rel="icon" type="image/png" href="img/logo.jpg">
-    <link rel="stylesheet" href="style.css?v=25.0">
+    <link rel="stylesheet" href="style.css?v=26.0">
 </head>
 <body>
 
@@ -84,6 +84,11 @@
                 <div class="banner-overlay"><h3>ARTÍCULOS</h3></div>
             </a>
         </div>
+    </section>
+
+    <section class="seccion-bienvenidos">
+        <h2>BIENVENIDOS! :)</h2>
+        <p>Somos una distribuidora de artículos de limpieza que intentamos darles lo mejor con productos de excelente calidad y a los mejores precios que puedan encontrar.</p>
     </section>
 
     <section class="fondo-gris-destacados">
@@ -223,12 +228,65 @@
         </div>
     </section>
 
-    <footer id="contacto" class="seccion-contacto">
-        <h2>Contacto</h2>
-        <p>📍 Río Cuarto, Córdoba</p>
-        <p>📞 WhatsApp: +54 9 358 486 6061</p>
-        <p>✉️ Email: info@bubblecleaning.com</p>
-        <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">Bubble Cleaning © 2026</p>
+    <footer id="contacto" class="footer-completo">
+        <div class="footer-columnas">
+            
+            <div class="col-footer">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#">INSTAGRAM</a></li>
+                    <li><a href="#" onclick="abrirComoComprar(); return false;">Cómo Comprar</a></li>
+                </ul>
+            </div>
+
+            <div class="col-footer">
+                <h4>Medios de Pago</h4>
+                <div class="iconos-badges">
+                    <span>Visa</span>
+                    <span>Mastercard</span>
+                    <span>Cabal</span>
+                    <span>MercadoPago</span>
+                    <span>Transferencia</span>
+                </div>
+                
+                <h4 style="margin-top: 25px;">Formas de Envío</h4>
+                <div class="iconos-badges">
+                    <span>Andreani</span>
+                    <span>Retiro en Local</span>
+                </div>
+            </div>
+
+            <div class="col-footer">
+                <h4>Contactanos</h4>
+                <ul>
+                    <li>📞 +54 9 358 486 6061</li>
+                    <li>✉️ info@bubblecleaning.com</li>
+                    <li>📍 Mitre 614, Río Cuarto<br>(coordinar visita)</li>
+                </ul>
+            </div>
+
+            <div class="col-footer">
+                <h4>Redes Sociales</h4>
+                <div class="redes-sociales">
+                    <a href="#">IG</a> 
+                </div>
+                
+                <h4 style="margin-top: 25px;">Recibir Promociones y Novedades</h4>
+                <form class="form-newsletter" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Email" required>
+                    <button type="submit">→</button>
+                </form>
+            </div>
+
+        </div>
+        
+        <div class="footer-legal">
+            <p>Bubble Cleaning © 2026 - Todos los derechos reservados.</p>
+        </div>
     </footer>
 
     <div id="modal-carrito" class="modal-oculto">
@@ -253,6 +311,6 @@
         </div>
     </div>
 
-    <script src="script.js?v=25.0"></script>
+    <script src="script.js?v=26.0"></script>
 </body>
 </html>
