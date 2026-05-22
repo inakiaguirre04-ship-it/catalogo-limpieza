@@ -381,16 +381,33 @@ body {
     /* Ocultamos el texto "BUBBLE CLEANING" */
     .texto-logo { display: none; }
     
-    /* Buscador flexible: Ocupa todo el espacio sobrante en el medio */
+    /* 1. El contenedor total (barra + botón) */
     .search-container { 
-        width: 40px; 
-        max-width: none; 
-        margin: 0; 
+        width: 100%; 
+        max-width: 120px; /* ACÁ ACHICÁS A LO LARGO (horizontal). Probá 110px o 130px */
+        height: 28px; /* ACÁ ACHICÁS EL ALTO (vertical) para que sea más fina */
+        margin: 0 auto; 
         order: unset; 
-        flex: 1; 
     }
-    .search-container input { padding: 8px 10px; font-size: 0.85rem; }
-    .btn-buscar { width: 35px; } /* Achicamos un poquito el botón de lupa */
+    
+    /* 2. La parte blanca donde se escribe */
+    .search-container input { 
+        padding: 0 8px; /* Menos relleno a los costados */
+        font-size: 0.75rem; /* Letra un poquito más chica para que entre bien */
+        height: 100%; 
+    }
+    
+    /* 3. El cuadrado azul del botón */
+    .btn-buscar { 
+        width: 28px; /* Botón bien cortito a lo largo */
+        height: 100%;
+    }
+    
+    /* 4. La lupita de adentro */
+    .btn-buscar svg {
+        width: 14px; 
+        height: 14px;
+    }
     
     /* Carrito a la derecha, manteniendo texto y precio */
     .header-user-cart { display: flex; width: auto; gap: 8px; }
