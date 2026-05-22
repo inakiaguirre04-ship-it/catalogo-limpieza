@@ -4,31 +4,47 @@ let carrito = {};
 // 1. CONTROL DE VISTAS (SPA)
 // =========================================
 function mostrarVista(vista) {
+    // 1. Limpiamos el buscador y restauramos la visibilidad
+    document.getElementById('buscador').value = '';
+    document.querySelectorAll('.item-producto').forEach(p => p.style.display = "flex");
+    document.querySelectorAll('.titulo-categoria').forEach(t => t.style.display = '');
+    document.querySelectorAll('.grilla-catalogo').forEach(g => g.style.display = '');
+    document.getElementById('vista-productos').style.display = 'block'; // Aseguramos visibilidad
+    document.getElementById('vista-promociones').style.display = 'block'; // Aseguramos visibilidad
+
+    // 2. Ocultamos todo primero
     document.getElementById('vista-inicio').style.display = 'none';
     document.getElementById('vista-productos').style.display = 'none';
     document.getElementById('vista-promociones').style.display = 'none';
 
+    // 3. Mostramos solo la que elegimos
     if (vista === 'inicio') document.getElementById('vista-inicio').style.display = 'block';
     if (vista === 'productos') document.getElementById('vista-productos').style.display = 'block';
     if (vista === 'promociones') document.getElementById('vista-promociones').style.display = 'block';
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
 function irASeccion(idElemento, idVista) {
-    // Apagamos todas las vistas
+    // 1. Limpiamos el buscador y restauramos todos los productos
+    document.getElementById('buscador').value = '';
+    document.querySelectorAll('.item-producto').forEach(p => p.style.display = "flex");
+    document.querySelectorAll('.titulo-categoria').forEach(t => t.style.display = '');
+    document.querySelectorAll('.grilla-catalogo').forEach(g => g.style.display = '');
+    document.getElementById('vista-productos').style.display = 'block';
+    document.getElementById('vista-promociones').style.display = 'block';
+
+    // 2. Apagamos todas las vistas
     document.getElementById('vista-inicio').style.display = 'none';
     document.getElementById('vista-productos').style.display = 'none';
     document.getElementById('vista-promociones').style.display = 'none';
     
-    // Prendemos la que nos pasaron por parámetro
+    // 3. Prendemos la que nos pasaron por parámetro
     document.getElementById(idVista).style.display = 'block';
     
-    // Le damos tiempo al navegador a dibujar la página y saltamos al título
+    // 4. Saltamos al título de la categoría
     setTimeout(() => {
         let elemento = document.getElementById(idElemento);
-        if (elemento) { // ¡Acá estaba el error! Faltaba la "o"
-            // Le damos un margen superior extra para que el menú fijo no tape el título
+        if (elemento) { 
             let offset = 80; 
             let bodyRect = document.body.getBoundingClientRect().top;
             let elementRect = elemento.getBoundingClientRect().top;

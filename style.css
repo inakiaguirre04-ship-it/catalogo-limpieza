@@ -471,3 +471,21 @@ body {
     .footer-completo { padding: 40px 20px 20px 20px; }
     .footer-columnas { grid-template-columns: 1fr; gap: 30px; }
 }
+
+/* =========================================
+   BLOQUEO DEFINITIVO DE ZOOM (iOS Y ANDROID)
+   ========================================= */
+
+/* 1. Obligamos a que botones y links no registren el "doble toque" */
+button, a, .btn-agregar-destacado, .btn-restar-destacado {
+    touch-action: manipulation !important;
+}
+
+/* 2. Regla estricta de Apple: Todo texto editable debe medir 16px mínimo */
+.search-container input,
+.select-aroma,
+.grupo-input input, 
+.grupo-input select, 
+.grupo-input textarea {
+    font-size: 16px !important; 
+}
