@@ -365,25 +365,43 @@ body {
 }
 
 @media (max-width: 600px) {
-    /* 1. Encabezado: Logo Izquierda, Carrito Derecha, Buscador Abajo */
+    /* 1. Encabezado: Logo Izq, Buscador Medio, Carrito Der */
     .header-top { 
         display: flex; 
         flex-direction: row; 
-        flex-wrap: wrap; 
+        flex-wrap: nowrap; /* Obliga a que todo quede en una sola línea */
         justify-content: space-between; 
         align-items: center; 
-        padding: 15px; 
-        gap: 0; 
+        padding: 10px 12px; /* Un poco menos de margen para ganar espacio */
+        gap: 8px; /* Espacio entre los 3 elementos */
     }
+    
     .header-logo { width: auto; justify-content: flex-start; }
-    .texto-logo { font-size: 1.1rem; margin-left: 8px; }
     
-    /* Mostrar Carrito pero esconder texto y usuario para hacer espacio */
-    .header-user-cart { display: flex; width: auto; gap: 10px; }
-    .user-action { display: none; } 
-    .action-text { display: none; } 
+    /* Ocultamos el texto "BUBBLE CLEANING" */
+    .texto-logo { display: none; }
     
-    .search-container { width: 100%; max-width: 100%; margin: 15px 0 0 0; order: 3; }
+    /* Buscador flexible: Ocupa todo el espacio sobrante en el medio */
+    .search-container { 
+        width: auto; 
+        max-width: none; 
+        margin: 0; 
+        order: unset; 
+        flex: 1; 
+    }
+    .search-container input { padding: 8px 10px; font-size: 0.85rem; }
+    .btn-buscar { width: 40px; } /* Achicamos un poquito el botón de lupa */
+    
+    /* Carrito a la derecha, manteniendo texto y precio */
+    .header-user-cart { display: flex; width: auto; gap: 8px; }
+    .user-action { display: none; } /* Seguimos ocultando "Entrá/Registrate" */
+    
+    /* OJO ACÁ: Ahora el texto del carrito SÍ se muestra */
+    .action-text { 
+        display: block; 
+        font-size: 0.7rem; /* Letra más chica para que entre todo bien */
+    }
+    .icon-circle { width: 34px; height: 34px; } /* Círculo de los íconos un pelín más chico */
     
     /* 2. Arreglar el Menú que se cortaba o desaparecía */
     .nav-black { 
