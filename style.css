@@ -381,32 +381,36 @@ body {
     /* Ocultamos el texto "BUBBLE CLEANING" */
     .texto-logo { display: none; }
     
-    /* 1. El contenedor total (barra + botón) */
+    /* 1. Contenedor de la barra */
     .search-container { 
-        width: 100%; 
-        max-width: 120px; /* ACÁ ACHICÁS A LO LARGO (horizontal). Probá 110px o 130px */
-        height: 28px; /* ACÁ ACHICÁS EL ALTO (vertical) para que sea más fina */
-        margin: 0 auto; 
-        order: unset; 
+        flex: 1; /* Esto hace que se estire ocupando todo el medio libre */
+        max-width: none; /* Le sacamos el límite que lo rompía */
+        height: 34px; 
+        margin: 0 10px; /* Separación del logo y del carrito */
+        display: flex; /* Asegura que barra y botón compartan el lugar */
     }
     
     /* 2. La parte blanca donde se escribe */
     .search-container input { 
-        padding: 0 8px; /* Menos relleno a los costados */
-        font-size: 0.75rem; /* Letra un poquito más chica para que entre bien */
-        height: 100%; 
+        width: 100%;
+        min-width: 0; /* Evita que el texto largo rompa la caja */
+        padding: 0 10px; 
+        font-size: 0.8rem; 
     }
     
     /* 3. El cuadrado azul del botón */
     .btn-buscar { 
-        width: 28px; /* Botón bien cortito a lo largo */
-        height: 100%;
+        width: 36px; 
+        flex-shrink: 0; /* CLAVE: Le prohíbe a la página aplastar o esconder el botón */
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     /* 4. La lupita de adentro */
     .btn-buscar svg {
-        width: 14px; 
-        height: 14px;
+        width: 16px; 
+        height: 16px;
     }
     
     /* Carrito a la derecha, manteniendo texto y precio */
