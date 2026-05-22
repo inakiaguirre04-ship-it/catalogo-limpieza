@@ -390,7 +390,7 @@ body {
         flex: 1; 
     }
     .search-container input { padding: 8px 10px; font-size: 0.85rem; }
-    .btn-buscar { width: 40px; } /* Achicamos un poquito el botón de lupa */
+    .btn-buscar { width: 20px; } /* Achicamos un poquito el botón de lupa */
     
     /* Carrito a la derecha, manteniendo texto y precio */
     .header-user-cart { display: flex; width: auto; gap: 8px; }
