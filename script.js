@@ -300,3 +300,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// =========================================
+// CERRAR MENÚ DE CATEGORÍAS AL TOCAR AFUERA
+// =========================================
+document.addEventListener('click', function(event) {
+    let menu = document.querySelector('.dropdown-contenido');
+    let botonCategoria = document.querySelector('.nav-cat');
+
+    // Revisamos si el menú existe y si actualmente está abierto
+    if (menu && menu.classList.contains('mostrar-menu-celular')) {
+        // Si el cliente NO tocó adentro del menú y TAMPOCO tocó el botón de "Categorías"...
+        if (!menu.contains(event.target) && !botonCategoria.contains(event.target)) {
+            // ...entonces lo cerramos
+            menu.classList.remove('mostrar-menu-celular');
+        }
+    }
+});
