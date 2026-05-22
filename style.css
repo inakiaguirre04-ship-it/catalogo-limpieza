@@ -340,7 +340,23 @@ body {
     border-radius: 4px;
     display: inline-block;
 }
+/* =========================================
+   EVITAR QUE EL TEXTO DESAPAREZCA AL TOCAR
+   ========================================= */
+.nav-black a, 
+.nav-black a:visited, 
+.nav-black a:active, 
+.nav-black a:focus {
+    color: #000000 !important; /* Fuerza a que siempre sea negro */
+    -webkit-tap-highlight-color: transparent; /* Le saca el sombreado gris feo de Android/iOS */
+}
 
+/* Apagamos el efecto de "pasar el mouse" solo en los celulares para que no se trabe */
+@media (max-width: 1024px) {
+    .nav-black a:hover {
+        color: #000000 !important;
+    }
+}
 /* =========================================
    10. RESPONSIVE (CELULARES)
    ========================================= */
