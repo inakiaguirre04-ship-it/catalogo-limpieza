@@ -16,16 +16,29 @@ function mostrarVista(vista) {
 }
 
 function irASeccion(idElemento, idVista) {
+    // Apagamos todas las vistas
     document.getElementById('vista-inicio').style.display = 'none';
     document.getElementById('vista-productos').style.display = 'none';
     document.getElementById('vista-promociones').style.display = 'none';
     
+    // Prendemos la que nos pasaron por parámetro
     document.getElementById(idVista).style.display = 'block';
     
+    // Le damos tiempo al navegador a dibujar la página y saltamos al título
     setTimeout(() => {
         let elemento = document.getElementById(idElemento);
-        if (element) {
-            elemento.scrollIntoView({ behavior: 'smooth' });
+        if (elemento) { // ¡Acá estaba el error! Faltaba la "o"
+            // Le damos un margen superior extra para que el menú fijo no tape el título
+            let offset = 80; 
+            let bodyRect = document.body.getBoundingClientRect().top;
+            let elementRect = elemento.getBoundingClientRect().top;
+            let elementPosition = elementRect - bodyRect;
+            let offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         }
     }, 100);
 }
