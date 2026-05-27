@@ -24,6 +24,10 @@ body {
 /* =========================================
    1. ENCABEZADO (HEADER)
    ========================================= */
+.slider-texto-celular {
+    display: none;
+}
+
 .header-principal { width: 100%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 .header-top { display: flex; align-items: center; justify-content: space-between; background-color: #FFFFFF; padding: 15px 40px; }
 .header-logo { display: flex; align-items: center; }
@@ -381,65 +385,85 @@ body {
 }
 
 @media (max-width: 600px) {
-    /* 1. Encabezado: Logo Izq, Buscador Medio, Carrito Der */
+    /* =========================================
+       SLIDER SUPERIOR Y ENCABEZADO (CELULARES)
+       ========================================= */
+    
+    /* Cinta de texto deslizante */
+    .slider-texto-celular {
+        display: block; 
+        background-color: #53c4e5; 
+        color: #ffffff;
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 6px 0;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .slider-track {
+        display: inline-block;
+        animation: deslizarTexto 15s linear infinite; 
+    }
+
+    .slider-track span {
+        margin-right: 40px; 
+    }
+
+    @keyframes deslizarTexto {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+
+    /* Logo y Carrito en el primer renglón */
     .header-top { 
         display: flex; 
         flex-direction: row; 
-        flex-wrap: nowrap; /* Obliga a que todo quede en una sola línea */
+        flex-wrap: wrap; /* CLAVE: permite que el buscador caiga abajo */
         justify-content: space-between; 
         align-items: center; 
-        padding: 10px 12px; /* Un poco menos de margen para ganar espacio */
-        gap: 8px; /* Espacio entre los 3 elementos */
+        padding: 10px 12px; 
+        gap: 0; 
     }
     
-    .header-logo { width: auto; justify-content: flex-start; }
-    
-    /* Ocultamos el texto "BUBBLE CLEANING" */
+    .header-logo { width: auto; justify-content: flex-start; order: 1; }
     .texto-logo { display: none; }
     
-    /* 1. Contenedor de la barra */
+    .header-user-cart { display: flex; width: auto; gap: 8px; order: 2; }
+    .user-action { display: none; } 
+    .action-text { display: block; font-size: 0.7rem; }
+    .icon-circle { width: 34px; height: 34px; }
+    
+    /* Buscador ocupando todo el segundo renglón */
     .search-container { 
-        flex: 1; /* Esto hace que se estire ocupando todo el medio libre */
-        max-width: none; /* Le sacamos el límite que lo rompía */
-        height: 34px; 
-        margin: 0 10px; /* Separación del logo y del carrito */
-        display: flex; /* Asegura que barra y botón compartan el lugar */
+        order: 3; 
+        width: 100%; 
+        flex: 0 0 100%;
+        max-width: none; 
+        margin: 12px 0 0 0; 
+        height: 38px; 
+        display: flex;
     }
     
-    /* 2. La parte blanca donde se escribe */
     .search-container input { 
         width: 100%;
-        min-width: 0; /* Evita que el texto largo rompa la caja */
+        min-width: 0; 
         padding: 0 10px; 
-        font-size: 0.8rem; 
+        font-size: 16px !important; 
     }
     
-    /* 3. El cuadrado azul del botón */
     .btn-buscar { 
-        width: 36px; 
-        flex-shrink: 0; /* CLAVE: Le prohíbe a la página aplastar o esconder el botón */
+        width: 42px; 
+        flex-shrink: 0; 
         display: flex;
         justify-content: center;
         align-items: center;
     }
     
-    /* 4. La lupita de adentro */
     .btn-buscar svg {
-        width: 16px; 
-        height: 16px;
+        width: 18px; 
+        height: 18px;
     }
-    
-    /* Carrito a la derecha, manteniendo texto y precio */
-    .header-user-cart { display: flex; width: auto; gap: 8px; }
-    .user-action { display: none; } /* Seguimos ocultando "Entrá/Registrate" */
-    
-    /* OJO ACÁ: Ahora el texto del carrito SÍ se muestra */
-    .action-text { 
-        display: block; 
-        font-size: 0.7rem; /* Letra más chica para que entre todo bien */
-    }
-    .icon-circle { width: 34px; height: 34px; } /* Círculo de los íconos un pelín más chico */
-    
     /* 2. Arreglar el Menú que se cortaba o desaparecía */
     /* 2. Menú en un solo renglón (Letra chica para que entre todo) */
     .nav-black { 
