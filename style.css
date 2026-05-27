@@ -466,6 +466,12 @@ body {
         height: 10px;
         margin-left: 2px;
     }
+
+/* Esconder el botón de contacto solo en celulares */
+    .oculto-en-celular {
+        display: none !important;
+    }
+
     
     .banners-superiores { padding: 0 15px; }
     .contenedor-banners { grid-template-columns: 1fr; gap: 15px; }
