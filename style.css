@@ -393,7 +393,7 @@ body {
     .slider-texto-celular {
         display: block; 
         background-color: #53c4e5; 
-        color: #ffffff;
+        color: #000;
         font-size: 0.65rem;
         font-weight: 600;
         
