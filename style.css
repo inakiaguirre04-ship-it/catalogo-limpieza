@@ -393,10 +393,14 @@ body {
     .slider-texto-celular {
         display: block; 
         background-color: #53c4e5; 
-        color: #000;
-        font-size: 0.60rem;
-        font-weight: 550;
-        padding: 6px 0;
+        color: #ffffff;
+        font-size: 0.65rem;
+        font-weight: 600;
+        
+        /* LA MAGIA PARA LA BATERÍA Y LA HORA ESTÁ ACÁ */
+        padding-top: max(env(safe-area-inset-top), 15px); /* Empuja el texto hacia abajo */
+        padding-bottom: 6px; 
+        
         overflow: hidden;
         white-space: nowrap;
     }
@@ -432,7 +436,7 @@ body {
     
     .header-user-cart { display: flex; width: auto; gap: 8px; order: 2; }
     .user-action { display: none; } 
-    .action-text { display: block; font-size: 0.7rem; }
+    .action-text { display: block; font-size: 0.65rem; }
     .icon-circle { width: 34px; height: 34px; }
     
     /* Buscador ocupando todo el segundo renglón */
