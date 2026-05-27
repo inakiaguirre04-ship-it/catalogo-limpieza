@@ -441,13 +441,30 @@ body {
     .icon-circle { width: 34px; height: 34px; } /* Círculo de los íconos un pelín más chico */
     
     /* 2. Arreglar el Menú que se cortaba o desaparecía */
+    /* 2. Menú en un solo renglón (Letra chica para que entre todo) */
     .nav-black { 
-        overflow: visible; /* Clave: Deja que el menú desplegable salga del cuadro */
-        white-space: normal; 
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 10px 15px; 
-        gap: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap; /* Fuerza a que todo se quede en una sola línea */
+        justify-content: space-evenly; /* Reparte el espacio por igual */
+        align-items: center;
+        padding: 10px 2px; /* Casi nada de margen a los costados */
+        gap: 0; /* Quitamos el hueco grande entre palabras */
+        overflow: visible; /* Necesario para que el desplegable no se corte */
+    }
+
+    /* Achicamos la letra de los botones principales para que entren */
+    .nav-black > a, .nav-cat {
+        font-size: 0.65rem !important; /* Letra bien chiquita (aprox 10px) */
+        padding: 5px 4px; /* Relleno mínimo */
+        white-space: nowrap; /* Prohíbe que "CÓMO COMPRAR" se parta en dos renglones */
+    }
+
+    /* Achicamos un poquito la flecha de Categorías para que no ocupe lugar */
+    .nav-cat svg {
+        width: 10px;
+        height: 10px;
+        margin-left: 2px;
     }
     
     .banners-superiores { padding: 0 15px; }
