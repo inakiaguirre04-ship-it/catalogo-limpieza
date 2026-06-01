@@ -24,6 +24,7 @@ function mostrarVista(vista) {
     
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
 function irASeccion(idElemento, idVista) {
     // 1. Limpiamos el buscador y restauramos todos los productos
     document.getElementById('buscador').value = '';
@@ -60,21 +61,23 @@ function irASeccion(idElemento, idVista) {
 }
 
 // =========================================
-// 2. LÓGICA DEL CARRITO (CON SOPORTE DE AROMAS)
+// 2. LÓGICA DEL CARRITO (AROMAS Y LITROS)
 // =========================================
 function agregarProd(btn) {
     let articulo = btn.closest('.item-producto');
     let baseNombre = articulo.getAttribute('data-nombre');
     let precio = parseFloat(articulo.getAttribute('data-precio'));
     
-    // Verificamos si este producto específico tiene un selector de aromas activo
-    let selectAroma = articulo.querySelector('.select-aroma');
     let nombreFinal = baseNombre;
     
-    if (selectAroma) {
-        let aromaElegido = selectAroma.value;
-        nombreFinal = `${baseNombre} (${aromaElegido})`;
-    }
+    // Buscamos todos los selectores que tenga el producto
+    let selectores = articulo.querySelectorAll('.select-aroma');
+    selectores.forEach(select => {
+        // Si el selector NO tiene la orden "cambiarLitros", entonces es el de Aroma
+        if (!select.hasAttribute('onchange')) {
+            nombreFinal = `${baseNombre} (${select.value})`;
+        }
+    });
     
     if(!carrito[nombreFinal]) {
         carrito[nombreFinal] = {cantidad: 0, precio: precio, baseNombre: baseNombre};
@@ -87,13 +90,14 @@ function quitarProd(btn) {
     let articulo = btn.closest('.item-producto');
     let baseNombre = articulo.getAttribute('data-nombre');
     
-    // Buscamos si tiene selector para restar de la variante exacta
-    let selectAroma = articulo.querySelector('.select-aroma');
     let nombreFinal = baseNombre;
     
-    if (selectAroma) {
-        nombreFinal = `${baseNombre} (${selectAroma.value})`;
-    }
+    let selectores = articulo.querySelectorAll('.select-aroma');
+    selectores.forEach(select => {
+        if (!select.hasAttribute('onchange')) {
+            nombreFinal = `${baseNombre} (${select.value})`;
+        }
+    });
     
     if(carrito[nombreFinal] && carrito[nombreFinal].cantidad > 0) {
         carrito[nombreFinal].cantidad--;
@@ -330,9 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// =========================================
 // CERRAR MENÚ DE CATEGORÍAS AL TOCAR AFUERA
-// =========================================
 document.addEventListener('click', function(event) {
     let menu = document.querySelector('.dropdown-contenido');
     let botonCategoria = document.querySelector('.nav-cat');
@@ -348,7 +350,7 @@ document.addEventListener('click', function(event) {
 });
 
 // =========================================
-// CAMBIAR PRECIO Y DATOS SEGÚN LITROS
+// 7. CAMBIAR PRECIO Y DATOS SEGÚN LITROS
 // =========================================
 function cambiarLitros(selector) {
     // 1. Agarramos la opción que el cliente eligió (ej: 5L) y su precio

@@ -54,10 +54,8 @@ body {
 /* MENÚ DESPLEGABLE MULTINIVEL (Cascada) */
 .dropdown-categorias { position: relative; display: inline-block; }
 
-/* Reset de listas para que no tengan viñetas */
 .dropdown-contenido, .submenu-contenido { list-style: none; margin: 0; padding: 0; }
 
-/* Caja principal del desplegable (Nivel 1) */
 .dropdown-contenido { 
     display: none; 
     position: absolute; 
@@ -71,16 +69,14 @@ body {
     border-top: 2px solid var(--bubble-primary); 
 }
 
-/* Mostrar Nivel 1 al pasar el mouse por "CATEGORÍAS" */
 .dropdown-categorias:hover .dropdown-contenido { display: block; }
 
-/* Estilo de los links de todos los menús */
 .dropdown-contenido a { 
     color: #333 !important; 
     padding: 12px 18px; 
     text-decoration: none; 
     display: flex; 
-    justify-content: space-between; /* Separa el texto de la flechita */
+    justify-content: space-between; 
     align-items: center;
     font-size: 0.9rem !important; 
     font-weight: 600 !important; 
@@ -92,31 +88,28 @@ body {
 .dropdown-contenido a:hover { 
     background-color: #f9f9f9; 
     color: var(--bubble-primary) !important; 
-    padding-left: 22px; /* Pequeño salto a la derecha al hacer hover */
+    padding-left: 22px; 
     transition: all 0.2s; 
 }
 
 .flecha-der { font-size: 1.2rem; line-height: 0; margin-left: 10px; color: #888; }
 
-/* SUBMENÚ (Nivel 2) */
 .dropdown-submenu { position: relative; }
 
 .submenu-contenido {
     display: none;
     position: absolute;
     top: 0;
-    left: 100%; /* Se abre hacia la derecha del menú padre */
+    left: 100%; 
     background-color: #ffffff;
     min-width: 250px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.15);
     border-radius: 0 8px 8px 8px;
-    border-left: 2px solid var(--bubble-primary); /* Rayita azul para indicar el salto */
+    border-left: 2px solid var(--bubble-primary); 
 }
 
-/* Mostrar Nivel 2 al pasar el mouse por las opciones principales */
 .dropdown-submenu:hover .submenu-contenido { display: block; }
 
-/* Corrección en celulares para que el menú no se salga de la pantalla */
 @media (max-width: 900px) {
     .submenu-contenido {
         left: 0;
@@ -135,11 +128,10 @@ body {
 .banners-superiores { max-width: 1300px; margin: 40px auto 0 auto; padding: 0 40px; }
 .contenedor-banners {
     display: grid;
-    /* Le decimos que ahora son SOLO 2 columnas, y le damos un ancho fijo (ej: 450px cada una) */
     grid-template-columns: repeat(2, 450px); 
-    justify-content: center; /* Esta es la magia que centra todo el bloque en la pantalla */
-    gap: 30px; /* El espacio entre las dos fotos */
-    margin: 30px auto; /* Margen arriba/abajo, y centrado automático a los costados */
+    justify-content: center; 
+    gap: 30px; 
+    margin: 30px auto; 
     padding: 0 20px;
 }
 .banner-item { position: relative; height: 180px; border-radius: 12px; overflow: hidden; display: block; background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
@@ -178,7 +170,7 @@ body {
 .info-destacado { display: flex; flex-direction: column; flex-grow: 1; }
 .info-destacado h3 { font-size: 0.95rem; color: #333; font-weight: 400; margin-bottom: 5px; padding: 0; }
 
-.precio-y-botones { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 5px; }
+.precio-y-botones { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 5px; gap: 8px;}
 .precio-nuevo { font-size: 1.15rem; color: #000000; font-weight: 800; }
 .botones-cantidad-destacado { display: flex; align-items: center; gap: 8px; }
 
@@ -248,85 +240,30 @@ body {
 /* =========================================
    8. ESTILOS DEL FORMULARIO DE CHECKOUT
    ========================================= */
-.grupo-input {
-    margin-bottom: 18px;
-    text-align: left;
-}
-
-.grupo-input label {
-    display: block;
-    font-weight: 700;
-    color: #000000;
-    margin-bottom: 6px;
-    font-size: 0.9rem;
-}
-
-.grupo-input input, .grupo-input select, .grupo-input textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    font-family: 'Onest', sans-serif;
-    font-size: 1rem;
-    outline: none;
-    background-color: #ffffff;
-    color: #333333;
-    transition: border-color 0.2s;
-}
-
-/* Cuando hacés clic para escribir, se pone el borde negro */
-.grupo-input input:focus, .grupo-input select:focus {
-    border-color: #000000;
-}
+.grupo-input { margin-bottom: 18px; text-align: left; }
+.grupo-input label { display: block; font-weight: 700; color: #000000; margin-bottom: 6px; font-size: 0.9rem; }
+.grupo-input input, .grupo-input select, .grupo-input textarea { width: 100%; padding: 12px 15px; border: 1px solid #cccccc; border-radius: 4px; font-family: 'Onest', sans-serif; font-size: 1rem; outline: none; background-color: #ffffff; color: #333333; transition: border-color 0.2s; }
+.grupo-input input:focus, .grupo-input select:focus { border-color: #000000; }
 
 /* =========================================
    9. EFECTO HOVER EN PROMOCIONES (DETALLE)
    ========================================= */
 .detalle-promo {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.85); /* Fondo negro semi-transparente elegante */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    opacity: 0; /* Arranca invisible */
-    transition: opacity 0.3s ease;
-    padding: 15px;
-    z-index: 10;
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85); 
+    display: flex; flex-direction: column; justify-content: center;
+    opacity: 0; transition: opacity 0.3s ease; padding: 15px; z-index: 10;
 }
 
-/* Cuando paso el mouse por la tarjeta, el detalle se hace visible */
-.tarjeta-destacado:hover .detalle-promo {
-    opacity: 1;
-}
-
-.detalle-promo ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.detalle-promo li {
-    color: #ffffff;
-    font-size: 0.85rem;
-    margin-bottom: 6px;
-    line-height: 1.3;
-    font-weight: 600;
-    text-align: left;
-}
-
-.detalle-promo li::before {
-    content: "✔ "; /* Le ponemos un tilde a cada ítem */
-    color: #25d366; 
-}
+.tarjeta-destacado:hover .detalle-promo { opacity: 1; }
+.detalle-promo ul { list-style: none; padding: 0; margin: 0; }
+.detalle-promo li { color: #ffffff; font-size: 0.85rem; margin-bottom: 6px; line-height: 1.3; font-weight: 600; text-align: left; }
+.detalle-promo li::before { content: "✔ "; color: #25d366; }
 
 /* =========================================
-   ESTILOS PARA SELECTOR DE AROMAS E IMÁGENES
+   ESTILOS PARA SELECTOR DE AROMAS Y LITROS
    ========================================= */
-.contenedor-select-aroma {
-    margin: 8px 0;
-    width: 100%;
-}
+.contenedor-select-aroma { margin: 8px 0; width: 100%; }
 
 .select-aroma {
     width: 100%;
@@ -340,71 +277,20 @@ body {
     color: #000000;
     outline: none;
     cursor: pointer;
+    text-overflow: ellipsis; /* Si el texto es muy largo, le pone puntitos suspensivos */
 }
 
-/* Redimensionar las imágenes de los bancos en el footer de forma prolija */
-.img-badge-pago {
-    height: 28px;
-    width: auto;
-    object-fit: contain;
-    background-color: #ffffff; /* Le da un fondo blanco limpio si la imagen es transparente */
-    padding: 2px 6px;
-    border-radius: 4px;
-    display: inline-block;
-}
+.img-badge-pago { height: 28px; width: auto; object-fit: contain; background-color: #ffffff; padding: 2px 6px; border-radius: 4px; display: inline-block; }
+
 /* =========================================
    EVITAR QUE EL TEXTO DESAPAREZCA AL TOCAR
    ========================================= */
-.nav-black a, 
-.nav-black a:visited, 
-.nav-black a:active, 
-.nav-black a:focus {
-    color: #000000 !important; /* Fuerza a que siempre sea negro */
-    -webkit-tap-highlight-color: transparent; /* Le saca el sombreado gris feo de Android/iOS */
-}
+.nav-black a, .nav-black a:visited, .nav-black a:active, .nav-black a:focus { color: #000000 !important; -webkit-tap-highlight-color: transparent; }
 
-/* =========================================
-   DISEÑO DE LOS RENGLONES DE LITROS
-   ========================================= */
-
-.variante-renglon {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #eaeaea; /* Linita finita para separar los tamaños */
-    gap: 10px;
-}
-
-/* Le sacamos la línea divisoria al de abajo de todo */
-.variante-renglon:last-child {
-    border-bottom: none; 
-    padding-bottom: 0;
-}
-
-/* El texto de 1L / 5L */
-.litros-texto {
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: #444;
-    min-width: 25px; /* Mantiene la alineación de todos los precios */
-}
-
-/* Acomodamos el precio para este nuevo formato */
-.variante-renglon .precio-nuevo {
-    font-size: 1.05rem;
-    margin: 0;
-    flex-grow: 1; /* Empuja los botones hacia la derecha */
-    text-align: left;
-}
-
-
-/* Apagamos el efecto de "pasar el mouse" solo en los celulares para que no se trabe */
 @media (max-width: 1024px) {
-    .nav-black a:hover {
-        color: #000000 !important;
-    }
+    .nav-black a:hover { color: #000000 !important; }
 }
+
 /* =========================================
    10. RESPONSIVE (CELULARES)
    ========================================= */
@@ -419,62 +305,20 @@ body {
     .grilla-catalogo { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* CLASES EXTRAS PARA CELULARES (Menú y Toques) */
-.tarjeta-destacado:hover .detalle-promo,
-.tarjeta-destacado.activo-touch .detalle-promo {
-    opacity: 1;
-}
-.mostrar-menu-celular {
-    display: block !important;
-}
+.tarjeta-destacado:hover .detalle-promo, .tarjeta-destacado.activo-touch .detalle-promo { opacity: 1; }
+.mostrar-menu-celular { display: block !important; }
 
 @media (max-width: 600px) {
-    /* =========================================
-       SLIDER SUPERIOR Y ENCABEZADO (CELULARES)
-       ========================================= */
     
-    /* Cinta de texto deslizante */
     .slider-texto-celular {
-        display: block; 
-        background-color: #53c4e5; 
-        color: #000;
-        font-size: 0.65rem;
-        font-weight: 600;
-        
-        /* LA MAGIA PARA LA BATERÍA Y LA HORA ESTÁ ACÁ */
-        padding-top: max(env(safe-area-inset-top), 15px); /* Empuja el texto hacia abajo */
-        padding-bottom: 6px; 
-        
-        overflow: hidden;
-        white-space: nowrap;
+        display: block; background-color: #53c4e5; color: #000; font-size: 0.65rem; font-weight: 600;
+        padding-top: max(env(safe-area-inset-top), 15px); padding-bottom: 6px; overflow: hidden; white-space: nowrap;
     }
+    .slider-track { display: inline-flex; width: max-content; animation: deslizarTexto 20s linear infinite; }
+    .slider-track span { margin-right: 40px; }
+    @keyframes deslizarTexto { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-    .slider-track {
-        display: inline-flex; /* Mejoramos la forma en que se alinean para que no haya cortes */
-        width: max-content; /* Le dice que se estire todo lo necesario para que entren las 6 frases */
-        animation: deslizarTexto 20s linear infinite; /* Le subí un poquito el tiempo a 20s para que no maree, podés bajarlo si lo querés más rápido */
-    }
-
-    .slider-track span {
-        margin-right: 40px; 
-    }
-
-    @keyframes deslizarTexto {
-        0% { transform: translateX(0); } /* ¡Arranca ya visible en la pantalla! */
-        100% { transform: translateX(-50%); } /* Se mueve hasta la mitad y hace un bucle invisible */
-    }
-
-    /* Logo y Carrito en el primer renglón */
-    .header-top { 
-        display: flex; 
-        flex-direction: row; 
-        flex-wrap: wrap; /* CLAVE: permite que el buscador caiga abajo */
-        justify-content: space-between; 
-        align-items: center; 
-        padding: 10px 12px; 
-        gap: 0; 
-    }
-    
+    .header-top { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 10px 12px; gap: 0; }
     .header-logo { width: auto; justify-content: flex-start; order: 1; }
     .texto-logo { display: none; }
     
@@ -483,69 +327,16 @@ body {
     .action-text { display: block; font-size: 0.65rem; }
     .icon-circle { width: 34px; height: 34px; }
     
-    /* Buscador ocupando todo el segundo renglón */
-    .search-container { 
-        order: 3; 
-        width: 100%; 
-        flex: 0 0 100%;
-        max-width: none; 
-        margin: 12px 0 0 0; 
-        height: 38px; 
-        display: flex;
-    }
+    .search-container { order: 3; width: 100%; flex: 0 0 100%; max-width: none; margin: 12px 0 0 0; height: 38px; display: flex; }
+    .search-container input { width: 100%; min-width: 0; padding: 0 10px; font-size: 16px !important; /* CORREGIDO PARA EVITAR ZOOM */ }
+    .btn-buscar { width: 42px; flex-shrink: 0; display: flex; justify-content: center; align-items: center; }
+    .btn-buscar svg { width: 18px; height: 18px; }
     
-    .search-container input { 
-        width: 100%;
-        min-width: 0; 
-        padding: 0 10px; 
-        font-size: 13px !important; 
-    }
-    
-    .btn-buscar { 
-        width: 42px; 
-        flex-shrink: 0; 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .btn-buscar svg {
-        width: 18px; 
-        height: 18px;
-    }
-    /* 2. Arreglar el Menú que se cortaba o desaparecía */
-    /* 2. Menú en un solo renglón (Letra chica para que entre todo) */
-    .nav-black { 
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap; /* Fuerza a que todo se quede en una sola línea */
-        justify-content: space-evenly; /* Reparte el espacio por igual */
-        align-items: center;
-        padding: 10px 2px; /* Casi nada de margen a los costados */
-        gap: 0; /* Quitamos el hueco grande entre palabras */
-        overflow: visible; /* Necesario para que el desplegable no se corte */
-    }
+    .nav-black { display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-evenly; align-items: center; padding: 10px 2px; gap: 0; overflow: visible; }
+    .nav-black > a, .nav-cat { font-size: 0.65rem !important; padding: 5px 4px; white-space: nowrap; }
+    .nav-cat svg { width: 10px; height: 10px; margin-left: 2px; }
+    .oculto-en-celular { display: none !important; }
 
-    /* Achicamos la letra de los botones principales para que entren */
-    .nav-black > a, .nav-cat {
-        font-size: 0.65rem !important; /* Letra bien chiquita (aprox 10px) */
-        padding: 5px 4px; /* Relleno mínimo */
-        white-space: nowrap; /* Prohíbe que "CÓMO COMPRAR" se parta en dos renglones */
-    }
-
-    /* Achicamos un poquito la flecha de Categorías para que no ocupe lugar */
-    .nav-cat svg {
-        width: 10px;
-        height: 10px;
-        margin-left: 2px;
-    }
-
-/* Esconder el botón de contacto solo en celulares */
-    .oculto-en-celular {
-        display: none !important;
-    }
-
-    
     .banners-superiores { padding: 0 15px; }
     .contenedor-banners { grid-template-columns: 1fr; gap: 15px; }
     .banner-item { height: 120px; }
@@ -566,22 +357,19 @@ body {
 
     .footer-completo { padding: 40px 20px 20px 20px; }
     .footer-columnas { grid-template-columns: 1fr; gap: 30px; }
+
+    /* Evitar que en celulares chiquitos el precio se superponga con los botones */
+    .precio-y-botones {
+        flex-wrap: wrap; 
+        gap: 6px;
+    }
 }
 
 /* =========================================
    BLOQUEO DEFINITIVO DE ZOOM (iOS Y ANDROID)
    ========================================= */
+button, a, .btn-agregar-destacado, .btn-restar-destacado { touch-action: manipulation !important; }
 
-/* 1. Obligamos a que botones y links no registren el "doble toque" */
-button, a, .btn-agregar-destacado, .btn-restar-destacado {
-    touch-action: manipulation !important;
-}
-
-/* 2. Regla estricta de Apple: Todo texto editable debe medir 16px mínimo */
-.search-container input,
-.select-aroma,
-.grupo-input input, 
-.grupo-input select, 
-.grupo-input textarea {
+.search-container input, .select-aroma, .grupo-input input, .grupo-input select, .grupo-input textarea {
     font-size: 16px !important; 
 }
