@@ -346,3 +346,31 @@ document.addEventListener('click', function(event) {
         }
     }
 });
+
+// =========================================
+// CAMBIAR PRECIO Y DATOS SEGÚN LITROS
+// =========================================
+function cambiarLitros(selector) {
+    // 1. Agarramos la opción que el cliente eligió (ej: 5L) y su precio
+    let opcionElegida = selector.options[selector.selectedIndex];
+    let nuevoPrecio = opcionElegida.getAttribute('data-precio');
+    let tamaño = opcionElegida.value;
+    
+    // 2. Buscamos la tarjeta del producto completo
+    let tarjeta = selector.closest('.item-producto');
+    
+    // 3. Cambiamos el texto del precio para que el cliente lo vea
+    let etiquetaPrecio = tarjeta.querySelector('.precio-nuevo');
+    etiquetaPrecio.innerText = "$" + nuevoPrecio + ",00";
+    
+    // 4. ¡CLAVE! Actualizamos los datos ocultos para que el carrito cobre bien
+    tarjeta.setAttribute('data-precio', nuevoPrecio);
+    
+    // 5. Armamos el nombre nuevo (Ej: "Lavandina" + " 5L")
+    let nombreBase = tarjeta.querySelector('h3').innerText;
+    tarjeta.setAttribute('data-nombre', nombreBase + " " + tamaño);
+    
+    // 6. Reseteamos el contador a 0 para evitar mezclar productos si ya había sumado de 1L
+    let cantidadProd = tarjeta.querySelector('.cantidad-prod');
+    if(cantidadProd) cantidadProd.innerText = "0";
+}
