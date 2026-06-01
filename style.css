@@ -363,6 +363,42 @@ body {
     -webkit-tap-highlight-color: transparent; /* Le saca el sombreado gris feo de Android/iOS */
 }
 
+/* =========================================
+   DISEÑO DE LOS RENGLONES DE LITROS
+   ========================================= */
+
+.variante-renglon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eaeaea; /* Linita finita para separar los tamaños */
+    gap: 10px;
+}
+
+/* Le sacamos la línea divisoria al de abajo de todo */
+.variante-renglon:last-child {
+    border-bottom: none; 
+    padding-bottom: 0;
+}
+
+/* El texto de 1L / 5L */
+.litros-texto {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #444;
+    min-width: 25px; /* Mantiene la alineación de todos los precios */
+}
+
+/* Acomodamos el precio para este nuevo formato */
+.variante-renglon .precio-nuevo {
+    font-size: 1.05rem;
+    margin: 0;
+    flex-grow: 1; /* Empuja los botones hacia la derecha */
+    text-align: left;
+}
+
+
 /* Apagamos el efecto de "pasar el mouse" solo en los celulares para que no se trabe */
 @media (max-width: 1024px) {
     .nav-black a:hover {

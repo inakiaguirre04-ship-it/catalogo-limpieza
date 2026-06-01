@@ -118,13 +118,30 @@
             <div class="seccion-destacados">
                 <h2 class="titulo-destacados">Destacados</h2>
                 <div class="grilla-destacados">
-                    <article class="tarjeta-destacado item-producto" data-nombre="Lavandina" data-precio="420">
-                        <div class="imagen-destacado"><img src="img/Detecoazul.png" alt="Lavandina"></div>
-                        <div class="info-destacado">
-                            <h3>Lavandina 1L</h3>
-                            <div class="precio-y-botones"><span class="precio-nuevo">$420,00</span><div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div></div>
+                    <article class="tarjeta-destacado"> <div class="imagen-destacado"><img src="img/Detecoazul.png" alt="Lavandina"></div>
+                         <div class="info-destacado">
+                            <h3>Lavandina</h3> <div class="variante-renglon item-producto" data-nombre="Lavandina 1L" data-precio="420">
+                                <span class="litros-texto">1L</span>
+                                <span class="precio-nuevo">$420,00</span>
+                                <div class="botones-cantidad-destacado">
+                                     <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                                     <span class="cantidad-prod">0</span>
+                                     <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                                </div>
                         </div>
-                    </article>
+
+                        <div class="variante-renglon item-producto" data-nombre="Lavandina 5L" data-precio="1800">
+                            <span class="litros-texto">5L</span>
+                            <span class="precio-nuevo">$1.800,00</span>
+                            <div class="botones-cantidad-destacado">
+                                <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                                <span class="cantidad-prod">0</span>
+                                <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                            </div>
+                        </div>
+        
+                    </div>
+                </article>
                     <article class="tarjeta-destacado item-producto" data-nombre="Detergente Premium" data-precio="720">
                         <div class="imagen-destacado"><img src="img/Lavcon50.png" alt="Detergente Premium"></div>
                         <div class="info-destacado">
