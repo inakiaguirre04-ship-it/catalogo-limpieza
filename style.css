@@ -133,7 +133,15 @@ body {
    2. BANNERS SUPERIORES 
    ========================================= */
 .banners-superiores { max-width: 1300px; margin: 40px auto 0 auto; padding: 0 40px; }
-.contenedor-banners { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.contenedor-banners {
+    display: grid;
+    /* Le decimos que ahora son SOLO 2 columnas, y le damos un ancho fijo (ej: 450px cada una) */
+    grid-template-columns: repeat(2, 450px); 
+    justify-content: center; /* Esta es la magia que centra todo el bloque en la pantalla */
+    gap: 30px; /* El espacio entre las dos fotos */
+    margin: 30px auto; /* Margen arriba/abajo, y centrado automático a los costados */
+    padding: 0 20px;
+}
 .banner-item { position: relative; height: 180px; border-radius: 12px; overflow: hidden; display: block; background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 .banner-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
 .banner-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; transition: background-color 0.3s ease; }
