@@ -114,7 +114,7 @@
             <div class="seccion-destacados">
                 <h2 class="titulo-destacados">Destacados</h2>
                 <div class="grilla-destacados">
-                    <article class="tarjeta-destacado item-producto" data-nombre="Lavandina 1L" data-precio="420">
+                    <article class="tarjeta-destacado item-producto" data-nombre="Lavandina " data-precio="420">
                         <div class="imagen-destacado"><img src="img/Detecoazul.png" alt="Lavandina"></div>
                         <div class="info-destacado">
                             <h3>Lavandina</h3>
@@ -275,7 +275,7 @@
                 <article class="tarjeta-destacado item-producto" data-nombre="Lavandina " data-precio="420">
                     <div class="imagen-destacado"><img src="img/logo.png" alt="Lavandina"></div>
                     <div class="info-destacado">
-                        <h3>Lavandina</h3>
+                        <h3>Lavandina Concentrada 50%</h3>
                         <div class="contenedor-select-aroma">
                             <select class="select-aroma" onchange="cambiarLitros(this)">
                                 <option value="1L" data-precio="420">1 Litro</option>
@@ -340,7 +340,7 @@
                 <article class="tarjeta-destacado item-producto" data-nombre="Alcohol liquido" data-precio="420">
                     <div class="imagen-destacado"><img src="img/productos/alcoholliquido.jpg" alt="Alcohol liquido"></div>
                     <div class="info-destacado">
-                        <h3>Alcohol Liquido</h3>
+                        <h3>Alcohol Liquido(al 96%)</h3>
                         <div class="contenedor-select-aroma">
                             <select class="select-aroma" onchange="cambiarLitros(this)">
                                 <option value="1L" data-precio="420">1 Litro</option>
@@ -357,6 +357,22 @@
                     <div class="imagen-destacado"><img src="img/productos/alcoholengel.jpg" alt="Alcohol en gel"></div>
                     <div class="info-destacado">
                         <h3>Alcohol En Gel</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma" onchange="cambiarLitros(this)">
+                                <option value="1L" data-precio="420">1 Litro</option>
+                                <option value="5L" data-precio="1800">5 Litros</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones">
+                            <span class="precio-nuevo">$420,00</span>
+                            <div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-destacado item-producto" data-nombre="Alcohol sanitizante" data-precio="420">
+                    <div class="imagen-destacado"><img src="img/productos/" alt="Alcohol sanitizante"></div>
+                    <div class="info-destacado">
+                        <h3>Alcohol Sanitizante(al 70%)</h3>
                         <div class="contenedor-select-aroma">
                             <select class="select-aroma" onchange="cambiarLitros(this)">
                                 <option value="1L" data-precio="420">1 Litro</option>
@@ -389,10 +405,10 @@
 
             <h2 id="cat-detergentes" class="titulo-categoria">Detergentes y Jabones</h2>
             <div class="grilla-catalogo">
-                <article class="tarjeta-destacado item-producto" data-nombre="Detergente común 1L" data-precio="650">
-                    <div class="imagen-destacado"><img src="img/logo.png" alt="Detergente"></div>
+                <article class="tarjeta-destacado item-producto" data-nombre="Detergente ultralimon" data-precio="650">
+                    <div class="imagen-destacado"><img src="img/logo.png" alt="Detergente ultralimon"></div>
                     <div class="info-destacado">
-                        <h3>Detergente común</h3>
+                        <h3>Detergente Ultra Limon</h3>
                         <div class="contenedor-select-aroma">
                             <select class="select-aroma" onchange="cambiarLitros(this)">
                                 <option value="1L" data-precio="650">1 Litro</option>
@@ -408,7 +424,7 @@
                 <article class="tarjeta-destacado item-producto" data-nombre="Jabón tipo eco" data-precio="850">
                     <div class="imagen-destacado"><img src="img/productos/jaboneconomico.jpg" alt="Jabón eco"></div>
                     <div class="info-destacado">
-                        <h3>Jabón ECO</h3>
+                        <h3>Jabón ECO Tipo SKIP</h3>
                         <div class="contenedor-select-aroma">
                             <select class="select-aroma" onchange="cambiarLitros(this)">
                                 <option value="1L" data-precio="850">1 Litro</option>
@@ -485,6 +501,22 @@
                         </div>
                     </div>
                 </article>
+                <article class="tarjeta-destacado item-producto" data-nombre="Jabón tocador" data-precio="850">
+                    <div class="imagen-destacado"><img src="img/productos/jabontocador.jpg" alt="Jabón tocador"></div>
+                    <div class="info-destacado">
+                        <h3>Jabón Tocador</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma" onchange="cambiarLitros(this)">
+                                <option value="1L" data-precio="850">1 Litro</option>
+                                <option value="5L" data-precio="4000">5 Litros</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones">
+                            <span class="precio-nuevo">$850,00</span>
+                            <div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div>
+                        </div>
+                    </div>
+                </article>
             </div>
 
             <h2 id="cat-pisos" class="titulo-categoria">Limpiadores y Ceras</h2>
@@ -498,7 +530,14 @@
                             <select class="select-aroma">
                                 <option value="Lavanda">Lavanda</option>
                                 <option value="Pino">Pino</option>
-                                <option value="Cítrico">Cítrico</option>
+                                <option value="Citronella">Cítronella</option>
+                                <option value="Frutos Rojos">Frutos Rojos</option>
+                                <option value="Limon">Limón</option>
+                                <option value="Coco">Coco</option>
+                                <option value="Vainilla">Vainilla</option>
+                                <option value="Cherry">Cherry</option>
+                                <option value="Marina">Marina</option>
+                                <option value="Arpege">Arpege</option>
                             </select>
                         </div>
                         <div class="contenedor-select-aroma" style="margin-top: 5px;">
@@ -511,6 +550,26 @@
                         <div class="precio-y-botones">
                             <span class="precio-nuevo">$720,00</span>
                             <div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-destacado item-producto" data-nombre="Liquido Lampazo" data-precio="800">
+                    <div class="imagen-destacado"><img src="img/productos/" alt="Liquido Lampazo"></div>
+                    <div class="info-destacado">
+                        <h3>Liquido Lampazo T/ "FLIT"</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma" onchange="cambiarLitros(this)">
+                                <option value="1L" data-precio="800">1 Litro</option>
+                                <option value="5L" data-precio="3500">5 Litros</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones">
+                            <span class="precio-nuevo">$800,00</span>
+                            <div class="botones-cantidad-destacado">
+                                <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                                <span class="cantidad-prod">0</span>
+                                <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -562,22 +621,6 @@
                         </div>
                     </div>
                 </article>
-                <article class="tarjeta-destacado item-producto" data-nombre="Cera Madera" data-precio="420">
-                    <div class="imagen-destacado"><img src="img/productos/ceramadera.jpg" alt="Cera Madera"></div>
-                    <div class="info-destacado">
-                        <h3>Cera para Madera</h3>
-                        <div class="contenedor-select-aroma">
-                            <select class="select-aroma" onchange="cambiarLitros(this)">
-                                <option value="1L" data-precio="420">1 Litro</option>
-                                <option value="5L" data-precio="1800">5 Litros</option>
-                            </select>
-                        </div>
-                        <div class="precio-y-botones">
-                            <span class="precio-nuevo">$420,00</span>
-                            <div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div>
-                        </div>
-                    </div>
-                </article>
                 <article class="tarjeta-destacado item-producto" data-nombre="Cera incolora " data-precio="420">
                     <div class="imagen-destacado"><img src="img/productos/ceraincolora.jpg" alt="Cera incolora"></div>
                     <div class="info-destacado">
@@ -598,6 +641,22 @@
                     <div class="imagen-destacado"><img src="img/productos/brilloenbalde.jpg" alt="brillo al balde"></div>
                     <div class="info-destacado">
                         <h3>Brillo En Balde</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma" onchange="cambiarLitros(this)">
+                                <option value="1L" data-precio="420">1 Litro</option>
+                                <option value="5L" data-precio="1800">5 Litros</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones">
+                            <span class="precio-nuevo">$420,00</span>
+                            <div class="botones-cantidad-destacado"><button class="btn-restar-destacado" onclick="quitarProd(this)">-</button><span class="cantidad-prod">0</span><button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button></div>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-destacado item-producto" data-nombre="desinfectante para pisos" data-precio="420">
+                    <div class="imagen-destacado"><img src="img/productos/" alt="Desinfectante para pisos"></div>
+                    <div class="info-destacado">
+                        <h3>DEsinfectante para pisos(LISOFORM)</h3>
                         <div class="contenedor-select-aroma">
                             <select class="select-aroma" onchange="cambiarLitros(this)">
                                 <option value="1L" data-precio="420">1 Litro</option>
@@ -643,7 +702,69 @@
                 <article class="tarjeta-destacado item-producto" data-nombre="Suavizante downy" data-precio="700">
                     <div class="imagen-destacado"><img src="img/productos/suavizantecomun.jpg" alt="Suavizante Comun"></div>
                     <div class="info-destacado">
-                        <h3>Suavizante </h3>
+                        <h3>Suavizante Celeste </h3>
+                        
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma" onchange="cambiarLitros(this)">
+                                <option value="1L" data-precio="700">1 Litro</option>
+                                <option value="5L" data-precio="3000">5 Litros</option>
+                            </select>
+                        </div>
+                        
+                        <div class="precio-y-botones">
+                            <span class="precio-nuevo">$700,00</span>
+                            <div class="botones-cantidad-destacado">
+                                <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                                <span class="cantidad-prod">0</span>
+                                <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-destacado item-producto" data-nombre="Quitamanchas " data-precio="900">
+                    <div class="imagen-destacado"><img src="img/productos/quitamanchas.jpg" alt="Quitamanchas"></div>
+                    <div class="info-destacado">
+                        <h3>Quitamanchas p/ ROPA</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma" onchange="cambiarLitros(this)">
+                                <option value="1L" data-precio="900">1 Litro</option>
+                                <option value="5L" data-precio="4000">5 Litros</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones">
+                            <span class="precio-nuevo">$900,00</span>
+                            <div class="botones-cantidad-destacado">
+                                <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                                <span class="cantidad-prod">0</span>
+                                <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-destacado item-producto" data-nombre="Quitamanchas OXI " data-precio="900">
+                    <div class="imagen-destacado"><img src="img/productos/quitamanchasoxi.jpg" alt="Quitamanchas OXI"></div>
+                    <div class="info-destacado">
+                        <h3>Quitamanchas OXI p/ ROPA</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma" onchange="cambiarLitros(this)">
+                                <option value="1L" data-precio="900">1 Litro</option>
+                                <option value="5L" data-precio="4000">5 Litros</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones">
+                            <span class="precio-nuevo">$900,00</span>
+                            <div class="botones-cantidad-destacado">
+                                <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                                <span class="cantidad-prod">0</span>
+                                <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-destacado item-producto" data-nombre="Apresto" data-precio="700">
+                    <div class="imagen-destacado"><img src="img/productos/" alt="Apresto"></div>
+                    <div class="info-destacado">
+                        <h3>Apresto "Plancha Facil"</h3>
                         
                         <div class="contenedor-select-aroma">
                             <select class="select-aroma" onchange="cambiarLitros(this)">
@@ -668,6 +789,46 @@
             <h2 id="cat-limpieza" class="titulo-categoria">Línea Limpieza</h2>
             <div class="grilla-catalogo">
                 
+                <article class="tarjeta-destacado item-producto" data-nombre="Limpia vidrios " data-precio="800">
+                    <div class="imagen-destacado"><img src="img/productos/" alt="Limpia vidrios"></div>
+                    <div class="info-destacado">
+                        <h3>Limpiavidrios(Base alcohol)</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma" onchange="cambiarLitros(this)">
+                                <option value="1L" data-precio="800">1 Litro</option>
+                                <option value="5L" data-precio="3500">5 Litros</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones">
+                            <span class="precio-nuevo">$800,00</span>
+                            <div class="botones-cantidad-destacado">
+                                <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                                <span class="cantidad-prod">0</span>
+                                <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="tarjeta-destacado item-producto" data-nombre="Desengrasante muti " data-precio="800">
+                    <div class="imagen-destacado"><img src="img/productos/" alt="Desengrasante multi"></div>
+                    <div class="info-destacado">
+                        <h3>Desengrasante Multiusos</h3>
+                        <div class="contenedor-select-aroma">
+                            <select class="select-aroma" onchange="cambiarLitros(this)">
+                                <option value="1L" data-precio="800">1 Litro</option>
+                                <option value="5L" data-precio="3500">5 Litros</option>
+                            </select>
+                        </div>
+                        <div class="precio-y-botones">
+                            <span class="precio-nuevo">$800,00</span>
+                            <div class="botones-cantidad-destacado">
+                                <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
+                                <span class="cantidad-prod">0</span>
+                                <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
                 <article class="tarjeta-destacado item-producto" data-nombre="Quitasarro " data-precio="800">
                     <div class="imagen-destacado"><img src="img/productos/quitasarro.jpg" alt="Quitasarro"></div>
                     <div class="info-destacado">
@@ -688,39 +849,18 @@
                         </div>
                     </div>
                 </article>
-
-                <article class="tarjeta-destacado item-producto" data-nombre="Quitamanchas " data-precio="900">
-                    <div class="imagen-destacado"><img src="img/productos/quitamanchas.jpg" alt="Quitamanchas"></div>
+                <article class="tarjeta-destacado item-producto" data-nombre="Destapa cañerias" data-precio="800">
+                    <div class="imagen-destacado"><img src="img/productos/" alt="Destapa cañerias"></div>
                     <div class="info-destacado">
-                        <h3>Quitamanchas</h3>
+                        <h3>Destapa Cañerias</h3>
                         <div class="contenedor-select-aroma">
                             <select class="select-aroma" onchange="cambiarLitros(this)">
-                                <option value="1L" data-precio="900">1 Litro</option>
-                                <option value="5L" data-precio="4000">5 Litros</option>
+                                <option value="1L" data-precio="800">1 Litro</option>
+                                <option value="5L" data-precio="3500">5 Litros</option>
                             </select>
                         </div>
                         <div class="precio-y-botones">
-                            <span class="precio-nuevo">$900,00</span>
-                            <div class="botones-cantidad-destacado">
-                                <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
-                                <span class="cantidad-prod">0</span>
-                                <button class="btn-agregar-destacado" onclick="agregarProd(this)">+</button>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="tarjeta-destacado item-producto" data-nombre="Quitamanchas OXI " data-precio="900">
-                    <div class="imagen-destacado"><img src="img/productos/quitamanchasoxi.jpg" alt="Quitamanchas OXI"></div>
-                    <div class="info-destacado">
-                        <h3>Quitamanchas OXI</h3>
-                        <div class="contenedor-select-aroma">
-                            <select class="select-aroma" onchange="cambiarLitros(this)">
-                                <option value="1L" data-precio="900">1 Litro</option>
-                                <option value="5L" data-precio="4000">5 Litros</option>
-                            </select>
-                        </div>
-                        <div class="precio-y-botones">
-                            <span class="precio-nuevo">$900,00</span>
+                            <span class="precio-nuevo">$800,00</span>
                             <div class="botones-cantidad-destacado">
                                 <button class="btn-restar-destacado" onclick="quitarProd(this)">-</button>
                                 <span class="cantidad-prod">0</span>
