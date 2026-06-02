@@ -197,10 +197,13 @@ function actualizarListaModal() {
         let subtotal = item.precio * item.cantidad;
         let subFormateado = subtotal % 1 !== 0 ? subtotal.toFixed(2) : subtotal;
         
+        // TRUCO ANTI-BUG: Limpiamos las comillas para que no rompan el botón HTML
+        let nombreSeguro = nombre.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        
         lista.innerHTML += `
             <li class="item-modal">
                 <div class="info-item-modal">
-                    <button class="btn-quitar-modal" onclick="quitarPorNombre('${nombre}')">-</button>
+                    <button class="btn-quitar-modal" onclick="quitarPorNombre('${nombreSeguro}')">-</button>
                     <span>${item.cantidad}x ${nombre}</span>
                 </div>
                 <span style="font-weight: bold;">$${subFormateado}</span>
