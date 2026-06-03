@@ -212,6 +212,28 @@ function actualizarListaModal() {
     }
     if(vacio) lista.innerHTML = "<li><span style='color: #888;'>Tu pedido está vacío.</span></li>";
 }
+function abrirModalPromo(elemento) {
+    // Buscamos la tarjeta padre
+    let tarjeta = elemento.closest('.tarjeta-destacado');
+    
+    // Sacamos el título de la promo
+    let titulo = tarjeta.querySelector('h3').innerText;
+    
+    // Sacamos la lista de productos ocultos (el HTML)
+    let listaHTML = tarjeta.querySelector('.detalle-promo').innerHTML;
+    
+    // Lo inyectamos en el modal
+    document.getElementById('titulo-modal-promo').innerText = titulo;
+    document.getElementById('contenido-modal-promo').innerHTML = listaHTML;
+    
+    // Hacemos aparecer el modal
+    document.getElementById('modal-promo').style.display = "flex";
+}
+
+function cerrarModalPromo() {
+    document.getElementById('modal-promo').style.display = "none";
+}
+
 
 // =========================================
 // 4. ENVÍO A WHATSAPP CON DATOS COMPLETOS

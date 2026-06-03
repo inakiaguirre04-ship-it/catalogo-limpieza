@@ -291,6 +291,35 @@ body {
     .nav-black a:hover { color: #000000 !important; }
 }
 
+/* Ocultamos el efecto viejo del hover negro */
+.detalle-promo {
+    display: none !important;
+}
+
+/* Le damos estilo a la lista cuando aparece en el nuevo modal */
+#contenido-modal-promo ul {
+    list-style: none;
+    padding: 0;
+}
+
+#contenido-modal-promo li {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    text-align: left;
+    font-weight: 600;
+}
+
+#contenido-modal-promo li::before {
+    content: "✔";
+    color: var(--bubble-primary); /* Usa el verde manzana de tu marca */
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
 /* =========================================
    10. RESPONSIVE (CELULARES)
    ========================================= */
