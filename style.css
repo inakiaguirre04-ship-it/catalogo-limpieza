@@ -34,34 +34,127 @@ body {
     top: 0; 
     z-index: 1000; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-    transition: transform 0.3s ease-in-out; /* Le da el movimiento suave */
+    transition: transform 0.3s ease-in-out; 
 }
 
-/* Esta es la clase que JavaScript va a prender y apagar */
 .header-oculto {
-    transform: translateY(-100%); /* Lo empuja hacia arriba fuera de la pantalla */
+    transform: translateY(-100%); 
 }
+
 .header-top { display: flex; align-items: center; justify-content: space-between; background-color: #FFFFFF; padding: 15px 40px; }
 .header-logo { display: flex; align-items: center; }
 #logo-principal { max-height: 80px; }
-.texto-logo { font-size: 1.4rem; font-weight: 900; color: #000; margin-left: 12px; letter-spacing: 0.5px; white-space: nowrap; }
 
-.search-container { display: flex; flex: 1; max-width: 600px; margin: 0 40px; border: 1px solid #dcdcdc; border-radius: 4px; overflow: hidden; }
-.search-container input { flex: 1; border: none; padding: 10px 15px; background-color: #f7f7f7; font-size: 0.95rem; outline: none; color: #333; }
-.btn-buscar { background-color: var(--bubble-primary); border: none; width: 55px; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: background-color 0.2s; }
-.btn-buscar:hover { background-color: #2980b9; }
+/* TEXTO DEL LOGO MÁS FINO */
+.texto-logo { 
+    font-size: 1.5rem; 
+    font-weight: 800; 
+    color: #2d3748; 
+    margin-left: 12px; 
+    letter-spacing: -0.5px; 
+    white-space: nowrap; 
+}
 
+/* BUSCADOR MODERNO (Sin bordes duros) */
+.search-container { 
+    display: flex; 
+    flex: 1; 
+    max-width: 600px; 
+    margin: 0 40px; 
+    border: none; 
+    background-color: #f4f5f7; 
+    border-radius: 8px; 
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); 
+    overflow: hidden; 
+    transition: box-shadow 0.2s ease;
+}
+
+.search-container:focus-within {
+    box-shadow: 0 0 0 2px var(--bubble-primary);
+    background-color: #ffffff;
+}
+
+.search-container input { 
+    flex: 1; 
+    border: none; 
+    padding: 12px 20px; 
+    background-color: transparent; 
+    font-size: 0.95rem; 
+    outline: none; 
+    color: #2d3748; 
+}
+
+.btn-buscar { 
+    background-color: var(--bubble-primary); 
+    border: none; 
+    width: 60px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    cursor: pointer; 
+    transition: all 0.2s; 
+}
+
+.btn-buscar:hover { 
+    background-color: #9cb547; 
+}
+
+/* ÍCONOS CARRITO Y USUARIO */
 .header-user-cart { display: flex; align-items: center; gap: 30px; }
 .user-action, .cart-action { display: flex; align-items: center; gap: 12px; cursor: pointer; }
-.icon-circle { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #ddd; display: flex; justify-content: center; align-items: center; color: #333; background-color: #fff; }
-.action-text { font-size: 0.85rem; line-height: 1.3; color: #000; }
-.action-text strong { font-size: 0.9rem; font-weight: 800; }
 
+.icon-circle { 
+    width: 44px; 
+    height: 44px; 
+    border-radius: 50%; 
+    border: none; 
+    background-color: #f4f5f7; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    color: #4a5568; 
+    transition: all 0.3s ease; 
+}
+
+.user-action:hover .icon-circle, 
+.cart-action:hover .icon-circle {
+    background-color: var(--bubble-primary);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.action-text { font-size: 0.85rem; line-height: 1.3; color: #4a5568; }
+.action-text strong { font-size: 0.9rem; font-weight: 800; color: #1a202c; }
+
+/* BARRA DE NAVEGACIÓN */
 .header-bottom { background-color: #B8D060; width: 100%; }
 .nav-black { display: flex; align-items: center; max-width: 1300px; margin: 0 auto; padding: 15px 40px; gap: 40px; }
-.nav-black a { color: #000; text-decoration: none; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; transition: color 0.2s; }
-.nav-black a:hover { color: var(--bubble-primary); }
-.nav-cat { text-decoration: underline !important; text-underline-offset: 6px; display: flex; align-items: center; gap: 6px; }
+
+.nav-black a { 
+    color: #1a202c; 
+    text-decoration: none; 
+    font-size: 0.9rem; 
+    font-weight: 800; 
+    letter-spacing: 0.5px; 
+    transition: color 0.2s ease, transform 0.2s ease; 
+}
+
+.nav-black a:hover { 
+    color: #ffffff; 
+    transform: translateY(-2px); 
+}
+
+.nav-cat { 
+    text-decoration: none !important; 
+    border-bottom: 2px solid #1a202c; 
+    display: flex; 
+    align-items: center; 
+    gap: 6px; 
+}
+
+.nav-cat:hover {
+    border-color: #ffffff;
+}
 
 /* MENÚ DESPLEGABLE MULTINIVEL (Cascada) */
 .dropdown-categorias { position: relative; display: inline-block; }
@@ -93,6 +186,7 @@ body {
     font-size: 0.9rem !important; 
     font-weight: 600 !important; 
     border-bottom: 1px solid #f0f0f0; 
+    transform: none; /* Anula el salto en el desplegable */
 }
 
 .dropdown-contenido li:last-child > a { border-bottom: none; }
@@ -102,6 +196,7 @@ body {
     color: var(--bubble-primary) !important; 
     padding-left: 22px; 
     transition: all 0.2s; 
+    transform: none; 
 }
 
 .flecha-der { font-size: 1.2rem; line-height: 0; margin-left: 10px; color: #888; }
@@ -133,7 +228,6 @@ body {
         padding-left: 15px;
     }
 }
-
 /* =========================================
    2. BANNERS SUPERIORES (ESTILO PROFESIONAL)
    ========================================= */
