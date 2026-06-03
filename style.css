@@ -135,23 +135,90 @@ body {
 }
 
 /* =========================================
-   2. BANNERS SUPERIORES 
+   2. BANNERS SUPERIORES (ESTILO PROFESIONAL)
    ========================================= */
 .banners-superiores { max-width: 1300px; margin: 40px auto 0 auto; padding: 0 40px; }
+
 .contenedor-banners {
     display: grid;
-    grid-template-columns: repeat(2, 450px); 
-    justify-content: center; 
+    /* Se cambia el tamaño fijo por 1fr para que se adapte perfecto a pantallas grandes */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 30px; 
     margin: 30px auto; 
-    padding: 0 20px;
 }
-.banner-item { position: relative; height: 180px; border-radius: 12px; overflow: hidden; display: block; background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-.banner-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-.banner-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; transition: background-color 0.3s ease; }
-.banner-item:hover .banner-overlay { background-color: rgba(0,0,0,0.55); }
-.banner-item:hover img { transform: scale(1.05); }
-.banner-overlay h3 { color: #ffffff; font-size: 2rem; font-weight: 900; letter-spacing: 2px; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+
+.banner-item { 
+    position: relative; 
+    height: 240px; /* Más altos para mayor impacto visual */
+    border-radius: 16px; 
+    overflow: hidden; 
+    display: block; 
+    background-color: #000; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08); 
+}
+
+.banner-item img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    /* Animación mucho más suave de nivel profesional */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
+    opacity: 0.85; 
+}
+
+/* Degradado elegante de oscuro a transparente */
+.banner-overlay { 
+    position: absolute; 
+    top: 0; left: 0; right: 0; bottom: 0; 
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
+    display: flex; 
+    align-items: flex-end; /* Ahora el texto arranca desde abajo */
+    padding: 30px;
+}
+
+/* Efecto al pasar el mouse por el banner */
+.banner-item:hover img { 
+    transform: scale(1.08); 
+    opacity: 0.6;
+}
+
+.banner-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease;
+}
+
+.banner-texto h3 { 
+    color: #ffffff; 
+    font-size: 2.2rem; 
+    font-weight: 900; 
+    letter-spacing: 1px; 
+    margin-bottom: 5px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5); 
+}
+
+/* Diseño del llamado a la acción (Call to Action) */
+.banner-btn {
+    color: var(--bubble-primary); /* Se pinta con el verde de tu marca */
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0; /* Arranca invisible */
+    transform: translateY(10px); /* Arranca un poco escondido abajo */
+    transition: all 0.3s ease;
+}
+
+/* Animación del texto cuando pasás el mouse */
+.banner-item:hover .banner-texto {
+    transform: translateY(-5px); /* Todo el bloque sube sutilmente */
+}
+
+.banner-item:hover .banner-btn {
+    opacity: 1; /* Aparece mágicamente "Ver combos" */
+    transform: translateY(0);
+}
 
 /* =========================================
    3. SECCIÓN BIENVENIDOS
@@ -462,7 +529,11 @@ body {
 
     .banners-superiores { padding: 0 15px; }
     .contenedor-banners { grid-template-columns: 1fr; gap: 15px; }
-    .banner-item { height: 120px; }
+    .banner-item { height: 160px; }
+    .banner-overlay { padding: 20px; }
+    .banner-texto h3 { font-size: 1.8rem; }
+    /* Como en el celular no hay "mouse para pasar por encima", dejamos el texto visible siempre */
+    .banner-btn { opacity: 1; transform: translateY(0); font-size: 0.8rem; }
     
     .seccion-bienvenidos { margin-top: 30px; }
     .seccion-bienvenidos h2 { font-size: 1.6rem; }
