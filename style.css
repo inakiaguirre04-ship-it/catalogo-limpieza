@@ -28,7 +28,19 @@ body {
     display: none;
 }
 
-.header-principal { width: 100%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.header-principal { 
+    width: 100%; 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    transition: transform 0.3s ease-in-out; /* Le da el movimiento suave */
+}
+
+/* Esta es la clase que JavaScript va a prender y apagar */
+.header-oculto {
+    transform: translateY(-100%); /* Lo empuja hacia arriba fuera de la pantalla */
+}
 .header-top { display: flex; align-items: center; justify-content: space-between; background-color: #FFFFFF; padding: 15px 40px; }
 .header-logo { display: flex; align-items: center; }
 #logo-principal { max-height: 80px; }
@@ -484,3 +496,4 @@ button, a, .btn-agregar-destacado, .btn-restar-destacado { touch-action: manipul
 .search-container input, .select-aroma, .grupo-input input, .grupo-input select, .grupo-input textarea {
     font-size: 16px !important; 
 }
+

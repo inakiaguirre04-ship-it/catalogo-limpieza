@@ -401,3 +401,29 @@ function cambiarLitros(selector) {
     let cantidadProd = tarjeta.querySelector('.cantidad-prod');
     if(cantidadProd) cantidadProd.innerText = "0";
 }
+
+// =========================================
+// 8. ENCABEZADO INTELIGENTE (SMART HEADER)
+// =========================================
+let ubicacionAnterior = window.pageYOffset;
+let header = document.querySelector('.header-principal');
+
+window.addEventListener('scroll', function() {
+    let ubicacionActual = window.pageYOffset;
+    
+    // Si el usuario está bien arriba de todo, siempre mostramos el menú
+    if (ubicacionActual < 50) {
+        header.classList.remove('header-oculto');
+    } 
+    // Si desliza para ABAJO, le agregamos la clase que lo oculta
+    else if (ubicacionAnterior < ubicacionActual) {
+        header.classList.add('header-oculto');
+    } 
+    // Si desliza para ARRIBA, le sacamos la clase y vuelve a aparecer
+    else {
+        header.classList.remove('header-oculto');
+    }
+    
+    // Actualizamos la posición para el próximo movimiento
+    ubicacionAnterior = ubicacionActual;
+});
