@@ -42,17 +42,17 @@ body {
 }
 
 .header-top { display: flex; align-items: center; justify-content: space-between; background-color: #FFFFFF; padding: 15px 40px; }
-.header-logo { display: flex; align-items: center; }
-#logo-principal { max-height: 80px; }
+.header-logo { 
+    display: flex; 
+    align-items: center; 
+    margin-left: 2vw; /* Esto empuja el logo hacia la derecha (hacia el centro) */
+}
+#logo-principal { 
+    max-height: 95px; /* Lo agrandamos un poquito ya que ahora está solo */
+}
 
-/* TEXTO DEL LOGO MÁS FINO */
 .texto-logo { 
-    font-size: 1.5rem; 
-    font-weight: 800; 
-    color: #2d3748; 
-    margin-left: 12px; 
-    letter-spacing: -0.5px; 
-    white-space: nowrap; 
+    display: none !important; 
 }
 
 /* BUSCADOR MODERNO (Sin bordes duros) */
@@ -60,7 +60,8 @@ body {
     display: flex; 
     flex: 1; 
     max-width: 600px; 
-    margin: 0 40px; 
+    /* Le achicamos el margen izquierdo de 40px a 20px para que se pegue más al logo */
+    margin: 0 40px 0 20px; 
     border: none; 
     background-color: #f4f5f7; 
     border-radius: 8px; 
