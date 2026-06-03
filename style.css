@@ -207,16 +207,61 @@ body {
 }
 
 .info-destacado { display: flex; flex-direction: column; flex-grow: 1; }
-.info-destacado h3 { font-size: 0.95rem; color: #333; font-weight: 400; margin-bottom: 5px; padding: 0; }
 
-.precio-y-botones { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 5px; gap: 8px;}
-.precio-nuevo { font-size: 1.15rem; color: #000000; font-weight: 800; }
+/* Títulos de productos más elegantes */
+.info-destacado h3 { 
+    font-size: 1.05rem; 
+    color: #2d3748; 
+    font-weight: 700; 
+    margin-bottom: 8px; 
+    line-height: 1.3;
+}
+
+.precio-y-botones { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 5px; }
+
+/* Precio más destacado */
+.precio-nuevo { 
+    font-size: 1.3rem; 
+    color: #1a202c; 
+    font-weight: 900; 
+}
+
 .botones-cantidad-destacado { display: flex; align-items: center; gap: 8px; }
 
-.btn-restar-destacado, .btn-agregar-destacado { background-color: #ffffff; color: #000000; border: 1px solid #000000; width: 28px; height: 28px; border-radius: 4px; font-weight: 900; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: all 0.2s ease; }
-.btn-restar-destacado:hover, .btn-agregar-destacado:hover { background-color: #000000; color: #ffffff; }
-.btn-restar-destacado:active, .btn-agregar-destacado:active { transform: scale(0.9); }
-.cantidad-prod { font-weight: 800; color: #000000; font-size: 1.1rem; min-width: 15px; text-align: center; }
+/* Botones + y - más modernos */
+.btn-restar-destacado, .btn-agregar-destacado { 
+    background-color: #f4f5f7; 
+    color: #4a5568; 
+    border: 1px solid #cbd5e0; 
+    width: 32px; 
+    height: 32px; 
+    border-radius: 6px; 
+    font-weight: 700; 
+    font-size: 1.2rem; 
+    cursor: pointer; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    transition: all 0.2s ease; 
+}
+
+.btn-restar-destacado:hover, .btn-agregar-destacado:hover { 
+    background-color: var(--bubble-primary); 
+    color: #ffffff; 
+    border-color: var(--bubble-primary);
+}
+
+.btn-restar-destacado:active, .btn-agregar-destacado:active { 
+    transform: scale(0.9); 
+}
+
+.cantidad-prod { 
+    font-weight: 800; 
+    color: #2d3748; 
+    font-size: 1.15rem; 
+    min-width: 20px; 
+    text-align: center; 
+}
 
 /* =========================================
    5. CATÁLOGO COMPLETO (Vista de Productos)
@@ -305,18 +350,16 @@ body {
 .contenedor-select-aroma { margin: 8px 0; width: 100%; }
 
 .select-aroma {
-    width: 100%;
-    padding: 6px 10px;
-    border: 1px solid #000000;
-    border-radius: 4px;
-    font-family: 'Onest', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 700;
-    background-color: #ffffff;
-    color: #000000;
-    outline: none;
-    cursor: pointer;
-    text-overflow: ellipsis; /* Si el texto es muy largo, le pone puntitos suspensivos */
+    border: 1px solid #cbd5e0; /* Borde gris sutil */
+    border-radius: 6px;
+    color: #4a5568;
+    padding: 8px 10px; /* Un poco más de aire adentro */
+}
+
+/* Que el borde se ponga verde al hacerle clic (focus) */
+.select-aroma:focus {
+    border-color: var(--bubble-primary);
+    box-shadow: 0 0 0 2px rgba(184, 208, 96, 0.3); /* Resplandor verde */
 }
 
 .img-badge-pago { height: 28px; width: auto; object-fit: contain; background-color: #ffffff; padding: 2px 6px; border-radius: 4px; display: inline-block; }
