@@ -161,11 +161,50 @@ body {
 .titulo-destacados { font-size: 1.8rem; color: #333; font-weight: 400; margin-bottom: 25px; text-align: left; }
 .grilla-destacados { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
 
-.tarjeta-destacado { background: transparent; display: flex; flex-direction: column; text-align: left; cursor: pointer; transition: transform 0.3s ease; }
-.tarjeta-destacado:hover { transform: translateY(-5px); }
-.imagen-destacado { position: relative; background-color: #ffffff; width: 100%; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); transition: box-shadow 0.3s ease; }
-.tarjeta-destacado:hover .imagen-destacado { box-shadow: 0 8px 15px rgba(0,0,0,0.08); }
-.imagen-destacado img { max-width: 80%; max-height: 80%; object-fit: contain; }
+.tarjeta-destacado {
+    background-color: #ffffff; /* Fondo blanco para toda la caja */
+    border: 1px solid #e1e5eb; /* Borde gris clarito */
+    border-radius: 12px; /* Bordes redondeados */
+    padding: 15px; /* Espacio interno para que nada toque los bordes */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* Sombra inicial muy suave */
+}
+
+/* Efecto al pasar el mouse por encima */
+.tarjeta-destacado:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Sombra más fuerte y profunda */
+    border-color: #cccccc; /* El borde se oscurece un poquito */
+}
+
+/* La imagen ya no necesita caja propia, se adapta a la caja grande */
+.imagen-destacado {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    background-color: transparent; /* Le sacamos el fondo blanco individual */
+    box-shadow: none; /* Le sacamos la sombra vieja a la foto */
+}
+
+.imagen-destacado img {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+/* Pequeño zoom a la foto al pasar el mouse por la tarjeta */
+.tarjeta-destacado:hover .imagen-destacado img {
+    transform: scale(1.05);
+}
 
 .info-destacado { display: flex; flex-direction: column; flex-grow: 1; }
 .info-destacado h3 { font-size: 0.95rem; color: #333; font-weight: 400; margin-bottom: 5px; padding: 0; }
