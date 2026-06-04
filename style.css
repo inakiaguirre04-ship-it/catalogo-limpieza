@@ -355,23 +355,24 @@ body {
     border-color: #cccccc; /* El borde se oscurece un poquito */
 }
 
-/* La imagen ya no necesita caja propia, se adapta a la caja grande */
+/* Forzamos a que todas las cajas de fotos sean idénticas */
 .imagen-destacado {
-    position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    height: 180px; /* Altura fija estricta para todas las tarjetas */
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 15px;
-    background-color: transparent; /* Le sacamos el fondo blanco individual */
-    box-shadow: none; /* Le sacamos la sombra vieja a la foto */
+    background-color: transparent; 
+    overflow: hidden; /* Si la foto es muy grande, se recorta lo que sobra */
 }
 
 .imagen-destacado img {
-    max-width: 95%;
-    max-height: 95%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    /* object-fit: contain hace que se vea el bidón entero sin deformarse, 
+       pero puede dejar espacios en blanco a los costados */
+    object-fit: contain; 
     transition: transform 0.4s ease;
 }
 
