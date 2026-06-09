@@ -375,7 +375,14 @@ a, a:visited, a:active, a:focus {
 .titulo-categoria { font-size: 1.8rem; color: #333; font-weight: 800; margin: 50px 0 20px 0; scroll-margin-top: 120px; }
 .grilla-catalogo { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
 
-.fondo-gris-destacados { background-color: #dee4e0; width: 92%; max-width: 1300px; margin: 30px auto 40px auto; padding: 35px 40px; border-radius: 16px; }
+.fondo-gris-destacados { 
+    background-color: #dee4e0; 
+    width: 96%; /* Antes estaba en 92%, ahora ocupa casi toda la pantalla */
+    max-width: 1450px; /* Antes estaba en 1300px, ahora lo dejamos estirarse más en la PC */
+    margin: 30px auto 40px auto; 
+    padding: 35px 40px; 
+    border-radius: 16px; 
+}
 .seccion-destacados { width: 100%; }
 .titulo-destacados { font-size: 1.8rem; color: #333; font-weight: 400; margin-bottom: 25px; text-align: left; }
 .grilla-destacados { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
