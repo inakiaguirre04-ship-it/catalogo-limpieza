@@ -476,13 +476,13 @@ function autoDeslizar() {
     mostrarBanner(slideActual);
 }
 
-// Reinicia el reloj de 4 segundos
+// Reinicia el reloj de 15 segundos
 function reiniciarTemporizador() {
     clearInterval(temporizadorCarrusel);
-    temporizadorCarrusel = setInterval(autoDeslizar, 4000); // 4000 = 4 segundos
+    temporizadorCarrusel = setInterval(autoDeslizar, 15000); // 15000 = 15 segundos
 }
 
 // Arranca el motor solo si la página tiene un carrusel
 if(trackCarrusel) {
-    temporizadorCarrusel = setInterval(autoDeslizar, 4000);
+    temporizadorCarrusel = setInterval(autoDeslizar, 15000); // 15000 = 15 segundos
 }
