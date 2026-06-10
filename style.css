@@ -260,7 +260,7 @@ a, a:visited, a:active, a:focus {
 .carrusel-track {
     display: flex;
     width: 100%;
-    transition: transform 0.5s ease-in-out; 
+    transition: transform 2s ease-in-out; 
 }
 
 .slide-banner {
