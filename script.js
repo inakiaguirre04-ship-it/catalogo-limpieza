@@ -479,10 +479,10 @@ function autoDeslizar() {
 // Reinicia el reloj de 15 segundos
 function reiniciarTemporizador() {
     clearInterval(temporizadorCarrusel);
-    temporizadorCarrusel = setInterval(autoDeslizar, 15000); // 15000 = 15 segundos
+    temporizadorCarrusel = setInterval(autoDeslizar, 20000); // 15000 = 15 segundos
 }
 
 // Arranca el motor solo si la página tiene un carrusel
 if(trackCarrusel) {
-    temporizadorCarrusel = setInterval(autoDeslizar, 15000); // 15000 = 15 segundos
+    temporizadorCarrusel = setInterval(autoDeslizar, 20000); // 15000 = 15 segundos
 }
