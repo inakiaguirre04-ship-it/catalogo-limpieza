@@ -272,6 +272,96 @@ a, a:visited, a:active, a:focus {
 }
 
 /* =========================================
+   BANNERS DE PROMOS Y PRODUCTOS (Recuperados)
+   ========================================= */
+.banners-superiores { 
+    max-width: 1300px; 
+    margin: 40px auto 0 auto; 
+    padding: 0 40px; 
+}
+
+.contenedor-banners { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px; 
+    margin: 30px auto; 
+}
+
+.banner-item { 
+    position: relative; 
+    height: 240px; 
+    border-radius: 16px; 
+    overflow: hidden; 
+    display: block; 
+    background-color: #000; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08); 
+    text-decoration: none !important; /* Saca la línea violeta fea de los links */
+}
+
+.banner-item img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
+    opacity: 0.85; 
+    display: block;
+}
+
+.banner-overlay { 
+    position: absolute; 
+    top: 0; left: 0; right: 0; bottom: 0; 
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
+    display: flex; 
+    align-items: flex-end; 
+    padding: 30px;
+}
+
+.banner-item:hover img { 
+    transform: scale(1.08); 
+    opacity: 0.6; 
+}
+
+.banner-texto { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    transition: transform 0.3s ease; 
+}
+
+.banner-texto h3 { 
+    color: #ffffff !important; 
+    font-size: 2.2rem; 
+    font-weight: 900; 
+    letter-spacing: 1px; 
+    margin-bottom: 5px; 
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5); 
+}
+
+.banner-btn { 
+    color: var(--bubble-primary) !important; 
+    font-size: 0.95rem; 
+    font-weight: 800; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    opacity: 0; 
+    transform: translateY(10px); 
+    transition: all 0.3s ease; 
+}
+
+.banner-item:hover .banner-texto { transform: translateY(-5px); }
+.banner-item:hover .banner-btn { opacity: 1; transform: translateY(0); }
+
+/* Para que no se rompan en el celular */
+@media (max-width: 600px) {
+    .banners-superiores { padding: 0 15px; }
+    .contenedor-banners { grid-template-columns: 1fr; gap: 15px; }
+    .banner-item { height: 160px; }
+    .banner-overlay { padding: 20px; }
+    .banner-texto h3 { font-size: 1.8rem; }
+    .banner-btn { opacity: 1; transform: translateY(0); font-size: 0.8rem; }
+}
+
+/* =========================================
    3. SECCIÓN BIENVENIDOS
    ========================================= */
 .seccion-bienvenidos { text-align: center; max-width: 900px; margin: 50px auto 10px auto; padding: 0 20px; }
